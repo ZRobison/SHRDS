@@ -1,0 +1,59 @@
+
+*	{
+	margin: 0;
+	padding: 0;	
+}
+
+html	{
+	background-color: white;
+	text-decoration:none;
+    font-family:helvetica;  
+}
+
+table {
+    border-collapse: collapse; 
+}
+
+td, th {
+    padding: 0;
+}
+
+#logoImage	{
+	width: 80px;
+	padding-top: 30px; 
+	height: auto;
+	padding-left: 15%;
+}
+
+.header	{
+	color: white;
+	background-color: #C81222;
+}
+
+.blueButtons	{
+	width: 100px;
+	height: 35px;
+	margin-right: 5px;
+	background-color: #286090;
+	color: white;
+	border-radius: 4px;
+	border: none;
+	position: relative;
+	left: 150px;
+	top: 100px;
+	cursor: pointer;
+}
+
+.bottomYellow	{
+	width: 596px;
+	margin: 0 auto;
+	height: 100px;
+	padding-bottom: 50px;
+	margin-top: 50px;	
+	text-align: center;
+	font-weight: bold;
+	font-size: 60%;	
+	background-color: yellow;
+	color: black;	
+
+}
