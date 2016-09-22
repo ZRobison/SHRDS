@@ -75,10 +75,10 @@ input.radio:empty {
 input.radio:empty ~ label {
 	position: relative;
 	float: left;
-	padding-right: 50px;
 	line-height: 1.5em;
 	text-indent: 3.25em;
 	cursor: pointer;
+	margin-top:10px;
 }
 
 input.radio:empty ~ label:before {
