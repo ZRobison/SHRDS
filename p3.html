@@ -1,0 +1,245 @@
+
+<html>
+<head>
+<title>SLSA SHRDS</title>
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<style>
+
+
+h1	{
+	position: relative;
+	right: 100px;
+}
+
+#calander	{
+	position: relative;
+	left: 100px;
+}
+
+#time1	{
+	position: relative;
+	left: 110px;
+
+}
+
+#time2	{
+	position: relative;
+	left: 110px;
+
+}
+
+#time3	{
+	position: relative;
+	left: 150px;
+
+}
+
+input [type="text"]	{
+	background-color: white;
+}
+
+.titles	{
+	font-weight: bolder;
+}
+
+
+div {
+	clear: both;
+	margin: 0 50px;
+}
+
+label {
+  width: 200px;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4
+}
+
+input.radio:empty {
+	margin-left: -9999px;
+}
+
+input.radio:empty ~ label {
+	position: relative;
+	float: left;
+	line-height: 1.5em;
+	text-indent: 3.25em;
+	margin-top: 1em;
+	cursor: pointer;
+}
+
+input.radio:empty ~ label:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	background: #D1D3D4;
+	border-radius: 3px 0 0 3px;
+}
+
+input.radio:hover:not(:checked) ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #C2C2C2;
+}
+
+input.radio:hover:not(:checked) ~ label {
+	color: #888;
+}
+
+input.radio:checked ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #9CE2AE;
+	background-color: #4DCB6D;
+}
+
+input.radio:checked ~ label {
+	color: #777;
+}
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<hr>
+
+<center>
+<table width="596" border="0">
+  
+  <tr class="header">
+  	<td><img src="images/logo.png" id="logoImage"></td>
+    <td>&nbsp;</td>
+    <td colspan="4" ><h1>Prevailing Conditions</h1></td>
+  </tr>
+
+  <tr class="header">
+    <td height="50">&nbsp;</td>
+    <td colspan="2">Date <img src="images/calander.png" width="20" height="20" id="calander">  
+    <input type="text" name="textfield" style="width:60px;" /></td>
+    <td colspan="2">Time <img src="images/time.png" width="20" height="20" id="time1"> 
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+
+  <br>
+
+  <tr>
+    <td width="129" class="titles" >Beach</td>
+    <td colspan="4"><select name="select" style="width:120px;">
+      <option>Select One</option>
+      <option>Beach1</option>
+      <option>Beach2</option>
+      <option>Beach3</option>
+      <option>Beach4</option>
+    </select>    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="121">&nbsp;</td>
+    <td width="106">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="titles">Wind Speed </td>
+    <td colspan="4">Wind speed will be taken from BOM website automatically </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="titles">Wind Direction </td>
+	<td><input type="radio" name="radio" id="radio1" class="radio"/>
+	<label for="radio1">North</label></td>
+    <td>&nbsp;</td>
+    <td colspan="2">Nearest Tides </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+	<td><input type="radio" name="radio" id="radio2" class="radio"/>
+	<label for="radio2">North East</label></td>
+    <td>&nbsp;</td>
+    <td colspan="2"><input type="text" name="text1" style="width:220px;"/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+	<td><input type="radio" name="radio" id="radio3" class="radio"/>
+	<label for="radio3">East</label></td>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+	<td><input type="radio" name="radio" id="radio4" class="radio"/>
+	<label for="radio4">South East</label></td>
+    <td>&nbsp;</td>
+    <td width="111" align="center">Time</td>
+    <td width="105" align="center">Time</td>    
+
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+	<td><input type="radio" name="radio" id="radio5" class="radio"/>
+	<label for="radio5">South</label></td>
+
+	<td><img src="images/time.png" width="40" height="40" id="time2"></td>
+	<td><img src="images/time.png" width="40" height="40" id="time3"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+	<td><input type="radio" name="radio" id="radio6" class="radio"/>
+	<label for="radio6">South West</label></td>
+    <td>&nbsp;</td>
+    <td align="center">Height</td>
+    <td align="center">Height</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+	<td><input type="radio" name="radio" id="radio7" class="radio"/>
+	<label for="radio7">West</label></td>
+    <td>&nbsp;</td>
+    <td><input type="text" name="text2" style="width:100px;"/></td>
+    <td><input type="text" name="text3" style="width:100px;"/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+	<td><input type="radio" name="radio" id="radio8" class="radio"/>
+	<label for="radio8">North West</label></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<div class="bottomYellow">
+ <button type="button" class="blueButtons">back</button> 
+ <button type="button" class="blueButtons">Next</button>
+</div>
+
+  </center>
+</body>
+</html>
