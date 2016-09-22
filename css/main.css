@@ -40,7 +40,8 @@ td, th {
 	border: none;
 	position: relative;
 	left: 150px;
-	top: 100px
+	top: 100px;
+	cursor: pointer;
 }
 
 .bottomYellow	{
