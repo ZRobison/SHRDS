@@ -6,17 +6,20 @@
     </head>
     
     <body>
-<Center><H1>Surface Turbulance Rating</H1></Center>
-<P><Center>Surface Turbulence is the surface effect in carnival arena caused by:
+<header>
+<img src="../../images/logo.png">
+<Center><H1><br>Surface Turbulance Rating</H1></Center>
+</header><br>
+<Center><p>Surface Turbulence is the surface effect in carnival arena caused by:
 <br>
 (i)Wind chop alone.
 <br>
 (ii)Cross-wave development that is due to primary and secondary-swell interaction.
 <br>
-(iii)The interaction of wind chop and cross-waves.</center></p>
+(iii)The interaction of wind chop and cross-waves.</p></center><
 <br>
-<p><Center>Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction (especially on-shore and cross on-shore )</Center></p>
- <Center><select>
+<Center><p>Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction (especially on-shore and cross on-shore )</p></Center><br>
+ <br><Center><select>
   <option value="" selected>select one</option>
   <option value="">No chop(glassy)</option>
   <option value="">Light Chop(5-11 kts)</option>
@@ -26,19 +29,32 @@
 </select> 
 
 </Center>
-<p><Center>
+<Center><p><br><br>
 Cross Waves: form at random angles to the primary swell direction due to locak storms or reflection of the primary swell which may be caused by temporary or permanent obstructions on the beach or the interaction of the primary swell with an outgoing rip current.</p><Center>
 <br>
-<p><Center><b>Add Minor or Moderate or above to STR as appropriate <u>if this Surf Turbulence factor is present.</u></b></Center></p>
-<Center>
+<Center><b><p>Add Minor or Moderate or above to STR as appropriate <u>if this Surf Turbulence factor is present.</p></u></b></Center>
+<br><Center>
 <form action="../SHR/p11.html">
-  <input type="radio" name="123" value="Minor"> Minor<br>
-  <input type="radio" name="123" value="Moderate"> Moderate<br>
-  <div class="bottomYellow">
- <button type="button" class="blueButtons">back</button> 
- <button type="submit" class="blueButtons">Next</button> 
-</Center>
+
+<div id="centerSTFradio">
+<table col=2>
+<tr>
+	<td><input type ="radio" name="radio" id="radio9" class="radio" /><br>
+	<label for="radio9">Minor</label></td>
+</tr>
+	<td><input type="radio" name="radio" id="radio10" class="radio"/><br>
+	<label for="radio10">Moderate</label></td>
+</tr>
+</table>
 </div>
+
+
+<div class="bottomYellow">
+ <button type="button" class="blueButtons">Back</button> 
+ <button type="submit" class="blueButtons">Next</button> 
+ </div>
+</Center>
+
   
 </form>
 

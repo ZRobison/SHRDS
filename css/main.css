@@ -4,10 +4,19 @@
 	padding: 0;	
 }
 
-html	{
-	background-color: white;
+body	{
+	background-color: snow;
 	text-decoration:none;
-    font-family:helvetica;  
+    font-family:helvetica; 
+}
+
+p	{	
+	color:black;
+	margin: 0 auto;
+	width:760px;
+	text-align: justify;
+    text-justify: inter-word;
+	
 }
 
 table {
@@ -21,10 +30,16 @@ td, th {
 h1  {
 	position: relative;
 	right: 100px;
+	font-weight:bolder;
 }
 
 .titles	{
 	font-weight: bolder;
+}
+
+hr	{
+	width:800px;
+	margin: 0 auto;
 }
 
 label {
@@ -74,11 +89,14 @@ input.radio:empty {
 
 input.radio:empty ~ label {
 	position: relative;
-	float: left;
-	padding-right: 50px;
+	float: left;	
 	line-height: 1.5em;
 	text-indent: 3.25em;
 	cursor: pointer;
+	margin: 0 auto;
+	margin-bottom:10px;
+	margin-left:20px;
+	border: 1px solid black;
 }
 
 input.radio:empty ~ label:before {
@@ -90,7 +108,7 @@ input.radio:empty ~ label:before {
 	content: '';
 	width: 2.5em;
 	background: #D1D3D4;
-	border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;	
 }
 
 input.radio:hover:not(:checked) ~ label:before {
@@ -114,6 +132,17 @@ input.radio:checked ~ label {
 	color: #777;
 }
 
+select	{
+	background-color:#565656;
+	color:white;
+	font-weight:bold;
+	font-size:130%;		
+	border:solid black 1px;
+	width:250px;	
+	padding:6px;
+	text-align:center;
+}
+
 .blueButtons	{
 	width: 100px;
 	height: 35px;
@@ -126,44 +155,45 @@ input.radio:checked ~ label {
 	left: 150px;
 	top: 100px;
 	cursor: pointer;
+	font-weight:bold;
+	border: solid black 1px;
 }
 
 .bottomYellow	{
 	width: 800px;
 	margin: 0 auto;
-	height: 100px;
-	padding-bottom: 50px;
-	margin-top: 50px;	
-	text-align: center;
-	font-weight: bold;
-	font-size: 60%;	
+	height:150px;
 	background-color: yellow;
-	color: black;	
+	margin-top:20px;
+
 }
 
 .inputForm input[type="text"], input[type="password"]	{
 	padding: 0.2em;	
 	font-family: helvetica;
 	font-size: 1.1em;
-	margin-left: 10px;
+	margin-left: 10px;	
 }
 
-.inputForm input[type="submit"]	{
-	position: relative;
+.inputForm input[type="submit"]	{	
+	font-weight:bold;
+	font-size:100%;
 	left: 242px;
-	top: 40px;
-	background-color: #C81222;
+	top: 140px;
+	background-color:  #286090;
     color: white;
-   	padding: 12px 80px;
+ 
 	margin: 8px 0;
 	border: none;
-	cursor: pointer;   
+	cursor: pointer;  
+	z-index:1;	
+	
 }
 
 .inputForm Th {
 	text-align: left;
 	position: relative;
 	left: 12%;
-	top: -160px;
+	top: -120px;
 	padding-bottom: 40px;
 }
