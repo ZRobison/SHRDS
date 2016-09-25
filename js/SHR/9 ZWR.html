@@ -1,3 +1,51 @@
+<head><script><!--
+function SETcookie(){
+document.cookie="Selected="+document.getElementById('myList').selectedIndex;
+}
+function GETcookie(){
+if (document.cookie){
+eval(document.cookie);
+document.getElementById('myList').selectedIndex=Selected;
+}}
+function Restore_Item(IT,VA) {
+  var oOption = document.createElement("OPTION");
+  document.getElementById('oSelect').options.add(oOption);
+  oOption.innerText = IT;
+  oOption.value = VA;
+}
+function Clear_Items(){
+  var Rem = document.getElementById('oSelect');
+  var i;
+  while (Rem.length>0){
+    Rem.remove(0);
+  }
+}
+function Save_Items(){
+SaveString='SelectItems="';
+  var Rem = document.getElementById('oSelect');
+  var i;
+  for (i = 0; i<Rem.length ; i++) {
+    SaveString+=Rem.options[i].innerText+','+Rem.options[i].value+',';
+  }
+  SaveString=SaveString.substring(0,SaveString.length-1);
+  SaveString+='"';
+  document.cookie=SaveString;
+}
+function Restore_Select(){
+ eval(document.cookie);
+ Data=SelectItems.split(',');
+  for (x=0;x<Data.length-1;x+=2){
+   Restore_Item(Data[x],Data[x+1]);
+  }
+}
+function Restore(){
+  if (document.cookie){
+    Clear_Items();
+    Restore_Select();
+ }
+}// --></script></head>
+
+
 <!DOCTYPE html>
 <html>
     
@@ -15,18 +63,19 @@
 <Center><p>A surf zone is defined as any region of surf fronts between knee deep water and the outermost breaking waves.</p></center>
 <br>
 <Center><p>Consequently, if there exists, a deep channel of water near the shore separated by two rolling turbulent surf fronts, there will be two separate contributions to the ZWR, one for the outer break and one for the inner break.</p></Center>
- <br><br><Center><b> Zone Width in meters</b><br><br><select>
+ <body onLoad="GETcookie()">
+ <br><br><Center><b>ZWR</b><br><br><select id="myList" onChange="SETcookie()">
 
-  <option value="" selected>select one</option>
-  <option value="">0</option>
-  <option value="">up to 20</option>
-  <option value="">up to 40</option>
-  <option value="">up to 60</option>
-  <option value="">up to 80</option>
-  <option value="">up to 100</option>
-  <option value="">up to 120</option>
-  <option value="">up to 140</option>
-  <option value="">up to 160</option>
+  <option value="1" selected>select one</option>
+  <option value="2">0</option>
+  <option value="3">up to 20</option>
+  <option value="4">up to 40</option>
+  <option value="5">up to 60</option>
+  <option value="6">up to 80</option>
+  <option value="7">up to 100</option>
+  <option value="8">up to 120</option>
+  <option value="9">up to 140</option>
+  <option value="10">up to 160</option>
    
 </select> 
 <form action = "../SHR/10 STR.html" method="">

@@ -1,3 +1,51 @@
+<head><script><!--
+function SETcookie(){
+document.cookie="Selected="+document.getElementById('myList').selectedIndex;
+}
+function GETcookie(){
+if (document.cookie){
+eval(document.cookie);
+document.getElementById('myList').selectedIndex=Selected;
+}}
+function Restore_Item(IT,VA) {
+  var oOption = document.createElement("OPTION");
+  document.getElementById('oSelect').options.add(oOption);
+  oOption.innerText = IT;
+  oOption.value = VA;
+}
+function Clear_Items(){
+  var Rem = document.getElementById('oSelect');
+  var i;
+  while (Rem.length>0){
+    Rem.remove(0);
+  }
+}
+function Save_Items(){
+SaveString='SelectItems="';
+  var Rem = document.getElementById('oSelect');
+  var i;
+  for (i = 0; i<Rem.length ; i++) {
+    SaveString+=Rem.options[i].innerText+','+Rem.options[i].value+',';
+  }
+  SaveString=SaveString.substring(0,SaveString.length-1);
+  SaveString+='"';
+  document.cookie=SaveString;
+}
+function Restore_Select(){
+ eval(document.cookie);
+ Data=SelectItems.split(',');
+  for (x=0;x<Data.length-1;x+=2){
+   Restore_Item(Data[x],Data[x+1]);
+  }
+}
+function Restore(){
+  if (document.cookie){
+    Clear_Items();
+    Restore_Select();
+ }
+}// --></script></head>
+
+
 <Head>
 	<link rel="stylesheet" type="text/css" href="../../css/main.css">
 	<title>SLSA SHRDS</title>
@@ -6,54 +54,40 @@
 <img src="../../images/logo.png">
 <Center><H1><br>Other Hazards Rating</H1></Center>
 </header><br>
-<Center><p class="titles">Other Significant hazard can include:</p></center>
-<br>
+<Center><p class="titles">Other Significant hazard may include:</p></center>
 <Center>
 <ul>
-<li>Man-made or natural obstructions, including:
+<li>Man-made or natural obstructions (rocks, reefs, jetties, outflow pipes, wrecks, uncontrolled craft:
 </li>
-
-<ul>
-<li>
-Rock, reefs or Groynes.
-</li>
-<li>
-Jetties, outflow pipes, wreck etc.
-</li>
-<li>
-Uncontrolled surf craft. EG.Ski Rating: 1 for each ski. Boat Rating: 6 per boat(for 1 boat and 5 oars).
+<li>Uncontrolled surf craft (1 for ski, 6 for boats)
 </li>
 <li>
 Floating logs, swaweed and other flotsam.
 </li>
-</ul>
-
 <li>
-Water temperature (without wetsuits): (<14OC has Hazard Rating=2);(14 to 15 OC has Hazard Rating = 1). 
+Water temperature(low water temperaruture increases harzard). 
 </li>
 <li>
-pollution, marine stinger etc.
+Pollution, marine stinger etc.
 </li>
 <li>
 Visual impairment: for example, the sun setting over the ocean
 </li>
-</ul>
 </Center>
 <br>
-<br>
-<br>
- <Center>OHR:add'1' for each <u class="titles">extra hazard </u>present<br><br><select>
-  <option value="" selected>select one</option>
-  <option value="">0</option>
-  <option value="">1</option>
-  <option value="">2</option>
-  <option value="">3</option>
-  <option value="">4</option>
-  <option value="">5</option>
-  <option value="">6</option>
-  <option value="">7</option>
-  <option value="">8</option>
-  <option value="">9</option> 
+<body onLoad="GETcookie()">
+ <Center>OHR: one for each extra hazard present<br><select id="myList" onChange="SETcookie()">
+  <option value="1" selected>select one</option>
+  <option value="2">0</option>
+  <option value="3">1</option>
+  <option value="4">2</option>
+  <option value="5">3</option>
+  <option value="6">4</option>
+  <option value="7">5</option>
+  <option value="8">6</option>
+  <option value="9">7</option>
+  <option value="10">8</option>
+  <option value="11">9</option> 
 </select> 
 <form action = "../SHR/14 15 Review.html" method="">
 <div class="bottomYellow">
