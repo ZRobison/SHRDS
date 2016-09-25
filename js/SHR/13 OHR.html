@@ -1,54 +1,10 @@
-<head><script><!--
-function SETcookie(){
-document.cookie="Selected="+document.getElementById('myList').selectedIndex;
-}
-function GETcookie(){
-if (document.cookie){
-eval(document.cookie);
-document.getElementById('myList').selectedIndex=Selected;
-}}
-function Restore_Item(IT,VA) {
-  var oOption = document.createElement("OPTION");
-  document.getElementById('oSelect').options.add(oOption);
-  oOption.innerText = IT;
-  oOption.value = VA;
-}
-function Clear_Items(){
-  var Rem = document.getElementById('oSelect');
-  var i;
-  while (Rem.length>0){
-    Rem.remove(0);
-  }
-}
-function Save_Items(){
-SaveString='SelectItems="';
-  var Rem = document.getElementById('oSelect');
-  var i;
-  for (i = 0; i<Rem.length ; i++) {
-    SaveString+=Rem.options[i].innerText+','+Rem.options[i].value+',';
-  }
-  SaveString=SaveString.substring(0,SaveString.length-1);
-  SaveString+='"';
-  document.cookie=SaveString;
-}
-function Restore_Select(){
- eval(document.cookie);
- Data=SelectItems.split(',');
-  for (x=0;x<Data.length-1;x+=2){
-   Restore_Item(Data[x],Data[x+1]);
-  }
-}
-function Restore(){
-  if (document.cookie){
-    Clear_Items();
-    Restore_Select();
- }
-}// --></script></head>
+
 
 
 <Head>
-	<link rel="stylesheet" type="text/css" href="../../css/main.css">
 	<title>SLSA SHRDS</title>
+  <link rel="stylesheet" type="text/css" href="../../css/main.css">
+  <script src="cookies.js"></script>
 </Head>
 <header>
 <img src="../../images/logo.png">
@@ -75,8 +31,8 @@ Visual impairment: for example, the sun setting over the ocean
 </li>
 </Center>
 <br>
-<body onLoad="GETcookie()">
- <Center>OHR: one for each extra hazard present<br><select id="myList" onChange="SETcookie()">
+<body>
+ <Center>OHR: one for each extra hazard present<br><select class="cookieSelect" id="eigthList">
   <option value="1" selected>select one</option>
   <option value="2">0</option>
   <option value="3">1</option>
