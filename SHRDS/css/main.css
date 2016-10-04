@@ -1,0 +1,168 @@
+
+*	{
+	margin: 0;
+	padding: 0;	
+}
+
+html	{
+	background-color: white;
+	text-decoration:none;
+    font-family:helvetica;  
+}
+
+table {
+    border-collapse: collapse; 
+}
+
+td, th {
+    padding: 0;
+}
+
+h1  {
+	position: relative;
+	right: 100px;
+}
+
+.titles	{
+	font-weight: bolder;
+}
+
+label {
+  width: 200px;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4
+}
+
+#logoImage	{
+	width: 80px;
+	padding-top: 30px; 
+	height: auto;
+	padding-left: 15%;
+}
+
+.header	{
+	color: white;
+	background-color: #C81222;
+}
+
+header	{
+	background-color: #C81222;
+	height: 9em;
+	color: white;	
+	width: 800px;
+	margin: 0 auto;
+}
+
+h1	{
+	padding-top: 25px;
+
+	margin: 0 auto;
+}
+
+header img	{
+	float: left;
+	width: 80px;
+	height: auto;
+	margin-left: 5%;
+	margin-top: 30px;
+	clear: both;
+}
+
+input.radio:empty {
+	margin-left: -9999px;
+}
+
+input.radio:empty ~ label {
+	position: relative;
+	float: left;
+	line-height: 1.5em;
+	text-indent: 3.25em;
+	cursor: pointer;
+	margin-top:10px;
+}
+
+input.radio:empty ~ label:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	background: #D1D3D4;
+	border-radius: 3px 0 0 3px;
+}
+
+input.radio:hover:not(:checked) ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #C2C2C2;
+}
+
+input.radio:hover:not(:checked) ~ label {
+	color: #888;
+}
+
+input.radio:checked ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #9CE2AE;
+	background-color: #4DCB6D;
+}
+
+input.radio:checked ~ label {
+	color: #777;
+}
+
+.blueButtons	{
+	width: 100px;
+	height: 35px;
+	margin-right: 5px;
+	background-color: #286090;
+	color: white;
+	border-radius: 4px;
+	border: none;
+	position: relative;
+	left: 150px;
+	top: 100px
+}
+
+.bottomYellow	{
+	width: 800px;
+	margin: 0 auto;
+	height: 100px;
+	padding-bottom: 50px;
+	margin-top: 50px;	
+	text-align: center;
+	font-weight: bold;
+	font-size: 60%;	
+	background-color: yellow;
+	color: black;	
+}
+
+.inputForm input[type="text"], input[type="password"]	{
+	padding: 0.2em;	
+	font-family: helvetica;
+	font-size: 1.1em;
+	margin-left: 10px;
+}
+
+.inputForm input[type="submit"]	{
+	position: relative;
+	left: 242px;
+	top: 40px;
+	background-color: #C81222;
+    color: white;
+   	padding: 12px 80px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;   
+}
+
+.inputForm Th {
+	text-align: left;
+	position: relative;
+	left: 12%;
+	top: -160px;
+	padding-bottom: 40px;
+}
