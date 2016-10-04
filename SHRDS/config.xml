@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.slsa.shrds"
+        version   = "1.0.0">
+
+    <name>SHRDS</name>
+
+    <description>
+        Surf Hazzard Rating Digitalisation System for recording SHR and incerdent report information to be sent to SLSA Web application server
+    </description>
+
+    <author href="https://sls.com.au/">
+        Macquarie University COMP355 Group 5 project
+    </author>
+    
+	<!-- Includes -->
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/notification"/>
+
+    <!-- Define the main entry-point to the application -->
+    <content src="index.html" />
+	
+	<!-- Logos for android -->
+   <platform name="android">
+    <icon src="res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
+    <icon src="res/icon/android/drawable-hdpi-icon.png" density="hdpi"/>
+    <icon src="res/icon/android/drawable-xhdpi-icon.png" density="xhdpi"/>
+    <icon src="res/icon/android/drawable-xxhdpi-icon.png" density="xxhdpi"/>
+    <icon src="res/icon/android/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+    <splash src="res/screen/android/drawable-land-mdpi-screen.png" density="land-mdpi"/>
+    <splash src="res/screen/android/drawable-land-hdpi-screen.png" density="land-hdpi"/>
+    <splash src="res/screen/android/drawable-land-xhdpi-screen.png" density="land-xhdpi"/>
+    <splash src="res/screen/android/drawable-land-xxhdpi-screen.png" density="land-xxhdpi"/>
+    <splash src="res/screen/android/drawable-land-xxxhdpi-screen.png" density="land-xxxhdpi"/>
+    <splash src="res/screen/android/drawable-port-mdpi-screen.png" density="port-mdpi"/>
+    <splash src="res/screen/android/drawable-port-hdpi-screen.png" density="port-hdpi"/>
+    <splash src="res/screen/android/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+    <splash src="res/screen/android/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+    <splash src="res/screen/android/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
+  </platform>
+
+</widget>
