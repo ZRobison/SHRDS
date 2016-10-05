@@ -74,7 +74,7 @@ function getWTR(){
 	var html =
 	"<header>"+
 	"<img src='images/logo.png'>"+
-	"<Center><H1><br>Wave Type Rating</H1></Center></header>"+
+	"<Center><br>Wave Type Rating</H1></Center></header>"+
 	"<br>"+
 	"<Center><p>Common wave types experienced on Australian beached include: <br>"+
 	"Surging, Spilling, Plunging and Plunging with back-blasting.</p></center>"+
