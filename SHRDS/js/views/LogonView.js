@@ -1,4 +1,4 @@
-var <name>View = function(){
+var LogonView = function(){
 	
 	this.render = function() {
 
@@ -8,8 +8,8 @@ var <name>View = function(){
 		$(".heading").text(header);
 		
 		var body = 
-		"<div class="radioButtons">"+
-		"<input type="radio" name="radio" id="radio1" class="radio" value="checked" >"+
+		"<div class='radioButtons'>"+
+		"<input type='radio' name='radio' id='radio1' class="radio" value="checked" >"+
 		"<label for="radio1">TSO</label>"+
 		"<input type="radio" name="radio" id="radio2" class="radio"/>"+
 		"<label for="radio2">Incident Report</label>"+
@@ -20,7 +20,7 @@ var <name>View = function(){
 		"<form action = "" method="">"+
 		"User name/Reference Number:"+
 		"<input type="text" name="" >"+
-		"<Th>Password:</Th>"+
+		"Password"+
 		"<input type="password" name="" >"+
 		"<input type="submit" value="LOGIN">"+
 		"</form>"+
