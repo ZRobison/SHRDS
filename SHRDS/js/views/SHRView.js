@@ -6,7 +6,7 @@ var SHRView = function(){
 	this.render = function(type) {
 
 		if (app.SHRFlag){
-			this.dataStore = app.prevalingSHRData;
+			this.dataStore = app.prevalingSHRData.SHR;
 		} else {
 			//Add code for IS SHR
 		}
