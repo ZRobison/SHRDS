@@ -1,9 +1,17 @@
 var SHRView = function(){
 	
+	
+	
  
 	this.render = function(type) {
+
+		if (app.SHRFlag){
+			this.dataStore = app.prevalingSHRData;
+		} else {
+			//Add code for IS SHR
+		}
 		
-		var html =  "<link rel='stylesheet' type='text/css' href='css/main.css'>";
+		var html =  "";
 		switch(type){
 			case 'WHR':
 					html += getWHR();
@@ -334,5 +342,7 @@ var footer =
 "<form action = 'index.html' method=''>"+
 "<button type='submit'>Log Out</button>"+
 "</form>";
+
+}
 
 }
