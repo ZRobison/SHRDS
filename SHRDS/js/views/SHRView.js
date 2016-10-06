@@ -63,7 +63,7 @@ function getWHR(){
 	
 	var footer = 
 	//footer
-	"<form action = 'index.html?#WTR' method=''> <br>"+
+	"<form action = 'index.html?#WTR' method=''>"+
 	"<button type='submit'>Next</button> "+
 	"</form>";	
 };
