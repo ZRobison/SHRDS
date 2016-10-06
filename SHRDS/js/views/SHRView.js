@@ -63,12 +63,9 @@ function getWHR(){
 	
 	var footer = 
 	//footer
-	"<form action = 'index.html?#WTR' method=''> <br>"+
+	"<form action = 'index.html?#WTR' method=''>"+
 	"<button type='submit'>Next</button> "+
-	"</form>";
-
-
-	
+	"</form>";	
 };
 
 function getWTR(){
@@ -81,8 +78,6 @@ function getWTR(){
 	"Surging, Spilling, Plunging and Plunging with back-blasting.</p>"+
 	"<p>Determine wave type from the MOST Sinificant break, where the"+
 	"wave energy is most concentrated.</p>"+
-	
-	
 	"WTR<select id='myList' onChange=''>"+
 	"<option value='1' selected>select one</option>"+
 	"<option value='2'>Surging</option>"+
