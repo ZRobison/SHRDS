@@ -5,7 +5,7 @@ var <name>View = function(){
 		$(".style").html("");
 		
 		var header = "SLSA SHRDS";
-		$(".heading").text("");
+		$(".heading").text(header);
 		
 		var body = 
 		"<div class="radioButtons">"+
