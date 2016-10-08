@@ -32,6 +32,6 @@ var LogonView = function(){
 		"<form action = 'index.html?#WHR' method=''> <br>"+
 		"<button type='submit'>Next</button> "+
 		"</form>";
-		$(".footer").html(footer);
+		$(".bottomYellow").html(footer);
 	}	
 }
