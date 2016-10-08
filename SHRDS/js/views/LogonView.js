@@ -1,11 +1,7 @@
 var LogonView = function(){
 	
 	this.render = function() {
-
-		$(".style").html("");
-		
 		var header = "SLSA SHRDS";
-		$(".heading").text(header);
 		
 		var body = 
 		"<div class='radioButtons'>"+
@@ -24,14 +20,15 @@ var LogonView = function(){
 		"<input type='password' name='' >"+
 		"<input type='submit' value='LOGIN'>"+
 		"</form>"+
-		"</div>"+
-		$(".body").html(body);
-		
+		"</div>";
 		
 		var footer = 
 		"<form action = 'index.html?#WHR' method=''> <br>"+
 		"<button type='submit'>Next</button> "+
 		"</form>";
+		
+		$(".heading").text(header);
+		$(".body").html(body);
 		$(".footer").html(footer);
 	}	
 }
