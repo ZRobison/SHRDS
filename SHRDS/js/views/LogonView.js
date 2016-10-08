@@ -9,7 +9,7 @@ var LogonView = function(){
 		
 		var body = 
 		"<div class='radioButtons'>"+
-		"<input type='radio' name='radio' id='radio1' class="radio" value="checked" >"+
+		"<input type='radio' name='radio' id='radio1' class='radio' value='checked' >"+
 		"<label for='radio1'>TSO</label>"+
 		"<input type='radio' name='radio' id='radio2' class='radio'/>"+
 		"<label for='radio2'>Incident Report</label>"+
