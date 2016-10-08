@@ -17,7 +17,7 @@ var SHRData = function() {
 var PrevailingData = function() {
 	this.initialize= function() {
 		this.SHR = new SHRData();
-		SHR.initialize();
+		this.SHR.initialize();
 		this.date = "";
 		this.time = "";
 		this.beach = "";
@@ -54,8 +54,8 @@ var eventSpercifcIRData = function() {
 	this.initialize= function() {
 		this.IRIN = new IRData();
 		this.IROUT = new IRData();
-		IRIN.initialize();
-		IROUT.initialize();
+		this.IRIN.initialize();
+		this.IROUT.initialize();
 		this.date = "";
 		this.time = "";
 		this.beach = "";
