@@ -18,13 +18,13 @@ var LogonView = function(){
 		"<input type='text' name='' >"+
 		"Password"+
 		"<input type='password' name='' >"+
-		"<input type='submit' value='LOGIN'>"+
+		//I think this is a useless button --"<input type='submit' value='LOGIN'>"+
 		"</form>"+
 		"</div>";
 		
 		var footer = 
 		"<form action = 'index.html?#WHR' method=''>"+
-		"<button type='submit'>Next</button> "+
+		"<button type='submit'>Logon</button> "+
 		"</form>";
 		
 		$(".heading").text(header);
