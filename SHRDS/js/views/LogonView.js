@@ -23,7 +23,7 @@ var LogonView = function(){
 		"</div>";
 		
 		var footer = 
-		"<form action = 'index.html?#WHR' method=''> <br>"+
+		"<form action = 'index.html?#WHR' method=''>"+
 		"<button type='submit'>Next</button> "+
 		"</form>";
 		
