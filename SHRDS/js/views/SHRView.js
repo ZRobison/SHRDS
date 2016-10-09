@@ -1,39 +1,46 @@
 var SHRView = function(){
 	
+	
+	
  
 	this.render = function(type) {
+
+		if (app.SHRFlag){
+			this.dataStore = app.prevalingSHRData.SHR;
+		} else {
+			//Add code for IS SHR
+		}
 		
-		var html =  "<link rel='stylesheet' type='text/css' href='css/main.css'>";
 		switch(type){
 			case 'WHR':
-					html += getWHR();
+					getWHR();
 				break;
 			case 'WTR':
-					html += getWTR();
+					getWTR();
 				break;
 			case 'WPR':
-					html += getWPR();
+					getWPR();
 				break;
 			case 'ZWR':
-					html += getZWR();
+					getZWR();
 				break;
 			case 'STR':
-					html += getSTR();
+					getSTR();
 				break;
 			case 'LDR':
-					html += getLDR();
+					getLDR();
 				break;
 			case 'RCR':
-					html += getRCR();
+					getRCR();
 				break;
 			case 'OHR':
-					html += getOHR();
+					getOHR();
 				break;
 			case 'REV':
-					html += getREV();
+					getREV();
 				break;
 			case 'SHR':
-					html += getSHR();
+					getSHR();
 				break;
 		}
 }
@@ -63,12 +70,13 @@ function getWHR(){
 	
 	var footer = 
 	//footer
-	"<form action = 'index.html?#WTR' method=''> <br>"+
+	"<form action = 'index.html?#WTR' method=''>"+
 	"<button type='submit'>Next</button> "+
-	"</form>";
-
-
+	"</form>";	
 	
+	$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 };
 
 function getWTR(){
@@ -81,8 +89,6 @@ function getWTR(){
 	"Surging, Spilling, Plunging and Plunging with back-blasting.</p>"+
 	"<p>Determine wave type from the MOST Sinificant break, where the"+
 	"wave energy is most concentrated.</p>"+
-	
-	
 	"WTR<select id='myList' onChange=''>"+
 	"<option value='1' selected>select one</option>"+
 	"<option value='2'>Surging</option>"+
@@ -95,6 +101,10 @@ function getWTR(){
 	"<form action = '#WPR' method=''>"+
 	"<button type='submit' >Next</button>"+
 	"</form>";
+	
+	$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 }
 
 function getWPR(){
@@ -121,7 +131,9 @@ function getWPR(){
  "<form action = '#ZWR' method=''>"+
  "<button type='submit' >Next</button>"+ 
 	"</form>";
-
+	$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 	
 }
 
@@ -152,6 +164,9 @@ var body =
 	"<button type='submit' >Next</button>"+
 	"</form>";
 	
+	$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 }
 
 function getSTR(){
@@ -185,6 +200,10 @@ var footer =
 "</table>"+
  " <button type='submit' >Next</button> "+
 "</form>";
+
+$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 }
 
 
@@ -208,7 +227,9 @@ var footer =
 	"<form action = '#RCR' method=''>"+
 	"<button type='submit' >Next</button>"+ 
 	"</form>";
-	
+	$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 
 }
 
@@ -230,6 +251,10 @@ var footer =
 "<form action = '#OHR' method=''>"+
  "<button type='submit' >Next</button>"+ 
 "</form>";
+
+$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 }
 
 function getOHR(){
@@ -275,6 +300,10 @@ var footer =
 "<form action = '#REV' method=''>"+
  "<button type='submit' >Next</button>"+ 
 "</form>";
+
+$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 	
 }
 
@@ -318,6 +347,10 @@ var footer =
 "<form action = '#SHR' method=''>"+
  "<button type='submit'>Submit</button>"+ 
 "</form>";
+
+$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
 }
 
 function getSHR(){
@@ -339,5 +372,9 @@ var footer =
 "<form action = 'index.html' method=''>"+
 "<button type='submit'>Log Out</button>"+
 "</form>";
+$(".heading").text(header);
+	$(".body").html(body);
+	$(".footer").html(footer);
+}
 
 }
