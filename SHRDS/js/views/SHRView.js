@@ -81,7 +81,7 @@ var SHRView = function() {
 
 		var body =
 			//new button
-            <button type="button" onclick="alert('Common wave types experienced on Australian beaches include: Surging, Spilling, Plunging and Plunging with back-blasting. Determine wave type from the MOST significant break, where the wave energy is most concentrated.')">?</button> +
+            "<button type='button' onclick='alert('Common wave types experienced on Australian beaches include: Surging, Spilling, Plunging and Plunging with back-blasting."+ "Determine wave type from the MOST significant break, where the wave energy is most concentrated.')>?</button>" +
 			"WTR<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Surging</option>" +
@@ -105,7 +105,7 @@ var SHRView = function() {
 
 		var body =
 			//new button
-			<button type="button" onclick="alert('The time between two successive breaking waves in the surf zone effects how quickly a competitor can recover stability from one wave to the next. This is especially critical for large craft such as surf boats or skis. Take several measurements and average them.')">?</button> +
+			"<button type='button' onclick='alert('The time between two successive breaking waves in the surf zone effects how quickly a competitor can recover stability from"+ "one wave to the next. This is especially critical for large craft such as surf boats or skis. Take several measurements and average them.')>?</button>" +
 			"WPR<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Long Period(>14sec)</option>" +
@@ -130,7 +130,7 @@ var SHRView = function() {
 		var body =
 //？
 			//new button
-            <button type="button" onclick="alert('A surf zone is defined as any region of surf fronts between knee deep water and the outermost breaking waves. Consequently, if there exists, a deep channel of water near the shore separated by two rolling turbulent surf fronts, there will be two separate contributions to the ZWR, one for the outer break and one for the inner break.')">?</button> +
+            "<button type='button' onclick='alert('A surf zone is defined as any region of surf fronts between knee deep water and the outermost breaking waves. Consequently, if there exists, a deep channel of water near the shore separated by two rolling turbulent surf fronts, there will be two separate contributions to the ZWR, one for the outer break and one for the inner break.')>?</button>" +
 			"ZWR<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>0</option>" +
@@ -159,7 +159,7 @@ var SHRView = function() {
 
 		var body =
 		    //new button
-			<button type="button" onclick="alert('Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.')">?</button> +
+			"<button type='button' onclick='alert('Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.')>?</button>" +
 			"<select id='myList' onChange=''>" +
 				"<option value='1' selected>Select one</option>" +
 				"<option value='2'>No chop (glassy)</option>" +
@@ -195,7 +195,7 @@ var SHRView = function() {
 
 		var body =
 		    //new button
-			<button type="button" onclick="alert('Measures the sideways movement of water over a large distance.')">?</button> +
+			"<button type='button' onclick='alert('Measures the sideways movement of water over a large distance.')>?</button>" +
 			"LDR<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='3'>No Drag (0)</option>" +
@@ -220,7 +220,7 @@ var SHRView = function() {
 
 		var body =
 		    //new button
-			<button type="button" onclick="alert('Rip Current Rating measures the severity of rips present on the beach.')">?</button> +
+			"<button type='button' onclick='alert('Rip Current Rating measures the severity of rips present on the beach.')'>?</button>" +
 			"RCR<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>No Rips</option>" +
