@@ -24,7 +24,7 @@ var LogonView = function(){
 		
 		var footer = 
 		"<form action = 'index.html?#WHR' method=''>"+
-		"<button type='submit'>Logon</button> "+
+		"<button type='submit' onclick='processFormData()'>Logon</button> "
 		"</form>";
 		
 		$(".heading").text(header);
