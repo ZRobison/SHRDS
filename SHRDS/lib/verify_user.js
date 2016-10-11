@@ -24,8 +24,7 @@ function verify_user(user, password){
             "sql8110237", 
             "Gn1uMM2Adr", 
             "sql8110237", 
-            "select"+user+"from Users"
-            "where password ="+password+", 
+            "select "+user+" from Users Where password ="+password+";", 
             function (data) {
                 //If we have an empty object, it means the user does not exist
                 if(data == null){
@@ -36,4 +35,6 @@ function verify_user(user, password){
                     location.href = 'index.html?#WHR';  
                 }
                 }
-            }
+            );
+        }
+}
