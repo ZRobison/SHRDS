@@ -353,14 +353,15 @@ var SHRView = function() {
 		var body =
 
 			"<p><div class='titles'>The Surf Hazard Rating is:</div></p><br>" +
-			"<div id='rating'>10</div>" ;
+			"<div id='rating'></div>" ;
 
 		var footer =
 
 			"<form action = 'index.html' method=''>" +
 			"<button type='submit' class='blueButtons'>Log Out</button>" +
 			"</form>";
-
+		
+		$("#rating").text(calculateSHR());
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);

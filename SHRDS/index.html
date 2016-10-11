@@ -41,7 +41,19 @@
 <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+$(document).ready(function () {
+    // call main from Cordova
+    if ( window.device ) {
+        document.addEventListener("deviceready", app.initialize(), false);
+    }
+
+    // from browser
+    else {
         app.initialize();
+    }
+});
+     
+
 </script>
 
 </body>
