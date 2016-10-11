@@ -17,7 +17,7 @@ var app = {
 		this.prevailingStartURL = /^#prevailing1/;
 		this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/];
 		
-		//remove
+		
 		self.route();
 	},
 	

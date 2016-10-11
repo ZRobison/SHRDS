@@ -50,8 +50,8 @@ var SHRView = function() {
 
 		var body =
 			//body
-			"WHR in Meters<br><select id='myList'>" +
-			"<option value='1' selected>select one</option>" +
+			"WHR in Meters<select id='myList'>" +
+			"<option value='-1' selected>select one</option>" +
 			"<option value='2'>0(Knee High)</option>" +
 			"<option value='3'>up to 0.5 (Knee High)</option>" +
 			"<option value='4'>up to 1.0 (waist High)</option>" +
@@ -82,7 +82,7 @@ var SHRView = function() {
 		var body =
 			//new button
             "<button type='button' onclick='alert('Common wave types experienced on Australian beaches include: Surging, Spilling, Plunging and Plunging with back-blasting."+ "Determine wave type from the MOST significant break, where the wave energy is most concentrated.')>?</button>" +
-			"WTR<br><select id='myList' onChange=''>" +
+			"WTR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Surging</option>" +
 			"<option value='3'>Spilling</option>" +
@@ -106,7 +106,7 @@ var SHRView = function() {
 		var body =
 			//new button
 			"<button type='button' onclick='alert('The time between two successive breaking waves in the surf zone effects how quickly a competitor can recover stability from"+ "one wave to the next. This is especially critical for large craft such as surf boats or skis. Take several measurements and average them.')>?</button>" +
-			"WPR<br><select id='myList' onChange=''>" +
+			"WPR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Long Period(>14sec)</option>" +
 			"<option value='3'>Moderate Period(9-14secs)</option>" +
@@ -131,7 +131,7 @@ var SHRView = function() {
 //？
 			//new button
             "<button type='button' onclick='alert('A surf zone is defined as any region of surf fronts between knee deep water and the outermost breaking waves. Consequently, if there exists, a deep channel of water near the shore separated by two rolling turbulent surf fronts, there will be two separate contributions to the ZWR, one for the outer break and one for the inner break.')>?</button>" +
-			"ZWR<br><select id='myList' onChange=''>" +
+			"ZWR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>0</option>" +
 			"<option value='3'>up to 20</option>" +
