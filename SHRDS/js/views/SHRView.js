@@ -45,6 +45,7 @@ var SHRView = function() {
 
 		var body =
 			//body
+			"<button type='button' onclick='getWHRInfo()'>?</button>" +
 			"WHR in Meters<select id='myList' name='WHRForm'>" +
 			"<option value='-1'>select one</option>" +
 			"<option value='0'>0(Knee High)</option>" +
@@ -58,7 +59,8 @@ var SHRView = function() {
 			"<option value='10'>up to 4.0 (Double Overhead)</option>" +
 			"<option value='12'>up to 4.5</option>" +
 			"</select>" +
-			"<div class='error'> </div>";
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			//footer
@@ -374,6 +376,14 @@ function getWHRvalue(){
 					$(".error").text("Please select a value.");
 		}
 		return app.prevalingSHRData.SHR.pWHR;
+}
+
+function getWHRInfo(){
+	if ($(".info").text()){
+		$(".info").text("");
+	} else {
+		$(".info").text("The height of the wave is the verticle distance between the front trough and the crest of the wave that is about to break.");
+	}
 }
 
 function getWTRvalue(){
