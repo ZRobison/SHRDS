@@ -1,13 +1,21 @@
 
+calculateSHR()
+
 function getWHRvalue(){
-		app.prevalingSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
-		if (app.prevalingSHRData.SHR.pWHR != -1){
+		var score = -1;
+		if (app.SHRFlag){
+			app.prevalingSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
+			score = app.prevalingSHRData.SHR.pWHR
+		} else {
+			//eventspercific
+		}
+		if (score != -1){
 					window.location.hash ="#WTR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
 		}
-		return app.prevalingSHRData.SHR.pWHR;
+		return score;
 }
 
 function getWHRInfo(){
@@ -19,12 +27,18 @@ function getWHRInfo(){
 }
 
 function getWTRvalue(){
-		app.prevalingSHRData.SHR.pWTR = $("select[name=WTRForm]").val();
-		if (app.prevalingSHRData.SHR.pWTR != -1){
+		var score = -1;
+		if (app.SHRFlag){
+			app.prevalingSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
+			score = app.prevalingSHRData.SHR.pWHR
+		} else {
+			//eventspercific
+		}
+		if (score != -1){
 					window.location.hash ="#WPR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
 		}
-		return app.prevalingSHRData.SHR.pWTR;
+		return score;
 }
