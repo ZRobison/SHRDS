@@ -2,12 +2,7 @@ var SHRView = function() {
 
 
 	this.render = function (type) {
-
-		if (app.SHRFlag) {
-			this.dataStore = app.prevalingSHRData.SHR;
-		} else {
-			//Add code for IS SHR
-		}
+		var self = this;
 
 		switch (type) {
 			case 'WHR':
@@ -50,30 +45,41 @@ var SHRView = function() {
 
 		var body =
 			//body
-			"WHR in Meters<select id='myList'>" +
-			"<option value='-1' selected>select one</option>" +
-			"<option value='2'>0(Knee High)</option>" +
-			"<option value='3'>up to 0.5 (Knee High)</option>" +
-			"<option value='4'>up to 1.0 (waist High)</option>" +
-			"<option value='5'>up to 1.5 (Head high)</option>" +
-			"<option value='6'>up to 2.0 (Head High)</option>" +
-			"<option value='7'>up to 2.5 (Overhead)</option>" +
-			"<option value='8'>up to 3.0 (Overhead)</option>" +
-			"<option value='9'>up to 3.5 (Double Overhead)</option>" +
+			"WHR in Meters<select id='myList' name='WHRForm'>" +
+			"<option value='-1'>select one</option>" +
+			"<option value='0'>0(Knee High)</option>" +
+			"<option value='1'>up to 0.5 (Knee High)</option>" +
+			"<option value='2'>up to 1.0 (waist High)</option>" +
+			"<option value='3'>up to 1.5 (Head high)</option>" +
+			"<option value='4'>up to 2.0 (Head High)</option>" +
+			"<option value='5'>up to 2.5 (Overhead)</option>" +
+			"<option value='6'>up to 3.0 (Overhead)</option>" +
+			"<option value='8'>up to 3.5 (Double Overhead)</option>" +
 			"<option value='10'>up to 4.0 (Double Overhead)</option>" +
-			"<option value='11'>up to 4.5</option>" +
-			"</select>";
+			"<option value='12'>up to 4.5</option>" +
+			"</select>" +
+			"<div class='error'> </div>";
 
 		var footer =
 			//footer
-			"<form action = 'index.html?#WTR' method=''>" +
+			"<form class='WHRButton' onClick='console.log(getWHRvalue())'>" +
 			"<button type='submit' class='blueButtons'>Next</button> " +
 			"</form>";
-
+			
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
+		
+		
+		if (app.SHRFlag) {
+			 $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWHR);
+		} else {
+			//Add code for IS SHR
+		}
+
 	};
+	
+
 
 	function getWTR() {
 
@@ -82,22 +88,29 @@ var SHRView = function() {
 		var body =
 			//new button
             "<button type='button' onclick='alert('Common wave types experienced on Australian beaches include: Surging, Spilling, Plunging and Plunging with back-blasting."+ "Determine wave type from the MOST significant break, where the wave energy is most concentrated.')>?</button>" +
-			"WTR<select id='myList' onChange=''>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='2'>Surging</option>" +
-			"<option value='3'>Spilling</option>" +
-			"<option value='4'>Plunging</option>" +
-			"<option value='5'>Plunging with Back-Blasting</option>" +
+			"WTR"+
+			"<select id='myList' name='WTRForm'>" +
+			"<option value='-1' selected>select one</option>" +
+			"<option value='0'>Surging</option>" +
+			"<option value='1'>Spilling</option>" +
+			"<option value='2'>Plunging</option>" +
+			"<option value='4'>Plunging with Back-Blasting</option>" +
 			"</select>";
 
 		var footer =
-			"<form action = '#WPR' method=''>" +
+			"<form action = '' onClick='console.log(getWTRvalue())'>" +
 			"<button type='submit' class='blueButtons' >Next</button>" +
 			"</form>";
 
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
+		
+		if (app.SHRFlag) {
+			 $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWHR);
+		} else {
+			//Add code for IS SHR
+		}
 	}
 
 	function getWPR() {
@@ -352,4 +365,24 @@ var SHRView = function() {
 	}
 }
 
+function getWHRvalue(){
+		app.prevalingSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
+		if (app.prevalingSHRData.SHR.pWHR != -1){
+					window.location.hash ="#WTR";
+					$(".error").text("");
+		} else {
+					$(".error").text("Please select a value.");
+		}
+		return app.prevalingSHRData.SHR.pWHR;
+}
 
+function getWTRvalue(){
+		app.prevalingSHRData.SHR.pWTR = $("select[name=WTRForm]").val();
+		if (app.prevalingSHRData.SHR.pWTR != -1){
+					window.location.hash ="#WPR";
+					$(".error").text("");
+		} else {
+					$(".error").text("Please select a value.");
+		}
+		return app.prevalingSHRData.SHR.pWTR;
+}
