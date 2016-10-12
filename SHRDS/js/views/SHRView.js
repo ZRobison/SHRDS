@@ -2,12 +2,7 @@ var SHRView = function() {
 
 
 	this.render = function (type) {
-
-		if (app.SHRFlag) {
-			this.dataStore = app.prevalingSHRData.SHR;
-		} else {
-			//Add code for IS SHR
-		}
+		var self = this;
 
 		switch (type) {
 			case 'WHR':
@@ -50,30 +45,43 @@ var SHRView = function() {
 
 		var body =
 			//body
-			"WHR in Meters<br><select id='myList'>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='2'>0(Knee High)</option>" +
-			"<option value='3'>up to 0.5 (Knee High)</option>" +
-			"<option value='4'>up to 1.0 (waist High)</option>" +
-			"<option value='5'>up to 1.5 (Head high)</option>" +
-			"<option value='6'>up to 2.0 (Head High)</option>" +
-			"<option value='7'>up to 2.5 (Overhead)</option>" +
-			"<option value='8'>up to 3.0 (Overhead)</option>" +
-			"<option value='9'>up to 3.5 (Double Overhead)</option>" +
+			"<button type='button' onclick='getWHRInfo()'>?</button>" +
+			"WHR in Meters<select id='myList' name='WHRForm'>" +
+			"<option value='-1'>select one</option>" +
+			"<option value='0'>0(Knee High)</option>" +
+			"<option value='1'>up to 0.5 (Knee High)</option>" +
+			"<option value='2'>up to 1.0 (waist High)</option>" +
+			"<option value='3'>up to 1.5 (Head high)</option>" +
+			"<option value='4'>up to 2.0 (Head High)</option>" +
+			"<option value='5'>up to 2.5 (Overhead)</option>" +
+			"<option value='6'>up to 3.0 (Overhead)</option>" +
+			"<option value='8'>up to 3.5 (Double Overhead)</option>" +
 			"<option value='10'>up to 4.0 (Double Overhead)</option>" +
-			"<option value='11'>up to 4.5</option>" +
-			"</select>";
+			"<option value='12'>up to 4.5</option>" +
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			//footer
-			"<form action = 'index.html?#WTR' method=''>" +
+			"<form class='WHRButton' onClick='console.log(getWHRvalue())'>" +
 			"<button type='submit' class='blueButtons'>Next</button> " +
 			"</form>";
-
+			
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
+		
+		
+		if (app.SHRFlag) {
+			 $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWHR);
+		} else {
+			//Add code for IS SHR
+		}
+
 	};
+	
+
 
 	function getWTR() {
 
@@ -82,22 +90,29 @@ var SHRView = function() {
 		var body =
 			//new button
             "<button type='button' onclick='alert('Common wave types experienced on Australian beaches include: Surging, Spilling, Plunging and Plunging with back-blasting."+ "Determine wave type from the MOST significant break, where the wave energy is most concentrated.')>?</button>" +
-			"WTR<br><select id='myList' onChange=''>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='2'>Surging</option>" +
-			"<option value='3'>Spilling</option>" +
-			"<option value='4'>Plunging</option>" +
-			"<option value='5'>Plunging with Back-Blasting</option>" +
+			"WTR"+
+			"<select id='myList' name='WTRForm'>" +
+			"<option value='-1' selected>select one</option>" +
+			"<option value='0'>Surging</option>" +
+			"<option value='1'>Spilling</option>" +
+			"<option value='2'>Plunging</option>" +
+			"<option value='4'>Plunging with Back-Blasting</option>" +
 			"</select>";
 
 		var footer =
-			"<form action = '#WPR' method=''>" +
+			"<form action = '' onClick='console.log(getWTRvalue())'>" +
 			"<button type='submit' class='blueButtons' >Next</button>" +
 			"</form>";
 
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
+		
+		if (app.SHRFlag) {
+			 $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWHR);
+		} else {
+			//Add code for IS SHR
+		}
 	}
 
 	function getWPR() {
@@ -106,7 +121,7 @@ var SHRView = function() {
 		var body =
 			//new button
 			"<button type='button' onclick='alert('The time between two successive breaking waves in the surf zone effects how quickly a competitor can recover stability from"+ "one wave to the next. This is especially critical for large craft such as surf boats or skis. Take several measurements and average them.')>?</button>" +
-			"WPR<br><select id='myList' onChange=''>" +
+			"WPR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Long Period(>14sec)</option>" +
 			"<option value='3'>Moderate Period(9-14secs)</option>" +
@@ -131,7 +146,7 @@ var SHRView = function() {
 //？
 			//new button
             "<button type='button' onclick='alert('A surf zone is defined as any region of surf fronts between knee deep water and the outermost breaking waves. Consequently, if there exists, a deep channel of water near the shore separated by two rolling turbulent surf fronts, there will be two separate contributions to the ZWR, one for the outer break and one for the inner break.')>?</button>" +
-			"ZWR<br><select id='myList' onChange=''>" +
+			"ZWR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>0</option>" +
 			"<option value='3'>up to 20</option>" +
@@ -338,18 +353,17 @@ var SHRView = function() {
 		var body =
 
 			"<p><div class='titles'>The Surf Hazard Rating is:</div></p><br>" +
-			"<div id='rating'>10</div>" ;
+			"<div id='rating'></div>" ;
 
 		var footer =
 
 			"<form action = 'index.html' method=''>" +
 			"<button type='submit' class='blueButtons'>Log Out</button>" +
 			"</form>";
-
+		
+		$("#rating").text(calculateSHR());
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
 	}
 }
-
-
