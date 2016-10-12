@@ -122,14 +122,16 @@ var SHRView = function () {
 
 		var body =
 			//new button
-			"<button type='button' onclick='alert('getWPRInfo()')>?</button>" +
+			"<button type='button' onclick='getWPRInfo()')>?</button>" +
 			"WPR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Long Period(>14sec)</option>" +
 			"<option value='3'>Moderate Period(9-14secs)</option>" +
 			"<option value='4'>Short Period(6-8 secs)</option>" +
 			"<option value='5'>Extremely Short Period(<6 secs)</option>" +
-			"</select>";
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			"<form action = 'onClick='console.log(getWPRvalue())" +
@@ -147,7 +149,7 @@ var SHRView = function () {
 		var body =
 //？
 			//new button
-            "<button type='button' onclick='alert('getZWRInfo()')>?</button>" +
+            "<button type='button' onclick='getZWRInfo()')>?</button>" +
 			"ZWR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>0</option>" +
@@ -159,7 +161,9 @@ var SHRView = function () {
 			"<option value='8'>up to 120</option>" +
 			"<option value='9'>up to 140</option>" +
 			"<option value='10'>up to 160</option>" +
-			"</select>";
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			"<form action = '#STR' method=''>" +
@@ -176,7 +180,7 @@ var SHRView = function () {
 
 		var body =
 		    //new button
-			"<button type='button' onclick='alert('getSTRInfo()')>?</button>" +
+			"<button type='button' onclick='getSTRInfo()')>?</button>" +
 			"<select id='myList' onChange=''>" +
 				"<option value='1' selected>Select one</option>" +
 				"<option value='2'>No chop (glassy)</option>" +
@@ -184,7 +188,9 @@ var SHRView = function () {
 				"<option value='4'>Moderate Chop (12-21 kts)</option>" +
 				"<option value='5'>Excessive Chop (22-27 kts)</option>" +
 				"<option value='6'>Extreme Chop (>27kts)</option>" +
-			"</select>"+
+			"</select>" + 
+			"<div class='info'></div>"+
+			"<div class='error'></div>" +
 
 			"<p>Cross Waves: form at random angles to the primary swell direction due to local storms or reflection of the primary swell.</p>" +
 			"<p>Select minor or moderate if Cross Waves are present.</p>"+
@@ -212,7 +218,7 @@ var SHRView = function () {
 
 		var body =
 		    //new button
-			"<button type='button' onclick='alert('getLDRInfo()')>?</button>" +
+			"<button type='button' onclick='getLDRInfo()')>?</button>" +
 			"LDR<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='3'>No Drag (0)</option>" +
@@ -220,7 +226,9 @@ var SHRView = function () {
 			"<option value='5'>Moderate Drag (20-40 secs)</option>" +
 			"<option value='6'>Strong Drag (13-19 secs)</option>" +
 			"<option value='7'>Very Strong Drag (<13 secs)</option>" +
-			"</select>";
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			"<form action = '#RCR' method=''>" +
@@ -237,14 +245,16 @@ var SHRView = function () {
 
 		var body =
 		    //new button
-			"<button type='button' onclick='alert('getRCRInfo()')'>?</button>" +
+			"<button type='button' onclick='getRCRInfo()')'>?</button>" +
 			"RCR<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>No Rips</option>" +
 			"<option value='3'>Mild Rips (swim against)</option>" +
 			"<option value='4'>Mild to strong Rips (ONLY walk waist deep against)</option>" +
 			"<option value='5'>Strong Rips (Cannot walk against)</option>" +
-			"</select>";
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			"<form action = '#OHR' method=''>" +
@@ -280,7 +290,7 @@ var SHRView = function () {
 			"Visual impairment: for example, the sun setting over the ocean.<br><br>" +
 			"</li>" */ 
 			"Other Hazards Rating" +
-			"<button type='button' onclick='alert('getRCRInfo()')'>?</button>" +
+			"<button type='button' onclick='getOHRInfo()')'>?</button>" +
 
 			"OHR: one for each extra hazard present<br><br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
@@ -294,7 +304,9 @@ var SHRView = function () {
 			"<option value='9'>7</option>" +
 			"<option value='10'>8</option>" +
 			"<option value='11'>9</option>" +
-			"</select>";
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			"<form action = '#REV' method=''>" +
