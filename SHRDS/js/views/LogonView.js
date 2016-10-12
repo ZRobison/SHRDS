@@ -21,11 +21,14 @@ var LogonView = function(){
 		"<input type='text' name='' id='username'><br>"+
 		"Password: <br>"+
 		"<input type='password' name='' id='password'><br>"+
-		"</form>";
-		
+		"</form>"+
+        "<div id ='passwordCheck'></div>";
+        
+        
+		//
 		var footer =
-		"<button type='submit' class='blueButtons' id='loginBut' onclick='verify_user(document.getElementByID('username'), document.getElementByID('password'))'>LOGIN</button>"+
-		
+		"<button type='submit' class='blueButtons' id='loginBut' onclick='user.verify_user()'>LOGIN</button>";
+        
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
