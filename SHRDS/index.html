@@ -29,17 +29,32 @@
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="lib/iscroll.js"></script>
 <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/mysql.js"></script>
+<script type="text/javascript" src="lib/verify_user.js"></script>
 <script type="text/javascript" src="js/views/LogonView.js"></script>
 <script type="text/javascript" src="js/views/SHRView.js"></script>
 <script type="text/javascript" src="js/views/PrevailingView.js"></script>
 <script type="text/javascript" src="js/dataObject.js"></script>
+<script type="text/javascript" src="js/SHRFunctions.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-
 <!-- BOOTSTRAP JS -->
 <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
+
 <script type="text/javascript">
+$(document).ready(function () {
+    // call main from Cordova
+    if ( window.device ) {
+        document.addEventListener("deviceready", app.initialize(), false);
+    }
+
+    // from browser
+    else {
         app.initialize();
+    }
+});
+     
+
 </script>
 
 </body>
