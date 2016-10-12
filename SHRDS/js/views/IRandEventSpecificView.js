@@ -85,7 +85,7 @@ function Incident Report(){
 var header ="Incident Report";
 
 var body =
-var footer=
+
 "<form action = '' method=''>"+
 "<button type='submit'>&#43;</button>"+ 
 "Fall Offs(by wave)"+
@@ -118,7 +118,8 @@ var footer=
 "Fall Offs(by wave)"+
 "<button type='submit'>&#45;</button> <button type='submit'>&#43;</button> "+
 "Injury(severe)"+
-"<button type='submit'>&#45;</button> "+
+"<button type='submit'>&#45;</button> ";
+var footer=
 "<button type='button' class='blueButtons'>back</button>"+
 "<button type='button' class='blueButtons'>Next</button>"+
 "<form>";
