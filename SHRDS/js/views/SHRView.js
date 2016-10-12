@@ -304,7 +304,9 @@ var SHRView = function () {
 			"<option value='9'>7</option>" +
 			"<option value='10'>8</option>" +
 			"<option value='11'>9</option>" +
-			"</select>";
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
 			"<form action = '#REV' method=''>" +
