@@ -27,8 +27,11 @@ var LogonView = function(){
         
 		//
 		var footer =
-		"<button type='submit' class='blueButtons' id='loginBut' onclick='user.verify_user()'>LOGIN</button>";
-        
+        "<form action = 'index.html?#WHR' method=''> <br>"+    
+		"<button type='submit' class='blueButtons'>LOGIN</button>"+
+        "</form>";
+        //"<button type='submit' class='blueButtons' id='loginBut' onclick='user.verify_user()'>LOGIN</button>";
+        //REPLACE FORM STUFF WITH SINGLE LINE OF COMMENTED CODE ONCE BUGS ARE RESOLVED -->remove form tags
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
