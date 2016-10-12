@@ -5,7 +5,7 @@ var app = {
 		
 		//Flag for knowing if prevailing SHR or Event specific SHR
 		//Set to one if user is filling in Prev else 0;
-		self.SHRFlag = -1;
+		self.SHRFlag = 1;
 		//Init data stores for forms
 		this.initData();
 		//Detect if HASH changes
@@ -17,7 +17,7 @@ var app = {
 		this.prevailingStartURL = /^#prevailing1/;
 		this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/];
 		
-		//remove
+		
 		self.route();
 	},
 	
