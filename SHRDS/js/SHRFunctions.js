@@ -96,7 +96,7 @@ function getZWRInfo(){
 	if ($(".info").text()){
 		$(".info").text("");
 	} else {
-		$(".info").text("The height of the wave is the verticle distance between the front trough and the crest of the wave that is about to break.");
+		$(".info").text("A surf zone is defined as any region of surf fronts between knee deep water and the outermost breaking waves. Consequently, if there exists, a deep channel of water near the shore separated by two rolling turbulent surf fronts, there will be two separate contributions to the ZWR, one for the outer break and one for the inner break.");
 	}
 }
 
@@ -121,7 +121,7 @@ function getSTRInfo(){
 	if ($(".info").text()){
 		$(".info").text("");
 	} else {
-		$(".info").text("The height of the wave is the verticle distance between the front trough and the crest of the wave that is about to break.");
+		$(".info").text("Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.");
 	}
 }
 
@@ -146,7 +146,7 @@ function getLDRInfo(){
 	if ($(".info").text()){
 		$(".info").text("");
 	} else {
-		$(".info").text("The height of the wave is the verticle distance between the front trough and the crest of the wave that is about to break.");
+		$(".info").text("Measures the sideways movement of water over a large distance.");
 	}
 }
 
@@ -171,7 +171,7 @@ function getRCRInfo(){
 	if ($(".info").text()){
 		$(".info").text("");
 	} else {
-		$(".info").text("The height of the wave is the verticle distance between the front trough and the crest of the wave that is about to break.");
+		$(".info").text("Rip Current Rating measures the severity of rips present on the beach.");
 	}
 }
 
@@ -196,6 +196,6 @@ function getOHRInfo(){
 	if ($(".info").text()){
 		$(".info").text("");
 	} else {
-		$(".info").text("The height of the wave is the verticle distance between the front trough and the crest of the wave that is about to break.");
+		$(".info").text("Other Significant hazard may include: Man-made or natural obstructions (rocks, reefs, jetties, outflow pipes, wrecks, uncontrolled craft). Uncontrolled surf craft (1 for ski, 6 for boats). Floating logs, seaweed and other flotsam. Water temperature(low water temperature increases hazard). Pollution, marine stinger etc. Visual impairment: for example, the sun setting over the ocean.");
 	}
 }
