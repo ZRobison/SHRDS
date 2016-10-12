@@ -120,10 +120,10 @@ var PrevailingView = function(){
 		
 		$(".body").html(html);
 		
-		var footer = "<form action = 'index.html' method='' onClick='window.location.reload()'>" +
+		var footer = "<form action = 'index.html' method='' onClick=''>" +
 			"<button type='submit' class='blueButtons'>Back</button> " +
 			"</form>" +
-			"<form action = 'index.html?#WHR' method='' onClick='window.location.reload()'>" +
+			"<form action = 'index.html?#WHR' method='' onClick=''>" +
 			"<button type='submit' class='blueButtons'>Next</button>" +
 			"</form>"
 			

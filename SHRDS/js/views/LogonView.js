@@ -18,16 +18,17 @@ var LogonView = function(){
 		"</div>"+
 		"<form action = '' method=''>"+
 		"User Name/Reference Number: <br>"+
-		"<input type='text' name='' ><br>"+
+		"<input type='text' name='' id='username'><br>"+
 		"Password: <br>"+
-		"<input type='password' name='' ><br>"+
-		"</form>";
-		
+		"<input type='password' name='' id='password'><br>"+
+		"</form>"+
+        "<div id ='passwordCheck'></div>";
+        
+        
+		//
 		var footer =
-		"<form action = 'index.html?#WHR' method=''> <br>"+
-		"<button type='submit' class='blueButtons' id='loginBut'>LOGIN</button>"+
-		"</form>";
-		
+		"<button type='submit' class='blueButtons' id='loginBut' onclick='user.verify_user()'>LOGIN</button>";
+        
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
