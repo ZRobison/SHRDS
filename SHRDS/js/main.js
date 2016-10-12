@@ -1,6 +1,6 @@
 var app = {
 		
-	initialize: function() {
+	initialize: function () {
 		var self = this;
 		
 		//Flag for knowing if prevailing SHR or Event specific SHR
@@ -9,8 +9,8 @@ var app = {
 		//Init data stores for forms
 		this.initData();
 		//Detect if HASH changes
-		$(window).on('hashchange',function(){ 
-			self.route();
+		$(window).on('hashchange',function () { 
+			self.route(); 
 		});
 		
 		//URL detection
