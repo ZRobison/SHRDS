@@ -23,7 +23,7 @@ var PrevailingView = function(){
   "</tr>" +
   "<br>" +
   "<tr>" +
-  
+  var body=
     "<td width='129' class='titles' >Beach</td>" +
 	"<body onLoad='GETcookie()'>" +
     "<td colspan='4'><select name='select' id='myList' onChange='SETcookie()' >" +
