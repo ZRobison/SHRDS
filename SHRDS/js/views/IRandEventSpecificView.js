@@ -136,3 +136,17 @@ var footer=
 "<button type='button' class='blueButtons'>Next</button>"+
 "<form>";
 }
+function formSelect(){
+var header ="Form Select"
+var body =
+"<button type='submit'>Surf Hazard Rating Prevailing</button>"
+"<button type='submit'>Surf Hazard Rating Event Specific</button>"
+	
+}
+function formSelectAdmin(){
+var header ="Form Select"
+var body =
+"<button type='submit'>Metadata Review</button>"
+"<button type='submit'>Password Reset</button>"
+	
+}
