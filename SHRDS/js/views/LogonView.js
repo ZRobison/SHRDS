@@ -27,7 +27,7 @@ var LogonView = function(){
         
 		//
 		var footer =
-		"<button type='submit' class='blueButtons' id='loginBut' onclick='user.verify_user()'>LOGIN</button>";
+		"<button type='submit' class='blueButtons' id='loginBut' onclick='login()'>LOGIN</button>";
         
 		$(".heading").text(header);
 		$(".body").html(body);

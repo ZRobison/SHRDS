@@ -10,6 +10,7 @@ var app = {
 		this.initData();
 		//Detect if HASH changes
 		$(window).on('hashchange',function () { 
+			console.log(window.location.hash);
 			self.route(); 
 		});
 		
