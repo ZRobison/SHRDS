@@ -7,7 +7,7 @@ function getWHRvalue(){
 		} else {
 			//eventspecific
 		}
-		if(score !== -1) {
+		if(score != -1) {
 					window.location.hash ="#WTR";
 					$(".error").text("");
 		} else {
@@ -32,8 +32,8 @@ function getWTRvalue(){
 		} else {
 			//eventspecific
 		}
-		if (score !== -1){
-					window.location.hash ="#WTR";
+		if (score != -1){
+					window.location.hash ="#WPR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");

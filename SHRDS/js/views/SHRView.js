@@ -90,17 +90,19 @@ var SHRView = function () {
 
 		var body =
             "WTR" +
-			"<button type='button' onclick='alert('getWTRInfo()')>?</button>" +			
+			"<button type='button' onclick='getWTRInfo()')>?</button>" +			
 			"<select id='myList' name='WTRForm'>" +
 			"<option value='-1' selected>select one</option>" +
 			"<option value='0'>Surging</option>" +
 			"<option value='1'>Spilling</option>" +
 			"<option value='2'>Plunging</option>" +
 			"<option value='4'>Plunging with Back-Blasting</option>" +
-			"</select>";
+			"</select>" +
+			"<div class='info'></div>"+
+			"<div class='error'></div>";
 
 		var footer =
-			"<form action = ''onClick='console.log(getWTRvalue())'>" +
+			"<form action = '' onClick='console.log(getWTRvalue())'>" +
 			"<button type='submit' class='blueButtons' >Next</button>" +
 			"</form>";
 
@@ -130,7 +132,7 @@ var SHRView = function () {
 			"</select>";
 
 		var footer =
-			"<form action = 'onClick='console.log(getWPRvalue()) +
+			"<form action = 'onClick='console.log(getWPRvalue())" +
 			"<button type='submit' class='blueButtons' >Next</button>" +
 			"</form>";
 		$(".heading").text(header);
