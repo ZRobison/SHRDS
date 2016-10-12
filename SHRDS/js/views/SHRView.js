@@ -1,4 +1,4 @@
-var SHRView = function() {
+var SHRView = function () {
 
 
 	this.render = function (type) {
@@ -45,8 +45,9 @@ var SHRView = function() {
 
 		var body =
 			//body
+			"WHR in Meters" + 
 			"<button type='button' onclick='getWHRInfo()'>?</button>" +
-			"WHR in Meters<select id='myList' name='WHRForm'>" +
+			"<select id='myList' name='WHRForm'>" +
 			"<option value='-1'>select one</option>" +
 			"<option value='0'>0(Knee High)</option>" +
 			"<option value='1'>up to 0.5 (Knee High)</option>" +
@@ -88,9 +89,8 @@ var SHRView = function() {
 		var header = "Wave Type Rating";
 
 		var body =
-			//new button
-            "<button type='button' onclick='alert('Common wave types experienced on Australian beaches include: Surging, Spilling, Plunging and Plunging with back-blasting."+ "Determine wave type from the MOST significant break, where the wave energy is most concentrated.')>?</button>" +
-			"WTR"+
+            "WTR" +
+			"<button type='button' onclick='alert('getWTRInfo()')>?</button>" +			
 			"<select id='myList' name='WTRForm'>" +
 			"<option value='-1' selected>select one</option>" +
 			"<option value='0'>Surging</option>" +
@@ -100,7 +100,7 @@ var SHRView = function() {
 			"</select>";
 
 		var footer =
-			"<form action = '' onClick='console.log(getWTRvalue())'>" +
+			"<form action = ''onClick='console.log(getWTRvalue())'>" +
 			"<button type='submit' class='blueButtons' >Next</button>" +
 			"</form>";
 
@@ -109,7 +109,7 @@ var SHRView = function() {
 		$(".footer").html(footer);
 		
 		if (app.SHRFlag) {
-			 $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWHR);
+			 $("select[name=WTRForm]").val(app.prevalingSHRData.SHR.pWTR);
 		} else {
 			//Add code for IS SHR
 		}
@@ -120,7 +120,7 @@ var SHRView = function() {
 
 		var body =
 			//new button
-			"<button type='button' onclick='alert('The time between two successive breaking waves in the surf zone effects how quickly a competitor can recover stability from"+ "one wave to the next. This is especially critical for large craft such as surf boats or skis. Take several measurements and average them.')>?</button>" +
+			"<button type='button' onclick='alert('getWPRInfo()')>?</button>" +
 			"WPR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Long Period(>14sec)</option>" +
@@ -130,7 +130,7 @@ var SHRView = function() {
 			"</select>";
 
 		var footer =
-			"<form action = '#ZWR' method=''>" +
+			"<form action = 'onClick='console.log(getWPRvalue()) +
 			"<button type='submit' class='blueButtons' >Next</button>" +
 			"</form>";
 		$(".heading").text(header);
