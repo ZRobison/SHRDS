@@ -59,7 +59,7 @@ function getWPRvalue(){
 			//eventspecific
 		}
 		if (score !== -1){
-					window.location.hash ="#WPR";
+					window.location.hash ="#ZWR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
@@ -84,7 +84,7 @@ function getZWRvalue(){
 			//eventspecific
 		}
 		if(score !== -1) {
-					window.location.hash ="#ZWR";
+					window.location.hash ="#STR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
@@ -109,7 +109,7 @@ function getSTRvalue(){
 			//eventspecific
 		}
 		if(score !== -1) {
-					window.location.hash ="#STR";
+					window.location.hash ="#LDR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
@@ -134,7 +134,7 @@ function getLDRvalue(){
 			//eventspecific
 		}
 		if(score !== -1) {
-					window.location.hash ="#LDR";
+					window.location.hash ="#RCR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
@@ -159,7 +159,7 @@ function getRCRvalue(){
 			//eventspecific
 		}
 		if(score !== -1) {
-					window.location.hash ="#RCR";
+					window.location.hash ="#OHR";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
