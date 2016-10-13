@@ -60,8 +60,14 @@ var SHRView = function () {
 			"<option value='12'>up to 4.5</option>" +
 			"</select>" +
 			"<button type='button' onclick='getWHRInfo()'>?</button>" +
-			"<div class='info'></div>"+
-			"<div class='error'></div>";
+			"<div class='error'></div>"+
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>" ; 
+			
+			
+			
+			
 
 		var footer =
 			//footer
@@ -97,8 +103,11 @@ var SHRView = function () {
 			"<option value='4'>Plunging with Back-Blasting</option>" +
 			"</select>" +
 			"<button type='button' onclick='getWTRInfo()')>?</button>" +
-			"<div class='info'></div>"+
-			"<div class='error'></div>";
+			"<div class='error'></div>" +
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>";
+			
 
 		var footer =
 			"<button type='submit' class='blueButtons' onClick='console.log(getWTRvalue())'>Next</button>" ;
@@ -120,7 +129,8 @@ var SHRView = function () {
 
 		var body =
 		
-			"WPR<select id='myList' onChange=''>" +
+			"WPR" +
+			"<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Long Period(>14sec)</option>" +
 			"<option value='3'>Moderate Period(9-14secs)</option>" +
@@ -128,8 +138,10 @@ var SHRView = function () {
 			"<option value='5'>Extremely Short Period(<6 secs)</option>" +
 			"</select>" +
 			"<button type='button' onclick='getWPRInfo()')>?</button>" +
-			"<div class='info'></div>"+
-			"<div class='error'></div>";
+			"<div class='error'></div>" +
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>";
 
 		var footer =
 			
@@ -159,8 +171,10 @@ var SHRView = function () {
 			"<option value='10'>up to 160</option>" +
 			"</select>" +
 			"<button type='button' onclick='getZWRInfo()')>?</button>" +
-			"<div class='info'></div>"+
-			"<div class='error'></div>";
+			"<div class='error'></div>" +
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>";
 
 		var footer =
 			
@@ -186,8 +200,11 @@ var SHRView = function () {
 				"<option value='6'>Extreme Chop (>27kts)</option>" +
 			"</select>" + 
 			"<button type='button' onclick='getSTRInfo()')>?</button>" +
-			"<div class='info'></div>"+
 			"<div class='error'></div>" +
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>"+
+			
 			
 			"<br>" +
 			"<br>" +
@@ -228,8 +245,11 @@ var SHRView = function () {
 			"<option value='7'>Very Strong Drag (<13 secs)</option>" +
 			"</select>" +
 			"<button type='button' onclick='getLDRInfo()')>?</button>" +
-			"<div class='info'></div>"+
-			"<div class='error'></div>";
+			"<div class='error'></div>"+
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>";
+			
 
 		var footer =
 		
@@ -254,8 +274,11 @@ var SHRView = function () {
 			"<option value='5'>Strong Rips (Cannot walk against)</option>" +
 			"</select>" +
 			"<button type='button' onclick='getRCRInfo()')'>?</button>" +
-			"<div class='info'></div>"+
-			"<div class='error'></div>";
+			"<div class='error'></div>"+
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>";
+			
 
 		var footer =
 			
@@ -287,8 +310,11 @@ var SHRView = function () {
 			"<option value='11'>9</option>" +
 			"</select>" +
 			"<button type='button' onclick='getOHRInfo()')'>?</button>" +
-			"<div class='info'></div>"+
-			"<div class='error'></div>";
+			"<div class='error'></div>"+
+			"<br>" +
+			"<br>" +
+			"<div class='info'></div>";
+			
 
 		var footer =
 			
