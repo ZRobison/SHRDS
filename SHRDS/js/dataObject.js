@@ -10,6 +10,11 @@ var SHRData = function() {
 		this.pOHR = -1;
 		this.totalSHR = -1;	
 	}
+	
+	this.calculate = function(){
+		this.totalSHR = this.pWHR + this.pWTR + this.pWPR + this.pZWR  + this.pSTR  + this.pLDR  + this.pRCR + this.pOHR;
+		return this.totalSHR;
+	}
 }
 
 //Have not made an event specific SHR
