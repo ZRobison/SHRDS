@@ -130,12 +130,12 @@ var SHRView = function () {
 		var body =
 		
 			"WPR" +
-			"<select id='myList' onChange=''>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='2'>Long Period(>14sec)</option>" +
-			"<option value='3'>Moderate Period(9-14secs)</option>" +
-			"<option value='4'>Short Period(6-8 secs)</option>" +
-			"<option value='5'>Extremely Short Period(<6 secs)</option>" +
+			"<select id='myList' name='WPRForm'>" +
+			"<option value='-1' selected>select one</option>" +
+			"<option value='0'>Long Period(>14sec)</option>" +
+			"<option value='1'>Moderate Period(9-14secs)</option>" +
+			"<option value='2'>Short Period(6-8 secs)</option>" +
+			"<option value='3'>Extremely Short Period(<6 secs)</option>" +
 			"</select>" +
 			"<button type='button' onclick='getWPRInfo()')>?</button>" +
 			"<div class='error'></div>" +
@@ -158,17 +158,17 @@ var SHRView = function () {
 
 		var body =
 
-			"ZWR<select id='myList' onChange=''>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='2'>0</option>" +
-			"<option value='3'>up to 20</option>" +
-			"<option value='4'>up to 40</option>" +
-			"<option value='5'>up to 60</option>" +
-			"<option value='6'>up to 80</option>" +
-			"<option value='7'>up to 100</option>" +
-			"<option value='8'>up to 120</option>" +
-			"<option value='9'>up to 140</option>" +
-			"<option value='10'>up to 160</option>" +
+			"ZWR<select id='myList' name='ZWRForm'>" +
+			"<option value='-1' selected>select one</option>" +
+			"<option value='0'>0</option>" +
+			"<option value='1'>up to 20</option>" +
+			"<option value='2'>up to 40</option>" +
+			"<option value='3'>up to 60</option>" +
+			"<option value='4'>up to 80</option>" +
+			"<option value='5'>up to 100</option>" +
+			"<option value='6'>up to 120</option>" +
+			"<option value='7'>up to 140</option>" +
+			"<option value='8'>up to 160</option>" +
 			"</select>" +
 			"<button type='button' onclick='getZWRInfo()')>?</button>" +
 			"<div class='error'></div>" +
@@ -191,13 +191,13 @@ var SHRView = function () {
 
 		var body =
 		
-			"<select id='myList' onChange=''>" +
-				"<option value='1' selected>Select one</option>" +
-				"<option value='2'>No chop (glassy)</option>" +
-				"<option value='3'>Light Chop (5-11 kts)</option>" +
-				"<option value='4'>Moderate Chop (12-21 kts)</option>" +
-				"<option value='5'>Excessive Chop (22-27 kts)</option>" +
-				"<option value='6'>Extreme Chop (>27kts)</option>" +
+			"<select id='myList' name='STRForm'>" +
+				"<option value='-1' selected>Select one</option>" +
+				"<option value='0'>No chop (glassy)</option>" +
+				"<option value='1'>Light Chop (5-11 kts)</option>" +
+				"<option value='2'>Moderate Chop (12-21 kts)</option>" +
+				"<option value='3'>Excessive Chop (22-27 kts)</option>" +
+				"<option value='4'>Extreme Chop (>27kts)</option>" +
 			"</select>" + 
 			"<button type='button' onclick='getSTRInfo()')>?</button>" +
 			"<div class='error'></div>" +
@@ -236,13 +236,13 @@ var SHRView = function () {
 
 		var body =
 		  
-			"<select id='myList' onChange=''>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='3'>No Drag (0)</option>" +
-			"<option value='4'>Low Drag (>40 secs)</option>" +
-			"<option value='5'>Moderate Drag (20-40 secs)</option>" +
-			"<option value='6'>Strong Drag (13-19 secs)</option>" +
-			"<option value='7'>Very Strong Drag (<13 secs)</option>" +
+			"<select id='myList' name='LDRForm'>" +
+			"<option value='-1' selected>select one</option>" +
+			"<option value='0'>No Drag (0)</option>" +
+			"<option value='1'>Low Drag (>40 secs)</option>" +
+			"<option value='2'>Moderate Drag (20-40 secs)</option>" +
+			"<option value='3'>Strong Drag (13-19 secs)</option>" +
+			"<option value='4'>Very Strong Drag (<13 secs)</option>" +
 			"</select>" +
 			"<button type='button' onclick='getLDRInfo()')>?</button>" +
 			"<div class='error'></div>"+
@@ -266,12 +266,12 @@ var SHRView = function () {
 
 		var body =
 		   
-			"<br><select id='myList' onChange=''>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='2'>No Rips</option>" +
-			"<option value='3'>Mild Rips (swim against)</option>" +
-			"<option value='4'>Mild to strong Rips (ONLY walk waist deep against)</option>" +
-			"<option value='5'>Strong Rips (Cannot walk against)</option>" +
+			"<br><select id='myList' name='RCRForm'>" +
+			"<option value='-1' selected>select one</option>" +
+			"<option value='0'>No Rips</option>" +
+			"<option value='1'>Mild Rips (swim against)</option>" +
+			"<option value='2'>Mild to strong Rips (ONLY walk waist deep against)</option>" +
+			"<option value='3'>Strong Rips (Cannot walk against)</option>" +
 			"</select>" +
 			"<button type='button' onclick='getRCRInfo()')'>?</button>" +
 			"<div class='error'></div>"+
@@ -282,7 +282,7 @@ var SHRView = function () {
 
 		var footer =
 			
-			"<button type='submit' class='blueButtons' onClick='console.log(getLDRvalue())' >Next</button>" ;
+			"<button type='submit' class='blueButtons' onClick='console.log(getRCRvalue())' >Next</button>" ;
 			
 
 		$(".heading").text(header);
@@ -296,18 +296,18 @@ var SHRView = function () {
 		var body =
 		
 		
-			"OHR: one for each extra hazard present<br><br><select id='myList' onChange=''>" +
-			"<option value='1' selected>select one</option>" +
-			"<option value='2'>0</option>" +
-			"<option value='3'>1</option>" +
-			"<option value='4'>2</option>" +
-			"<option value='5'>3</option>" +
-			"<option value='6'>4</option>" +
-			"<option value='7'>5</option>" +
-			"<option value='8'>6</option>" +
-			"<option value='9'>7</option>" +
-			"<option value='10'>8</option>" +
-			"<option value='11'>9</option>" +
+			"OHR: one for each extra hazard present<br><br><select id='myList' name='OHRForm'>" +
+			"<option value='-1' selected>select one</option>" +
+			"<option value='0'>0</option>" +
+			"<option value='1'>1</option>" +
+			"<option value='2'>2</option>" +
+			"<option value='3'>3</option>" +
+			"<option value='4'>4</option>" +
+			"<option value='5'>5</option>" +
+			"<option value='6'>6</option>" +
+			"<option value='7'>7</option>" +
+			"<option value='8'>8</option>" +
+			"<option value='9'>9</option>" +
 			"</select>" +
 			"<button type='button' onclick='getOHRInfo()')'>?</button>" +
 			"<div class='error'></div>"+
