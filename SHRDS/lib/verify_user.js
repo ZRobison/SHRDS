@@ -1,5 +1,4 @@
 function verify_user(){
-    location.href = 'index.html?#prevailing1';
         //If password is null, it is a IR user. ADD IN USERTYPE VARIABLE 
         //if(password = null){
 			//dummy test db
