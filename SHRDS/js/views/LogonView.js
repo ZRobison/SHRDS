@@ -5,32 +5,59 @@ var LogonView = function(){
 
 		var body =
 		"<div class='radBut'>"+
-		"<input type='radio' name='radio' id='radio1' class='radio' value='checked' >"+
+		"<input onClick='selected()' type='radio' name='radio' id='radio1' class='radio' value='checked' >"+
 		"<label for='radio1'>TSO</label>"+
 		"</div>"+
+		
 		"<div class='radBut'>"+
-		"<input type='radio' name='radio' id='radio2' class='radio'/>"+
+		"<input onClick='selected()' type='radio' name='radio' id='radio2' class='radio'/>"+
 		"<label for='radio2'>Incident Report</label>"+
 		"</div>"+
+		
 		"<div class='radBut'>"+
-		"<input type='radio' name='radio' id='radio3' class='radio'/>"+
+		"<input onClick='selected()' type='radio' name='radio' id='radio3' class='radio'/>"+
 		"<label for='radio3'>Admin</label>"+
 		"</div>"+
-		"<form action = '' method=''>"+
-		"User Name/Reference Number: <br>"+
-		"<input type='text' name='' id='username'><br>"+
-		"Password: <br>"+
-		"<input type='password' name='' id='password'><br>"+
-		"</form>"+
+		"<div id='forming'></div>"+
         "<div id ='error'></div>";
+		
+		
         
         
 		//
-		var footer =
-		"<button type='submit' class='blueButtons' id='loginBut' onclick='login()'>LOGIN</button>";
-        
+
+		
 		$(".heading").text(header);
 		$(".body").html(body);
-		$(".footer").html(footer);
+		
 	}	
 }
+
+function selected() {
+	if ($('#radio1').is(":checked")) {
+		var forming = "<form action = '' method=''>"+
+		"TSO Reference Number: <br>"+
+		"<input type='text' name='' id='username'><br>"+
+		"Password: <br>"+
+		"<input type='password' name='' id='password'><br>"+
+		"</form>";
+		$("#forming").html(forming);
+    } else if ($('#radio2').is(":checked")) {
+		var forming = "<form action = '' method=''>"+
+		"Supervisors Reference Number: <br>"+
+		"<input type='text' name='' id='username'><br>";
+		$("#forming").html(forming);
+	} else if ($('#radio3').is(":checked")) {
+		var forming = "<form action = '' method=''>"+
+		"Admin User Name <br>"+
+		"<input type='text' name='' id='username'><br>"+
+		"Password: <br>"+
+		"<input type='password' name='' id='password'><br>"+
+		"</form>";
+		$("#forming").html(forming);
+	}
+	var footer =
+	"<button type='submit' class='blueButtons' id='loginBut' onclick='login()'>LOGIN</button>";
+    $(".footer").html(footer);
+}
+
