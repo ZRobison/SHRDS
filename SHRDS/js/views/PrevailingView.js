@@ -5,24 +5,8 @@ var PrevailingView = function(){
 		$(".style").html("<link rel='stylesheet' type='text/css' href='css/main.css'>");
 		
 		$(".heading").text("Prevailing Conditions");
-		var html =  	
-	"</tr>" +
-	"<tr class='header'>" +
-    "<td height='50'>&nbsp;</td>" +
-    "<td colspan='2'>Date " +
-    "<input type='text' name='textfield' style='width:100px;' /></td>" +
-    "<td colspan='2'>Time " +
-  "</tr>" +
-  "<tr>" +
-    "<td>&nbsp;</td>" +
-    "<td colspan='4'>&nbsp;</td>" +
-  "</tr>" +
-  "<tr>" +
-    "<td>&nbsp;</td>" +
-    "<td colspan='4'>&nbsp;</td>" +
-  "</tr>" +
-  "<br>" +
-  "<tr>";
+
+
   var body=
     "<td width='129' class='titles' >Beach</td>" +
 	"<body onLoad='GETcookie()'>" +

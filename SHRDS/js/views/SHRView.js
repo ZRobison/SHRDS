@@ -386,7 +386,13 @@ var SHRView = function () {
 			"<button type='submit' class='blueButtons'>Log Out</button>" +
 			"</form>";
 		
-		$("#rating").text(calculateSHR());
+		var shr = -1;
+		if (app.SHRFlag){
+			shr = app.prevalingSHRData.SHR.calculate();
+		} else {
+			//eventspecific
+		}
+		$("#rating").text(shr);
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
