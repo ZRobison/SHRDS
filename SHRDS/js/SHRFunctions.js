@@ -58,7 +58,7 @@ function getWPRvalue(){
 		} else {
 			//eventspecific
 		}
-		if (score !== -1){
+		if (score != -1){
 					window.location.hash ="#ZWR";
 					$(".error").text("");
 		} else {
@@ -83,7 +83,7 @@ function getZWRvalue(){
 		} else {
 			//eventspecific
 		}
-		if(score !== -1) {
+		if(score != -1) {
 					window.location.hash ="#STR";
 					$(".error").text("");
 		} else {
@@ -108,7 +108,7 @@ function getSTRvalue(){
 		} else {
 			//eventspecific
 		}
-		if(score !== -1) {
+		if(score != -1) {
 					window.location.hash ="#LDR";
 					$(".error").text("");
 		} else {
@@ -158,7 +158,7 @@ function getRCRvalue(){
 		} else {
 			//eventspecific
 		}
-		if(score !== -1) {
+		if(score != -1) {
 					window.location.hash ="#OHR";
 					$(".error").text("");
 		} else {
@@ -183,8 +183,8 @@ function getOHRvalue(){
 		} else {
 			//eventspecific
 		}
-		if(score !== -1) {
-					window.location.hash ="#OHR";
+		if(score != -1) {
+					window.location.hash ="#REV";
 					$(".error").text("");
 		} else {
 					$(".error").text("Please select a value.");
