@@ -133,7 +133,7 @@ function getLDRvalue(){
 		} else {
 			//eventspecific
 		}
-		if(score !== -1) {
+		if(score != -1) {
 					window.location.hash ="#RCR";
 					$(".error").text("");
 		} else {
