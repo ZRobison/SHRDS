@@ -57,7 +57,7 @@ function selected() {
 		$("#forming").html(forming);
 	}
 	var footer =
-	"<button type='submit' class='blueButtons' id='loginBut' onclick='login()'>LOGIN</button>";
+	"<button type='submit' class='blueButtons' id='loginBut' onclick='verify_user()'>LOGIN</button>";
     $(".footer").html(footer);
 }
 
