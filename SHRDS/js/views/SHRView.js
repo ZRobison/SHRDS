@@ -218,7 +218,7 @@ var SHRView = function () {
 		var header = "Littoral Drift Rating";
 
 		var body =
-		    //new button
+		  
 			"<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='3'>No Drag (0)</option>" +
