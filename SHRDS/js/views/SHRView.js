@@ -46,7 +46,6 @@ var SHRView = function () {
 		var body =
 			//body
 			"WHR in Meters" + 
-			"<button type='button' onclick='getWHRInfo()'>?</button>" +
 			"<select id='myList' name='WHRForm'>" +
 			"<option value='-1'>select one</option>" +
 			"<option value='0'>0(Knee High)</option>" +
@@ -60,14 +59,14 @@ var SHRView = function () {
 			"<option value='10'>up to 4.0 (Double Overhead)</option>" +
 			"<option value='12'>up to 4.5</option>" +
 			"</select>" +
+			"<button type='button' onclick='getWHRInfo()'>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>";
 
 		var footer =
 			//footer
-			"<form class='WHRButton' onClick='console.log(getWHRvalue())'>" +
-			"<button type='submit' class='blueButtons'>Next</button> " +
-			"</form>";
+			"<button type='submit' class='blueButtons' onClick='console.log(getWHRvalue())'>Next</button> " ;
+
 			
 		$(".heading").text(header);
 		$(".body").html(body);
@@ -89,8 +88,7 @@ var SHRView = function () {
 		var header = "Wave Type Rating";
 
 		var body =
-            "WTR" +
-			"<button type='button' onclick='getWTRInfo()')>?</button>" +			
+            "WTR" +			
 			"<select id='myList' name='WTRForm'>" +
 			"<option value='-1' selected>select one</option>" +
 			"<option value='0'>Surging</option>" +
@@ -98,13 +96,13 @@ var SHRView = function () {
 			"<option value='2'>Plunging</option>" +
 			"<option value='4'>Plunging with Back-Blasting</option>" +
 			"</select>" +
+			"<button type='button' onclick='getWTRInfo()')>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>";
 
 		var footer =
-			"<form action = '' onClick='console.log(getWTRvalue())'>" +
-			"<button type='submit' class='blueButtons' >Next</button>" +
-			"</form>";
+			"<button type='submit' class='blueButtons' onClick='console.log(getWTRvalue())'>Next</button>" ;
+			
 
 		$(".heading").text(header);
 		$(".body").html(body);
@@ -121,8 +119,7 @@ var SHRView = function () {
 		var header = "Wave Period Rating";
 
 		var body =
-			//new button
-			"<button type='button' onclick='getWPRInfo()')>?</button>" +
+		
 			"WPR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>Long Period(>14sec)</option>" +
@@ -130,13 +127,14 @@ var SHRView = function () {
 			"<option value='4'>Short Period(6-8 secs)</option>" +
 			"<option value='5'>Extremely Short Period(<6 secs)</option>" +
 			"</select>" +
+			"<button type='button' onclick='getWPRInfo()')>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>";
 
 		var footer =
-			"<form action = 'onClick='console.log(getWPRvalue())" +
-			"<button type='submit' class='blueButtons' >Next</button>" +
-			"</form>";
+			
+	    "<button type='submit' class='blueButtons' onClick='console.log(getWPRvalue())' >Next</button>" ;
+			
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
@@ -147,9 +145,7 @@ var SHRView = function () {
 		var header = "Zone Width Rating";
 
 		var body =
-//？
-			//new button
-            "<button type='button' onclick='getZWRInfo()')>?</button>" +
+
 			"ZWR<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>0</option>" +
@@ -162,13 +158,14 @@ var SHRView = function () {
 			"<option value='9'>up to 140</option>" +
 			"<option value='10'>up to 160</option>" +
 			"</select>" +
+			"<button type='button' onclick='getZWRInfo()')>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>";
 
 		var footer =
-			"<form action = '#STR' method=''>" +
-			"<button type='submit' class='blueButtons' >Next</button>" +
-			"</form>";
+			
+			"<button type='submit' class='blueButtons' onClick='console.log(getZWRvalue())' >Next</button>" ;
+			
 
 		$(".heading").text(header);
 		$(".body").html(body);
@@ -179,8 +176,7 @@ var SHRView = function () {
 		var header = "Surface Turbulence Rating";
 
 		var body =
-		    //new button
-			"<button type='button' onclick='getSTRInfo()')>?</button>" +
+		
 			"<select id='myList' onChange=''>" +
 				"<option value='1' selected>Select one</option>" +
 				"<option value='2'>No chop (glassy)</option>" +
@@ -189,8 +185,13 @@ var SHRView = function () {
 				"<option value='5'>Excessive Chop (22-27 kts)</option>" +
 				"<option value='6'>Extreme Chop (>27kts)</option>" +
 			"</select>" + 
+			"<button type='button' onclick='getSTRInfo()')>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>" +
+			
+			"<br>" +
+			"<br>" +
+			"<br>" +
 
 			"<p>Cross Waves: form at random angles to the primary swell direction due to local storms or reflection of the primary swell.</p>" +
 			"<p>Select minor or moderate if Cross Waves are present.</p>"+
@@ -204,9 +205,9 @@ var SHRView = function () {
 			"</div>";
 
 		var footer =
-			"<form action='#LDR'>" +
-				" <button type='submit' class='blueButtons' >Next</button> " +
-			"</form>";
+			
+				" <button type='submit' class='blueButtons' onClick='console.log(getSTRvalue())' >Next</button> " ;
+		
 
 		$(".heading").text(header);
 		$(".body").html(body);
@@ -218,8 +219,7 @@ var SHRView = function () {
 
 		var body =
 		    //new button
-			"<button type='button' onclick='getLDRInfo()')>?</button>" +
-			"LDR<br><select id='myList' onChange=''>" +
+			"<select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='3'>No Drag (0)</option>" +
 			"<option value='4'>Low Drag (>40 secs)</option>" +
@@ -227,13 +227,14 @@ var SHRView = function () {
 			"<option value='6'>Strong Drag (13-19 secs)</option>" +
 			"<option value='7'>Very Strong Drag (<13 secs)</option>" +
 			"</select>" +
+			"<button type='button' onclick='getLDRInfo()')>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>";
 
 		var footer =
-			"<form action = '#RCR' method=''>" +
-			"<button type='submit' class='blueButtons' >Next</button>" +
-			"</form>";
+		
+			"<button type='submit' class='blueButtons' onClick='console.log(getLDRvalue())' >Next</button>" ;
+			
 
 		$(".heading").text(header);
 		$(".body").html(body);
@@ -244,22 +245,22 @@ var SHRView = function () {
 		var header = "Rip Current Rating";
 
 		var body =
-		    //new button
-			"<button type='button' onclick='getRCRInfo()')'>?</button>" +
-			"RCR<br><select id='myList' onChange=''>" +
+		   
+			"<br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>No Rips</option>" +
 			"<option value='3'>Mild Rips (swim against)</option>" +
 			"<option value='4'>Mild to strong Rips (ONLY walk waist deep against)</option>" +
 			"<option value='5'>Strong Rips (Cannot walk against)</option>" +
 			"</select>" +
+			"<button type='button' onclick='getRCRInfo()')'>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>";
 
 		var footer =
-			"<form action = '#OHR' method=''>" +
-			"<button type='submit' class='blueButtons' >Next</button>" +
-			"</form>";
+			
+			"<button type='submit' class='blueButtons' onClick='console.log(getLDRvalue())' >Next</button>" ;
+			
 
 		$(".heading").text(header);
 		$(".body").html(body);
@@ -270,28 +271,8 @@ var SHRView = function () {
 		var header = "Other Hazards Rating";
 
 		var body =
-		    /* 
-			"<p class='titles'>Other Significant hazard may include:</p>" +
-			"<ul>" +
-			"<li>Man-made or natural obstructions (rocks, reefs, jetties, outflow pipes, wrecks, uncontrolled craft:" +
-			"</li>" +
-			"<li>Uncontrolled surf craft (1 for ski, 6 for boats)" +
-			"</li>" +
-			"<li>" +
-			"Floating logs, seaweed and other flotsam." +
-			"</li>" +
-			"<li>" +
-			"Water temperature(low water temperature increases hazard)." +
-			"</li>" +
-			"<li>" +
-			"Pollution, marine stinger etc." +
-			"</li>" +
-			"<li>" +
-			"Visual impairment: for example, the sun setting over the ocean.<br><br>" +
-			"</li>" */ 
-			"Other Hazards Rating" +
-			"<button type='button' onclick='getOHRInfo()')'>?</button>" +
-
+		
+		
 			"OHR: one for each extra hazard present<br><br><select id='myList' onChange=''>" +
 			"<option value='1' selected>select one</option>" +
 			"<option value='2'>0</option>" +
@@ -305,13 +286,14 @@ var SHRView = function () {
 			"<option value='10'>8</option>" +
 			"<option value='11'>9</option>" +
 			"</select>" +
+			"<button type='button' onclick='getOHRInfo()')'>?</button>" +
 			"<div class='info'></div>"+
 			"<div class='error'></div>";
 
 		var footer =
-			"<form action = '#REV' method=''>" +
-			"<button type='submit' class='blueButtons' >Next</button>" +
-			"</form>";
+			
+			"<button type='submit' class='blueButtons' onClick='console.log(getOHRvalue())' >Next</button>" ;
+			
 
 		$(".heading").text(header);
 		$(".body").html(body);
