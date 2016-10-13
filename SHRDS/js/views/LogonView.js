@@ -22,7 +22,7 @@ var LogonView = function(){
 		"Password: <br>"+
 		"<input type='password' name='' id='password'><br>"+
 		"</form>"+
-        "<div id ='passwordCheck'></div>";
+        "<div id ='error'></div>";
         
         
 		//
