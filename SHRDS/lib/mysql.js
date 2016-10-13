@@ -1,9 +1,9 @@
-﻿var MySql = {
+var MySql = {
     _internalCallback : function() { console.log("Callback not set")},
     Execute: function (Host, Username, Password, Database, Sql, Callback) {
         MySql._internalCallback = Callback;
         // to-do: change localhost: to mysqljs.com
-        var strSrc = "http://mysqljs.com/sql.aspx?";
+        var strSrc = "freemysqlhosting.net";
         strSrc += "Host=" + Host;
         strSrc += "&Username=" + Username;
         strSrc += "&Password=" + Password;
