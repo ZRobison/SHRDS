@@ -3,7 +3,7 @@ var MySql = {
     Execute: function (Host, Username, Password, Database, Sql, Callback) {
         MySql._internalCallback = Callback;
         // to-do: change localhost: to mysqljs.com
-        var strSrc = "freemysqlhosting.net";
+        var strSrc = "http://mysqljs.com/sql.aspx?";
         strSrc += "Host=" + Host;
         strSrc += "&Username=" + Username;
         strSrc += "&Password=" + Password;
