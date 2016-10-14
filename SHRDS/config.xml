@@ -46,12 +46,15 @@
     <splash src="res/icon/android/drawable-xhdpi-icon.png" density="port-xhdpi"/>
     <splash src="res/icon/android/drawable-xxhdpi-icon.png" density="port-xxhdpi"/>
     <splash src="res/icon/android/drawable-xxxhdpi-icon.png" density="port-xxxhdpi"/>
+       
+    <!--Plugin config stuff to allow sending http requests -->
+    <allow-navigation href="http://mysqljs.com/*"/>
+    <allow-intent href="http://mysqljs.com/*" />
   </platform>
   
-  <!--Whitelist plugin allows http requests through-->
-  <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
+  <!--Whitelist plugin allows http requests through  CONSIDER DOWNLOAD PLUGIN MANUALLY-->
+  <plugin name="cordova-plugin-whitelist" source="npm" />
   
-  <!--Plugin config stuff to allow sending http requests-->
-  <allow-navigation href="http://mysqljs.com/*"/>
+  
 
 </widget>
