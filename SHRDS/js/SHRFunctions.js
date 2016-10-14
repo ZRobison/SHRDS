@@ -199,3 +199,140 @@ function getOHRInfo(){
 		$(".info").text("Other Significant hazard may include: Man-made or natural obstructions (rocks, reefs, jetties, outflow pipes, wrecks, uncontrolled craft). Uncontrolled surf craft (1 for ski, 6 for boats). Floating logs, seaweed and other flotsam. Water temperature(low water temperature increases hazard). Pollution, marine stinger etc. Visual impairment: for example, the sun setting over the ocean.");
 	}
 }
+
+
+
+function WHRDescription(value){
+	var texte = "ERROR";
+	switch(value){
+		case(0) :
+			texte = "0(Knee High)";
+		break;
+		case(1) :
+			texte = "up to 0.5 (Knee High)";
+		break;
+		case(2) :
+			texte = "up to 1.0 (waist High)";
+		break;
+		case(3) :
+			texte = "up to 1.5 (Head high)";
+		break;
+		case(4) :
+			texte = "up to 2.0 (Head High)";
+		break;
+		case(5) :
+			texte = "up to 2.5 (Overhead)";
+		break;
+		case(6) :
+			texte = "up to 3.0 (Overhead)";
+		break;
+		case(8) :
+			texte = "up to 3.5 (Double Overhead)";
+		break;
+		case(10) :
+			texte = "up to 4.0 (Double Overhead)";
+		break;
+		case(12) :
+			texte = "up to 4.5";
+		break;
+	}
+	
+	return texte;
+}
+			
+function WTRDescription(value){
+	var texte = "";
+	switch(value){
+		
+	}
+	
+	return texte;
+}
+
+function WPRDescription(value){
+	var texte = "";
+	switch(value){
+		
+	}
+	
+	return texte;
+}
+
+function ZWRDescription(value){
+	var texte = "";
+	switch(value){
+		
+	}
+	
+	return texte;
+}
+
+function STRDescription(value){
+	var texte = "";
+	switch(value){
+		
+	}
+	
+	return texte;
+}
+
+function LDRDescription(value){
+	var texte = "";
+	switch(value){
+		
+	}
+	
+	return texte;
+}
+
+function RCRDescription(value){
+	var texte = "";
+	switch(value){
+		
+	}
+	
+	return texte;
+}
+
+function OHRDescription(value){
+	var texte = "";
+	switch(value){
+		
+	}
+	
+	return texte;
+}
+
+function retreiveDescription(type, value){
+	var description = "ERROR"
+	switch(type){
+			case("WHR"):
+				description = WHRDescription(value);
+			break;
+			case("WTR"):
+				description = WTRDescription(value);
+			break;
+			case("WPR"):
+				description = WPRDescription(value);
+			break;
+			case("ZWR"):
+				description = ZWRDescription(value);
+			break;
+			case("STR"):
+				description = STRDescription(value);
+			break;
+			case("LDR"):
+				description = LDRDescription(value);
+			break;
+			case("RCR"):
+				description = RCRDescription(value);
+			break;
+			case("OHR"):
+				description = OHRDescription(value);
+			break;
+			default: 
+			description = "Dan is gay.";
+	}
+	
+	return description;
+}

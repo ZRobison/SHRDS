@@ -3,7 +3,7 @@ var login = function(){
 	var check = 1;
 	//check = users.verify_user();
 	if (check){
-		location.href = 'index.html?#WHR';
+		location.href = 'index.html?#prevailing1';
 	} else {
 		// error message
 	}

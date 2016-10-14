@@ -55,7 +55,8 @@ var app = {
 			new SHRView().render("REV");
 		} else if (hash.match(app.SHRURLS[9])){
 			new SHRView().render("SHR");
-		}else if (hash.match(app.prevailingURL)) {
+		}else if (hash.match(app.prevailingStartURL)) {
+            console.log("matched prevailing url");
 			new PrevailingView().render();
 		} 
 		
