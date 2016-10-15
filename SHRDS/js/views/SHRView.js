@@ -37,6 +37,7 @@ var SHRView = function () {
 				break;
 		}
 	}
+}
 
 	function getWHR() {
 
@@ -328,38 +329,34 @@ var SHRView = function () {
 
 	function getREV() {
 		var header = "Review SHR";
-
+		
+		if (app.SHRFlag){
+			var shr = app.prevalingSHRData.SHR;
+			console.log(shr.pWHR);
+		} else {
+			//eventspecific
+		}
+		
 		var body =
-			"<Table width='594' border='0' class='titles'>" +
-			"<tr><td>" +
-			"WHR" +
-			"</td><td>" +
-			"Value" +
-			"</td></tr><tr><td>" +
-			"WTR" +
-			"</td><td>" +
-			"Value" +
-			"</td></tr><tr><td>" +
-			"WPR" +
-			"</td><td>" +
-			"Value" +
-			"</td></tr><tr><td>" +
-			"ZWR" +
-			"</td><td>" +
-			"Value" +
-			"</td></tr><tr><td>" +
-			"STR</td><td>" +
-			"Value" +
-			"</td></tr><tr><td>" +
-			"LDR</td><td>" +
-			"Value</td></tr><tr><td>" +
-			"RCR</td><td>" +
-			"Value" +
-			"</td></tr><tr><td>" +
-			"OHR" +
-			"</td><td>" +
-			"Value" +
-			"</td></tr></Table>";
+			"<l>" +
+			"<ul>" +
+			"WHR  " + retreiveDescription("WHR", shr.pWHR) +
+			"</ul><ul>" +
+			"WTR  " + retreiveDescription("WTR", shr.pWTR) +
+			"</ul><ul>" +
+			"WPR  " + retreiveDescription("WPR", shr.pWPR) +
+			"</ul><ul>" +
+			"ZWR  " + retreiveDescription("ZWR", shr.pZWR) +
+			"</ul><ul>" +
+			"STR  " + retreiveDescription("STR", shr.pSTR) +
+			"</ul><ul>" +
+			"LDR  " + retreiveDescription("LDR", shr.pLDR) +
+			"</ul><ul>" +
+			"RCR  " + retreiveDescription("RCR", shr.pRCR) +
+			"</ul><ul>" +
+			"OHR  " + retreiveDescription("OHR", shr.pOHR) +
+			"</ul>"
+			"</l>";
 
 		var footer =
 			"<form action = '#SHR' method=''>" +
@@ -378,7 +375,7 @@ var SHRView = function () {
 		var body =
 
 			"<p><div class='titles'>The Surf Hazard Rating is:</div></p><br>" +
-			"<div id='rating'></div>" ;
+			"<div class= 'rating'></div>" ;
 
 		var footer =
 
@@ -386,9 +383,17 @@ var SHRView = function () {
 			"<button type='submit' class='blueButtons'>Log Out</button>" +
 			"</form>";
 		
-		$("#rating").text(calculateSHR());
+		var shr = -1;
+		if (app.SHRFlag){
+			shr = app.prevalingSHRData.SHR.calculate();
+			console.log(shr);
+		} else {
+			//eventspecific
+		}
 		$(".heading").text(header);
 		$(".body").html(body);
 		$(".footer").html(footer);
+		$(".rating").text(shr);
+		
 	}
-}
+
