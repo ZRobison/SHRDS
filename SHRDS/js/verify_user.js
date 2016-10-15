@@ -7,17 +7,28 @@ function verify_user(){
                 "sql6138853", 
                 "sHUtJmyDh3", 
                 "sql6138853", 
-                "select USER_ID from SHRDS_USER where USER_ID ="+document.getElementById("username").value, 					//+" and password ="+document.getElementById("password")  document.getElementById("username")
-                function (data) {		
+                "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='"+document.getElementById("username").value+"' and PASSWORD ='"+document.getElementById("password").value+"'",			
+                function (data) {	
+                    console.log(JSON.stringify(data));
+                    
+                    //First Ensure the query succeded
+                    if (data.Success === true){
                     //If we have a match that means the user has the correct credentials
-                    if (data.Result[0]!=null){
-							location.href = 'index.html?#prevailing1';  
+                        if (data.Result!=null && data.Result!= ""){
+                            //Also ensure that they are TSO certified
+                            if(data.Result[0].TSO_QUALIFIED == true){
+							 location.href = 'index.html?#prevailing1';  
+                            }
+                            else{
+                                $(".error").text("You are not certified to log in as a TSO");
+                            }
                         }
-                    //Otherwise there is a match for the user number in the DB
-                    else{   
-                        document.getElementById("error").innerHTML = "Error: That username and password combination is incorrect";
+                        //Otherwise there is a match for the user number in the DB
+                        else{   
+                            $(".error").text("Error: That username and password combination is incorrect");
                         }
-                    });
+                    }
+                });
     } 
 
 //                }
