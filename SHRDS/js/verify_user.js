@@ -1,7 +1,5 @@
-var user = {
-    verify_user: function () {
+function verify_user(){
         //If password is null, it is a IR user. ADD IN USERTYPE VARIABLE 
-		//This is cirrently testing to a different database, will have to replace all db connection stuff later
         //if(password = null){
 			//dummy test db
             MySql.Execute(
@@ -12,16 +10,16 @@ var user = {
                 "select USER_ID from SHRDS_USER where USER_ID ="+document.getElementById("username").value, 					//+" and password ="+document.getElementById("password")  document.getElementById("username")
                 function (data) {		
                     //If we have a match that means the user has the correct credentials
-                    if (parseInt(data.Result[0].USER_ID)===parseInt(document.getElementById("username").value)){
-							location.href = 'index.html?#WHR';  
+                    if (data.Result[0]!=null){
+							location.href = 'index.html?#prevailing1';  
                         }
                     //Otherwise there is a match for the user number in the DB
-                    else{           
-							document.getElementById("passwordCheck").innerHTML = "Error: That username and password combination is incorrect  "+document.getElementById("username").value+" "+ data.Result[0].USER_ID;
+                    else{   
+                        document.getElementById("error").innerHTML = "Error: That username and password combination is incorrect";
                         }
                     });
     } 
-};
+
 //                }
 //            else{
 //                MySql.Execute(
