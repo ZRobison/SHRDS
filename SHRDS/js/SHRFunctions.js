@@ -235,69 +235,201 @@ function WHRDescription(value){
 		case(12) :
 			texte = "up to 4.5";
 		break;
+		default: 
+		description = "Dan is gay.";
 	}
 	
 	return texte;
 }
 			
 function WTRDescription(value){
-	var texte = "";
+	var texte = "ERROR";
 	switch(value){
-		
+			case (0) :  
+			texte = "Surging";
+			break; 
+			case (1) :  
+			texte = "Spilling";
+			break; 
+			case (2) :  
+			texte = "Plunging";
+			break; 
+			case (4) :  
+			texte = "Plunging with Back-Blasting";
+			break;
+			default: 
+			description = "Dan is gay.";
 	}
 	
 	return texte;
 }
 
 function WPRDescription(value){
-	var texte = "";
+	var texte = "ERROR";
 	switch(value){
-		
+			case (0) :  
+			texte = "Long Period(>14sec)";  
+			break;
+			case (1) :  
+			texte = "Moderate Period(9-14secs)"; 
+			break;
+			case (2) : 
+			texte = "Short Period(6-8 secs)";  
+			break;
+			case (3) :  
+			texte = "Extremely Short Period(<6 secs)";  
+			break;
+			default: 
+			description = "Dan is gay.";
 	}
 	
 	return texte;
 }
 
 function ZWRDescription(value){
-	var texte = "";
+	var texte = "ERROR";
 	switch(value){
-		
+	        case (0)  :  
+			texte = "0";  
+			break;
+			case (1)  :  
+			texte = "up to 20";  
+			break;
+			case (2)  :  
+			texte = "up to 40";  
+			break;
+			case (3)  :  
+			texte = "up to 60";  
+			break;
+			case (4)  :  
+			texte = "up to 80"; 
+			break;
+			case (5)  :  
+			texte = "up to 100";  
+			break;
+			case (6)  : 
+			texte = "up to 120"; 
+			break;
+			case (7)  :  
+			texte = "up to 140";
+			break;
+			case (8)  :  
+			texte = "up to 160"; 
+			break;
+            default: 
+			description = "Dan is gay.";			
 	}
 	
 	return texte;
 }
 
 function STRDescription(value){
-	var texte = "";
+	var texte = "ERROR";
 	switch(value){
-		
+	            case (0)  :  
+				texte = "No chop (glassy)";  
+				break;
+	            case (1)  :  
+				texte = "Light Chop (5-11 kts)";  
+				break;
+				case (2)  :  
+				texte = "Moderate Chop (12-21 kts)";  
+				break;
+				case (3)  :  
+				texte = "Excessive Chop (22-27 kts)";  
+				break;
+				case (4)  :  
+				texte = "Extreme Chop (>27kts)";  
+				break;
+				default: 
+			    description = "Dan is gay.";
 	}
 	
 	return texte;
 }
 
 function LDRDescription(value){
-	var texte = "";
+	var texte = "ERROR";
 	switch(value){
-		
+	        case (0)  :  
+			texte = "No Drag (0)" ;  
+			break;
+			case (1)  :  
+			texte = "Low Drag (>40 secs)";  
+			break;
+			case (2)  :  
+			texte = "Moderate Drag (20-40 secs)";  
+			break;
+			case (3)  :  
+			texte = "Strong Drag (13-19 secs)";  
+			break;
+			case (4)  :  
+			texte = "Very Strong Drag (<13 secs)";  
+			break;
+            default: 
+			description = "Dan is gay.";			
 	}
 	
 	return texte;
 }
 
 function RCRDescription(value){
-	var texte = "";
+	var texte = "ERROR";
 	switch(value){
-		
+	        case (0)  :  
+			texte = "No Rips";  
+			break;
+			case (1)  :  
+			texte = "Mild Rips (swim against)";  
+			break;
+			case (2)  :  
+			texte = "Mild to strong Rips (ONLY walk waist deep against)";  
+			break;
+			case (3)  :  
+			texte = "Strong Rips (Cannot walk against)";  
+			break;	
+			default: 
+			description = "Dan is gay.";
 	}
 	
 	return texte;
 }
 
 function OHRDescription(value){
-	var texte = "";
+	var texte = "ERROR";
 	switch(value){
-		
+	        case (0)  :  
+			texte = "0";  
+			break;
+			case (1)  :  
+			texte = "1";  
+			break;
+			case (2)  :  
+			texte = "2";  
+			break;
+			case (3)  :  
+			texte = "3";  
+			break;
+			case (4)  :  
+			texte = "4"; 
+			break;
+			case (5)  :  
+			texte = "5";  
+			break;
+			case (6)  : 
+			texte = "6"; 
+			break;
+			case (7)  :  
+			texte = "7";
+			break;
+			case (8)  :  
+			texte = "8"; 
+			break;	
+            case (9)  :  
+			texte = "9"; 
+			break;	
+            default: 
+			description = "Dan is gay.";			
 	}
 	
 	return texte;

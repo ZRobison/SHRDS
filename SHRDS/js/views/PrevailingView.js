@@ -6,10 +6,7 @@ var PrevailingView = function(){
 		
 		$(".heading").text("Prevailing Conditions");
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 3910ce961a2be07fcb4a6bcf8f9006e76c7e4c87
   var body=
     "<div id='beachBox'><p>Beach<p>" +
       "<select name='select' id='myList'>" +
