@@ -74,11 +74,15 @@ var EventSpecificView = function () {
             "<input type ='radio' name='' id=''/>" +
             "In";
         var footer =
+<<<<<<< HEAD
             "<form action="
         ">" +
         "beach/location:<input type = 'text' name='bl'>" +      
         "<button type='button' class='blueButtons'>NEXT</button> " +
         "</form>";
+=======
+
+>>>>>>> df711e87dbfc559d9fa322beef700e1f050e5394
 
         $(".heading").text(header);
         $(".body").html(body);
