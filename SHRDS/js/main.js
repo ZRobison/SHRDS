@@ -17,6 +17,8 @@ var app = {
         //URL detection
         this.incidentStartURL = /^#incident1/;
         this.prevailingStartURL = /^#prevailing1/;
+        this.eventSpecificURL = /^#eventSpecific/;
+        this.formSelectURL = /^#formSelect/;
         this.adminURLS = [/^#adminPageSelect/, /^#adminPasswordChange/, /^#adminMetadata/];
         this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/];
 
@@ -66,6 +68,10 @@ var app = {
             new AdminSelectView().render("resetPassword");
         } else if (hash.match(app.adminURLS[2])) {
             new AdminSelectView().render("metaData");
+        } else if (hash.match(app.eventSpecificURL)) {
+            new EventSpecificView().render();
+        } else if (hash.match(app.formSelectURL)) {
+            new FormSelectView().render();
         } else if (hash.match(app.prevailingStartURL)) {
             new PrevailingView().render();
         } else {
