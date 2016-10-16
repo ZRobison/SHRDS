@@ -72,7 +72,7 @@ function verify_user() {
                         //Also ensure that they are TSO certified
                         console.log(JSON.stringify(data));
                         if (data.Result[0].ADMIN_QUALIFIED == true) {
-                            location.href = 'index.html?#admin1';
+                            location.href = 'index.html?#adminPageSelect';
                         } else {
                             $(".error").text("You are not certified to log in as an admin user");
                         }
