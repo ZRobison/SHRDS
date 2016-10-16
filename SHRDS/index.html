@@ -1,63 +1,70 @@
 <html>
 
 <head>
-<div class='style'> </div>
-<meta charset="utf-8" />
-<meta name="format-detection" content="telephone=no" />
-<meta name="msapplication-tap-highlight" content="no" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <div class='style'> </div>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
-        <!-- BOOTSTRAP CSS -->
-        <link href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP CSS -->
+    <link href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- MAIN OVERRIDE BOOTSTRAP CSS -->
-        <link href="css/main.css" rel="stylesheet" type="text/css">
+    <!-- MAIN OVERRIDE BOOTSTRAP CSS -->
+    <link href="css/main.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 
-<header>
+    <header>
         <img src='images/logo.png'>
         <h1 class='heading'></h1>
-</header>
+    </header>
 
-<div class="body"></div>
+    <div class="body"></div>
 
-<div class="footer"></div>
+    <div class="footer"></div>
 
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="lib/iscroll.js"></script>
-<script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="lib/mysql.js"></script>
-<script type="text/javascript" src="lib/verify_user.js"></script>
-<script type="text/javascript" src="js/dataObject.js"></script>
-<script type="text/javascript" src="js/SHRFunctions.js"></script>
-<script type="text/javascript" src="js/dftout.js"></script>
-<script type="text/javascript" src="js/views/LogonView.js"></script>
-<script type="text/javascript" src="js/views/SHRView.js"></script>
-<script type="text/javascript" src="js/views/PrevailingView.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/iscroll.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="lib/mysql.js"></script>
 
-<script type="text/javascript" src="js/main.js"></script>
-<!-- BOOTSTRAP JS -->
-<script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- Views-->
+    <script type="text/javascript" src="js/views/LogonView.js"></script>
+    <script type="text/javascript" src="js/views/SHRView.js"></script>
+    <script type="text/javascript" src="js/views/PrevailingView.js"></script>
+    <script type="text/javascript" src="js/views/IRView.js"></script>
+    <script type="text/javascript" src="js/views/AdminSelectView.js"></script>
+    <script type="text/javascript" src="js/views/EventSpecificView.js"></script>
+    <script type="text/javascript" src="js/views/FormSelectView.js"></script>
+
+    <script type="text/javascript" src="js/dataObject.js"></script>
+    <script type="text/javascript" src="js/SHRFunctions.js"></script>
+    <script type="text/javascript" src="js/verify_user.js"></script>
+    <script type="text/javascript" src="js/dftout.js"></script>
+    <script type="text/javascript" src="js/adminFunctions.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 
-<script type="text/javascript">
-$(document).ready(function () {
-    // call main from Cordova
-    if ( window.device ) {
-        document.addEventListener("deviceready", app.initialize(), false);
-    }
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // call main from Cordova
+            if (window.device) {
+                document.addEventListener("deviceready", app.initialize(), false);
+            }
 
-    // from browser
-    else {
-        app.initialize();
-    }
-});
-     
+            // from browser
+            else {
+                app.initialize();
+            }
+        });
 
-</script>
+    </script>
 
 </body>
 
