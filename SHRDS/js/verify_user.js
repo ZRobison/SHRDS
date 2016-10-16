@@ -15,7 +15,7 @@ function verify_user() {
                     if (data.Result != null && data.Result != "") {
                         //Also ensure that they are TSO certified
                         if (data.Result[0].TSO_QUALIFIED == true) {
-                            location.href = 'index.html?#prevailing1';
+                            location.href = 'index.html?#formSelect';
                         } else {
                             $(".error").text("You are not certified to log in as a TSO");
                         }
