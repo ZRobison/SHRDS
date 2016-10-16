@@ -69,15 +69,16 @@ var EventSpecificView = function () {
             //put time here
 
             "in/out:" +
-            "<input type ='radio' name='' id=''/>" +
+            "<input type ='radio' name='inOut' id='in'/>" +
             "Out" +
-            "<input type ='radio' name='' id=''/>" +
-            "In";
+            "<input type ='radio' name='' id='out'/>" +
+            "In" +
+            "beach/location:<input type = 'text' name='bl'>";
         var footer =
-            "<form action= >" +
-            "beach/location:<input type = 'text' name='bl'>" +
-            "<button type='button' class='blueButtons'>back</button> " +
-            "<button type='button' class='blueButtons'>Next</button> " +
+            //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
+            "<form action= index.html?#WHR >" +
+            "<button type='submit' class='blueButtons' onclick=''>Next</button> " +
+            //"<button type='button' class='blueButtons' onclick =>Next</button> " +
             "</form>";
 
         $(".heading").text(header);
