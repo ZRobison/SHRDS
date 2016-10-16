@@ -69,11 +69,13 @@ var EventSpecificView = function () {
             //put time here
 
             "in/out:" +
-            "<input type ='radio' name='' id=''/>" +
+            "<input type ='radio' name='inOut' id='in'/>" +
             "Out" +
-            "<input type ='radio' name='' id=''/>" +
-            "In";
+            "<input type ='radio' name='' id='out'/>" +
+            "In" +
+            "beach/location:<input type = 'text' name='bl'>";
         var footer =
+<<<<<<< HEAD
 <<<<<<< HEAD
             "<form action="
         ">" +
@@ -83,6 +85,9 @@ var EventSpecificView = function () {
 =======
 
 >>>>>>> df711e87dbfc559d9fa322beef700e1f050e5394
+=======
+
+>>>>>>> 26861e0cc379f520dde0add5d02ce931c996f0bf
 
         $(".heading").text(header);
         $(".body").html(body);

@@ -1,4 +1,7 @@
 
+
+
+
 function getWHRvalue(){
 		var score = -1;
 		if (app.SHRFlag){
