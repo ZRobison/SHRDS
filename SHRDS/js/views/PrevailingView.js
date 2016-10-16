@@ -27,23 +27,33 @@ var PrevailingView = function () {
             "<li>Height1</li>" +
             "<li>Height2</li></ul>" +
             "</div>" +
+			
             "<div id='windDirBox'><p>Wind Direction</p>" +
-            "<input type='radio' name='radio' id='radio1' class='radio'/>" +
-            "<label for='radio1'>North</label>" +
-            "<input type='radio' name='radio' id='radio2' class='radio'/>" +
-            "<label for='radio2'>North East</label>" +
-            "<input type='radio' name='radio' id='radio3' class='radio'/>" +
-            "<label for='radio3'>East</label>" +
-            "<input type='radio' name='radio' id='radio4' class='radio'/>" +
-            "<label for='radio4'>South East</label>" +
-            "<input type='radio' name='radio' id='radio5' class='radio'/>" +
-            "<label for='radio5'>South</label>" +
-            "<input type='radio' name='radio' id='radio6' class='radio'/>" +
-            "<label for='radio6'>South West</label>" +
-            "<input type='radio' name='radio' id='radio7' class='radio'/>" +
-            "<label for='radio7'>West</label>" +
-            "<input type='radio' name='radio' id='radio8' class='radio'/>" +
-            "<label for='radio8'>North West</label>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio1' class='radio'/>" +
+            "<label for='radio1'>North</label></div>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio2' class='radio'/>" +
+            "<label for='radio2'>North East</label></div>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio3' class='radio'/>" +
+            "<label for='radio3'>East</label></div>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio4' class='radio'/>" +
+            "<label for='radio4'>South East</label></div>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio5' class='radio'/>" +
+            "<label for='radio5'>South</label></div>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio6' class='radio'/>" +
+            "<label for='radio6'>South West</label></div>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio7' class='radio'/>" +
+            "<label for='radio7'>West</label></div>" +
+			
+            "<div class='radBut'><input type='radio' name='radio' id='radio8' class='radio'/>" +
+            "<label for='radio8'>North West</label></div>" +
+			
             "</div>";
 
 
@@ -54,7 +64,7 @@ var PrevailingView = function () {
 
         var footer =
             "<form action = 'index.html?#WHR' method='' onClick=''>" +
-            "<button type='submit' class='blueButtons'>Next</button>" +
+            "<button type='submit' class='blueButtons'>NEXT</button>" +
             "</form>";
 
         $(".footer").html(footer);
