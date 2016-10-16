@@ -76,9 +76,8 @@ var EventSpecificView = function () {
         var footer =
             "<form action="
         ">" +
-        "beach/location:<input type = 'text' name='bl'>" +
-        "<button type='button' class='blueButtons'>back</button> " +
-        "<button type='button' class='blueButtons'>Next</button> " +
+        "beach/location:<input type = 'text' name='bl'>" +      
+        "<button type='button' class='blueButtons'>NEXT</button> " +
         "</form>";
 
         $(".heading").text(header);

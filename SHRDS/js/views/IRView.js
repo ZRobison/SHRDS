@@ -51,9 +51,8 @@ var IRView = function () {
             "<input type='text' style='width:20px;' />" +
             "<button type='submit'>&#45;</button> ";
 
-        var footer =
-            "<button type='button' class='blueButtons'>back</button>" +
-            "<button type='button' class='blueButtons'>Next</button>" +
+        var footer =         
+            "<button type='button' class='blueButtons'>NEXT</button>" +
             "<form>";
 
         $(".heading").text(header);

@@ -60,19 +60,15 @@ var SHRView = function () {
 			"<option value='10'>up to 4.0 (Double Overhead)</option>" +
 			"<option value='12'>up to 4.5</option>" +
 			"</select>" +
-			"<button type='button' onclick='getWHRInfo()'>?</button>" +
+			"<button type='button' class='questionMark' onclick='getWHRInfo()'></button>" +
 			"<div class='error'></div>"+
 			"<br>" +
 			"<br>" +
-			"<div class='info'></div>" ; 
-			
-			
-			
-			
+			"<div class='info'></div>" ; 			
 
 		var footer =
 			//footer
-			"<button type='submit' class='blueButtons' onClick='console.log(getWHRvalue())'>Next</button> " ;
+			"<button type='submit' class='blueButtons' onClick='console.log(getWHRvalue())'>NEXT</button> " ;
 
 			
 		$(".heading").text(header);
@@ -85,7 +81,6 @@ var SHRView = function () {
 		} else {
 			//Add code for IS SHR
 		}
-
 	};
 	
 
@@ -103,7 +98,7 @@ var SHRView = function () {
 			"<option value='2'>Plunging</option>" +
 			"<option value='4'>Plunging with Back-Blasting</option>" +
 			"</select>" +
-			"<button type='button' onclick='getWTRInfo()')>?</button>" +
+			"<button type='button' class='questionMark' onclick='getWTRInfo()')></button>" +
 			"<div class='error'></div>" +
 			"<br>" +
 			"<br>" +
@@ -111,7 +106,7 @@ var SHRView = function () {
 			
 
 		var footer =
-			"<button type='submit' class='blueButtons' onClick='console.log(getWTRvalue())'>Next</button>" ;
+			"<button type='submit' class='blueButtons' onClick='console.log(getWTRvalue())'>NEXT</button>" ;
 			
 
 		$(".heading").text(header);
@@ -138,7 +133,7 @@ var SHRView = function () {
 			"<option value='2'>Short Period(6-8 secs)</option>" +
 			"<option value='3'>Extremely Short Period(<6 secs)</option>" +
 			"</select>" +
-			"<button type='button' onclick='getWPRInfo()')>?</button>" +
+			"<button type='button' class='questionMark' onclick='getWPRInfo()')></button>" +
 			"<div class='error'></div>" +
 			"<br>" +
 			"<br>" +
@@ -146,7 +141,7 @@ var SHRView = function () {
 
 		var footer =
 			
-	    "<button type='submit' class='blueButtons' onClick='console.log(getWPRvalue())' >Next</button>" ;
+	    "<button type='submit' class='blueButtons' onClick='console.log(getWPRvalue())' >NEXT</button>" ;
 			
 		$(".heading").text(header);
 		$(".body").html(body);
@@ -171,7 +166,7 @@ var SHRView = function () {
 			"<option value='7'>up to 140</option>" +
 			"<option value='8'>up to 160</option>" +
 			"</select>" +
-			"<button type='button' onclick='getZWRInfo()')>?</button>" +
+			"<button type='button' class='questionMark' onclick='getZWRInfo()')></button>" +
 			"<div class='error'></div>" +
 			"<br>" +
 			"<br>" +
@@ -179,7 +174,7 @@ var SHRView = function () {
 
 		var footer =
 			
-			"<button type='submit' class='blueButtons' onClick='console.log(getZWRvalue())' >Next</button>" ;
+			"<button type='submit' class='blueButtons' onClick='console.log(getZWRvalue())' >NEXT</button>" ;
 			
 
 		$(".heading").text(header);
@@ -200,7 +195,7 @@ var SHRView = function () {
 				"<option value='3'>Excessive Chop (22-27 kts)</option>" +
 				"<option value='4'>Extreme Chop (>27kts)</option>" +
 			"</select>" + 
-			"<button type='button' onclick='getSTRInfo()')>?</button>" +
+			"<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
 			"<div class='error'></div>" +
 			"<br>" +
 			"<br>" +
@@ -224,7 +219,7 @@ var SHRView = function () {
 
 		var footer =
 			
-				" <button type='submit' class='blueButtons' onClick='console.log(getSTRvalue())' >Next</button> " ;
+				" <button type='submit' class='blueButtons' onClick='console.log(getSTRvalue())' >NEXT</button> " ;
 		
 
 		$(".heading").text(header);
@@ -245,7 +240,7 @@ var SHRView = function () {
 			"<option value='3'>Strong Drag (13-19 secs)</option>" +
 			"<option value='4'>Very Strong Drag (<13 secs)</option>" +
 			"</select>" +
-			"<button type='button' onclick='getLDRInfo()')>?</button>" +
+			"<button type='button' class='questionMark' onclick='getLDRInfo()')></button>" +
 			"<div class='error'></div>"+
 			"<br>" +
 			"<br>" +
@@ -254,7 +249,7 @@ var SHRView = function () {
 
 		var footer =
 		
-			"<button type='submit' class='blueButtons' onClick='console.log(getLDRvalue())' >Next</button>" ;
+			"<button type='submit' class='blueButtons' onClick='console.log(getLDRvalue())' >NEXT</button>" ;
 			
 
 		$(".heading").text(header);
@@ -274,7 +269,7 @@ var SHRView = function () {
 			"<option value='2'>Mild to strong Rips (ONLY walk waist deep against)</option>" +
 			"<option value='3'>Strong Rips (Cannot walk against)</option>" +
 			"</select>" +
-			"<button type='button' onclick='getRCRInfo()')'>?</button>" +
+			"<button type='button' class='questionMark' onclick='getRCRInfo()')'></button>" +
 			"<div class='error'></div>"+
 			"<br>" +
 			"<br>" +
@@ -283,7 +278,7 @@ var SHRView = function () {
 
 		var footer =
 			
-			"<button type='submit' class='blueButtons' onClick='console.log(getRCRvalue())' >Next</button>" ;
+			"<button type='submit' class='blueButtons' onClick='console.log(getRCRvalue())' >NEXT</button>" ;
 			
 
 		$(".heading").text(header);
@@ -310,7 +305,7 @@ var SHRView = function () {
 			"<option value='8'>8</option>" +
 			"<option value='9'>9</option>" +
 			"</select>" +
-			"<button type='button' onclick='getOHRInfo()')'>?</button>" +
+			"<button type='button' class='questionMark' onclick='getOHRInfo()')'></button>" +
 			"<div class='error'></div>"+
 			"<br>" +
 			"<br>" +
@@ -319,7 +314,7 @@ var SHRView = function () {
 
 		var footer =
 			
-			"<button type='submit' class='blueButtons' onClick='console.log(getOHRvalue())' >Next</button>" ;
+			"<button type='submit' class='blueButtons' onClick='console.log(getOHRvalue())' >NEXT</button>" ;
 			
 
 		$(".heading").text(header);
@@ -360,7 +355,7 @@ var SHRView = function () {
 
 		var footer =
 			"<form action = '#SHR' method=''>" +
-			"<button type='submit' class='blueButtons'>Submit</button>" +
+			"<button type='submit' class='blueButtons'>SUBMIT</button>" +
 			"</form>";
 
 		$(".heading").text(header);
@@ -380,7 +375,7 @@ var SHRView = function () {
 		var footer =
 
 			"<form action = 'index.html' method=''>" +
-			"<button type='submit' class='blueButtons'>Log Out</button>" +
+			"<button type='submit' class='blueButtons'>LOG OUT</button>" +
 			"</form>";
 		
 		var shr = -1;

@@ -50,7 +50,7 @@ label {
 }
 
 header {
-    background-color: #C81222;
+    background-color: #ED1C2E;
     height: auto;
     margin-bottom: 3%;
     overflow: auto;
@@ -78,7 +78,7 @@ input.radio:empty {
 
 input.radio:empty ~ label {
     position: relative;
-    line-height: 1.5em;
+    line-height: 2.5em;
     text-indent: 3.25em;
     cursor: pointer;
     margin-bottom: 2%;
@@ -133,11 +133,12 @@ select {
 }
 
 #loginBut {
+	font-weight: bolder;
     position: relative;
-    top: -15px;
+    top: 10px;
 }
 
-.blueButtons {
+/*.blueButtons {
     width: 100px;
     height: 35px;
     background-color: #286090;
@@ -147,7 +148,105 @@ select {
     cursor: pointer;
     font-weight: bold;
     margin-top: 20px;
+}*/
+
+.blueButtons	{
+	background-color: #0060A9;
+	font-size:12px;
+	text-decoration:none;
+	color:#fff;
+	font-weight: bolder;
+	position:relative;
+	padding:10px 20px;
+	top: 10%;
+	padding-right:50px;
+	background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
+	border-radius: 5px;
+	box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
 }
+
+.blueButtons:active {
+	top:3px;
+	background-image: linear-gradient(bottom, rgb(62,51,46) 100%, rgb(101,86,78) 0%);
+	box-shadow: inset 0px 1px 0px #9e8d84, 0px 2px 0px 0px #322620, 0px 5px 3px #999;
+}
+
+.blueButtons::before {
+	background-color:#322620;
+	background-image:url(../images/right_arrow.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	content:"";
+	width:20px;
+	height:20px;
+	position:absolute;
+	right:15px;
+	top:50%;
+	margin-top:-9px;
+	border-radius: 50%;
+	box-shadow: inset 0px 1px 0px #19120f, 0px 1px 0px #827066;
+}
+
+.blueButtons:active::before {
+	top:50%;
+	margin-top:-12px;
+	box-shadow: inset 0px 1px 0px #827066, 0px 3px 0px #19120f, 0px 6px 3px #382e29;
+}
+
+#windDirBox	{
+
+}
+
+.error	{
+	margin-top: 5%; 
+	color: #ED1C2E;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.info	{
+	background-color: grey;
+	border-color: 1px solid black;	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 input[type="text"], input[type="password"] {
     padding: 0.2em;
@@ -224,11 +323,10 @@ input[type="submit"] {
     bottom: 0px;
     height: 80px;
     width: 100%;
-    background: #ffff00;
+    background: #FFD520;
 }
 
 #rating {
-
     position: relative;
     top: 20%;
     border: 2px solid black;
@@ -236,6 +334,18 @@ input[type="submit"] {
     background-color: azure;
     width: 100px;
     margin: 0 auto;
+}
+
+.questionMark {
+	background-image:url(../images/help.png);
+	margin-left: 1%;	
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	line-height: 26px;
+	cursor: help;
+	position: relative;
+	top: -8px;
 }
 
 
