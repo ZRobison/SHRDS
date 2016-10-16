@@ -16,8 +16,8 @@ var app = {
 
         //URL detection
         this.incidentStartURL = /^#incident1/;
-        this.adminFormSelectURL = /^#admin1/;
         this.prevailingStartURL = /^#prevailing1/;
+        this.adminURLS = [/^#adminPageSelect/, /^#adminPasswordChange/, /^#adminMetadata/];
         this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/];
 
 
@@ -59,11 +59,17 @@ var app = {
             new SHRView().render("SHR");
         } else if (hash.match(app.incidentStartURL)) {
             new IRView().render();
-        } else if (hash.match(app.adminFormSelectURL)) {
-            new AdminSelectView().render();
+        } else if (hash.match(app.adminURLS[0])) {
+            console.log("matched select page");
+            new AdminSelectView().render("formSelect");
+        } else if (hash.match(app.adminURLS[1])) {
+            new AdminSelectView().render("resetPassword");
+        } else if (hash.match(app.adminURLS[2])) {
+            new AdminSelectView().render("metaData");
         } else if (hash.match(app.prevailingStartURL)) {
-            console.log("matched prevailing url");
             new PrevailingView().render();
+        } else {
+            console.log("failed to match any URLS");
         }
 
         $("input[type='radio']").click(function () {
