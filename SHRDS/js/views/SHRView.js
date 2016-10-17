@@ -68,7 +68,7 @@ function getWHR() {
 
     var footer =
         //footer
-        "<button type='submit' class='blueButtons' onClick='console.log(getWHRvalue())'>NEXT</button> ";
+        "<button type='submit' class='blueButtons' onClick='getWHRvalue()'>NEXT</button> ";
 
 
     $(".heading").text(header);
@@ -106,7 +106,7 @@ function getWTR() {
 
 
     var footer =
-        "<button type='submit' class='blueButtons' onClick='console.log(getWTRvalue())'>NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getWTRvalue()'>NEXT</button>";
 
 
     $(".heading").text(header);
@@ -141,7 +141,7 @@ function getWPR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='console.log(getWPRvalue())' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getWPRvalue()' >NEXT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -174,7 +174,7 @@ function getZWR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='console.log(getZWRvalue())' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getZWRvalue()' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -219,7 +219,7 @@ function getSTR() {
 
     var footer =
 
-        " <button type='submit' class='blueButtons' onClick='console.log(getSTRvalue())' >NEXT</button> ";
+        " <button type='submit' class='blueButtons' onClick='getSTRvalue()' >NEXT</button> ";
 
 
     $(".heading").text(header);
@@ -249,7 +249,7 @@ function getLDR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='console.log(getLDRvalue())' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getLDRvalue()' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -278,7 +278,7 @@ function getRCR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='console.log(getRCRvalue())' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getRCRvalue()' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -314,7 +314,7 @@ function getOHR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='console.log(getOHRvalue())' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getOHRvalue()' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -326,30 +326,36 @@ function getREV() {
     var header = "Review SHR";
 
     if (app.SHRFlag) {
-        var shr = app.prevalingSHRData.SHR;
-        console.log(shr.pWHR);
+       var pWHR = app.prevalingSHRData.SHR.pWHR;
+       var pWTR = app.prevalingSHRData.SHR.pWTR;
+	   var pWPR = app.prevalingSHRData.SHR.pWPR;
+	   var pZWR = app.prevalingSHRData.SHR.pZWR;
+	   var pSTR = app.prevalingSHRData.SHR.pSTR;
+	   var pLDR = app.prevalingSHRData.SHR.pLDR;
+	   var pRCR = app.prevalingSHRData.SHR.pRCR;
+	   var pOHR = app.prevalingSHRData.SHR.pOHR;
     } else {
         //eventspecific
     }
-
+	console.log(pLDR);
     var body =
         "<l>" +
         "<ul>" +
-        "WHR  " + retreiveDescription("WHR", shr.pWHR) +
+        "WHR  " + retreiveDescription("WHR", pWHR) +
         "</ul><ul>" +
-        "WTR  " + retreiveDescription("WTR", shr.pWTR) +
+        "WTR  " + retreiveDescription("WTR", pWTR) +
         "</ul><ul>" +
-        "WPR  " + retreiveDescription("WPR", shr.pWPR) +
+        "WPR  " + retreiveDescription("WPR", pWPR) +
         "</ul><ul>" +
-        "ZWR  " + retreiveDescription("ZWR", shr.pZWR) +
+        "ZWR  " + retreiveDescription("ZWR", pZWR) +
         "</ul><ul>" +
-        "STR  " + retreiveDescription("STR", shr.pSTR) +
+        "STR  " + retreiveDescription("STR", pSTR) +
         "</ul><ul>" +
-        "LDR  " + retreiveDescription("LDR", shr.pLDR) +
+        "LDR  " + retreiveDescription("LDR", pLDR) +
         "</ul><ul>" +
-        "RCR  " + retreiveDescription("RCR", shr.pRCR) +
+        "RCR  " + retreiveDescription("RCR", pRCR) +
         "</ul><ul>" +
-        "OHR  " + retreiveDescription("OHR", shr.pOHR) +
+        "OHR  " + retreiveDescription("OHR", pOHR) +
         "</ul>"
     "</l>";
 

@@ -201,7 +201,7 @@ function getOHRInfo() {
 
 function WHRDescription(value) {
     var texte = "ERROR";
-    switch (value) {
+    switch (value*1) {
         case (0):
             texte = "0(Knee High)";
             break;
@@ -241,7 +241,7 @@ function WHRDescription(value) {
 
 function WTRDescription(value) {
     var texte = "ERROR";
-    switch (value) {
+    switch (value*1) {
         case (0):
             texte = "Surging";
             break;
@@ -263,7 +263,7 @@ function WTRDescription(value) {
 
 function WPRDescription(value) {
     var texte = "ERROR";
-    switch (value) {
+    switch (value*1) {
         case (0):
             texte = "Long Period(>14sec)";
             break;
@@ -285,7 +285,7 @@ function WPRDescription(value) {
 
 function ZWRDescription(value) {
     var texte = "ERROR";
-    switch (value) {
+    switch (value*1) {
         case (0):
             texte = "0";
             break;
@@ -322,7 +322,7 @@ function ZWRDescription(value) {
 
 function STRDescription(value) {
     var texte = "ERROR";
-    switch (value) {
+    switch (value*1) {
         case (0):
             texte = "No chop (glassy)";
             break;
@@ -347,7 +347,7 @@ function STRDescription(value) {
 
 function LDRDescription(value) {
     var texte = "ERROR";
-    switch (value) {
+    switch (value*1) {
         case (0):
             texte = "No Drag (0)";
             break;
@@ -372,7 +372,7 @@ function LDRDescription(value) {
 
 function RCRDescription(value) {
     var texte = "ERROR";
-    switch (value) {
+    switch (value*1) {
         case (0):
             texte = "No Rips";
             break;
@@ -394,7 +394,7 @@ function RCRDescription(value) {
 
 function OHRDescription(value){
 	var texte = "ERROR";
-	switch(value){
+	switch(value*1){
 	        case (0)  :  
 			texte = "0";  
 			break;
@@ -433,7 +433,7 @@ function OHRDescription(value){
 }
 
 function retreiveDescription(type, value) {
-    var description = "ERROR"
+    var description = "poo";
     switch (type) {
         case ("WHR"):
             description = WHRDescription(value);
