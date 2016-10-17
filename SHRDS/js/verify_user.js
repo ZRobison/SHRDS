@@ -1,4 +1,6 @@
 function verify_user() {
+	$('#logonmessage').text("Loading...");
+	$(".error").text("");
     //TSO selected
     if(document.getElementById("username").value == ""){
         $(".error").text("Please enter a user ID");
@@ -21,19 +23,23 @@ function verify_user() {
                             location.href = 'index.html?#formSelect';
                         } else {
                             $(".error").text("You are not certified to log in as a TSO");
+							$('#logonmessage').text("");
                         }
                     }
                     //Otherwise there is a match for the user number in the DB
                     else {
                         $(".error").text("Error: That username and password combination is incorrect");
+						$('#logonmessage').text("");
                     }
                 } else {
-                    $(".error").text("Error: Database Failure")
+                    $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection")
+					$('#logonmessage').text("");
                 }
             });
     }
     //Incident Selected
     else if ($('#radio2').is(":checked")) {
+		app.SHRFlag = 0;
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
@@ -46,14 +52,16 @@ function verify_user() {
                 if (data.Success === true) {
                     //If we have a match that means the user has the correct credentials
                     if (data.Result != null && data.Result != "") {
-                        location.href = 'index.html?#incident1';
+                        location.href = 'index.html?#eventSpecific';
                     } else {
                         $(".error").text("That user ID does not exists");
+						$('#logonmessage').text("");
                     }
                 }
                 //Otherwise there is a match for the user number in the DB
                 else {
                     $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection");
+					$('#logonmessage').text("");
                 }
             }
         );
@@ -78,14 +86,17 @@ function verify_user() {
                             location.href = 'index.html?#adminPageSelect';
                         } else {
                             $(".error").text("You are not certified to log in as an admin user");
+							$('#logonmessage').text("");
                         }
                     }
                     //Otherwise there is no match for that user in the DB
                     else {
                         $(".error").text("Error: That username and password combination is incorrect");
+						$('#logonmessage').text("");
                     }
                 } else {
-                    $(".error").text("Error: Database Failure")
+                    $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection")
+					$('#logonmessage').text("");
                 }
             });
     }

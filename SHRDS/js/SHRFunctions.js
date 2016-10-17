@@ -1,11 +1,12 @@
 
 function getWHRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
         score = app.prevalingSHRData.SHR.pWHR
     } else {
-        //eventspecific
+        app.esSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
+        score = app.esSHRData.SHR.pWHR
     }
     if (score != -1) {
         window.location.hash = "#WTR";
@@ -20,17 +21,18 @@ function getWHRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
     } else {
-        $(".info").text("The height of the wave is the verticle distance between the front trough and the crest of the wave that is about to break.");
+        $(".info").text("The height of the wave is the vertical distance between the front trough and the crest of the wave that is about to break.");
     }
 }
 
 function getWTRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pWTR = $("select[name=WTRForm]").val();
         score = app.prevalingSHRData.SHR.pWTR
     } else {
-        //eventspecific
+        app.esSHRData.SHR.pWTR = $("select[name=WTRForm]").val();
+        score = app.esSHRData.SHR.pWTR
     }
     if (score != -1) {
         window.location.hash = "#WPR";
@@ -51,11 +53,12 @@ function getWTRInfo() {
 
 function getWPRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pWPR = $("select[name=WPRForm]").val();
         score = app.prevalingSHRData.SHR.pWPR
     } else {
-        //eventspecific
+        app.esSHRData.SHR.pWPR = $("select[name=WPRForm]").val();
+        score = app.esSHRData.SHR.pWPR
     }
     if (score != -1) {
         window.location.hash = "#ZWR";
@@ -76,11 +79,12 @@ function getWPRInfo() {
 
 function getZWRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pZWR = $("select[name=ZWRForm]").val();
         score = app.prevalingSHRData.SHR.pZWR
     } else {
-        //eventspecific
+        app.esSHRData.SHR.pZWR = $("select[name=ZWRForm]").val();
+        score = app.esSHRData.SHR.pZWR
     }
     if (score != -1) {
         window.location.hash = "#STR";
@@ -101,11 +105,12 @@ function getZWRInfo() {
 
 function getSTRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pSTR = $("select[name=STRForm]").val();
         score = app.prevalingSHRData.SHR.pSTR
     } else {
-        //eventspecific
+        app.esSHRData.SHR.pSTR = $("select[name=STRForm]").val();
+        score = app.esSHRData.SHR.pSTR
     }
     if (score != -1) {
         window.location.hash = "#LDR";
@@ -126,11 +131,12 @@ function getSTRInfo() {
 
 function getLDRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pLDR = $("select[name=LDRForm]").val();
         score = app.prevalingSHRData.SHR.pLDR
-    } else {
-        //eventspecific
+    }  else {
+        app.esSHRData.SHR.pLDR = $("select[name=LDRForm]").val();
+        score = app.esSHRData.SHR.pLDR
     }
     if (score != -1) {
         window.location.hash = "#RCR";
@@ -151,11 +157,12 @@ function getLDRInfo() {
 
 function getRCRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pRCR = $("select[name=RCRForm]").val();
         score = app.prevalingSHRData.SHR.pRCR
     } else {
-        //eventspecific
+        app.esSHRData.SHR.pRCR = $("select[name=RCRForm]").val();
+        score = app.esSHRData.SHR.pRCR
     }
     if (score != -1) {
         window.location.hash = "#OHR";
@@ -176,11 +183,12 @@ function getRCRInfo() {
 
 function getOHRvalue() {
     var score = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pOHR = $("select[name=OHRForm]").val();
         score = app.prevalingSHRData.SHR.pOHR
     } else {
-        //eventspecific
+        app.esSHRData.SHR.pOHR = $("select[name=OHRForm]").val();
+        score = app.esSHRData.SHR.pOHR
     }
     if (score != -1) {
         window.location.hash = "#REV";
@@ -468,8 +476,10 @@ function retreiveDescription(type, value) {
 
 function shrFormSelect() {
     if ($('#shrRadio1').is(":checked")) {
+		app.SHRFlag = 1;
         window.location.hash = "#prevailing1";
     } else if ($('#shrRadio2').is(":checked")) {
+		app.SHRFlag = 2;
         window.location.hash = "#eventSpecific";
     }
 }
