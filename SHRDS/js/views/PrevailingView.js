@@ -20,9 +20,9 @@ var PrevailingView = function () {
             "<p>We will fill this windspeed from BOM later</p>" +
             "</div>" +
 
-            "<div id='nearestTideBox>" +
             "<p>Nearest Tides</p>" +
-            "<ul><li>Time 1</li>" + //I think there is the time of the 2 nearest tides??
+            "<div id='nearestTideBox>" +
+            "<ul id='tidesListBox'><li>Time 1</li>" + //I think there is the time of the 2 nearest tides??
             "<li>Time 2</li>" +
             "<li>Height 1</li>" +
             "<li>Height 2</li></ul>" +

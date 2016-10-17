@@ -84,7 +84,6 @@ input.radio:empty ~ label {
     line-height: 2.5em;
     text-indent: 3.25em;
     cursor: pointer;
-
     border: 1px solid black;
 }
 
@@ -124,7 +123,18 @@ input.radio:checked ~ label {
     color: #0f0f0f;
     background-color: white;
     width: 18%;
-    margin-top: 5%;    
+    /*deleted margin top 5% */
+}
+
+/*Tides Prevailing List*/
+#tidesListBox   {
+    margin-left: 60%;
+    position: absolute;
+    top: 80px;
+}
+
+#WHR    {
+
 }
 
 .formSelRad input.radio:empty ~ label   {
@@ -153,19 +163,15 @@ select {
     margin-left: 2%;
 }
 
-
-
 #loginBut {
 	font-weight: bold;
-    position: relative;
-    top: 10px;
-    letter-spacing: 0.1em;
+    margin-top: 0.6em;
 }
 
 .blueButtons	{
 	background-color: #0060A9;
     letter-spacing: 0.1em;
-    margin-top: 1%;
+    margin-top: 0.6em;
 	font-size:14px;
 	text-decoration:none;
 	color:#fff;
@@ -182,8 +188,7 @@ select {
 	top:6px;
 	background-image: linear-gradient(bottom, rgb(62,51,46) 100%, rgb(101,86,78) 0%);
 	box-shadow: inset 0px 1px 0px #9e8d84, 0px 2px 0px 0px #322620, 0px 5px 3px #999;
-    position: relative;
-    top: 15px;
+
 }
 
 .blueButtons::before {
@@ -220,7 +225,6 @@ select {
 
 .error	{
 	color: #ED1C2E;
-    font-size: 120%;
     font-style: italic;
     background-color: rgba(220, 0, 0, 0.1);
     width: 250px;
@@ -228,8 +232,18 @@ select {
     position: relative;
     margin-top: 2% ;
     border-radius: 8px;
+}
 
+#submitForm1 {
+    margin-top: 10%;
+}
 
+#submitForm2 {
+    margin-top: 10%;
+}
+
+#submitForm3 {
+    margin-top: 10%;
 }
 
 
@@ -305,7 +319,7 @@ input[type="submit"] {
     }
 
     select {
-        width: 80%;
+        width: 50%;
     }
 
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
@@ -323,6 +337,10 @@ input[type="submit"] {
     #windDirBox {
         position: relative;
         top: 0;
+    }
+
+    #windDirBox {
+        margin-top: 8%;
     }
 }
 
@@ -358,8 +376,7 @@ input[type="submit"] {
     }
 
     #windDirBox {
-        position: relative;
-        top: -20px;
+        margin-top: 6%;
     }
 }
 
@@ -392,6 +409,10 @@ input[type="submit"] {
         width: 40%;
         margin-top: 10%;
     }
+
+    #windDirBox {
+        margin-top: 4%;
+    }
 }
 
 /**********************************************************************
@@ -422,6 +443,10 @@ input[type="submit"] {
     .formSelRad input.radio:empty ~ label   {
         width: 35%;
         margin-top: 5%;
+    }
+
+    #windDirBox {
+        margin-top: 2%;
     }
 }
 

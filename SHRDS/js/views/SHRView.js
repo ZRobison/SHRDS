@@ -47,7 +47,7 @@ function getWHR() {
     var body =
         //body
         "WHR in Meters" +
-        "<select id='myList' name='WHRForm'>" +
+        "<select id='WHR' name='WHRForm'>" +
         "<option value='-1'>select one</option>" +
         "<option value='0'>0(Knee High)</option>" +
         "<option value='1'>up to 0.5 (Knee High)</option>" +
