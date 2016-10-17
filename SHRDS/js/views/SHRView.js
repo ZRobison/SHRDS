@@ -75,11 +75,10 @@ function getWHR() {
     $(".body").html(body);
     $(".footer").html(footer);
 
-
-    if (app.SHRFlag) {
-        $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWHR);
+	if (app.SHRFlag == 1) {
+        $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
     } else {
-        //Add code for IS SHR
+        $("select[name=WHRForm]").val(app.esSHRData.SHR.pWTR);
     }
 };
 
@@ -113,10 +112,10 @@ function getWTR() {
     $(".body").html(body);
     $(".footer").html(footer);
 
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         $("select[name=WTRForm]").val(app.prevalingSHRData.SHR.pWTR);
     } else {
-        //Add code for IS SHR
+        $("select[name=WTRForm]").val(app.esSHRData.SHR.pWTR);
     }
 }
 
@@ -142,10 +141,16 @@ function getWPR() {
     var footer =
 
         "<button type='submit' class='blueButtons' onClick='getWPRvalue()' >NEXT</button>";
-
+	
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWTR);
+    } else {
+        $("select[name=WPRForm]").val(app.esSHRData.SHR.pWTR);
+    }
 }
 
 function getZWR() {
@@ -180,6 +185,12 @@ function getZWR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=ZWRForm]").val(app.prevalingSHRData.SHR.pWTR);
+    } else {
+        $("select[name=ZWRForm]").val(app.esSHRData.SHR.pWTR);
+    }
 }
 
 function getSTR() {
@@ -225,6 +236,12 @@ function getSTR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=STRForm]").val(app.prevalingSHRData.SHR.pWTR);
+    } else {
+        $("select[name=STRForm]").val(app.esSHRData.SHR.pWTR);
+    }
 }
 
 function getLDR() {
@@ -255,6 +272,12 @@ function getLDR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=LDRForm]").val(app.prevalingSHRData.SHR.pWTR);
+    } else {
+        $("select[name=LDRForm]").val(app.esSHRData.SHR.pWTR);
+    }
 }
 
 function getRCR() {
@@ -284,6 +307,12 @@ function getRCR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=RCRForm]").val(app.prevalingSHRData.SHR.pWTR);
+    } else {
+        $("select[name=RCRForm]").val(app.esSHRData.SHR.pWTR);
+    }
 }
 
 function getOHR() {
@@ -320,12 +349,18 @@ function getOHR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=OHRForm]").val(app.prevalingSHRData.SHR.pWTR);
+    } else {
+        $("select[name=OHRForm]").val(app.esSHRData.SHR.pWTR);
+    }
 }
 
 function getREV() {
     var header = "Review SHR";
 
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
        var pWHR = app.prevalingSHRData.SHR.pWHR;
        var pWTR = app.prevalingSHRData.SHR.pWTR;
 	   var pWPR = app.prevalingSHRData.SHR.pWPR;
@@ -335,9 +370,15 @@ function getREV() {
 	   var pRCR = app.prevalingSHRData.SHR.pRCR;
 	   var pOHR = app.prevalingSHRData.SHR.pOHR;
     } else {
-        //eventspecific
+       var pWHR = app.esSHRData.SHR.pWHR;
+       var pWTR = app.esSHRData.SHR.pWTR;
+	   var pWPR = app.esSHRData.SHR.pWPR;
+	   var pZWR = app.esSHRData.SHR.pZWR;
+	   var pSTR = app.esSHRData.SHR.pSTR;
+	   var pLDR = app.esSHRData.SHR.pLDR;
+	   var pRCR = app.esSHRData.SHR.pRCR;
+	   var pOHR = app.esSHRData.SHR.pOHR;
     }
-	console.log(pLDR);
     var body =
         "<l>" +
         "<ul>" +
@@ -385,11 +426,10 @@ function getSHR() {
         "</form>";
 
     var shr = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1 ) {
         shr = app.prevalingSHRData.SHR.calculate();
-        console.log(shr);
     } else {
-        //eventspecific
+        shr = app.esSHRData.SHR.calculate();
     }
     $(".heading").text(header);
     $(".body").html(body);

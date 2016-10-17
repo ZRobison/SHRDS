@@ -19,6 +19,7 @@ var LogonView = function () {
             "<label for='radio3'>Admin</label>" +
             "</div>" +
             "<div id='forming'></div>" +
+			"<div id='logonmessage'></div>" +
             "<div class ='error'></div>";
 
 

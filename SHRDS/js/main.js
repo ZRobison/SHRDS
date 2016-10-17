@@ -5,7 +5,7 @@ var app = {
 
         //Flag for knowing if prevailing SHR or Event specific SHR
         //Set to one if user is filling in Prev else 0;
-        self.SHRFlag = 1;
+        self.SHRFlag = 0;
         //Init data stores for forms
         this.initData();
         //Detect if HASH changes
@@ -27,8 +27,13 @@ var app = {
     },
 
     initData: function () {
+		//PREVSHR
         this.prevalingSHRData = new PrevailingData();
         this.prevalingSHRData.initialize();
+		//IRSHR
+		this.esSHRData = new eventSpercifcSHRData();
+        this.esSHRData.initialize();
+		//IR
         this.esIRData = new eventSpercifcIRData();
         this.esIRData.initialize();
     },
@@ -62,7 +67,6 @@ var app = {
         } else if (hash.match(app.incidentStartURL)) {
             new IRView().render();
         } else if (hash.match(app.adminURLS[0])) {
-            console.log("matched select page");
             new AdminSelectView().render("formSelect");
         } else if (hash.match(app.adminURLS[1])) {
             new AdminSelectView().render("resetPassword");
@@ -77,18 +81,5 @@ var app = {
         } else {
             console.log("failed to match any URLS");
         }
-
-        $("input[type='radio']").click(function () {
-            var previousValue = $(this).attr('previousValue');
-            var name = $(this).attr('name');
-
-            if (previousValue == 'checked') {
-                $(this).removeAttr('checked');
-                $(this).attr('previousValue', false);
-            } else {
-                $("input[name=" + name + "]:radio").attr('previousValue', false);
-                $(this).attr('previousValue', 'checked');
-            }
-        });
     }
 };
