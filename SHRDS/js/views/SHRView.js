@@ -46,9 +46,9 @@ function getWHR() {
 
     var body =
         //body
-        "WHR in Meters" +
+        "<div class='hazard'>WHR in Meters</div>" +
         "<select class='allRatingsPos' name='WHRForm'>" +
-        "<option value='-1'>select one</option>" +
+        "<option value='-1'>Select one</option>" +
         "<option value='0'>0 (Knee High)</option>" +
         "<option value='1'>Up to 0.5 (Knee High)</option>" +
         "<option value='2'>Up to 1.0 (Waist High)</option>" +
@@ -89,9 +89,9 @@ function getWTR() {
     var header = "Wave Type Rating";
 
     var body =
-        "WTR" +
-        "<select id='myList' name='WTRForm'>" +
-        "<option value='-1' selected>select one</option>" +
+        "<div class='hazard'>WTR</div>" +
+        "<select class='allRatingsPos' name='WTRForm'>" +
+        "<option value='-1' selected>Select one</option>" +
         "<option value='0'>Surging</option>" +
         "<option value='1'>Spilling</option>" +
         "<option value='2'>Plunging</option>" +
@@ -124,8 +124,8 @@ function getWPR() {
 
     var body =
 
-        "WPR" +
-        "<select id='myList' name='WPRForm'>" +
+        "<div class='hazard'>WPR</div>" +
+        "<select class='allRatingsPos' name='WPRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>Long Period(>14secs)</option>" +
         "<option value='1'>Moderate Period(9-14secs)</option>" +
@@ -160,7 +160,7 @@ function getZWR() {
 
     var body =
 
-        "ZWR<select id='myList' name='ZWRForm'>" +
+        "<div class='hazard'>ZWR</div><select class='allRatingsPos' name='ZWRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>0</option>" +
         "<option value='1'>Up to 20</option>" +
@@ -199,7 +199,7 @@ function getSTR() {
 
     var body =
 
-        "<select id='myList' name='STRForm'>" +
+        "<select class='allRatingsPos' name='STRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No chop (Glassy)</option>" +
         "<option value='1'>Light Chop (5-11 kts)</option>" +
@@ -250,7 +250,7 @@ function getLDR() {
 
     var body =
 
-        "<select id='myList' name='LDRForm'>" +
+        "<select class='allRatingsPos' name='LDRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Drag (0)</option>" +
         "<option value='1'>Low Drag (>40 secs)</option>" +
@@ -286,7 +286,7 @@ function getRCR() {
 
     var body =
 
-        "<select id='myList' name='RCRForm'>" +
+        "<select class='allRatingsPos' name='RCRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Rips</option>" +
         "<option value='1'>Mild Rips (Swim against)</option>" +
@@ -322,7 +322,7 @@ function getOHR() {
     var body =
 
 
-        "OHR: one for each extra hazard present<br><br><select id='myList' name='OHRForm'>" +
+        "<div class='hazard'>OHR: one for each extra hazard present</div><br><br><select class='allRatingsPos' name='OHRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>0</option>" +
         "<option value='1'>1</option>" +
@@ -382,25 +382,27 @@ function getREV() {
     }
 
     var body =
-        "<li>" +
+        "<div id='ratingsList'>" +
         "<ul>" +
+        "<li>" +
         "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR()'>WHR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "WTR  " + retreiveDescription("WTR", pWTR) + "<button type='submit' class='blueButtons' onClick='getWTR()'>WTR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "WPR  " + retreiveDescription("WPR", pWPR) + "<button type='submit' class='blueButtons' onClick='getWPR()'>WPR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "ZWR  " + retreiveDescription("ZWR", pZWR) + "<button type='submit' class='blueButtons' onClick='getZWR()'>ZWR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "STR  " + retreiveDescription("STR", pSTR) + "<button type='submit' class='blueButtons' onClick='getSTR()'>STR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "LDR  " + retreiveDescription("LDR", pLDR) + "<button type='submit' class='blueButtons' onClick='getLDR()'>LDR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR()'>RCR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR()'>OHR</button>" +
+        "</li>" +
         "</ul>" +
-        "</li>";
+        "</div>" ;
 
     var footer =
         "<form action = '#SHR' method=''>" +
