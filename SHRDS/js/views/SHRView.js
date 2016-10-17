@@ -147,9 +147,9 @@ function getWPR() {
     $(".footer").html(footer);
 	
 	if (app.SHRFlag == 1) {
-        $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWTR);
+        $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWPR);
     } else {
-        $("select[name=WPRForm]").val(app.esSHRData.SHR.pWTR);
+        $("select[name=WPRForm]").val(app.esSHRData.SHR.pWPR);
     }
 }
 
@@ -187,9 +187,9 @@ function getZWR() {
     $(".footer").html(footer);
 	
 	if (app.SHRFlag == 1) {
-        $("select[name=ZWRForm]").val(app.prevalingSHRData.SHR.pWTR);
+        $("select[name=ZWRForm]").val(app.prevalingSHRData.SHR.pZWR);
     } else {
-        $("select[name=ZWRForm]").val(app.esSHRData.SHR.pWTR);
+        $("select[name=ZWRForm]").val(app.esSHRData.SHR.pZWR);
     }
 }
 
@@ -238,9 +238,9 @@ function getSTR() {
     $(".footer").html(footer);
 	
 	if (app.SHRFlag == 1) {
-        $("select[name=STRForm]").val(app.prevalingSHRData.SHR.pWTR);
+        $("select[name=STRForm]").val(app.prevalingSHRData.SHR.pSTR);
     } else {
-        $("select[name=STRForm]").val(app.esSHRData.SHR.pWTR);
+        $("select[name=STRForm]").val(app.esSHRData.SHR.pSTR);
     }
 }
 
@@ -274,9 +274,9 @@ function getLDR() {
     $(".footer").html(footer);
 	
 	if (app.SHRFlag == 1) {
-        $("select[name=LDRForm]").val(app.prevalingSHRData.SHR.pWTR);
+        $("select[name=LDRForm]").val(app.prevalingSHRData.SHR.pLDR);
     } else {
-        $("select[name=LDRForm]").val(app.esSHRData.SHR.pWTR);
+        $("select[name=LDRForm]").val(app.esSHRData.SHR.pLDR);
     }
 }
 
@@ -309,9 +309,9 @@ function getRCR() {
     $(".footer").html(footer);
 	
 	if (app.SHRFlag == 1) {
-        $("select[name=RCRForm]").val(app.prevalingSHRData.SHR.pWTR);
+        $("select[name=RCRForm]").val(app.prevalingSHRData.SHR.pRCR);
     } else {
-        $("select[name=RCRForm]").val(app.esSHRData.SHR.pWTR);
+        $("select[name=RCRForm]").val(app.esSHRData.SHR.pRCR);
     }
 }
 
@@ -351,9 +351,9 @@ function getOHR() {
     $(".footer").html(footer);
 	
 	if (app.SHRFlag == 1) {
-        $("select[name=OHRForm]").val(app.prevalingSHRData.SHR.pWTR);
+        $("select[name=OHRForm]").val(app.prevalingSHRData.SHR.pOHR);
     } else {
-        $("select[name=OHRForm]").val(app.esSHRData.SHR.pWTR);
+        $("select[name=OHRForm]").val(app.esSHRData.SHR.pOHR);
     }
 }
 
