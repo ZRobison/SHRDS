@@ -1,3 +1,4 @@
+
 function getWHRvalue() {
     var score = -1;
     if (app.SHRFlag) {
@@ -429,6 +430,7 @@ function OHRDescription(value){
 	}
 	
 	return texte;
+}
 
 function retreiveDescription(type, value) {
     var description = "ERROR"
