@@ -35,7 +35,6 @@ td, th {
 }
 
 .titles {
-    font-weight: bold;
     text-align: center;
 }
 
@@ -133,7 +132,9 @@ input.radio:checked ~ label {
     top: 80px;
 }
 
-#WHR    {
+/* vertical position for all hazards */
+.allRatingsPos    {
+    margin-top: 30%;
 
 }
 
@@ -164,13 +165,11 @@ select {
 }
 
 #loginBut {
-	font-weight: bold;
     margin-top: 0.6em;
 }
 
 .blueButtons	{
 	background-color: #0060A9;
-    letter-spacing: 0.1em;
     margin-top: 0.6em;
 	font-size:14px;
 	text-decoration:none;
@@ -498,8 +497,8 @@ input[type="submit"] {
 .questionMark {
     outline: none;
 	background-image:url(../images/help.png);
-	margin-left: 1%;	
 	border-radius: 50%;
+    margin-left: 1%;
 	width: 35px;
 	height: 35px;
 	cursor: help;
