@@ -78,7 +78,7 @@ var EventSpecificView = function () {
         var footer =
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
             "<form action= index.html?#WHR >" +
-            "<button type='submit' class='blueButtons' onclick=''>Next</button> " +
+            "<button type='submit' class='blueButtons' onclick=''>NEXT</button> " +
             //"<button type='button' class='blueButtons' onclick =>Next</button> " +
             "</form>";
 
