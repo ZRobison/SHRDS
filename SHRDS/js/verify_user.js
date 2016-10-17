@@ -3,10 +3,10 @@ function verify_user() {
     if ($('#radio1').is(":checked")) {
         //dummy test db
         MySql.Execute(
-            "sql6.freemysqlhosting.net",
-            "sql6138853",
-            "sHUtJmyDh3",
-            "sql6138853",
+            dbconfig.host,
+            dbconfig.dbUser,
+            dbconfig.dbPassword,
+            dbconfig.dbUser,
             "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + document.getElementById("password").value + "'",
             function (data) {
                 //First Ensure the query succeded
@@ -32,10 +32,10 @@ function verify_user() {
     //Incident Selected
     else if ($('#radio2').is(":checked")) {
         MySql.Execute(
-            "sql6.freemysqlhosting.net",
-            "sql6138853",
-            "sHUtJmyDh3",
-            "sql6138853",
+            dbconfig.host,
+            dbconfig.dbUser,
+            dbconfig.dbPassword,
+            dbconfig.dbUser,
             "select USER_ID from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "'",
             function (data) {
                 //First Ensure the query succeded
@@ -59,10 +59,10 @@ function verify_user() {
     //Admin Selected
     else {
         MySql.Execute(
-            "sql6.freemysqlhosting.net",
-            "sql6138853",
-            "sHUtJmyDh3",
-            "sql6138853",
+            dbconfig.host,
+            dbconfig.dbUser,
+            dbconfig.dbPassword,
+            dbconfig.dbUser,
             "select USER_ID, ADMIN_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + document.getElementById("password").value + "'",
             function (data) {
                 //First Ensure the query succeded
