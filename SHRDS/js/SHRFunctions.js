@@ -474,6 +474,17 @@ function retreiveDescription(type, value) {
     return description;
 }
 
+
+function nextRouteChange() {
+	 if (window.location.hash = "#REV") {
+	        $(window).on('hashchange', function hashChange() {
+            window.location.hash = "#REV";
+			console.log(window.location.hash);
+        })
+    } 
+}
+
+
 function shrFormSelect() {
     if ($('#shrRadio1').is(":checked")) {
 		app.SHRFlag = 1;
