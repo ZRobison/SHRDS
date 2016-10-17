@@ -75,8 +75,8 @@ input.radio:empty ~ label {
     line-height: 2.5em;
     text-indent: 3.25em;
     cursor: pointer;
-    margin-bottom: 2%;
-    border: 1px solid black; 
+
+    border: 1px solid black;
 }
 
 input.radio:empty ~ label:before {
@@ -111,14 +111,18 @@ input.radio:checked ~ label {
     color: #777;
 }
 
-#radBut input.radio:empty ~ label {
+.radBut input.radio:empty ~ label {
+    color: #0f0f0f;
+    background-color: white;
+    width: 18%;
+    margin-top: 5%;    
+}
+
+.formSelRad input.radio:empty ~ label   {
     color: white;
     background-color: #0060A9;
-    width: 60%;
-
+    width: 20%;
     margin-top: 5%;
-
-    
 }
 
 #radBut2 {
@@ -145,13 +149,13 @@ select {
 
 .blueButtons	{
 	background-color: #0060A9;
+    margin-top: 1%;
 	font-size:12px;
 	text-decoration:none;
 	color:#fff;
 	font-weight: bolder;
 	position:relative;
 	padding:10px 20px;
-	top: 10px;
 	padding-right:50px;
 	background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
 	border-radius: 5px;
@@ -207,8 +211,6 @@ select {
 
 .info	{
 	background-color: grey;
-
-	
 }
 
 
@@ -264,6 +266,16 @@ input[type="submit"] {
     select {
         width: 80%;
     }
+	
+	.radBut input.radio:empty ~ label {
+		width: 85%;
+		margin-top: 2%;
+	}
+
+    .formSelRad input.radio:empty ~ label   {
+        width: 90%;
+        margin-top: 20%;
+    }
 }
 
 @media only screen and (min-width: 480px) {
@@ -274,6 +286,11 @@ input[type="submit"] {
     select {
         width: 40%;
     }
+	
+	.radBut input.radio:empty ~ label {
+		width: 50%;
+		margin-top: 1%;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -284,6 +301,10 @@ input[type="submit"] {
     select {
         width: 30%;
     }
+	
+	.radBut input.radio:empty ~ label {
+		width: 30%;
+	}	
 }
 
 @media only screen and (min-width: 992px) {
@@ -292,6 +313,10 @@ input[type="submit"] {
     }
 
     select {
+        width: 25%;
+    }
+
+    .radBut input.radio:empty ~ label {
         width: 25%;
     }
 }
@@ -303,6 +328,10 @@ input[type="submit"] {
 
     select {
         width: 20%;
+    }
+
+    .radBut input.radio:empty ~ label {
+        width: 15%;
     }
 }
 
@@ -327,15 +356,15 @@ input[type="submit"] {
 }
 
 .questionMark {
+    outline: none;
 	background-image:url(../images/help.png);
 	margin-left: 1%;	
 	border-radius: 50%;
 	width: 35px;
 	height: 35px;
 	cursor: help;
-    outline: none;
-    position: relative;
-    top: 8px;
+	position: relative;
+	top: 8px;
 }
 
 
