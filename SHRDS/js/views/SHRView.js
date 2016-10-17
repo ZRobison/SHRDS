@@ -262,7 +262,7 @@ function getRCR() {
 
     var body =
 
-        "<br><select id='myList' name='RCRForm'>" +
+        "<select id='myList' name='RCRForm'>" +
         "<option value='-1' selected>select one</option>" +
         "<option value='0'>No Rips</option>" +
         "<option value='1'>Mild Rips (swim against)</option>" +

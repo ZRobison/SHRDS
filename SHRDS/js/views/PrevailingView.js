@@ -15,17 +15,17 @@ var PrevailingView = function () {
             "<option value='4'>Beach3</option>" +
             "<option value='5'>Beach4</option>" +
             "</select>" +
-            "</div>" +
+            "</div><br>" +
             "<div id='windSpeedBox><p>Wind Speed</p>" +
             "<p>We will fill this windspeed from BOM later</p>" +
             "</div>" +
 
             "<div id='nearestTideBox>" +
             "<p>Nearest Tides</p>" +
-            "<ul><li>Time1</li>" + //I think there is the time of the 2 nearest tides??
-            "<li>Time2</li>" +
-            "<li>Height1</li>" +
-            "<li>Height2</li></ul>" +
+            "<ul><li>Time 1</li>" + //I think there is the time of the 2 nearest tides??
+            "<li>Time 2</li>" +
+            "<li>Height 1</li>" +
+            "<li>Height 2</li></ul>" +
             "</div>" +
 
             "<div id='windDirBox'><p>Wind Direction</p>" +
