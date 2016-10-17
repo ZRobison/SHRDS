@@ -41,9 +41,9 @@ var AdminSelectView = function () {
             var header = "Password Reset";
             var body =
                 "User ID: <input type='text' name='fname' id = 'userID'><br>" +
-                "New Password: <input type='password' id='userPassword'><br>";
-
-            var footer = "submit button";
+                "New Password: <input type='password' id='userPassword'><br>" +
+                "<div class ='message'></div>";
+            var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>Submit</button>";
 
             $(".heading").text(header);
             $(".body").html(body);
