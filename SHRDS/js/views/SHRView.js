@@ -382,21 +382,21 @@ function getREV() {
     var body =
         "<l>" +
         "<ul>" +
-        "WHR  " + retreiveDescription("WHR", pWHR) +
+        "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR()'>WHR</button>" +
         "</ul><ul>" +
-        "WTR  " + retreiveDescription("WTR", pWTR) +
+        "WTR  " + retreiveDescription("WTR", pWTR) + "<button type='submit' class='blueButtons' onClick='getWTR()'>WTR</button>" +
         "</ul><ul>" +
-        "WPR  " + retreiveDescription("WPR", pWPR) +
+        "WPR  " + retreiveDescription("WPR", pWPR) + "<button type='submit' class='blueButtons' onClick='getWPR()'>WPR</button>" +
         "</ul><ul>" +
-        "ZWR  " + retreiveDescription("ZWR", pZWR) +
+        "ZWR  " + retreiveDescription("ZWR", pZWR) + "<button type='submit' class='blueButtons' onClick='getZWR()'>ZWR</button>" +
         "</ul><ul>" +
-        "STR  " + retreiveDescription("STR", pSTR) +
+        "STR  " + retreiveDescription("STR", pSTR) + "<button type='submit' class='blueButtons' onClick='getSTR()'>STR</button>" +
         "</ul><ul>" +
-        "LDR  " + retreiveDescription("LDR", pLDR) +
+        "LDR  " + retreiveDescription("LDR", pLDR) + "<button type='submit' class='blueButtons' onClick='getLDR()'>LDR</button>" +
         "</ul><ul>" +
-        "RCR  " + retreiveDescription("RCR", pRCR) +
+        "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR()'>RCR</button>" +
         "</ul><ul>" +
-        "OHR  " + retreiveDescription("OHR", pOHR) +
+        "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR()'>OHR</button>" +
         "</ul>"
     "</l>";
 
