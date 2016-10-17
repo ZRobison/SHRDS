@@ -39,7 +39,10 @@ var AdminSelectView = function () {
         function getResetPassword() {
             //To be filled later
             var header = "Password Reset";
-            var body = "fill later";
+            var body =
+                "User ID: <input type='text' name='fname' id = 'userID'><br>" +
+                "New Password: <input type='password' id='userPassword'><br>";
+
             var footer = "submit button";
 
             $(".heading").text(header);
