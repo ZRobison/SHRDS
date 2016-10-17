@@ -475,10 +475,13 @@ function retreiveDescription(type, value) {
 }
 
 
-	 function nextRouteChange() {
-	 $(window).on('hashchange', function hashChange() {
+function nextRouteChange() {
+	 if (window.location.hash = "#REV") {
+	        $(window).on('hashchange', function hashChange() {
             window.location.hash = "#REV";
+			console.log(window.location.hash);
         })
+    } 
 }
 
 

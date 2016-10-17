@@ -343,7 +343,7 @@ function getOHR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getOHRvalue()' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getOHRvalue(); getREV();' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -401,9 +401,7 @@ function getREV() {
     "</ul>";
 
     var footer =
-        "<form action = '#SHR' method=''>" +
-        "<button type='submit' class='blueButtons'>SUBMIT</button>" +
-        "</form>";
+        "<button type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
