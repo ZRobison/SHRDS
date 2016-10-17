@@ -1,9 +1,12 @@
 function verify_user() {
     //TSO selected
+    if(document.getElementById("username").value == ""){
+        $(".error").text("Please enter a user ID");
+        return;
+    }
     if ($('#radio1').is(":checked")) {
         //dummy test db
-        MySql.Execute(
-            dbconfig.host,
+        MySql.Execute(dbconfig.host,
             dbconfig.dbUser,
             dbconfig.dbPassword,
             dbconfig.dbUser,
