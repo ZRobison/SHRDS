@@ -252,31 +252,14 @@ select {
 
 
 
-
-
-
-
-
-
+/* TO DO */
 .info	{
 	background-color: grey;
 }
 
 
 
-
-
-
 /* TO DO TOOLTIP */
-
-
-
-
-
-
-
-
-
 
 
 
@@ -510,7 +493,7 @@ input[type="submit"] {
 }
 
 #ratingsList ul {
-    display: inline-block;
+
 }
 
 
