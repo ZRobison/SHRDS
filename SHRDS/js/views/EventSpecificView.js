@@ -74,6 +74,7 @@ var EventSpecificView = function () {
             "<input type ='radio' name='' id='out'/>" +
             "In" +
             "beach/location:<input type = 'text' name='bl'>";
+
         var footer =
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
             "<form action= index.html?#WHR >" +
