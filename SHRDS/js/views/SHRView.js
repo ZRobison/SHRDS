@@ -380,25 +380,25 @@ function getREV() {
 	   var pOHR = app.esSHRData.SHR.pOHR;
     }
     var body =
-        "<l>" +
         "<ul>" +
+        "<li>" +
         "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR(); nextRouteChange();'>WHR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "WTR  " + retreiveDescription("WTR", pWTR) + "<button type='submit' class='blueButtons' onClick='getWTR(); nextRouteChange();'>WTR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "WPR  " + retreiveDescription("WPR", pWPR) + "<button type='submit' class='blueButtons' onClick='getWPR(); nextRouteChange();'>WPR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "ZWR  " + retreiveDescription("ZWR", pZWR) + "<button type='submit' class='blueButtons' onClick='getZWR(); nextRouteChange();'>ZWR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "STR  " + retreiveDescription("STR", pSTR) + "<button type='submit' class='blueButtons' onClick='getSTR(); nextRouteChange();'>STR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "LDR  " + retreiveDescription("LDR", pLDR) + "<button type='submit' class='blueButtons' onClick='getLDR(); nextRouteChange();'>LDR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR(); nextRouteChange();'>RCR</button>" +
-        "</ul><ul>" +
+        "</li><li>" +
         "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR(); nextRouteChange();'>OHR</button>" +
-        "</ul>"
-    "</l>";
+        "</li>"
+    "</ul>";
 
     var footer =
         "<form action = '#SHR' method=''>" +
