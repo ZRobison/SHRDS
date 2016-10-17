@@ -47,18 +47,18 @@ function getWHR() {
     var body =
         //body
         "WHR in Meters" +
-        "<select id='WHR' name='WHRForm'>" +
+        "<select class='allRatingsPos' name='WHRForm'>" +
         "<option value='-1'>select one</option>" +
-        "<option value='0'>0(Knee High)</option>" +
-        "<option value='1'>up to 0.5 (Knee High)</option>" +
-        "<option value='2'>up to 1.0 (waist High)</option>" +
-        "<option value='3'>up to 1.5 (Head high)</option>" +
-        "<option value='4'>up to 2.0 (Head High)</option>" +
-        "<option value='5'>up to 2.5 (Overhead)</option>" +
-        "<option value='6'>up to 3.0 (Overhead)</option>" +
-        "<option value='8'>up to 3.5 (Double Overhead)</option>" +
-        "<option value='10'>up to 4.0 (Double Overhead)</option>" +
-        "<option value='12'>up to 4.5</option>" +
+        "<option value='0'>0 (Knee High)</option>" +
+        "<option value='1'>Up to 0.5 (Knee High)</option>" +
+        "<option value='2'>Up to 1.0 (Waist High)</option>" +
+        "<option value='3'>Up to 1.5 (Head High)</option>" +
+        "<option value='4'>Up to 2.0 (Head High)</option>" +
+        "<option value='5'>Up to 2.5 (Overhead)</option>" +
+        "<option value='6'>Up to 3.0 (Overhead)</option>" +
+        "<option value='8'>Up to 3.5 (Double Overhead)</option>" +
+        "<option value='10'>Up to 4.0 (Double Overhead)</option>" +
+        "<option value='12'>Up to 4.5</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getWHRInfo()'></button>" +
         "<div class='error'></div>" +
@@ -126,8 +126,8 @@ function getWPR() {
 
         "WPR" +
         "<select id='myList' name='WPRForm'>" +
-        "<option value='-1' selected>select one</option>" +
-        "<option value='0'>Long Period(>14sec)</option>" +
+        "<option value='-1' selected>Select one</option>" +
+        "<option value='0'>Long Period(>14secs)</option>" +
         "<option value='1'>Moderate Period(9-14secs)</option>" +
         "<option value='2'>Short Period(6-8 secs)</option>" +
         "<option value='3'>Extremely Short Period(<6 secs)</option>" +
@@ -161,16 +161,16 @@ function getZWR() {
     var body =
 
         "ZWR<select id='myList' name='ZWRForm'>" +
-        "<option value='-1' selected>select one</option>" +
+        "<option value='-1' selected>Select one</option>" +
         "<option value='0'>0</option>" +
-        "<option value='1'>up to 20</option>" +
-        "<option value='2'>up to 40</option>" +
-        "<option value='3'>up to 60</option>" +
-        "<option value='4'>up to 80</option>" +
-        "<option value='5'>up to 100</option>" +
-        "<option value='6'>up to 120</option>" +
-        "<option value='7'>up to 140</option>" +
-        "<option value='8'>up to 160</option>" +
+        "<option value='1'>Up to 20</option>" +
+        "<option value='2'>Up to 40</option>" +
+        "<option value='3'>Up to 60</option>" +
+        "<option value='4'>Up to 80</option>" +
+        "<option value='5'>Up to 100</option>" +
+        "<option value='6'>Up to 120</option>" +
+        "<option value='7'>Up to 140</option>" +
+        "<option value='8'>Up to 160</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getZWRInfo()')></button>" +
         "<div class='error'></div>" +
@@ -201,7 +201,7 @@ function getSTR() {
 
         "<select id='myList' name='STRForm'>" +
         "<option value='-1' selected>Select one</option>" +
-        "<option value='0'>No chop (glassy)</option>" +
+        "<option value='0'>No chop (Glassy)</option>" +
         "<option value='1'>Light Chop (5-11 kts)</option>" +
         "<option value='2'>Moderate Chop (12-21 kts)</option>" +
         "<option value='3'>Excessive Chop (22-27 kts)</option>" +
@@ -251,7 +251,7 @@ function getLDR() {
     var body =
 
         "<select id='myList' name='LDRForm'>" +
-        "<option value='-1' selected>select one</option>" +
+        "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Drag (0)</option>" +
         "<option value='1'>Low Drag (>40 secs)</option>" +
         "<option value='2'>Moderate Drag (20-40 secs)</option>" +
@@ -287,9 +287,9 @@ function getRCR() {
     var body =
 
         "<select id='myList' name='RCRForm'>" +
-        "<option value='-1' selected>select one</option>" +
+        "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Rips</option>" +
-        "<option value='1'>Mild Rips (swim against)</option>" +
+        "<option value='1'>Mild Rips (Swim against)</option>" +
         "<option value='2'>Mild to strong Rips (ONLY walk waist deep against)</option>" +
         "<option value='3'>Strong Rips (Cannot walk against)</option>" +
         "</select>" +
@@ -323,7 +323,7 @@ function getOHR() {
 
 
         "OHR: one for each extra hazard present<br><br><select id='myList' name='OHRForm'>" +
-        "<option value='-1' selected>select one</option>" +
+        "<option value='-1' selected>Select one</option>" +
         "<option value='0'>0</option>" +
         "<option value='1'>1</option>" +
         "<option value='2'>2</option>" +
@@ -382,7 +382,7 @@ function getREV() {
     }
 
     var body =
-        "<l>" +
+        "<li>" +
         "<ul>" +
         "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR()'>WHR</button>" +
         "</ul><ul>" +
@@ -399,8 +399,8 @@ function getREV() {
         "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR()'>RCR</button>" +
         "</ul><ul>" +
         "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR()'>OHR</button>" +
-        "</ul>"
-    "</l>";
+        "</ul>" +
+        "</li>";
 
     var footer =
         "<form action = '#SHR' method=''>" +
