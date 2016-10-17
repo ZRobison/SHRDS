@@ -9,10 +9,6 @@ html    {
     padding: 0px;
 }
 
-.body {
-    font-weight: bolder;
-}
-
 p {
     color: black;
     text-align: justify;
@@ -27,6 +23,10 @@ table {
 
 td, th {
     padding: 0;
+}
+
+body    {
+    font-weight: bold;
 }
 
 .titles {
@@ -64,7 +64,6 @@ header img {
     color: white;
     margin: 0 auto;
     padding-top: 0.8em;
-
 }
 
 input.radio:empty {
@@ -113,8 +112,12 @@ input.radio:checked ~ label {
 }
 
 #radBut input.radio:empty ~ label {
-    background-color: yellow;
+    color: white;
+    background-color: #0060A9;
     width: 60%;
+
+    margin-top: 5%;
+
     
 }
 
@@ -134,9 +137,10 @@ select {
 }
 
 #loginBut {
-	font-weight: bolder;
+	font-weight: bold;
     position: relative;
     top: 10px;
+    letter-spacing: 0.1em;
 }
 
 .blueButtons	{
@@ -203,7 +207,7 @@ select {
 
 .info	{
 	background-color: grey;
-	border-color: 1px solid black;	
+
 	
 }
 
