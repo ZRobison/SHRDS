@@ -23,11 +23,6 @@ var LogonView = function () {
             "<div class ='error'></div>";
 
 
-
-
-        //
-
-
         $(".heading").text(header);
         $(".body").html(body);
 

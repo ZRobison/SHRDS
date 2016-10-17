@@ -21,6 +21,16 @@ p {
     line-height: 150%;
 }
 
+.hazard {
+    font-size: 130%;
+    position: absolute;
+    color: #555;
+    width: 100%;
+    text-align: center;
+    top: 9em;
+
+}
+
 ul li {
     list-style-type: none;
     padding-top: 0.5em;
@@ -36,6 +46,7 @@ td, th {
 
 .titles {
     text-align: center;
+    color: red;
 }
 
 hr {
@@ -68,6 +79,7 @@ header img {
     color: white;
     margin: 0 auto;
     margin-top: 0.4em;
+    margin-right: 8%;
 }
 
 h1  {
@@ -135,7 +147,6 @@ input.radio:checked ~ label {
 /* vertical position for all hazards */
 .allRatingsPos    {
     margin-top: 30%;
-
 }
 
 .formSelRad input.radio:empty ~ label   {
@@ -154,7 +165,6 @@ select {
     background-color: lightgray;
     color: #333;
     font-weight: bold;
-    margin-top: 2%;
     font-size: 130%;
     border: solid black 2px;
     text-align: center;
@@ -212,11 +222,6 @@ select {
 	box-shadow: inset 0px 1px 0px #827066, 0px 3px 0px #19120f, 0px 6px 3px #382e29;
 }
 
-#nearestTideBox {
-    position: absolute;
-    top: -200px;
-}
-
 #windDirBox	{
     position: relative;
     top: -100px;
@@ -229,7 +234,7 @@ select {
     width: 250px;
     margin: 0 auto;
     position: relative;
-    margin-top: 2% ;
+    margin-top: 5% ;
     border-radius: 8px;
 }
 
@@ -318,7 +323,7 @@ input[type="submit"] {
     }
 
     select {
-        width: 50%;
+        width: 14em;
     }
 
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
@@ -336,9 +341,6 @@ input[type="submit"] {
     #windDirBox {
         position: relative;
         top: 0;
-    }
-
-    #windDirBox {
         margin-top: 8%;
     }
 }
@@ -355,11 +357,12 @@ input[type="submit"] {
     }
 
     p {
-        width: 70%;
+        width: 20em;
     }
 
     select {
         width: 60%;
+        position: relative;
     }
 
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
@@ -395,7 +398,7 @@ input[type="submit"] {
     }
 
     select {
-        width: 55%;
+        width: 25em;
     }
 
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
@@ -430,7 +433,7 @@ input[type="submit"] {
     }
 
     select {
-        width: 45%;
+        width: 28em;
     }
 
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
@@ -459,7 +462,7 @@ input[type="submit"] {
     }
 
     select {
-        width: 40%;
+        width: 28em;
     }
 
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
@@ -505,6 +508,12 @@ input[type="submit"] {
 	position: relative;
 	top: 8px;
 }
+
+#ratingsList ul {
+    display: inline-block;
+}
+
+
 
 
 
