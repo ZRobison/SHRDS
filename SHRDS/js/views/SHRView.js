@@ -75,11 +75,10 @@ function getWHR() {
     $(".body").html(body);
     $(".footer").html(footer);
 
-
-    if (app.SHRFlag) {
-        $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWHR);
+	if (app.SHRFlag == 1) {
+        $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
     } else {
-        //Add code for IS SHR
+        $("select[name=WHRForm]").val(app.esSHRData.SHR.pWTR);
     }
 };
 
@@ -113,10 +112,10 @@ function getWTR() {
     $(".body").html(body);
     $(".footer").html(footer);
 
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
         $("select[name=WTRForm]").val(app.prevalingSHRData.SHR.pWTR);
     } else {
-        //Add code for IS SHR
+        $("select[name=WTRForm]").val(app.esSHRData.SHR.pWTR);
     }
 }
 
@@ -142,10 +141,17 @@ function getWPR() {
     var footer =
 
         "<button type='submit' class='blueButtons' onClick='getWPRvalue()' >NEXT</button>";
+	
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWPR);
+    } else {
+        $("select[name=WPRForm]").val(app.esSHRData.SHR.pWPR);
+    }
 }
 
 function getZWR() {
@@ -180,6 +186,12 @@ function getZWR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=ZWRForm]").val(app.prevalingSHRData.SHR.pZWR);
+    } else {
+        $("select[name=ZWRForm]").val(app.esSHRData.SHR.pZWR);
+    }
 }
 
 function getSTR() {
@@ -225,6 +237,12 @@ function getSTR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=STRForm]").val(app.prevalingSHRData.SHR.pSTR);
+    } else {
+        $("select[name=STRForm]").val(app.esSHRData.SHR.pSTR);
+    }
 }
 
 function getLDR() {
@@ -255,6 +273,12 @@ function getLDR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=LDRForm]").val(app.prevalingSHRData.SHR.pLDR);
+    } else {
+        $("select[name=LDRForm]").val(app.esSHRData.SHR.pLDR);
+    }
 }
 
 function getRCR() {
@@ -284,6 +308,12 @@ function getRCR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=RCRForm]").val(app.prevalingSHRData.SHR.pRCR);
+    } else {
+        $("select[name=RCRForm]").val(app.esSHRData.SHR.pRCR);
+    }
 }
 
 function getOHR() {
@@ -320,12 +350,18 @@ function getOHR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+	
+	if (app.SHRFlag == 1) {
+        $("select[name=OHRForm]").val(app.prevalingSHRData.SHR.pOHR);
+    } else {
+        $("select[name=OHRForm]").val(app.esSHRData.SHR.pOHR);
+    }
 }
 
 function getREV() {
     var header = "Review SHR";
 
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1) {
        var pWHR = app.prevalingSHRData.SHR.pWHR;
        var pWTR = app.prevalingSHRData.SHR.pWTR;
 	   var pWPR = app.prevalingSHRData.SHR.pWPR;
@@ -335,27 +371,34 @@ function getREV() {
 	   var pRCR = app.prevalingSHRData.SHR.pRCR;
 	   var pOHR = app.prevalingSHRData.SHR.pOHR;
     } else {
-        //eventspecific
+       var pWHR = app.esSHRData.SHR.pWHR;
+       var pWTR = app.esSHRData.SHR.pWTR;
+	   var pWPR = app.esSHRData.SHR.pWPR;
+	   var pZWR = app.esSHRData.SHR.pZWR;
+	   var pSTR = app.esSHRData.SHR.pSTR;
+	   var pLDR = app.esSHRData.SHR.pLDR;
+	   var pRCR = app.esSHRData.SHR.pRCR;
+	   var pOHR = app.esSHRData.SHR.pOHR;
     }
-	console.log(pLDR);
+
     var body =
         "<l>" +
         "<ul>" +
-        "WHR  " + retreiveDescription("WHR", pWHR) +
+        "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR()'>WHR</button>" +
         "</ul><ul>" +
-        "WTR  " + retreiveDescription("WTR", pWTR) +
+        "WTR  " + retreiveDescription("WTR", pWTR) + "<button type='submit' class='blueButtons' onClick='getWTR()'>WTR</button>" +
         "</ul><ul>" +
-        "WPR  " + retreiveDescription("WPR", pWPR) +
+        "WPR  " + retreiveDescription("WPR", pWPR) + "<button type='submit' class='blueButtons' onClick='getWPR()'>WPR</button>" +
         "</ul><ul>" +
-        "ZWR  " + retreiveDescription("ZWR", pZWR) +
+        "ZWR  " + retreiveDescription("ZWR", pZWR) + "<button type='submit' class='blueButtons' onClick='getZWR()'>ZWR</button>" +
         "</ul><ul>" +
-        "STR  " + retreiveDescription("STR", pSTR) +
+        "STR  " + retreiveDescription("STR", pSTR) + "<button type='submit' class='blueButtons' onClick='getSTR()'>STR</button>" +
         "</ul><ul>" +
-        "LDR  " + retreiveDescription("LDR", pLDR) +
+        "LDR  " + retreiveDescription("LDR", pLDR) + "<button type='submit' class='blueButtons' onClick='getLDR()'>LDR</button>" +
         "</ul><ul>" +
-        "RCR  " + retreiveDescription("RCR", pRCR) +
+        "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR()'>RCR</button>" +
         "</ul><ul>" +
-        "OHR  " + retreiveDescription("OHR", pOHR) +
+        "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR()'>OHR</button>" +
         "</ul>"
     "</l>";
 
@@ -385,11 +428,10 @@ function getSHR() {
         "</form>";
 
     var shr = -1;
-    if (app.SHRFlag) {
+    if (app.SHRFlag == 1 ) {
         shr = app.prevalingSHRData.SHR.calculate();
-        console.log(shr);
     } else {
-        //eventspecific
+        shr = app.esSHRData.SHR.calculate();
     }
     $(".heading").text(header);
     $(".body").html(body);

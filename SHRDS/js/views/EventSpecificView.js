@@ -1,7 +1,13 @@
 var EventSpecificView = function () {
 
     this.render = function () {
-        var header = "Event specific SHR";
+		var header = "";
+		if (app.SHRFlag == 2){
+			header = "Event specific SHR";
+		} else {
+			header = "Event specific Incident Report";
+		}
+        
 
 
         var body =
@@ -77,13 +83,21 @@ var EventSpecificView = function () {
 
         var footer =
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
-            "<form action= index.html?#WHR >" +
-            "<button type='submit' class='blueButtons' onclick=''>NEXT</button> " +
-            //"<button type='button' class='blueButtons' onclick =>Next</button> " +
+            "<form action= '' >" +
+            "<button type='submit' class='blueButtons' onclick='routeIS()'>Next</button> " +
             "</form>";
 
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
     }
+}
+
+
+function routeIS(){
+	if (app.SHRFlag == 0){
+		location.href = 'index.html?#incident1';
+	} else {
+		location.href = 'index.html?#WHR';
+	}
 }

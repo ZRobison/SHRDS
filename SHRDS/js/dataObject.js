@@ -18,7 +18,6 @@ var SHRData = function() {
 }
 
 //Have not made an event specific SHR
-
 var PrevailingData = function() {
 	this.initialize= function() {
 		this.SHR = new SHRData();
@@ -34,7 +33,24 @@ var PrevailingData = function() {
 		this.tideHieghtLow = -1.0;
 		this.tideHieghtHigh = -1.0;
 	}
+}
 
+var eventSpercifcSHRData = function() {
+	this.initialize= function() {
+		this.SHR = new SHRData();
+		this.SHR.initialize();
+		this.inOrOut = -1;
+		this.date = "";
+		this.time = "";
+		this.beach = "";
+		this.round = "";
+		this.arena = "";
+		this.raceNumber = -1;
+		this.age = -1;
+		this.gender = '';
+		this.craftType = "";
+		this.numberOfCraft = "";
+	}
 }
 
 var IRData = function(){
