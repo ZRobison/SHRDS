@@ -28,7 +28,6 @@ p {
     width: 100%;
     text-align: center;
     top: 9em;
-
 }
 
 ul li {
@@ -146,7 +145,7 @@ input.radio:checked ~ label {
 
 /* vertical position for all hazards */
 .allRatingsPos    {
-    margin-top: 30%;
+    margin-top: 6em;
 }
 
 .formSelRad input.radio:empty ~ label   {
@@ -344,8 +343,7 @@ input[type="submit"] {
     }
 
     select {
-        width: 60%;
-        position: relative;
+        width: 18em;
     }
 
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
