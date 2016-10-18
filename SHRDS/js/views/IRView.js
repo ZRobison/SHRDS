@@ -5,53 +5,81 @@ var IRView = function () {
 
         var body =
 
+            "<div class='container'>" +
+            "<div class='row'>" +
+            "<div class='col-md-2'>" +
+
             "<form action = '' method=''>" +
+
+            "Fall Offs(By Wave)" +
+            "<button type='submit'>&#45;</button>" +
             "<button type='submit'>&#43;</button>" +
-            "Fall Offs(by wave)" +
-            "<input type='text' style='width:20px;' />" +
+            "<input type='text'><br>" +
+
+            "Fall Offs(By Collision)" +
             "<button type='submit'>&#45;</button> " +
             "<button type='submit'>&#43;</button> " +
-            "Fall Offs(by collision)" +
-            "<input type='text' style='width:20px;' />" +
+            "<input type='text'><br>" +
+
+            "Back-shoot/Nose-Dive" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Broaches" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Flying Craft" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Lost Craft(Serious)" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "</div>" +
+
+            "<div class='col-md-2'>" +
+
+            "Lost Craft(Severe)" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Collision(Serious)" +
+            "<button type='submit'>&#45;</button>" +
+            "<button type='submit'>&#43;</button>" +
+            "<input type='text'><br>" +
+
+            "Injury(Minor)" +
             "<button type='submit'>&#45;</button>" +
             "<button type='submit'>&#43;</button> " +
-            "Back-shoot/Nose-Dive" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> " +
-            "<button type='submit'>&#43;</button> " +
-            "Broaches" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> " +
-            "<button type='submit'>&#43;</button> " +
-            "Flying Craft" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> " +
-            "<button type='submit'>&#43;</button>" +
-            "Lost Craft(serious)" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> " +
-            "<button type='submit'>&#43;</button> " +
-            "Lost Craft(severe)" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> " +
-            "<button type='submit'>&#43;</button> " +
-            "Collision(serious)" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> <button type='submit'>&#43;</button>" +
-            "Injury(minor)" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> <button type='submit'>&#43;</button> " +
-            "Injury(serious)" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> <button type='submit'>&#43;</button> " +
-            "Fall Offs(by wave)" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> <button type='submit'>&#43;</button> " +
-            "Injury(severe)" +
-            "<input type='text' style='width:20px;' />" +
-            "<button type='submit'>&#45;</button> ";
+            "<input type='text'><br>" +
 
-        var footer =         
+            "Injury(Serious)" +
+            "<button type='submit'>&#45;</button>" +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Fall Offs(By Wave)" +
+            "<button type='submit'>&#45;</button>" +
+            "<button type='submit'>&#43;</button>" +
+            "<input type='text'><br>" +
+
+            "Injury(Severe)" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'>" +
+            "</div>" +
+            "</div>" +
+            "</div>";
+
+
+        var footer =
             "<button type='button' class='blueButtons'>NEXT</button>" +
             "<form>";
 

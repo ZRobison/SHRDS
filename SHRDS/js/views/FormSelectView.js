@@ -7,7 +7,7 @@ var FormSelectView = function () {
             "<label for='shrRadio1'>Prevailing Surf Hazard Rating</label></div>" +
             "<div class='formSelRad'>" +
             "<input type='radio' name='shrRadio' id='shrRadio2' class='radio' value='checked' >" +
-            "<label for='shrRadio2'>Event Specific Surf Hazard Rating</label></div>" ;      
+            "<label for='shrRadio2'>Event Specific Surf Hazard Rating</label></div>";
 
         var footer = "<button type='submit' class='blueButtons' onclick='shrFormSelect()'>NEXT</button>";
 

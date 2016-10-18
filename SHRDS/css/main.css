@@ -23,11 +23,12 @@ p {
 
 .hazard {
     font-size: 130%;
-    position: absolute;
+    position: relative;
     color: #555;
     width: 100%;
     text-align: center;
-    top: 9em;
+    top: 5em;
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 ul li {
@@ -46,7 +47,7 @@ th {
 
 .titles {
     text-align: center;
-    color: red;
+    color: #ccc;
 }
 
 hr {
@@ -80,10 +81,7 @@ header img {
     margin: 0 auto;
     margin-top: 0.4em;
     margin-right: 8%;
-}
-
-h1 {
-    color: green;
+    text-shadow: 2px 2px 2px #444;
 }
 
 input.radio:empty {
@@ -96,6 +94,7 @@ input.radio:empty~label {
     text-indent: 3.25em;
     cursor: pointer;
     border: 1px solid black;
+    box-shadow: 5px 5px 2.5px #888888;
 }
 
 input.radio:empty~label:before {
@@ -140,9 +139,11 @@ input.radio:checked~label {
 /*Tides Prevailing List*/
 
 #tidesListBox {
-    margin-left: 60%;
+    margin-left: 65%;
     position: absolute;
     top: 80px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 
@@ -157,6 +158,8 @@ input.radio:checked~label {
     background-color: #0060A9;
     width: 20%;
     margin-top: 5%;
+    letter-spacing: 0.04em;
+    min-width: 200px;
 }
 
 #radBut2 {
@@ -169,12 +172,14 @@ select {
     color: #333;
     font-weight: bold;
     font-size: 130%;
-    border: solid black 2px;
+    border: solid black 1px;
     text-align: center;
     border-radius: 8px;
     outline: none;
     padding: 0.2em;
     margin-left: 2%;
+    box-shadow: 4px 4px 2.5px #888888;
+    min-width: 200px;
 }
 
 #loginBut {
@@ -227,6 +232,7 @@ select {
 #windDirBox {
     position: relative;
     top: -100px;
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 .error {
@@ -235,9 +241,9 @@ select {
     background-color: rgba(220, 0, 0, 0.1);
     width: 250px;
     margin: 0 auto;
-    position: relative;
     margin-top: 5%;
     border-radius: 8px;
+    box-shadow: 2px 2px 1.5px #888888;
 }
 
 #submitForm1 {
@@ -253,10 +259,21 @@ select {
 }
 
 
-/* TO DO */
+/*What the hell?*/
+
+.info:before {
+    visibility: hidden;
+}
+
+
+/*What the hell?*/
 
 .info {
-    background-color: grey;
+    margin: 0 auto;
+    background-color: #222;
+    color: snow;
+    border-radius: 8px;
+    box-shadow: 5px 5px 2.5px #888888;
 }
 
 
@@ -269,6 +286,10 @@ input[type="password"] {
     font-size: 1.1em;
     margin-left: 0.5em;
     margin-bottom: 1.5em;
+    box-shadow: 5px 5px 2.5px #888888;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid black;
 }
 
 input[type="submit"] {
@@ -279,6 +300,22 @@ input[type="submit"] {
     margin: 8px 0;
     border: none;
     cursor: pointer;
+}
+
+
+/**********************************************************************
+/* 1 PIXELS
+/*********************************************************************/
+
+@media only screen and (min-width: 1px) {
+    select {
+        width: 9em;
+    }
+    /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
+    .radBut input.radio:empty~label {
+        width: 300px;
+        position: relative;
+    }
 }
 
 
@@ -295,7 +332,7 @@ input[type="submit"] {
         width: 90%;
     }
     select {
-        width: 12em;
+        width: 11em;
     }
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
     .radBut input.radio:empty~label {
@@ -311,6 +348,9 @@ input[type="submit"] {
         position: relative;
         top: 0;
         margin-top: 8%;
+    }
+    .info {
+        width: 90%;
     }
 }
 
@@ -343,6 +383,9 @@ input[type="submit"] {
     #windDirBox {
         margin-top: 6%;
     }
+    .info {
+        width: 60%;
+    }
 }
 
 
@@ -373,6 +416,9 @@ input[type="submit"] {
     #windDirBox {
         margin-top: 4%;
     }
+    .info {
+        width: 50%;
+    }
 }
 
 
@@ -402,6 +448,9 @@ input[type="submit"] {
     }
     #windDirBox {
         margin-top: 2%;
+    }
+    .info {
+        width: 30%;
     }
 }
 
@@ -438,6 +487,9 @@ input[type="submit"] {
     background: #FFD520;
 }
 
+
+/*USE FOR RATING*/
+
 #rating {
     position: relative;
     top: 20%;
@@ -452,12 +504,13 @@ input[type="submit"] {
     outline: none;
     background-image: url(../images/help.png);
     border-radius: 50%;
-    margin-left: 1%;
+    margin-left: 2%;
     width: 35px;
     height: 35px;
     cursor: help;
     position: relative;
     top: 8px;
+    box-shadow: 5px 5px 2.5px #888888;
 }
 
 #ratingsList ul {
@@ -468,23 +521,35 @@ input[type="submit"] {
     text-align: left;
 }
 
-.eventSpecificBlock {}
-
-.eventSpecificSelects {
-    background-color: cornflowerblue;
-    display: block;
+#bigBlock {
+    position: absolute;
+    left: 5%
 }
 
 .eventRadios {
     text-align: left;
-    margin-left: 3em;
-    padding-bottom: 0.6em;
+    margin-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 5%;
 }
 
 .irTitles {
     text-align: left;
-    padding-top: 2em;
-    margin-left: 2%;
-    margin-bottom: 0.5em;
-    font-size: 110%;
+    padding-top: 1em;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+#inlineOutIn {
+    display: inline;
+    width: 200px;
+    height: 20px;
+    margin-top: 1em;
+}
+
+#inlineOutIn #out {
+    margin-left: 40%;
+}
+
+.row {
+    text-align: left;
 }

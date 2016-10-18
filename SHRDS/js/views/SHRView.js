@@ -75,7 +75,7 @@ function getWHR() {
     $(".body").html(body);
     $(".footer").html(footer);
 
-	if (app.SHRFlag == 1) {
+    if (app.SHRFlag == 1) {
         $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
     } else {
         $("select[name=WHRForm]").val(app.esSHRData.SHR.pWTR);
@@ -141,13 +141,13 @@ function getWPR() {
     var footer =
 
         "<button type='submit' class='blueButtons' onClick='getWPRvalue()' >NEXT</button>";
-	
+
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-	
-	if (app.SHRFlag == 1) {
+
+    if (app.SHRFlag == 1) {
         $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWPR);
     } else {
         $("select[name=WPRForm]").val(app.esSHRData.SHR.pWPR);
@@ -186,8 +186,8 @@ function getZWR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-	
-	if (app.SHRFlag == 1) {
+
+    if (app.SHRFlag == 1) {
         $("select[name=ZWRForm]").val(app.prevalingSHRData.SHR.pZWR);
     } else {
         $("select[name=ZWRForm]").val(app.esSHRData.SHR.pZWR);
@@ -209,10 +209,7 @@ function getSTR() {
         "</select>" +
         "<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
         "<div class='error'></div>" +
-        "<br>" +
-        "<br>" +
         "<div class='info'></div>" +
-
 
         "<br>" +
         "<br>" +
@@ -237,8 +234,8 @@ function getSTR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-	
-	if (app.SHRFlag == 1) {
+
+    if (app.SHRFlag == 1) {
         $("select[name=STRForm]").val(app.prevalingSHRData.SHR.pSTR);
     } else {
         $("select[name=STRForm]").val(app.esSHRData.SHR.pSTR);
@@ -273,8 +270,8 @@ function getLDR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-	
-	if (app.SHRFlag == 1) {
+
+    if (app.SHRFlag == 1) {
         $("select[name=LDRForm]").val(app.prevalingSHRData.SHR.pLDR);
     } else {
         $("select[name=LDRForm]").val(app.esSHRData.SHR.pLDR);
@@ -308,8 +305,8 @@ function getRCR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-	
-	if (app.SHRFlag == 1) {
+
+    if (app.SHRFlag == 1) {
         $("select[name=RCRForm]").val(app.prevalingSHRData.SHR.pRCR);
     } else {
         $("select[name=RCRForm]").val(app.esSHRData.SHR.pRCR);
@@ -350,8 +347,8 @@ function getOHR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-	
-	if (app.SHRFlag == 1) {
+
+    if (app.SHRFlag == 1) {
         $("select[name=OHRForm]").val(app.prevalingSHRData.SHR.pOHR);
     } else {
         $("select[name=OHRForm]").val(app.esSHRData.SHR.pOHR);
@@ -362,23 +359,23 @@ function getREV() {
     var header = "Review SHR";
 
     if (app.SHRFlag == 1) {
-       var pWHR = app.prevalingSHRData.SHR.pWHR;
-       var pWTR = app.prevalingSHRData.SHR.pWTR;
-	   var pWPR = app.prevalingSHRData.SHR.pWPR;
-	   var pZWR = app.prevalingSHRData.SHR.pZWR;
-	   var pSTR = app.prevalingSHRData.SHR.pSTR;
-	   var pLDR = app.prevalingSHRData.SHR.pLDR;
-	   var pRCR = app.prevalingSHRData.SHR.pRCR;
-	   var pOHR = app.prevalingSHRData.SHR.pOHR;
+        var pWHR = app.prevalingSHRData.SHR.pWHR;
+        var pWTR = app.prevalingSHRData.SHR.pWTR;
+        var pWPR = app.prevalingSHRData.SHR.pWPR;
+        var pZWR = app.prevalingSHRData.SHR.pZWR;
+        var pSTR = app.prevalingSHRData.SHR.pSTR;
+        var pLDR = app.prevalingSHRData.SHR.pLDR;
+        var pRCR = app.prevalingSHRData.SHR.pRCR;
+        var pOHR = app.prevalingSHRData.SHR.pOHR;
     } else {
-       var pWHR = app.esSHRData.SHR.pWHR;
-       var pWTR = app.esSHRData.SHR.pWTR;
-	   var pWPR = app.esSHRData.SHR.pWPR;
-	   var pZWR = app.esSHRData.SHR.pZWR;
-	   var pSTR = app.esSHRData.SHR.pSTR;
-	   var pLDR = app.esSHRData.SHR.pLDR;
-	   var pRCR = app.esSHRData.SHR.pRCR;
-	   var pOHR = app.esSHRData.SHR.pOHR;
+        var pWHR = app.esSHRData.SHR.pWHR;
+        var pWTR = app.esSHRData.SHR.pWTR;
+        var pWPR = app.esSHRData.SHR.pWPR;
+        var pZWR = app.esSHRData.SHR.pZWR;
+        var pSTR = app.esSHRData.SHR.pSTR;
+        var pLDR = app.esSHRData.SHR.pLDR;
+        var pRCR = app.esSHRData.SHR.pRCR;
+        var pOHR = app.esSHRData.SHR.pOHR;
     }
 
     var body =
@@ -403,7 +400,7 @@ function getREV() {
         "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR(); nextRouteChange();'>OHR</button>" +
         "</li>"
     "</ul>" +
-        "</div>" ;
+    "</div>";
 
     var footer =
         "<button type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
@@ -429,7 +426,7 @@ function getSHR() {
         "</form>";
 
     var shr = -1;
-    if (app.SHRFlag == 1 ) {
+    if (app.SHRFlag == 1) {
         shr = app.prevalingSHRData.SHR.calculate();
     } else {
         shr = app.esSHRData.SHR.calculate();
