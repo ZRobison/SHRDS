@@ -5,76 +5,74 @@ var IRView = function () {
 
         var body =
 
-            "<div class='container'>" +
-            "<div class='row'>" +
-            "<div class='col-md-2'>" +
+            /* FIXED UP HTML FOR THIS. STILL NEEDS ALLIGNMENT FOR ELEMENTS */
+            "<div id='block'> " +
+            "<div id='left'> " +
 
             "<form action = '' method=''>" +
 
-            "Fall Offs(By Wave)" +
+            "Fall Offs(By Wave) &nbsp;" +
             "<button type='submit'>&#45;</button>" +
             "<button type='submit'>&#43;</button>" +
             "<input type='text'><br>" +
 
-            "Fall Offs(By Collision)" +
+            "Fall Offs(By Collision) &nbsp;" +
             "<button type='submit'>&#45;</button> " +
             "<button type='submit'>&#43;</button> " +
             "<input type='text'><br>" +
 
-            "Back-shoot/Nose-Dive" +
+            "Back-shoot/Nose-Dive &nbsp;" +
             "<button type='submit'>&#45;</button> " +
             "<button type='submit'>&#43;</button> " +
             "<input type='text'><br>" +
 
-            "Broaches" +
+            "Broaches &nbsp;" +
             "<button type='submit'>&#45;</button> " +
             "<button type='submit'>&#43;</button> " +
             "<input type='text'><br>" +
 
-            "Flying Craft" +
+            "Flying Craft &nbsp;" +
             "<button type='submit'>&#45;</button> " +
             "<button type='submit'>&#43;</button> " +
             "<input type='text'><br>" +
 
-            "Lost Craft(Serious)" +
-            "<button type='submit'>&#45;</button> " +
-            "<button type='submit'>&#43;</button> " +
-            "<input type='text'><br>" +
-
-            "</div>" +
-
-            "<div class='col-md-2'>" +
-
-            "Lost Craft(Severe)" +
-            "<button type='submit'>&#45;</button> " +
-            "<button type='submit'>&#43;</button> " +
-            "<input type='text'><br>" +
-
-            "Collision(Serious)" +
-            "<button type='submit'>&#45;</button>" +
-            "<button type='submit'>&#43;</button>" +
-            "<input type='text'><br>" +
-
-            "Injury(Minor)" +
-            "<button type='submit'>&#45;</button>" +
-            "<button type='submit'>&#43;</button> " +
-            "<input type='text'><br>" +
-
-            "Injury(Serious)" +
-            "<button type='submit'>&#45;</button>" +
-            "<button type='submit'>&#43;</button> " +
-            "<input type='text'><br>" +
-
-            "Fall Offs(By Wave)" +
-            "<button type='submit'>&#45;</button>" +
-            "<button type='submit'>&#43;</button>" +
-            "<input type='text'><br>" +
-
-            "Injury(Severe)" +
+            "Lost Craft(Serious) &nbsp;" +
             "<button type='submit'>&#45;</button> " +
             "<button type='submit'>&#43;</button> " +
             "<input type='text'>" +
+			
             "</div>" +
+            "<div id='right'>" +
+			
+            "Lost Craft(Severe) &nbsp;" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Collision(Serious) &nbsp;" +
+            "<button type='submit'>&#45;</button>" +
+            "<button type='submit'>&#43;</button>" +
+            "<input type='text'><br>" +
+
+            "Injury(Minor) &nbsp;" +
+            "<button type='submit'>&#45;</button>" +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Injury(Serious) &nbsp;" +
+            "<button type='submit'>&#45;</button>" +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'><br>" +
+
+            "Fall Offs(By Wave) &nbsp;" +
+            "<button type='submit'>&#45;</button>" +
+            "<button type='submit'>&#43;</button>" +
+            "<input type='text'><br>" +
+
+            "Injury(Severe) &nbsp;" +
+            "<button type='submit'>&#45;</button> " +
+            "<button type='submit'>&#43;</button> " +
+            "<input type='text'>" +
             "</div>" +
             "</div>";
 

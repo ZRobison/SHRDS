@@ -550,6 +550,17 @@ input[type="submit"] {
     margin-left: 40%;
 }
 
-.row {
-    text-align: left;
+#block {
+    min-width: 200px;
+	margin-left:25%;
+}
+
+#left {
+    text-align: right;
+    margin-right: 50%;
+}
+
+#right {
+    text-align: right;
+    margin-right: 50%;
 }
