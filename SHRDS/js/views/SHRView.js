@@ -334,7 +334,7 @@ function getOHR() {
         "<option value='8'>8</option>" +
         "<option value='9'>9</option>" +
         "</select>" +
-        "<button type='button' class='questionMark' onclick='getOHRInfo()')'></button>" +
+        "<button type='button' class='questionMark' onclick='getOHRInfo()'></button>" +
         "<div class='error'></div>" +
         "<br>" +
         "<br>" +
