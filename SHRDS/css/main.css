@@ -30,7 +30,8 @@ table {
     border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
     padding: 0;
 }
 
@@ -69,14 +70,13 @@ header img {
     color: white;
     margin: 0 auto;
     padding-top: 0.8em;
-
 }
 
 input.radio:empty {
     margin-left: -9999px;
 }
 
-input.radio:empty ~ label {
+input.radio:empty~label {
     position: relative;
     line-height: 2.5em;
     text-indent: 3.25em;
@@ -85,7 +85,7 @@ input.radio:empty ~ label {
     border: 1px solid black;
 }
 
-input.radio:empty ~ label:before {
+input.radio:empty~label:before {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -96,24 +96,24 @@ input.radio:empty ~ label:before {
     border-radius: 3px 0 0 3px;
 }
 
-input.radio:hover:not(:checked) ~ label:before {
+input.radio:hover:not(:checked)~label:before {
     content: '\2714';
     text-indent: .9em;
     color: #C2C2C2;
 }
 
-input.radio:hover:not(:checked) ~ label {
+input.radio:hover:not(:checked)~label {
     color: #888;
 }
 
-input.radio:checked ~ label:before {
+input.radio:checked~label:before {
     content: '\2714';
     text-indent: .9em;
     color: #9CE2AE;
     background-color: #4DCB6D;
 }
 
-input.radio:checked ~ label {
+input.radio:checked~label {
     color: #777;
 }
 
@@ -133,10 +133,11 @@ select {
 }
 
 #loginBut {
-	font-weight: bolder;
+    font-weight: bolder;
     position: relative;
     top: 10px;
 }
+
 
 /*.blueButtons {
     width: 100px;
@@ -150,100 +151,66 @@ select {
     margin-top: 20px;
 }*/
 
-.blueButtons	{
-	background-color: #0060A9;
-	font-size:12px;
-	text-decoration:none;
-	color:#fff;
-	font-weight: bolder;
-	position:relative;
-	padding:10px 20px;
-	top: 10%;
-	padding-right:50px;
-	background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
-	border-radius: 5px;
-	box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
+.blueButtons {
+    background-color: #0060A9;
+    font-size: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bolder;
+    position: relative;
+    padding: 10px 20px;
+    top: 10%;
+    padding-right: 50px;
+    background-image: linear-gradient(bottom, rgb(62, 51, 46) 0%, rgb(101, 86, 78) 100%);
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
 }
 
 .blueButtons:active {
-	top:3px;
-	background-image: linear-gradient(bottom, rgb(62,51,46) 100%, rgb(101,86,78) 0%);
-	box-shadow: inset 0px 1px 0px #9e8d84, 0px 2px 0px 0px #322620, 0px 5px 3px #999;
+    top: 3px;
+    background-image: linear-gradient(bottom, rgb(62, 51, 46) 100%, rgb(101, 86, 78) 0%);
+    box-shadow: inset 0px 1px 0px #9e8d84, 0px 2px 0px 0px #322620, 0px 5px 3px #999;
 }
 
 .blueButtons::before {
-	background-color:#322620;
-	background-image:url(../images/right_arrow.png);
-	background-repeat:no-repeat;
-	background-position:center center;	
-	content:"";
-	width:20px;
-	height:20px;
-	position:absolute;
-	right:15px;
-	top:50%;
-	margin-top:-9px;
-	border-radius: 50%;
-	box-shadow: inset 0px 1px 0px #19120f, 0px 1px 0px #827066;
+    background-color: #322620;
+    background-image: url(../images/right_arrow.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -9px;
+    border-radius: 50%;
+    box-shadow: inset 0px 1px 0px #19120f, 0px 1px 0px #827066;
 }
 
 .blueButtons:active::before {
-	top:50%;
-	margin-top:-12px;
-	box-shadow: inset 0px 1px 0px #827066, 0px 3px 0px #19120f, 0px 6px 3px #382e29;
+    top: 50%;
+    margin-top: -12px;
+    box-shadow: inset 0px 1px 0px #827066, 0px 3px 0px #19120f, 0px 6px 3px #382e29;
 }
 
-#windDirBox	{
+#windDirBox {}
 
+.error {
+    margin-top: 1%;
+    color: #ED1C2E;
 }
 
-.error	{
-	margin-top: 5%; 
-	color: #ED1C2E;
+.info {
+    background-color: grey;
+    border-color: 1px solid black;
 }
-
-
-
-
-
-
-
-
-
-.info	{
-	background-color: grey;
-	border-color: 1px solid black;	
-	
-}
-
-
-
-
 
 
 /* TO DO TOOLTIP */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
     padding: 0.2em;
     font-family: helvetica;
     font-size: 1.1em;
@@ -265,7 +232,6 @@ input[type="submit"] {
     p {
         width: 90%;
     }
-
     select {
         width: 80%;
     }
@@ -275,7 +241,6 @@ input[type="submit"] {
     p {
         width: 70%;
     }
-
     select {
         width: 40%;
     }
@@ -285,7 +250,6 @@ input[type="submit"] {
     p {
         width: 60%;
     }
-
     select {
         width: 30%;
     }
@@ -295,7 +259,6 @@ input[type="submit"] {
     p {
         width: 50%;
     }
-
     select {
         width: 25%;
     }
@@ -305,7 +268,6 @@ input[type="submit"] {
     p {
         width: 40%;
     }
-
     select {
         width: 20%;
     }
@@ -332,20 +294,13 @@ input[type="submit"] {
 }
 
 .questionMark {
-	background-image:url(../images/help.png);
-	margin-left: 1%;	
-	border-radius: 50%;
-	width: 35px;
-	height: 35px;
-	line-height: 26px;
-	cursor: help;
-	position: relative;
-	top: -8px;
+    background-image: url(../images/help.png);
+    margin-left: 1%;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 26px;
+    cursor: help;
+    position: relative;
+    top: -8px;
 }
-
-
-
-
-
-
-
