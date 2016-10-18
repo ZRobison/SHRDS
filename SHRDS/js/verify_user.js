@@ -1,8 +1,11 @@
+var loginSuccess = -1;
+
 function verify_user() {
-	$('#logonmessage').text("Loading...");
-	$(".error").text("");
+
+    $('#logonmessage').text("Loading...");
+    $(".error").text("");
     //TSO selected
-    if(document.getElementById("username").value == ""){
+    if (document.getElementById("username").value == "") {
         $(".error").text("Please enter a user ID");
         return;
     }
@@ -15,31 +18,34 @@ function verify_user() {
             "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + document.getElementById("password").value + "'",
             function (data) {
                 //First Ensure the query succeded
-                if (data.Success === true) {
+                if (data.Success == true) {
                     //If we have a match that means the user has the correct credentials
                     if (data.Result != null && data.Result != "") {
+
                         //Also ensure that they are TSO certified
                         if (data.Result[0].TSO_QUALIFIED == true) {
                             location.href = 'index.html?#formSelect';
                         } else {
                             $(".error").text("You are not certified to log in as a TSO");
-							$('#logonmessage').text("");
+                            $('#logonmessage').text("");
                         }
                     }
                     //Otherwise there is a match for the user number in the DB
                     else {
+                        //                        loginSuccess = 20;
+                        //                        console.log(loginSuccess);
                         $(".error").text("Error: That username and password combination is incorrect");
-						$('#logonmessage').text("");
+                        $('#logonmessage').text("");
                     }
                 } else {
-                    $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection")
-					$('#logonmessage').text("");
+                    $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection");
+                    $('#logonmessage').text("");
                 }
             });
     }
     //Incident Selected
     else if ($('#radio2').is(":checked")) {
-		app.SHRFlag = 0;
+        app.SHRFlag = 0;
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
@@ -55,13 +61,13 @@ function verify_user() {
                         location.href = 'index.html?#eventSpecific';
                     } else {
                         $(".error").text("That user ID does not exists");
-						$('#logonmessage').text("");
+                        $('#logonmessage').text("");
                     }
                 }
                 //Otherwise there is a match for the user number in the DB
                 else {
                     $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection");
-					$('#logonmessage').text("");
+                    $('#logonmessage').text("");
                 }
             }
         );
@@ -86,17 +92,17 @@ function verify_user() {
                             location.href = 'index.html?#adminPageSelect';
                         } else {
                             $(".error").text("You are not certified to log in as an admin user");
-							$('#logonmessage').text("");
+                            $('#logonmessage').text("");
                         }
                     }
                     //Otherwise there is no match for that user in the DB
                     else {
                         $(".error").text("Error: That username and password combination is incorrect");
-						$('#logonmessage').text("");
+                        $('#logonmessage').text("");
                     }
                 } else {
                     $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection")
-					$('#logonmessage').text("");
+                    $('#logonmessage').text("");
                 }
             });
     }
