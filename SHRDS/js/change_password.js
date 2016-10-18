@@ -16,14 +16,14 @@ function change_password() {
                 console.log(JSON.stringify(data));
                 //If that user exists, continue with the password change
                 if (data.Result[0] != null && data.Result[0] != "") {
-                    if (data.result.USER_ID == document.getElementById("userID").value) {
+                    if (data.Result[0].USER_ID == document.getElementById("userID").value) {
                         MySql.Execute(
                             dbconfig.host,
                             dbconfig.dbUser,
                             dbconfig.dbPassword,
                             dbconfig.dbUser,
                             "update SHRDS_USER set PASSWORD ='" + document.getElementById("userPassword").value + "' where USER_ID ='" + document.getElementById("userID").value + "'",
-                            function (data) {}
+                            function (data) {console.log(JSON.stringyfy(data));}
 
                         );
                     }
