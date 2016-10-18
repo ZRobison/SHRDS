@@ -9,12 +9,11 @@ var EventSpecificView = function () {
         }
 
 
-
         var body =
 
+            "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
-            "<div class='eventSpecificBlock'>" +
-            "<select class='eventSpecificSelects'>" +
+            "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Arena 1</option>" +
             "<option value=''>Arena 2</option>" +
@@ -23,7 +22,7 @@ var EventSpecificView = function () {
             "</select>" +
 
             "<div class='irTitles'>Age:</div>" +
-            "<select class='eventSpecificSelects'>" +
+            "<select>" +
             "<option value='' selected>Under 13</option>" +
             "<option value=''>Under 14</option>" +
             "<option value=''>Under 15</option>" +
@@ -40,8 +39,9 @@ var EventSpecificView = function () {
             "<option value=''>65-69</option>" +
             "<option value=''>70+</option>" +
             "</select>" +
+
             "<div class='irTitles'>Heat:</div>" +
-            "<select class='eventSpecificSelects'>" +
+            "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Heat 1</option>" +
             "<option value=''>Heat 2</option>" +
@@ -49,8 +49,9 @@ var EventSpecificView = function () {
             "<option value=''>Heat 4</option>" +
             "<option value=''>Heat 5</option>" +
             "</select>" +
+
             "<div class='irTitles'>Round:</div>" +
-            "<select class='eventSpecificSelects'>" +
+            "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Heat 1</option>" +
             "<option value=''>Heat 2</option>" +
@@ -72,36 +73,37 @@ var EventSpecificView = function () {
             "<div class='eventRadios'>" +
             " <input type ='radio' name='' id=''/>" +
             " Grand Final" +
-            " Craft type:" +
+            " Craft Type:" +
             "</div>" +
 
-            "<select class='eventSpecificSelects'>" +
+            "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Ski</option>" +
             "<option value=''>Double Ski</option>" +
             "<option value=''>Board</option>" +
             "<option value=''>Boat</option>" +
             "</select>" +
-            "<div class='irTitles'>Time:</div>" +
+            "<div class='irTitles'>Time:</div><br>" +
             //put time here
 
-            "<div class='eventRadios'>" +
             "<div class='irTitles'>In/Out:</div>" +
+            "<div id='inlineOutIn'>" +
             "<input type ='radio' name='inOut' id='in'/>" +
             "Out" +
             "<input type ='radio' name='' id='out'/>" +
             "In" +
-            "</div>" +
+            "<div>" +
 
 
-            "beach/location:<input type = 'text' name='bl'>";
+            "<br>Beach/location:<input type = 'text' name='bl'>" +
+            "</div>";
 
         var footer =
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
             "<form action= '' >" +
             "<button type='submit' class='blueButtons' onclick='routeIS()'>Next</button> " +
-            "</form>" +
-            "</div>";
+            "</form>";
+
 
         $(".heading").text(header);
         $(".body").html(body);
