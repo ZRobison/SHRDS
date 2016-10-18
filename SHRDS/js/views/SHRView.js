@@ -322,7 +322,7 @@ function getOHR() {
     var body =
 
 
-        "<div class='hazard'>OHR: one for each extra hazard present</div><br><br><select class='allRatingsPos' name='OHRForm'>" +
+        "<div class='hazard'>OHR: one for each extra hazard present</div><select class='allRatingsPos' name='OHRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>0</option>" +
         "<option value='1'>1</option>" +
@@ -386,23 +386,23 @@ function getREV() {
         "<div id='ratingsList'>" +
         "<ul>" +
         "<li>" +
-        "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR()'>WHR</button>" +
+        "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR(); nextRouteChange();'>WHR</button>" +
         "</li><li>" +
-        "WTR  " + retreiveDescription("WTR", pWTR) + "<button type='submit' class='blueButtons' onClick='getWTR()'>WTR</button>" +
+        "WTR  " + retreiveDescription("WTR", pWTR) + "<button type='submit' class='blueButtons' onClick='getWTR(); nextRouteChange();'>WTR</button>" +
         "</li><li>" +
-        "WPR  " + retreiveDescription("WPR", pWPR) + "<button type='submit' class='blueButtons' onClick='getWPR()'>WPR</button>" +
+        "WPR  " + retreiveDescription("WPR", pWPR) + "<button type='submit' class='blueButtons' onClick='getWPR(); nextRouteChange();'>WPR</button>" +
         "</li><li>" +
-        "ZWR  " + retreiveDescription("ZWR", pZWR) + "<button type='submit' class='blueButtons' onClick='getZWR()'>ZWR</button>" +
+        "ZWR  " + retreiveDescription("ZWR", pZWR) + "<button type='submit' class='blueButtons' onClick='getZWR(); nextRouteChange();'>ZWR</button>" +
         "</li><li>" +
-        "STR  " + retreiveDescription("STR", pSTR) + "<button type='submit' class='blueButtons' onClick='getSTR()'>STR</button>" +
+        "STR  " + retreiveDescription("STR", pSTR) + "<button type='submit' class='blueButtons' onClick='getSTR(); nextRouteChange();'>STR</button>" +
         "</li><li>" +
-        "LDR  " + retreiveDescription("LDR", pLDR) + "<button type='submit' class='blueButtons' onClick='getLDR()'>LDR</button>" +
+        "LDR  " + retreiveDescription("LDR", pLDR) + "<button type='submit' class='blueButtons' onClick='getLDR(); nextRouteChange();'>LDR</button>" +
         "</li><li>" +
-        "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR()'>RCR</button>" +
+        "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR(); nextRouteChange();'>RCR</button>" +
         "</li><li>" +
-        "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR()'>OHR</button>" +
-        "</li>" +
-        "</ul>" +
+        "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR(); nextRouteChange();'>OHR</button>" +
+        "</li>"
+    "</ul>" +
         "</div>" ;
 
     var footer =
