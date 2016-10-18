@@ -8,7 +8,7 @@ var PrevailingView = function () {
 
         var body =
             "<div id='beachBox'><p>Beach<p>" +
-            "<select name='select' id='myList'>" +
+            "<select name='select'>" +
             "<option value='1'>Select One</option>" +
             "<option value='2'>Beach1</option>" +
             "<option value='3'>Beach2</option>" +
