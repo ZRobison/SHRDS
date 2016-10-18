@@ -12,7 +12,7 @@ var EventSpecificView = function () {
 
         var body =
 
-            "Arena:" +
+            "<div class='irTitles'>Arena:</div>" +
             "<div class='eventSpecificBlock'>" +
             "<select class='eventSpecificSelects'>" +
             "<option value='' selected>Select one</option>" +
@@ -22,7 +22,7 @@ var EventSpecificView = function () {
             "<option value=''>Arena 4</option>" +
             "</select>" +
 
-            "   Age: " +
+            "<div class='irTitles'>Age:</div>" +
             "<select class='eventSpecificSelects'>" +
             "<option value='' selected>Under 13</option>" +
             "<option value=''>Under 14</option>" +
@@ -40,7 +40,7 @@ var EventSpecificView = function () {
             "<option value=''>65-69</option>" +
             "<option value=''>70+</option>" +
             "</select>" +
-            "Heat:" +
+            "<div class='irTitles'>Heat:</div>" +
             "<select class='eventSpecificSelects'>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Heat 1</option>" +
@@ -49,7 +49,7 @@ var EventSpecificView = function () {
             "<option value=''>Heat 4</option>" +
             "<option value=''>Heat 5</option>" +
             "</select>" +
-            "Round:" +
+            "<div class='irTitles'>Round:</div>" +
             "<select class='eventSpecificSelects'>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Heat 1</option>" +
@@ -82,11 +82,11 @@ var EventSpecificView = function () {
             "<option value=''>Board</option>" +
             "<option value=''>Boat</option>" +
             "</select>" +
-            "Time:" +
+            "<div class='irTitles'>Time:</div>" +
             //put time here
 
             "<div class='eventRadios'>" +
-            "In/Out:" +
+            "<div class='irTitles'>In/Out:</div>" +
             "<input type ='radio' name='inOut' id='in'/>" +
             "Out" +
             "<input type ='radio' name='' id='out'/>" +

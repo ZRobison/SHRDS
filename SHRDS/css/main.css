@@ -468,9 +468,7 @@ input[type="submit"] {
     text-align: left;
 }
 
-.eventSpecificBlock {
-    background-color: floralwhite;
-}
+.eventSpecificBlock {}
 
 .eventSpecificSelects {
     background-color: cornflowerblue;
@@ -479,5 +477,14 @@ input[type="submit"] {
 
 .eventRadios {
     text-align: left;
-    margin-left: 3%
+    margin-left: 3em;
+    padding-bottom: 0.6em;
+}
+
+.irTitles {
+    text-align: left;
+    padding-top: 2em;
+    margin-left: 2%;
+    margin-bottom: 0.5em;
+    font-size: 110%;
 }
