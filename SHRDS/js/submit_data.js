@@ -1,9 +1,21 @@
-var sqlResult;
-
 function insertSHR() {
-
+    var sql;
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
+        sql = "INSERT INTO SHR VALUES (" +
+
+
+
+            //Descriptors to insert    
+            var pWHR = app.prevalingSHRData.SHR.pWHR;
+        var pWTR = app.prevalingSHRData.SHR.pWTR;
+        var pWPR = app.prevalingSHRData.SHR.pWPR;
+        var pZWR = app.prevalingSHRData.SHR.pZWR;
+        var pSTR = app.prevalingSHRData.SHR.pSTR;
+        var pLDR = app.prevalingSHRData.SHR.pLDR;
+        var pRCR = app.prevalingSHRData.SHR.pRCR;
+        var pOHR = app.prevalingSHRData.SHR.pOHR;
+
         submitSHR(sql);
     }
     //If we have an event specific
