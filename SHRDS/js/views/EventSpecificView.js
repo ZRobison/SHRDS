@@ -61,17 +61,17 @@ var EventSpecificView = function () {
             "</select>" +
 
             "<div class='eventRadios'>" +
-            "<input type ='radio' name='' id=''/>" +
+            "<input type ='radio' name='raceTypeRadio' id=''/>" +
             "Quater Final" +
             "</div>" +
 
             "<div class='eventRadios'>" +
-            " <input type ='radio' name='' id=''/>" +
+            " <input type ='radio' name='raceTypeRadio' id=''/>" +
             "Semi Final" +
             "</div>" +
 
             "<div class='eventRadios'>" +
-            " <input type ='radio' name='' id=''/>" +
+            " <input type ='radio' name='raceTypeRadio' id=''/>" +
             " Grand Final" +
             " Craft Type:" +
             "</div>" +
