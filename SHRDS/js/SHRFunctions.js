@@ -1,4 +1,3 @@
-
 function getWHRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -134,7 +133,7 @@ function getLDRvalue() {
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pLDR = $("select[name=LDRForm]").val();
         score = app.prevalingSHRData.SHR.pLDR
-    }  else {
+    } else {
         app.esSHRData.SHR.pLDR = $("select[name=LDRForm]").val();
         score = app.esSHRData.SHR.pLDR
     }
@@ -209,7 +208,7 @@ function getOHRInfo() {
 
 function WHRDescription(value) {
     var texte = "ERROR";
-    switch (value*1) {
+    switch (value * 1) {
         case (0):
             texte = "0(Knee High)";
             break;
@@ -249,7 +248,7 @@ function WHRDescription(value) {
 
 function WTRDescription(value) {
     var texte = "ERROR";
-    switch (value*1) {
+    switch (value * 1) {
         case (0):
             texte = "Surging";
             break;
@@ -271,7 +270,7 @@ function WTRDescription(value) {
 
 function WPRDescription(value) {
     var texte = "ERROR";
-    switch (value*1) {
+    switch (value * 1) {
         case (0):
             texte = "Long Period(>14sec)";
             break;
@@ -293,7 +292,7 @@ function WPRDescription(value) {
 
 function ZWRDescription(value) {
     var texte = "ERROR";
-    switch (value*1) {
+    switch (value * 1) {
         case (0):
             texte = "0";
             break;
@@ -330,7 +329,7 @@ function ZWRDescription(value) {
 
 function STRDescription(value) {
     var texte = "ERROR";
-    switch (value*1) {
+    switch (value * 1) {
         case (0):
             texte = "No chop (glassy)";
             break;
@@ -355,7 +354,7 @@ function STRDescription(value) {
 
 function LDRDescription(value) {
     var texte = "ERROR";
-    switch (value*1) {
+    switch (value * 1) {
         case (0):
             texte = "No Drag (0)";
             break;
@@ -380,7 +379,7 @@ function LDRDescription(value) {
 
 function RCRDescription(value) {
     var texte = "ERROR";
-    switch (value*1) {
+    switch (value * 1) {
         case (0):
             texte = "No Rips";
             break;
@@ -400,48 +399,48 @@ function RCRDescription(value) {
     return texte;
 }
 
-function OHRDescription(value){
-	var texte = "ERROR";
-	switch(value*1){
-	        case (0)  :  
-			texte = "0";  
-			break;
-			case (1)  :  
-			texte = "1";  
-			break;
-			case (2)  :  
-			texte = "2";  
-			break;
-			case (3)  :  
-			texte = "3";  
-			break;
-			case (4)  :  
-			texte = "4"; 
-			break;
-			case (5)  :  
-			texte = "5";  
-			break;
-			case (6)  : 
-			texte = "6"; 
-			break;
-			case (7)  :  
-			texte = "7";
-			break;
-			case (8)  :  
-			texte = "8"; 
-			break;	
-            case (9)  :  
-			texte = "9"; 
-			break;	
-            default: 
-			description = "Dan is gay.";			
-	}
-	
-	return texte;
+function OHRDescription(value) {
+    var texte = "ERROR";
+    switch (value * 1) {
+        case (0):
+            texte = "0";
+            break;
+        case (1):
+            texte = "1";
+            break;
+        case (2):
+            texte = "2";
+            break;
+        case (3):
+            texte = "3";
+            break;
+        case (4):
+            texte = "4";
+            break;
+        case (5):
+            texte = "5";
+            break;
+        case (6):
+            texte = "6";
+            break;
+        case (7):
+            texte = "7";
+            break;
+        case (8):
+            texte = "8";
+            break;
+        case (9):
+            texte = "9";
+            break;
+        default:
+            description = "Dan.";
+    }
+
+    return texte;
 }
 
 function retreiveDescription(type, value) {
-    var description = "poo";
+    var description = "Dan";
     switch (type) {
         case ("WHR"):
             description = WHRDescription(value);
@@ -468,7 +467,7 @@ function retreiveDescription(type, value) {
             description = OHRDescription(value);
             break;
         default:
-            description = "Dan is gay.";
+            description = "Dan";
     }
 
     return description;
@@ -476,21 +475,21 @@ function retreiveDescription(type, value) {
 
 
 function nextRouteChange() {
-	 if (window.location.hash = "#REV") {
-	        $(window).on('hashchange', function hashChange() {
+    if (window.location.hash = "#REV") {
+        $(window).on('hashchange', function hashChange() {
             window.location.hash = "#REV";
-			console.log(window.location.hash);
+            console.log(window.location.hash);
         })
-    } 
+    }
 }
 
 
 function shrFormSelect() {
     if ($('#shrRadio1').is(":checked")) {
-		app.SHRFlag = 1;
+        app.SHRFlag = 1;
         window.location.hash = "#prevailing1";
     } else if ($('#shrRadio2').is(":checked")) {
-		app.SHRFlag = 2;
+        app.SHRFlag = 2;
         window.location.hash = "#eventSpecific";
     }
 }

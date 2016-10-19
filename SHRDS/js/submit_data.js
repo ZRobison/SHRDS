@@ -1,37 +1,48 @@
 function insertSHR() {
-    var sql;
+    var sql = "";
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
         sql = "INSERT INTO SHR VALUES (" +
+            //Currently Hardcoded user ID, change when Dan does user stuff
+            1234 + "," +
+            app.prevalingSHRData.date + "," +
+            app.prevalingSHRData.time + "," +
+            "," + //Venue data type - get rid of it, confusion with arena?
+            app.prevalingSHRData.beach + "," +
+            app.prevalingSHRData.SHR.pWPR + "," +
+            app.prevalingSHRData.SHR.pZWR + "," +
+            app.prevalingSHRData.SHR.pSTR + "," +
+            app.prevalingSHRData.SHR.pLDR + "," +
+            app.prevalingSHRData.SHR.pRCR + "," +
+            app.prevalingSHRData.SHR.pOHR + "," +
+            "," + //Double up of beach name
+            "," + //Race ID null for prevailing
+            "," + //In/out null for prevailing
+            "," + //Beach gacing null for prevailing?
+            app.prevalingSHRData.tideHieghtLow + "," +
+            app.prevalingSHRData.tideHieghtHigh + "," +
+            app.prevalingSHRData.tideTimeLow + "," +
+            app.prevalingSHRData.tideTimeHigh + "," +
+            app.prevalingSHRData.windDirection + ")";
+
+        //app.prevalingSHRData.windSpeed+")" +
+
+        //Descriptors to insert    
 
 
-
-            //Descriptors to insert    
-            var pWHR = app.prevalingSHRData.SHR.pWHR;
-        var pWTR = app.prevalingSHRData.SHR.pWTR;
-        var pWPR = app.prevalingSHRData.SHR.pWPR;
-        var pZWR = app.prevalingSHRData.SHR.pZWR;
-        var pSTR = app.prevalingSHRData.SHR.pSTR;
-        var pLDR = app.prevalingSHRData.SHR.pLDR;
-        var pRCR = app.prevalingSHRData.SHR.pRCR;
-        var pOHR = app.prevalingSHRData.SHR.pOHR;
-
-        submitSHR(sql);
+        submit(sql);
     }
     //If we have an event specific
     else if (app.SHRFlag == 2) {
-        submitEvent();
-        submitSHR(sql);
+        var eventSQL = ""
+        submitEvent(eventSQL);
+        submit(sql);
     }
     //Otherwise we have an incident report
     else {
         submitEvent();
         submitIncidentReport();
     }
-}
-//Both prevailing and Event Specific can be same query. Event is submitted as seperate object
-function submitSHR() {
-    submit(sql);
 }
 
 var eventSubmit = {
