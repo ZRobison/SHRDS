@@ -1,6 +1,6 @@
 var app = {
 		
-	initialize: function() {
+	initialize: function () {
 		var self = this;
 		
 		//Flag for knowing if prevailing SHR or Event specific SHR
@@ -9,8 +9,9 @@ var app = {
 		//Init data stores for forms
 		this.initData();
 		//Detect if HASH changes
-		$(window).on('hashchange',function(){ 
-			self.route();
+		$(window).on('hashchange',function () { 
+			console.log(window.location.hash);
+			self.route(); 
 		});
 		
 		//URL detection
@@ -54,9 +55,24 @@ var app = {
 			new SHRView().render("REV");
 		} else if (hash.match(app.SHRURLS[9])){
 			new SHRView().render("SHR");
-		}else if (hash.match(app.prevailingURL)) {
+		}else if (hash.match(app.prevailingStartURL)) {
+            console.log("matched prevailing url");
 			new PrevailingView().render();
 		} 
+		
+		$("input[type='radio']").click(function()
+			{
+			var previousValue = $(this).attr('previousValue');
+			var name = $(this).attr('name');
+
+			if (previousValue == 'checked'){
+				$(this).removeAttr('checked');
+				$(this).attr('previousValue', false);
+			}else{
+				$("input[name="+name+"]:radio").attr('previousValue', false);
+				$(this).attr('previousValue', 'checked');
+			}
+		});
 	}
 };
 
