@@ -416,7 +416,7 @@ function getSHR() {
 
     var body =
 
-        "<p><div class='titles'>The Surf Hazard Rating is:</div></p><br>" +
+        "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>";
 
     var footer =

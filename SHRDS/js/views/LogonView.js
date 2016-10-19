@@ -3,7 +3,7 @@ var LogonView = function () {
     this.render = function () {
         var header = "SLSA SHRDS";
 
-        var body =
+        var body =		
             "<div class='radBut'>" +
             "<input onClick='selected()' type='radio' name='radio' id='radio1' class='radio' value='checked' >" +
             "<label for='radio1'>TSO</label>" +
@@ -20,13 +20,15 @@ var LogonView = function () {
             "</div>" +
             "<div id='forming'></div>" +
 			"<div id='logonmessage'></div>" +
-            "<div class ='error'></div>";
+            "<div class ='error'></div>" ;
+		
+		
 
 
         $(".heading").text(header);
         $(".body").html(body);
 
-    }
+    }		
 }
 
 function selected() {
@@ -54,5 +56,5 @@ function selected() {
     }
     var footer =
         "<button type='submit' class='blueButtons' id='loginBut' onclick='verify_user()'>LOGIN</button>";
-    $(".footer").html(footer);
+    $(".footer").html(footer);	
 }
