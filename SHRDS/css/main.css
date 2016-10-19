@@ -1,6 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
+html {
+    background-color: snow;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
 }
 
 .container-fluid {
@@ -8,22 +10,30 @@
 }
 
 body {
-    background-color: snow;
-    text-decoration: none;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-align: center;
-}
-
-.body {
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 p {
-    color: black;
+    color: #555;
     text-align: justify;
     text-justify: inter-word;
     margin: 0 auto;
     line-height: 150%;
+}
+
+.hazard {
+    font-size: 130%;
+    position: relative;
+    color: #555;
+    width: 100%;
+    text-align: center;
+    top: 5em;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+ul li {
+    list-style-type: none;
+    padding-top: 0.5em;
 }
 
 table {
@@ -36,8 +46,8 @@ th {
 }
 
 .titles {
-    font-weight: bolder;
     text-align: center;
+    color: #ccc;
 }
 
 hr {
@@ -69,11 +79,13 @@ header img {
     text-align: center;
     color: white;
     margin: 0 auto;
-    padding-top: 0.8em;
+    margin-top: 0.4em;
+    margin-right: 8%;
+    text-shadow: 2px 2px 2px #444;
 }
 
 input.radio:empty {
-    margin-left: -9999px;
+    margin-left: -9999;
 }
 
 input.radio:empty~label {
@@ -81,8 +93,8 @@ input.radio:empty~label {
     line-height: 2.5em;
     text-indent: 3.25em;
     cursor: pointer;
-    margin-bottom: 2%;
     border: 1px solid black;
+    box-shadow: 5px 5px 2.5px #888888;
 }
 
 input.radio:empty~label:before {
@@ -117,49 +129,72 @@ input.radio:checked~label {
     color: #777;
 }
 
+.radBut input.radio:empty~label {
+    color: #0f0f0f;
+    background-color: white;
+    width: 18%;
+}
+
+
+/*Tides Prevailing List*/
+
+#tidesListBox {
+    margin-left: 65%;
+    position: absolute;
+    top: 80px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+
+/* vertical position for all hazards */
+
+.allRatingsPos {
+    margin-top: 6em;
+}
+
+.formSelRad input.radio:empty~label {
+    color: white;
+    background-color: #0060A9;
+    width: 20%;
+    margin-top: 5%;
+    letter-spacing: 0.04em;
+    min-width: 200px;
+}
+
 #radBut2 {
     position: relative;
     bottom: 20px;
 }
 
 select {
-    background-color: #565656;
-    color: white;
+    background-color: lightgray;
+    color: #333;
     font-weight: bold;
-    margin-top: 2%;
     font-size: 130%;
     border: solid black 1px;
     text-align: center;
+    border-radius: 8px;
+    outline: none;
+    padding: 0.2em;
+    margin-left: 2%;
+    box-shadow: 4px 4px 2.5px #888888;
+    min-width: 200px;
 }
 
 #loginBut {
-    font-weight: bolder;
-    position: relative;
-    top: 10px;
+    margin-top: 0.6em;
 }
-
-
-/*.blueButtons {
-    width: 100px;
-    height: 35px;
-    background-color: #286090;
-    color: white;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 20px;
-}*/
 
 .blueButtons {
     background-color: #0060A9;
-    font-size: 12px;
+    margin-top: 0.6em;
+    font-size: 14px;
     text-decoration: none;
     color: #fff;
-    font-weight: bolder;
+    font-weight: bold;
     position: relative;
     padding: 10px 20px;
-    top: 10%;
     padding-right: 50px;
     background-image: linear-gradient(bottom, rgb(62, 51, 46) 0%, rgb(101, 86, 78) 100%);
     border-radius: 5px;
@@ -167,7 +202,7 @@ select {
 }
 
 .blueButtons:active {
-    top: 3px;
+    top: 6px;
     background-image: linear-gradient(bottom, rgb(62, 51, 46) 100%, rgb(101, 86, 78) 0%);
     box-shadow: inset 0px 1px 0px #9e8d84, 0px 2px 0px 0px #322620, 0px 5px 3px #999;
 }
@@ -182,7 +217,7 @@ select {
     height: 20px;
     position: absolute;
     right: 15px;
-    top: 50%;
+    top: 42%;
     margin-top: -9px;
     border-radius: 50%;
     box-shadow: inset 0px 1px 0px #19120f, 0px 1px 0px #827066;
@@ -194,16 +229,51 @@ select {
     box-shadow: inset 0px 1px 0px #827066, 0px 3px 0px #19120f, 0px 6px 3px #382e29;
 }
 
-#windDirBox {}
-
-.error {
-    margin-top: 1%;
-    color: #ED1C2E;
+#windDirBox {
+    position: relative;
+    top: -100px;
+    text-shadow: 1px 1px 1px #ccc;
 }
 
+.error {
+    color: #ED1C2E;
+    font-style: italic;
+    background-color: rgba(220, 0, 0, 0.1);
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 5%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 1.5px #888888;
+}
+
+#submitForm1 {
+    margin-top: 10%;
+}
+
+#submitForm2 {
+    margin-top: 10%;
+}
+
+#submitForm3 {
+    margin-top: 10%;
+}
+
+
+/*What the hell?*/
+
+.info:before {
+    visibility: hidden;
+}
+
+
+/*What the hell?*/
+
 .info {
-    background-color: grey;
-    border-color: 1px solid black;
+    margin: 0 auto;
+    background-color: #222;
+    color: snow;
+    border-radius: 8px;
+    box-shadow: 5px 5px 2.5px #888888;
 }
 
 
@@ -216,6 +286,10 @@ input[type="password"] {
     font-size: 1.1em;
     margin-left: 0.5em;
     margin-bottom: 1.5em;
+    box-shadow: 5px 5px 2.5px #888888;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid black;
 }
 
 input[type="submit"] {
@@ -228,48 +302,178 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+
+/**********************************************************************
+/* 1 PIXELS
+/*********************************************************************/
+
+@media only screen and (min-width: 1px) {
+    select {
+        width: 9em;
+    }
+    /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
+    .radBut input.radio:empty~label {
+        width: 300px;
+        position: relative;
+    }
+}
+
+
+/**********************************************************************
+/* 320 PIXELS
+/*********************************************************************/
+
 @media only screen and (min-width: 320px) {
+    .heading {
+        font-size: 140%;
+        margin-top: 0.9em;
+    }
     p {
         width: 90%;
     }
     select {
+        width: 11em;
+    }
+    /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
+    .radBut input.radio:empty~label {
+        width: 85%;
+        margin-top: 2%;
+    }
+    /*BLUE RADIO BUTTONS FOR FORM SELECT*/
+    .formSelRad input.radio:empty~label {
         width: 80%;
+        margin-top: 30%;
+    }
+    #windDirBox {
+        position: relative;
+        top: 0;
+        margin-top: 8%;
+    }
+    .info {
+        width: 90%;
     }
 }
+
+
+/**********************************************************************
+/* 480 PIXELS
+/*********************************************************************/
 
 @media only screen and (min-width: 480px) {
+    .heading {
+        font-size: 180%;
+        margin-top: 0.7em;
+    }
     p {
-        width: 70%;
+        width: 20em;
     }
     select {
-        width: 40%;
+        width: 12em;
+    }
+    /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
+    .radBut input.radio:empty~label {
+        width: 60%;
+        margin-top: 1%;
+    }
+    /*BLUE RADIO BUTTONS FOR FORM SELECT*/
+    .formSelRad input.radio:empty~label {
+        width: 60%;
+        margin-top: 20%;
+    }
+    #windDirBox {
+        margin-top: 6%;
+    }
+    .info {
+        width: 60%;
     }
 }
 
+
+/**********************************************************************
+/* 768 PIXELS
+/*********************************************************************/
+
 @media only screen and (min-width: 768px) {
+    .heading {
+        font-size: 220%;
+        margin-top: 0.6em;
+    }
     p {
         width: 60%;
     }
     select {
-        width: 30%;
+        width: 18em;
+    }
+    /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
+    .radBut input.radio:empty~label {
+        width: 45%;
+    }
+    /*BLUE RADIO BUTTONS FOR FORM SELECT*/
+    .formSelRad input.radio:empty~label {
+        width: 40%;
+        margin-top: 10%;
+    }
+    #windDirBox {
+        margin-top: 4%;
+    }
+    .info {
+        width: 50%;
     }
 }
 
+
+/**********************************************************************
+/* 992 PIXELS
+/*********************************************************************/
+
 @media only screen and (min-width: 992px) {
+    .heading {
+        font-size: 250%;
+        margin-top: 0.3em;
+    }
     p {
         width: 50%;
     }
     select {
-        width: 25%;
+        width: 18em;
+    }
+    /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
+    .radBut input.radio:empty~label {
+        width: 35%;
+    }
+    /*BLUE RADIO BUTTONS FOR FORM SELECT*/
+    .formSelRad input.radio:empty~label {
+        width: 35%;
+        margin-top: 5%;
+    }
+    #windDirBox {
+        margin-top: 2%;
+    }
+    .info {
+        width: 30%;
     }
 }
+
+
+/**********************************************************************
+/* 1200 PIXELS
+/*********************************************************************/
 
 @media only screen and (min-width: 1200px) {
     p {
         width: 40%;
     }
     select {
+        width: 20em;
+    }
+    /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
+    .radBut input.radio:empty~label {
         width: 20%;
+    }
+    /*BLUE RADIO BUTTONS FOR FORM SELECT*/
+    .formSelRad input.radio:empty~label {
+        width: 25%;
+        margin-top: 5%;
     }
 }
 
@@ -283,6 +487,9 @@ input[type="submit"] {
     background: #FFD520;
 }
 
+
+/*USE FOR RATING*/
+
 #rating {
     position: relative;
     top: 20%;
@@ -294,13 +501,66 @@ input[type="submit"] {
 }
 
 .questionMark {
+    outline: none;
     background-image: url(../images/help.png);
-    margin-left: 1%;
     border-radius: 50%;
+    margin-left: 2%;
     width: 35px;
     height: 35px;
-    line-height: 26px;
     cursor: help;
     position: relative;
-    top: -8px;
+    top: 8px;
+    box-shadow: 5px 5px 2.5px #888888;
+}
+
+#ratingsList ul {
+    display: block;
+}
+
+#ratingsList ul li {
+    text-align: left;
+}
+
+#bigBlock {
+    position: absolute;
+    left: 5%
+}
+
+.eventRadios {
+    text-align: left;
+    margin-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.irTitles {
+    text-align: left;
+    padding-top: 1em;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+#inlineOutIn {
+    display: inline;
+    width: 200px;
+    height: 20px;
+    margin-top: 1em;
+}
+
+#inlineOutIn #out {
+    margin-left: 40%;
+}
+
+#block {
+    min-width: 200px;
+	margin-left:25%;
+}
+
+#left {
+    text-align: right;
+    margin-right: 50%;
+}
+
+#right {
+    text-align: right;
+    margin-right: 50%;
 }

@@ -8,24 +8,24 @@ var PrevailingView = function () {
 
         var body =
             "<div id='beachBox'><p>Beach<p>" +
-            "<select name='select' id='myList'>" +
+            "<select name='select'>" +
             "<option value='1'>Select One</option>" +
             "<option value='2'>Beach1</option>" +
             "<option value='3'>Beach2</option>" +
             "<option value='4'>Beach3</option>" +
             "<option value='5'>Beach4</option>" +
             "</select>" +
-            "</div>" +
+            "</div><br>" +
             "<div id='windSpeedBox><p>Wind Speed</p>" +
             "<p>We will fill this windspeed from BOM later</p>" +
             "</div>" +
 
-            "<div id='nearestTideBox>" +
             "<p>Nearest Tides</p>" +
-            "<ul><li>Time1</li>" + //I think there is the time of the 2 nearest tides??
-            "<li>Time2</li>" +
-            "<li>Height1</li>" +
-            "<li>Height2</li></ul>" +
+            "<div id='nearestTideBox>" +
+            "<ul id='tidesListBox'><li>Time 1</li>" + //I think there is the time of the 2 nearest tides??
+            "<li>Time 2</li>" +
+            "<li>Height 1</li>" +
+            "<li>Height 2</li></ul>" +
             "</div>" +
 
             "<div id='windDirBox'><p>Wind Direction</p>" +
