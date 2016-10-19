@@ -23,11 +23,6 @@ var LogonView = function () {
             "<div class ='error'></div>";
 
 
-
-
-        //
-
-
         $(".heading").text(header);
         $(".body").html(body);
 
@@ -36,7 +31,7 @@ var LogonView = function () {
 
 function selected() {
     if ($('#radio1').is(":checked")) {
-        var forming = "<form action = '' method=''>" +
+        var forming = "<form action = '' id='submitForm1' method=''>" +
             "TSO Reference Number: <br>" +
             "<input type='text' name='' id='username'><br>" +
             "Password: <br>" +
@@ -44,12 +39,12 @@ function selected() {
             "</form>";
         $("#forming").html(forming);
     } else if ($('#radio2').is(":checked")) {
-        var forming = "<form action = '' method=''>" +
+        var forming = "<form action = '' method='' id='submitForm1'>" +
             "Supervisors Reference Number: <br>" +
             "<input type='text' name='' id='username'><br>";
         $("#forming").html(forming);
     } else if ($('#radio3').is(":checked")) {
-        var forming = "<form action = '' method=''>" +
+        var forming = "<form action = '' method='' id='submitForm1'>" +
             "Admin User Name <br>" +
             "<input type='text' name='' id='username'><br>" +
             "Password: <br>" +
