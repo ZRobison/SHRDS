@@ -1,31 +1,32 @@
 function insertSHR() {
+    console.log("Insert function firing");
     var sql = "";
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
-        sql = "INSERT INTO SHR VALUES (" +
-            //Currently Hardcoded user ID, change when Dan does user stuff
+        console.log("Preparing SQL statement");
+        sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, NEAREST_TIDES_HEIGHT1, NEAREST_TIDES_HEIGHT2, NEAREST_TIDES_TIME1, NEAREST_TIDES_TIME2, WIND_DIRECTION) VALUES (" +
+            //MANY VALUES ARE CURRENTLY HARDCODED, THIS IS NECCASARY TO SUCCESSFULLY INSERT A QUERY.
             1234 + "," +
-            app.prevalingSHRData.date + "," +
-            app.prevalingSHRData.time + "," +
-            "," + //Venue data type - get rid of it, confusion with arena?
-            app.prevalingSHRData.beach + "," +
-            app.prevalingSHRData.SHR.pWPR + "," +
-            app.prevalingSHRData.SHR.pZWR + "," +
-            app.prevalingSHRData.SHR.pSTR + "," +
+            "'2016/10/20'," + //app.prevalingSHRData.date
+            "'09:15'," + //app.prevalingSHRData.time
+            "'TEST BEACH'," + //app.prevalingSHRData.beach
             app.prevalingSHRData.SHR.pLDR + "," +
-            app.prevalingSHRData.SHR.pRCR + "," +
             app.prevalingSHRData.SHR.pOHR + "," +
-            "," + //Double up of beach name
-            "," + //Race ID null for prevailing
-            "," + //In/out null for prevailing
-            "," + //Beach gacing null for prevailing?
+            app.prevalingSHRData.SHR.pRCR + "," +
+            app.prevalingSHRData.SHR.pSTR + "," +
+            app.prevalingSHRData.SHR.pWHR + "," +
+            app.prevalingSHRData.SHR.pWPR + "," +
+            app.prevalingSHRData.SHR.pWTR + "," +
+            app.prevalingSHRData.SHR.pZWR + "," +
+            app.prevalingSHRData.SHR.totalSHR + "," +
             app.prevalingSHRData.tideHieghtLow + "," +
             app.prevalingSHRData.tideHieghtHigh + "," +
-            app.prevalingSHRData.tideTimeLow + "," +
-            app.prevalingSHRData.tideTimeHigh + "," +
-            app.prevalingSHRData.windDirection + ")";
+            "'08:30'," + //app.prevalingSHRData.tideTimeLow
+            "'14:45'," + //app.prevalingSHRData.tideTimeHigh
+            "'N')"; //app.prevalingSHRData.windDirection
+        console.log(sql);
 
-        //app.prevalingSHRData.windSpeed+")" +
+        //app.prevalingSHRData.windSpeed+")" +  NOT IN DATA PBJECT YET
 
         //Descriptors to insert    
 
@@ -46,9 +47,7 @@ function insertSHR() {
 }
 
 var eventSubmit = {
-    submitEvent: function () {
 
-    }
 }
 
 function submitIncidentReport() {
@@ -67,4 +66,5 @@ function submit(sql) {
 
         }
     );
+    console.log("SHR data has been inserted");
 }
