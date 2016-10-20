@@ -1,8 +1,17 @@
 html {
-    background-color: snow;
+    background-color: #f3f3f3;
     text-decoration: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
+}
+
+
+#backgroundImage	{
+	background-image: url(../images/backg1.jpg);	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .container-fluid {
@@ -24,7 +33,7 @@ p {
 .hazard {
     font-size: 130%;
     position: relative;
-    color: #555;
+    color: #444;
     width: 100%;
     text-align: center;
     top: 5em;
@@ -48,10 +57,6 @@ th {
 .titles {
     text-align: center;
     color: #ccc;
-}
-
-hr {
-    width: 100%;
 }
 
 label {
@@ -94,7 +99,7 @@ input.radio:empty~label {
     text-indent: 3.25em;
     cursor: pointer;
     border: 1px solid black;
-    box-shadow: 5px 5px 2.5px #888888;
+    box-shadow: 5px 5px 2.5px #333;
 }
 
 input.radio:empty~label:before {
@@ -103,7 +108,7 @@ input.radio:empty~label:before {
     bottom: 0;
     left: 0;
     content: '';
-    width: 2.5em;
+    width: 6.5em;
     background: #D1D3D4;
     border-radius: 3px 0 0 3px;
 }
@@ -168,17 +173,25 @@ input.radio:checked~label {
 }
 
 select {
-    background-color: lightgray;
-    color: #333;
-    font-weight: bold;
-    font-size: 130%;
-    border: solid black 1px;
-    text-align: center;
-    border-radius: 8px;
     outline: none;
-    padding: 0.2em;
-    margin-left: 2%;
-    box-shadow: 4px 4px 2.5px #888888;
+    background: #ffffff;
+    background-image: -webkit-linear-gradient(top, #ffffff, #bababa);
+    background-image: -moz-linear-gradient(top, #ffffff, #bababa);
+    background-image: -ms-linear-gradient(top, #ffffff, #bababa);
+    background-image: -o-linear-gradient(top, #ffffff, #bababa);
+    background-image: linear-gradient(to bottom, #ffffff, #bababa);
+    -webkit-border-radius: 19;
+    -moz-border-radius: 19;
+    border-radius: 19px;
+    -webkit-box-shadow: 3px 3px 6px #666666;
+    -moz-box-shadow: 3px 3px 6px #666666;
+    box-shadow: 5px 5px 2.5px #333;
+    font-family: Arial;
+    color: #333333;
+    font-size: 19px;
+    padding: 10px 20px 10px 20px;
+    border: solid #4d4d4d 2px;
+    text-decoration: none;
     min-width: 200px;
 }
 
@@ -273,7 +286,7 @@ select {
     background-color: #222;
     color: snow;
     border-radius: 8px;
-    box-shadow: 5px 5px 2.5px #888888;
+    box-shadow: 5px 5px 2.5px #333;
 }
 
 
@@ -282,11 +295,10 @@ select {
 input[type="text"],
 input[type="password"] {
     padding: 0.2em;
-    font-family: helvetica;
     font-size: 1.1em;
     margin-left: 0.5em;
     margin-bottom: 1.5em;
-    box-shadow: 5px 5px 2.5px #888888;
+    box-shadow: 5px 5px 2.5px #333;
     border-radius: 4px;
     outline: none;
     border: 1px solid black;
@@ -490,14 +502,18 @@ input[type="submit"] {
 
 /*USE FOR RATING*/
 
-#rating {
-    position: relative;
-    top: 20%;
-    border: 2px solid black;
-    font-size: 300%;
-    background-color: azure;
-    width: 100px;
+.rating {
+    color: white;
     margin: 0 auto;
+    position: relative;
+    top: 3em;
+    border: 3px solid black;
+    font-size: 400%;
+    background-color: dodgerblue;
+    width: 100px;
+    box-shadow: 5px 5px 2.5px #888888;
+    border-radius: 8px;
+    text-shadow: 4px 4px 5px #222;
 }
 
 .questionMark {
@@ -510,7 +526,7 @@ input[type="submit"] {
     cursor: help;
     position: relative;
     top: 8px;
-    box-shadow: 5px 5px 2.5px #888888;
+    box-shadow: 5px 5px 2.5px #333;
 }
 
 #ratingsList ul {
@@ -552,7 +568,7 @@ input[type="submit"] {
 
 #block {
     min-width: 200px;
-	margin-left:25%;
+    margin-left: 25%;
 }
 
 #left {
