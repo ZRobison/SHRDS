@@ -10,9 +10,15 @@ var EventSpecificView = function () {
 
 
         var body =
+<<<<<<< HEAD
+            "<ul>" +
+			"<li>" +
+            "Arena:" +
+=======
 
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
             "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Arena 1</option>" +
@@ -20,8 +26,14 @@ var EventSpecificView = function () {
             "<option value=''>Arena 3</option>" +
             "<option value=''>Arena 4</option>" +
             "</select>" +
+<<<<<<< HEAD
+            "</li>" +
+			"<li>" +
+            "   Age: " +
+=======
 
             "<div class='irTitles'>Age:</div>" +
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
             "<select>" +
             "<option value='' selected>Under 13</option>" +
             "<option value=''>Under 14</option>" +
@@ -39,8 +51,14 @@ var EventSpecificView = function () {
             "<option value=''>65-69</option>" +
             "<option value=''>70+</option>" +
             "</select>" +
+<<<<<<< HEAD
+			"</li>" +
+			"<li>" +
+            "Heat:" +
+=======
 
             "<div class='irTitles'>Heat:</div>" +
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
             "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Heat 1</option>" +
@@ -49,8 +67,14 @@ var EventSpecificView = function () {
             "<option value=''>Heat 4</option>" +
             "<option value=''>Heat 5</option>" +
             "</select>" +
+<<<<<<< HEAD
+			"</li>" +
+			"<li>" +
+            "Round:" +
+=======
 
             "<div class='irTitles'>Round:</div>" +
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
             "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Heat 1</option>" +
@@ -59,9 +83,15 @@ var EventSpecificView = function () {
             "<option value=''>Heat 4</option>" +
             "<option value=''>Heat 5</option>" +
             "</select>" +
+<<<<<<< HEAD
+			"</li>" +
+			"<li>" +
+            "<input type ='radio' name='' id=''/>" +
+=======
 
             "<div class='eventRadios'>" +
             "<input type ='radio' name='raceTypeRadio' id=''/>" +
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
             "Quater Final" +
             "</div>" +
 
@@ -73,9 +103,15 @@ var EventSpecificView = function () {
             "<div class='eventRadios'>" +
             " <input type ='radio' name='raceTypeRadio' id=''/>" +
             " Grand Final" +
+<<<<<<< HEAD
+			"</li>" +
+			"<li>" +
+            "Craft type:" +
+=======
             " Craft Type:" +
             "</div>" +
 
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
             "<select>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Ski</option>" +
@@ -83,20 +119,40 @@ var EventSpecificView = function () {
             "<option value=''>Board</option>" +
             "<option value=''>Boat</option>" +
             "</select>" +
+<<<<<<< HEAD
+			"</li>" +
+			"<li>" +
+            "Time:" +
+            //put time here
+            "</li>" +
+			"<li>" +
+            "in/out:" +
+=======
             "<div class='irTitles'>Time:</div><br>" +
             //put time here
 
             "<div class='irTitles'>In/Out:</div>" +
             "<div id='inlineOutIn'>" +
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
             "<input type ='radio' name='inOut' id='in'/>" +
+			"</li>" +
+			"<li>" +
             "Out" +
             "<input type ='radio' name='' id='out'/>" +
+			"</li>" +
+			"<li>" +
             "In" +
+<<<<<<< HEAD
+            "beach/location:<input type = 'text' name='bl'>" +
+			"</li>" +
+			"</ul>";
+=======
             "<div>" +
 
 
             "<br>Beach/location:<input type = 'text' name='bl'>" +
             "</div>";
+>>>>>>> e1a3da6d781953c4f77bf01924b57472c24b4812
 
         var footer =
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 

@@ -17,12 +17,12 @@ var SHRData = function() {
 	}
 }
 
-//Have not made an event specific SHR
+//Have not made an event specific SHR - this might be an old comment 19/10/2016
 var PrevailingData = function() {
 	this.initialize= function() {
 		this.SHR = new SHRData();
 		this.SHR.initialize();
-		this.date = "";
+	
 		this.time = "";
 		this.beach = "";
 		this.windDirection = "";
@@ -32,6 +32,9 @@ var PrevailingData = function() {
 		this.tideTimeHigh = -1;
 		this.tideHieghtLow = -1.0;
 		this.tideHieghtHigh = -1.0;
+		
+		//needs to be reviewed 
+	    //this.date = "";
 	}
 }
 
@@ -39,17 +42,25 @@ var eventSpercifcSHRData = function() {
 	this.initialize= function() {
 		this.SHR = new SHRData();
 		this.SHR.initialize();
-		this.inOrOut = -1;
-		this.date = "";
-		this.time = "";
-		this.beach = "";
-		this.round = "";
+		
 		this.arena = "";
-		this.raceNumber = -1;
 		this.age = -1;
-		this.gender = '';
+		this.heat = "";
+		this.round = "";
+		this.quaterFinal = -1;
+		this.semiFinal = -1;
+		this.grandFinal = -1;
 		this.craftType = "";
-		this.numberOfCraft = "";
+		this.time = ""; //might need to change 
+		this.inOrOut = -1;
+		this.raceNumber = -1;
+		this.beach = "";
+		
+		
+		//need to be reviewed 
+		//this.numberOfCraft = "";
+		//this.date = "";
+		//this.gender = '';
 	}
 }
 
