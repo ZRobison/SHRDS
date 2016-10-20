@@ -1,9 +1,10 @@
 html {
-    background-color: snow;
+    background-color: #f3f3f3;
     text-decoration: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
 }
+
 
 #backgroundImage	{
 	background-image: url(../images/backg1.jpg);	
@@ -18,7 +19,7 @@ html {
 }
 
 body {
-    font-weight: bold;   
+    font-weight: bold;
 }
 
 p {
@@ -184,7 +185,7 @@ select {
     border-radius: 19px;
     -webkit-box-shadow: 3px 3px 6px #666666;
     -moz-box-shadow: 3px 3px 6px #666666;
-    box-shadow: 3px 3px 6px #666666;
+    box-shadow: 5px 5px 2.5px #333;
     font-family: Arial;
     color: #333333;
     font-size: 19px;
@@ -285,7 +286,7 @@ select {
     background-color: #222;
     color: snow;
     border-radius: 8px;
-    box-shadow: 5px 5px 2.5px #888888;
+    box-shadow: 5px 5px 2.5px #333;
 }
 
 
@@ -525,7 +526,7 @@ input[type="submit"] {
     cursor: help;
     position: relative;
     top: 8px;
-    box-shadow: 5px 5px 2.5px #888888;
+    box-shadow: 5px 5px 2.5px #333;
 }
 
 #ratingsList ul {
