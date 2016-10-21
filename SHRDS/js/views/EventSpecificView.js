@@ -10,7 +10,7 @@ var EventSpecificView = function () {
 
 
         var body =
-
+          
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
             "<select>" +
@@ -93,10 +93,9 @@ var EventSpecificView = function () {
             "<input type ='radio' name='' id='out'/>" +
             "In" +
             "<div>" +
-
-
             "<br>Beach/location:<input type = 'text' name='bl'>" +
             "</div>";
+
 
         var footer =
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
