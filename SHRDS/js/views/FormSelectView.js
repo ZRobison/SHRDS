@@ -9,7 +9,8 @@ var FormSelectView = function () {
             "<input type='radio' name='shrRadio' id='shrRadio2' class='radio' value='checked' >" +
             "<label for='shrRadio2'>Event Specific Surf Hazard Rating</label></div>";
 
-        var footer = "<button type='submit' class='blueButtons' onclick='shrFormSelect()'>NEXT</button>";
+        var footer = "<button type='submit' class='blueButtons' onclick='shrFormSelect()'>NEXT</button>" +
+        "<button type='button' class='exitButton'>EXIT</button>" ;
 
         $(".heading").text(header);
         $(".body").html(body);
