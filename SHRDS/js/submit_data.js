@@ -1,12 +1,14 @@
 function insertSHR() {
     console.log("Insert function firing");
+    console.log(app.SHRFlag == 1);
+    console.log(app.loginData.pID);
     var sql = "";
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
         console.log("Preparing SQL statement");
         sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, NEAREST_TIDES_HEIGHT1, NEAREST_TIDES_HEIGHT2, NEAREST_TIDES_TIME1, NEAREST_TIDES_TIME2, WIND_DIRECTION) VALUES (" +
             //MANY VALUES ARE CURRENTLY HARDCODED, THIS IS NECCASARY TO SUCCESSFULLY INSERT A QUERY.
-            1234 + "," +
+            app.loginData.pID + "," +
             "'2016/10/20'," + //app.prevalingSHRData.date
             "'09:15'," + //app.prevalingSHRData.time
             "'TEST BEACH'," + //app.prevalingSHRData.beach
@@ -29,26 +31,26 @@ function insertSHR() {
         //app.prevalingSHRData.windSpeed+")" +  NOT IN DATA PBJECT YET
 
         //Descriptors to insert    
-
+        console.log(sql);
 
         submit(sql);
     }
     //If we have an event specific
     else if (app.SHRFlag == 2) {
         var eventSQL = ""
-        submitEvent(eventSQL);
+            //submitEvent(eventSQL);
         submit(sql);
     }
     //Otherwise we have an incident report
     else {
-        submitEvent();
+        //submitEvent();
         submitIncidentReport();
     }
 }
 
-var eventSubmit = {
-
-}
+//var eventSubmit = function (){
+//
+//}
 
 function submitIncidentReport() {
 
@@ -66,5 +68,9 @@ function submit(sql) {
 
         }
     );
+
+
+
+
     console.log("SHR data has been inserted");
 }

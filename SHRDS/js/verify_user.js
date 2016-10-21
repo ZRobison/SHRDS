@@ -24,6 +24,9 @@ function verify_user() {
 
                         //Also ensure that they are TSO certified
                         if (data.Result[0].TSO_QUALIFIED == true) {
+                            app.loginData.pID = data.Result[0].USER_ID
+                            app.loginData.pTSOStatus = true;
+                            app.loginData.pAdminStatus = false;
                             location.href = 'index.html?#formSelect';
                         } else {
                             $(".error").text("You are not certified to log in as a TSO");
@@ -58,6 +61,9 @@ function verify_user() {
                 if (data.Success === true) {
                     //If we have a match that means the user has the correct credentials
                     if (data.Result != null && data.Result != "") {
+                        app.loginData.pID = data.Result[0].USER_ID
+                        app.loginData.pTSOStatus = false;
+                        app.loginData.pAdminStatus = false;
                         location.href = 'index.html?#eventSpecific';
                     } else {
                         $(".error").text("That user ID does not exists");
@@ -89,6 +95,9 @@ function verify_user() {
                         //Also ensure that they are TSO certified
                         console.log(JSON.stringify(data));
                         if (data.Result[0].ADMIN_QUALIFIED == true) {
+                            app.loginData.pID = data.Result[0].USER_ID
+                            app.loginData.pTSOStatus = false;
+                            app.loginData.pAdminStatus = true;
                             location.href = 'index.html?#adminPageSelect';
                         } else {
                             $(".error").text("You are not certified to log in as an admin user");

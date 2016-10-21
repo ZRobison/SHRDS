@@ -37,8 +37,8 @@ var app = {
         this.esIRData = new eventSpercifcIRData();
         this.esIRData.initialize();
         //Login data
-        this.loginD = new loginData();
-        this.loginD.intitalize();
+        this.loginData = new loginData();
+        this.loginData.intitalize();
     },
 
 
