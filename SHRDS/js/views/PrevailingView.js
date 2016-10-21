@@ -64,7 +64,7 @@ var PrevailingView = function () {
 
         var footer =
             "<form action = 'index.html?#WHR' method='' onClick=''>" +
-            "<button type='submit' class='blueButtons'>NEXT</button>" +
+            "<button action = 'index.html?#WHR' type='submit' onClick='getPrevailingBeach()' class='blueButtons'>NEXT</button>" +
             "<button type='button' class='exitButton'>EXIT</button>" +
             "</form>";
 

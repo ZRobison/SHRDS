@@ -1,9 +1,8 @@
 // prevailing functions
 
-function getPrevailingBeach () {
+function getPrevailingBeach() {
 	//app.prevalingSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
       //  score = app.prevalingSHRData.SHR.pWHR
-	  app.prevalingHomePageData.beach = $("select[name=WHRForm]").val();
-       score = app.prevalingHomePageData.beach
-	
+	  app.prevalingSHRData.beach = $("select[name=prevailingBeach]").val();
+      console.log(app.prevalingSHRData.beach);
 }
