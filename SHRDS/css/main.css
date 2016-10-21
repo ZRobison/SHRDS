@@ -1,17 +1,16 @@
 html {
     background-color: #f3f3f3;
     text-decoration: none;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sans-serif;
     text-align: center;
 }
 
-
-#backgroundImage	{
-	background-image: url(../images/backg1.jpg);	
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+#backgroundImage {
+    background-image: url(../images/backg1.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .container-fluid {
@@ -28,6 +27,24 @@ p {
     text-justify: inter-word;
     margin: 0 auto;
     line-height: 150%;
+}
+
+.exitButton {
+    float: right;
+    color: #F2F2F2;
+    font-size: 14px;
+    box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
+    padding: 10px 20px;
+    border: 2px solid white;
+    background-color: #ED1C2E;
+    border-radius: 5px;
+    text-shadow: #000000 1px 1px 0px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 0.6em;
+    position: relative;
+    right: 5%;
+    outline: none;
 }
 
 .hazard {
@@ -108,7 +125,7 @@ input.radio:empty~label:before {
     bottom: 0;
     left: 0;
     content: '';
-    width: 6.5em;
+    width: 3.5em;
     background: #D1D3D4;
     border-radius: 3px 0 0 3px;
 }
@@ -212,6 +229,8 @@ select {
     background-image: linear-gradient(bottom, rgb(62, 51, 46) 0%, rgb(101, 86, 78) 100%);
     border-radius: 5px;
     box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
+    text-shadow: #000000 1px 1px 0px;
+    margin-left: 5%;
 }
 
 .blueButtons:active {
