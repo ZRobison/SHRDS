@@ -432,7 +432,7 @@ function getSHR() {
     var footer =
 
         "<form action = 'index.html' method=''>" +
-        "<button type='submit' class='blueButtons' onclick = 'insertSHR()'>LOG OUT</button>" +
+        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>" +
         "</form>";
 
     var shr = -1;
