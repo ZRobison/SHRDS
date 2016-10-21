@@ -26,7 +26,7 @@ function insertSHR() {
             "'08:30'," + //app.prevalingSHRData.tideTimeLow
             "'14:45'," + //app.prevalingSHRData.tideTimeHigh
             "'N')"; //app.prevalingSHRData.windDirection
-        console.log(sql);
+
 
         //app.prevalingSHRData.windSpeed+")" +  NOT IN DATA PBJECT YET
 
@@ -34,12 +34,24 @@ function insertSHR() {
         console.log(sql);
 
         submit(sql);
+        //verifySubmission("select SHR");
+
     }
     //If we have an event specific
-    else if (app.SHRFlag == 2) {
-        var eventSQL = ""
-            //submitEvent(eventSQL);
-        submit(sql);
+    else if (app.SHRFlag == 4) {
+        var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+            "VALUES ('11:00'," +
+            app.eventSpercifcSHRData.age + "," +
+            +app.eventSpercifcSHRData.gender + "," +
+            10 + "," + //Starting craft - fill in SHR Data Object
+            app.eventSpercifcSHRData.craftType + "," +
+            app.eventSpercifcSHRData.round + "," +
+            app.eventSpercifcSHRData.heat + "," +
+            "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
+
+        //submitEvent(eventSQL);
+        submit(eventSQL);
+
     }
     //Otherwise we have an incident report
     else {
@@ -56,6 +68,10 @@ function submitIncidentReport() {
 
 }
 
+function submitEvent() {
+
+}
+
 function submit(sql) {
     MySql.Execute(
         dbconfig.host,
@@ -64,13 +80,25 @@ function submit(sql) {
         dbconfig.dbUser,
         sql,
         //Currently function can be empty as call back will not return anything
+        function (data) {}
+    );
+}
+functiom verifySubmission(sql) {
+    MySql.Execute(
+        dbconfig.host,
+        dbconfig.dbUser,
+        dbconfig.dbPassword,
+        dbconfig.dbUser,
+        sql,
+        //Currently function can be empty as call back will not return anything
         function (data) {
-
+            //If we do not have a match the data did not insert correctly
+            if (data.Result == null && data.Result == "") {
+                $(".error").text("Error: SHR data was not successfully insert");
+            } else {
+                $(".error").text("Success: The SHR data has been successfully inserted");
+            }
         }
     );
 
-
-
-
-    console.log("SHR data has been inserted");
 }
