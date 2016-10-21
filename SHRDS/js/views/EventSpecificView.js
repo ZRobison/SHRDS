@@ -10,7 +10,7 @@ var EventSpecificView = function () {
 
 
         var body =
-          
+
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
             "<select>" +
@@ -101,6 +101,7 @@ var EventSpecificView = function () {
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
             "<form action= '' >" +
             "<button type='submit' class='blueButtons' onclick='routeIS()'>Next</button> " +
+            "<button type='button' class='exitButton'>EXIT</button>" +
             "</form>";
 
 
