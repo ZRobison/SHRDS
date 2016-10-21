@@ -93,15 +93,15 @@ var EventSpecificView = function () {
             "<input type ='radio' name='' id='out'/>" +
             "In" +
             "<div>" +
-
-
             "<br>Beach/location:<input type = 'text' name='bl'>" +
             "</div>";
+
 
         var footer =
             //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
             "<form action= '' >" +
             "<button type='submit' class='blueButtons' onclick='routeIS()'>Next</button> " +
+            "<button type='button' class='exitButton'>EXIT</button>" +
             "</form>";
 
 

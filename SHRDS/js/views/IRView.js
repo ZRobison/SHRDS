@@ -5,6 +5,7 @@ var IRView = function () {
         var header = "Incident Report";
         $(".heading").text(header);
         var body =
+
             "<div class='num' class='click'>" +
             "<button onclick='add(1);' >&#43;</button> " +
             "Fall Offs(by wave)" +
@@ -54,6 +55,8 @@ var IRView = function () {
             "<button type='submit' onclick='minus(7);'>&#45;</button>" +
             "</div> " +
 
+            "<div class='right'>" +
+
             "<div class='num' class='click'>" +
             "<button type='submit' onclick='add(8);' >&#43;</button> " +
             "Collision(serious)" +
@@ -86,10 +89,13 @@ var IRView = function () {
             "Injury(severe)" +
             "<div id='num12'>0</div>" +
             "<button type='submit' onclick='minus(12);'>&#45;</button>" +
-            "</div>";
+            "</div>" ;
+
+
         $(".body").html(body);
         var footer =
             "<button type='button' class='blueButtons'>NEXT</button>" +
+			"<button type='button' class='exitButton'>EXIT</button>" +
             "<form>";
 
 
