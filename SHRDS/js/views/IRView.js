@@ -95,6 +95,7 @@ var IRView = function () {
         $(".body").html(body);
         var footer =
             "<button type='button' class='blueButtons'>NEXT</button>" +
+			"<button type='button' class='exitButton'>EXIT</button>" +
             "<form>";
 
 
