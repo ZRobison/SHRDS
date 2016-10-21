@@ -83,7 +83,8 @@ function submit(sql) {
         function (data) {}
     );
 }
-functiom verifySubmission(sql) {
+
+function verifySubmission(sql) {
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
