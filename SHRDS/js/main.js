@@ -27,15 +27,18 @@ var app = {
     },
 
     initData: function () {
-		//PREVSHR
+        //PREVSHR
         this.prevalingSHRData = new PrevailingData();
         this.prevalingSHRData.initialize();
-		//IRSHR
-		this.esSHRData = new eventSpercifcSHRData();
+        //IRSHR
+        this.esSHRData = new eventSpercifcSHRData();
         this.esSHRData.initialize();
-		//IR
+        //IR
         this.esIRData = new eventSpercifcIRData();
         this.esIRData.initialize();
+        //Login data
+        this.loginD = new loginData();
+        this.loginD.intitalize();
     },
 
 
