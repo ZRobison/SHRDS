@@ -45,7 +45,7 @@ function getWHR() {
     var header = "Wave Height Rating";
 
     var body =
-        //body
+        //body        
         "<div class='hazard'>WHR in Meters</div>" +
         "<select class='allRatingsPos' name='WHRForm'>" +
         "<option value='-1'>Select one</option>" +
@@ -66,9 +66,11 @@ function getWHR() {
         "<br>" +
         "<div class='info'></div>";
 
+
     var footer =
         //footer
-        "<button type='submit' class='blueButtons' onClick='getWHRvalue()'>NEXT</button> ";
+        "<button type='submit' class='blueButtons' onClick='getWHRvalue()'>NEXT</button> " +
+        "<button type='button' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -105,7 +107,8 @@ function getWTR() {
 
 
     var footer =
-        "<button type='submit' class='blueButtons' onClick='getWTRvalue()'>NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getWTRvalue()'>NEXT</button>" +
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
 
     $(".heading").text(header);
@@ -140,7 +143,8 @@ function getWPR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getWPRvalue()' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getWPRvalue()' >NEXT</button>" +
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
 
     $(".heading").text(header);
@@ -172,7 +176,7 @@ function getZWR() {
         "<option value='7'>Up to 140</option>" +
         "<option value='8'>Up to 160</option>" +
         "</select>" +
-        "<button type='button' class='questionMark' onclick='getZWRInfo()')></button>" +
+        "<button type='button' class='questionMark' onclick='getZWRInfo()')></button>" +		
         "<div class='error'></div>" +
         "<br>" +
         "<br>" +
@@ -180,7 +184,8 @@ function getZWR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getZWRvalue()' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getZWRvalue()' >NEXT</button>"+
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
 
     $(".heading").text(header);
@@ -228,7 +233,8 @@ function getSTR() {
 
     var footer =
 
-        " <button type='submit' class='blueButtons' onClick='getSTRvalue()' >NEXT</button> ";
+        " <button type='submit' class='blueButtons' onClick='getSTRvalue()' >NEXT</button> " +
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
 
     $(".heading").text(header);
@@ -264,7 +270,8 @@ function getLDR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getLDRvalue()' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getLDRvalue()' >NEXT</button>" +
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
 
     $(".heading").text(header);
@@ -299,7 +306,8 @@ function getRCR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getRCRvalue()' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getRCRvalue()' >NEXT</button>" +
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
 
     $(".heading").text(header);
@@ -341,7 +349,8 @@ function getOHR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getOHRvalue(); getREV();' >NEXT</button>";
+        "<button type='submit' class='blueButtons' onClick='getOHRvalue(); getREV();' >NEXT</button>" +
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
 
     $(".heading").text(header);
@@ -403,7 +412,8 @@ function getREV() {
     "</div>";
 
     var footer =
-        "<button type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
+        "<button type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>" +
+		"<button type='button' class='exitButton'>EXIT</button>" ;
 
     $(".heading").text(header);
     $(".body").html(body);
