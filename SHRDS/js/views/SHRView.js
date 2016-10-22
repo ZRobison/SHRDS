@@ -438,6 +438,7 @@ function getSHR() {
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>" +
         "</form>";
 
+
     var shr = -1;
     if (app.SHRFlag == 1) {
         shr = app.prevalingSHRData.SHR.calculate();
