@@ -4,92 +4,108 @@ var IRView = function () {
     this.render = function () {
         var header = "Incident Report";
         $(".heading").text(header);
+
         var body =
-            "<div class='num' class='click'>" +
-            "<button onclick='add(1);' >&#43;</button> " +
-            "Fall Offs(by wave)" +
-            "<div id='num1'>0</div>" +
-            "<button onclick='minus(1);'>&#45;</button>" +
+
+            "<div id='block'>" +
+            "<div id='left'>" +
+
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(1);' ></button> " +
+            "<div class='upDownText'>Fall Offs (By wave)</div>" +
+            "<div id='num1' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(1);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(2);' >&#43;</button> " +
-            "Fall Offs(by collision)" +
-            "<div id='num2'>0</div>" +
-            "<button type='submit' onclick='minus(2);'>&#45;</button>" +
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(2);' ></button> " +
+            "<div class='upDownText'>Fall Offs (By collision)</div>" +
+            "<div id='num2' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(2);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(3);' >&#43;</button>" +
-            "Back-shoot/Nose-Dive" +
-            "<div id='num3'>0</div>" +
-            "<button type='submit' onclick='minus(3);'>&#45;</button>" +
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(3);' ></button>" +
+            "<div class='upDownText'>Back-shoot/Nose-Dive</div>" +
+            "<div id='num3' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(3);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(4);' >&#43;</button> " +
-            "Broaches" +
-            "<div id='num4'>0</div>" +
-            "<button type='submit' onclick='minus(4);'>&#45;</button>" +
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(4);' ></button> " +
+            "<div class='upDownText'>Broaches</div>" +
+            "<div id='num4' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(4);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(5);' >&#43;</button> " +
-            "Flying Craft" +
-            "<div id='num5'>0</div>" +
-            "<button type='submit' onclick='minus(5);'>&#45;</button>" +
+            "<div class='num'>" +
+            "<button type='submit' class='clickAdd' onclick='add(5);' ></button> " +
+            "<div class='upDownText'>Flying Craft</div>" +
+            "<div id='num5' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(5);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(6);' >&#43;</button> " +
-            "Lost Craft(serious)" +
-            "<div id='num6'>0</div>" +
-            "<button type='submit' onclick='minus(6);'>&#45;</button>" +
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(6);' ></button> " +
+            "<div class='upDownText'>Lost Craft (Serious)</div>" +
+            "<div id='num6' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(6);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(7);' >&#43;</button> " +
-            "Lost Craft(severe)" +
-            "<div id='num7'>0</div>" +
-            "<button type='submit' onclick='minus(7);'>&#45;</button>" +
+            "</div>" +
+            "<div id='right'>" +
+
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(7);' ></button> " +
+            "<div class='upDownText'>Lost Craft (Severe)</div>" +
+            "<div id='num7' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(7);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(8);' >&#43;</button> " +
-            "Collision(serious)" +
-            "<div id='num8'>0</div>" +
-            "<button type='submit' onclick='minus(8);'>&#45;</button>" +
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(8);' ></button> " +
+            "<div class='upDownText'>Collision (Serious)</div>" +
+            "<div id='num8' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(8);'></button>" +
             "</div>" +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(9);' >&#43;</button> " +
-            "Injury(minor)" +
-            "<div id='num9'>0</div>" +
-            "<button type='submit' onclick='minus(9);'>&#45;</button>" +
+
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(9);' ></button> " +
+            "<div class='upDownText'>Injury (Minor)</div>" +
+            "<div id='num9' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(9);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(10);' >&#43;</button> " +
-            "Injury(serious)" +
-            "<div id='num10'>0</div>" +
-            "<button type='submit' onclick='minus(10);'>&#45;</button>" +
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(10);' ></button> " +
+            "<div class='upDownText'>Injury (Serious)</div>" +
+            "<div id='num10' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(10);'></button>" +
             "</div> " +
 
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(11);' >&#43;</button> " +
-            "Fall Offs(by wave)" +
-            "<div id='num11'>0</div>" +
-            "<button type='submit' onclick='minus(11);'>&#45;</button>" +
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(11);' ></button> " +
+            "<div class='upDownText'>Fall Offs (By wave)</div>" +
+            "<div id='num11' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(11);'></button>" +
             "</div> " +
-            "<div class='num' class='click'>" +
-            "<button type='submit' onclick='add(12);' >&#43;</button> " +
-            "Injury(severe)" +
-            "<div id='num12'>0</div>" +
-            "<button type='submit' onclick='minus(12);'>&#45;</button>" +
+
+            "<div class='num' >" +
+            "<button type='submit' class='clickAdd' onclick='add(12);' ></button> " +
+            "<div class='upDownText'>Injury (Severe)</div>" +
+            "<div id='num12' class='upDownNum'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minus(12);'></button>" +
+            "</div>" +
+
+            "</div>" +
             "</div>";
+
+
         $(".body").html(body);
         var footer =
             "<button type='button' class='blueButtons'>NEXT</button>" +
+            "<button type='button' class='exitButton'>EXIT</button>" +
             "<form>";
 
 
