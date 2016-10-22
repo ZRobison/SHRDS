@@ -1,21 +1,76 @@
+/*
+* This function is use the supplied function fun to retreive the score
+* as specified by the user on their current page, then displays an error
+* if no value is specified or re routes to the next page in the SHR form. 
+*
+*/
+function nextPage(SHR, fun){
+		var score = fun();
+		if (score == -1){
+			$(".error").text("Please select a value.");
+		} else {
+		 switch (SHR) {
+        case ("WHR"):
+				window.location.hash = "#WTR";
+				$(".error").text("");
+            break;
+        case ("WTR"):
+				window.location.hash = "#WPR";
+				$(".error").text("");
+            break;
+        case ("WPR"):
+				window.location.hash = "#ZWR";
+				$(".error").text("");
+            break;
+        case ("ZWR"):
+				window.location.hash = "#STR";
+				$(".error").text("");
+            break;
+        case ("STR"):
+				window.location.hash = "#LDR";
+				$(".error").text("");
+            break;
+        case ("LDR"):
+				window.location.hash = "#RCR";
+				$(".error").text("");
+            break;
+        case ("RCR"):
+				window.location.hash = "#OHR";
+				$(".error").text("");
+            break;
+        case ("OHR"):
+				window.location.hash = "#REV";
+				$(".error").text("");
+            break;
+        default:
+            $(".error").text("Something went wrong");
+    }
+}
+}
+
+/*
+*
+* Retries the value slected by the user for WHR and returns it
+*
+*/
 function getWHRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
-        score = app.prevalingSHRData.SHR.pWHR
+        score = app.prevalingSHRData.SHR.pWHR;
     } else {
         app.esSHRData.SHR.pWHR = $("select[name=WHRForm]").val();
-        score = app.esSHRData.SHR.pWHR
-    }
-    if (score != -1) {
-        window.location.hash = "#WTR";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pWHR;
     }
     return score;
 }
 
+
+/*
+*
+* Retries the describing information for WHR
+*
+*/
 function getWHRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -24,24 +79,28 @@ function getWHRInfo() {
     }
 }
 
+/*
+*
+* Retries the value slected by the user for WTR and returns it
+*
+*/
 function getWTRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pWTR = $("select[name=WTRForm]").val();
-        score = app.prevalingSHRData.SHR.pWTR
+        score = app.prevalingSHRData.SHR.pWTR;
     } else {
         app.esSHRData.SHR.pWTR = $("select[name=WTRForm]").val();
-        score = app.esSHRData.SHR.pWTR
-    }
-    if (score != -1) {
-        window.location.hash = "#WPR";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pWTR;
     }
     return score;
 }
 
+/*
+*
+* Retries the describing information for WTR
+*
+*/
 function getWTRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -50,24 +109,28 @@ function getWTRInfo() {
     }
 }
 
+/*
+*
+* Retries the value slected by the user for WPR and returns it
+*
+*/
 function getWPRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pWPR = $("select[name=WPRForm]").val();
-        score = app.prevalingSHRData.SHR.pWPR
+        score = app.prevalingSHRData.SHR.pWPR;
     } else {
         app.esSHRData.SHR.pWPR = $("select[name=WPRForm]").val();
-        score = app.esSHRData.SHR.pWPR
-    }
-    if (score != -1) {
-        window.location.hash = "#ZWR";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pWPR;
     }
     return score;
 }
 
+/*
+*
+* Retries the describing information for WPR
+*
+*/
 function getWPRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -76,24 +139,28 @@ function getWPRInfo() {
     }
 }
 
+/*
+*
+* Retries the value slected by the user for ZWR and returns it
+*
+*/
 function getZWRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pZWR = $("select[name=ZWRForm]").val();
-        score = app.prevalingSHRData.SHR.pZWR
+        score = app.prevalingSHRData.SHR.pZWR;
     } else {
         app.esSHRData.SHR.pZWR = $("select[name=ZWRForm]").val();
-        score = app.esSHRData.SHR.pZWR
-    }
-    if (score != -1) {
-        window.location.hash = "#STR";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pZWR;
     }
     return score;
 }
 
+/*
+*
+* Retries the describing information for Zwr
+*
+*/
 function getZWRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -102,24 +169,28 @@ function getZWRInfo() {
     }
 }
 
+/*
+*
+* Retries the value slected by the user for STR and returns it
+*
+*/
 function getSTRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pSTR = $("select[name=STRForm]").val();
-        score = app.prevalingSHRData.SHR.pSTR
+        score = app.prevalingSHRData.SHR.pSTR;
     } else {
         app.esSHRData.SHR.pSTR = $("select[name=STRForm]").val();
-        score = app.esSHRData.SHR.pSTR
-    }
-    if (score != -1) {
-        window.location.hash = "#LDR";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pSTR;
     }
     return score;
 }
 
+/*
+*
+* Retries the describing information for STR
+*
+*/
 function getSTRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -128,24 +199,29 @@ function getSTRInfo() {
     }
 }
 
+/*
+*
+* Retries the value slected by the user for LDR and returns it
+*
+*/
 function getLDRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pLDR = $("select[name=LDRForm]").val();
-        score = app.prevalingSHRData.SHR.pLDR
+        score = app.prevalingSHRData.SHR.pLDR;
     } else {
         app.esSHRData.SHR.pLDR = $("select[name=LDRForm]").val();
-        score = app.esSHRData.SHR.pLDR
-    }
-    if (score != -1) {
-        window.location.hash = "#RCR";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pLDR;
     }
     return score;
 }
 
+
+/*
+*
+* Retries the describing information for LDR
+*
+*/
 function getLDRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -154,24 +230,28 @@ function getLDRInfo() {
     }
 }
 
+/*
+*
+* Retries the value slected by the user for RCR and returns it
+*
+*/
 function getRCRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pRCR = $("select[name=RCRForm]").val();
-        score = app.prevalingSHRData.SHR.pRCR
+        score = app.prevalingSHRData.SHR.pRCR;
     } else {
         app.esSHRData.SHR.pRCR = $("select[name=RCRForm]").val();
-        score = app.esSHRData.SHR.pRCR
-    }
-    if (score != -1) {
-        window.location.hash = "#OHR";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pRCR;
     }
     return score;
 }
 
+/*
+*
+* Retries the describing information for RCR
+*
+*/
 function getRCRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -180,24 +260,28 @@ function getRCRInfo() {
     }
 }
 
+/*
+*
+* Retries the value slected by the user for OHR and returns it
+*
+*/
 function getOHRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pOHR = $("select[name=OHRForm]").val();
-        score = app.prevalingSHRData.SHR.pOHR
+        score = app.prevalingSHRData.SHR.pOHR;
     } else {
         app.esSHRData.SHR.pOHR = $("select[name=OHRForm]").val();
-        score = app.esSHRData.SHR.pOHR
-    }
-    if (score != -1) {
-        window.location.hash = "#REV";
-        $(".error").text("");
-    } else {
-        $(".error").text("Please select a value.");
+        score = app.esSHRData.SHR.pOHR;
     }
     return score;
 }
 
+/*
+*
+* Retries the describing information for OHR
+*
+*/
 function getOHRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -206,6 +290,10 @@ function getOHRInfo() {
     }
 }
 
+/*
+* Retreive the description of WHR from a given value
+*
+*/
 function WHRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -246,6 +334,10 @@ function WHRDescription(value) {
     return texte;
 }
 
+/*
+* Retreive the description of WTR from a given value
+*
+*/
 function WTRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -268,6 +360,10 @@ function WTRDescription(value) {
     return texte;
 }
 
+/*
+* Retreive the description of WPR from a given value
+*
+*/
 function WPRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -290,6 +386,10 @@ function WPRDescription(value) {
     return texte;
 }
 
+/*
+* Retreive the description of ZWR from a given value
+*
+*/
 function ZWRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -327,6 +427,10 @@ function ZWRDescription(value) {
     return texte;
 }
 
+/*
+* Retreive the description of STR from a given value
+*
+*/
 function STRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -352,6 +456,10 @@ function STRDescription(value) {
     return texte;
 }
 
+/*
+* Retreive the description of LDR from a given value
+*
+*/
 function LDRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -377,6 +485,10 @@ function LDRDescription(value) {
     return texte;
 }
 
+/*
+* Retreive the description of RCR from a given value
+*
+*/
 function RCRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -399,91 +511,27 @@ function RCRDescription(value) {
     return texte;
 }
 
-function OHRDescription(value) {
-    var texte = "ERROR";
-    switch (value * 1) {
-        case (0):
-            texte = "0";
-            break;
-        case (1):
-            texte = "1";
-            break;
-        case (2):
-            texte = "2";
-            break;
-        case (3):
-            texte = "3";
-            break;
-        case (4):
-            texte = "4";
-            break;
-        case (5):
-            texte = "5";
-            break;
-        case (6):
-            texte = "6";
-            break;
-        case (7):
-            texte = "7";
-            break;
-        case (8):
-            texte = "8";
-            break;
-        case (9):
-            texte = "9";
-            break;
-        default:
-            description = "Dan.";
-    }
+/*
+*This function is used on the revision page. 
+*If a person wants to change a value, 
+*The page is rendered by the get function 
+*The calculation is retreived the the fun function.
+*
+*/
+function nextRouteChange (get, fun) {
+	get();
+	window.location.hash = "#TRANS";
+	var footer =
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" +'"OHR"'+", " + fun+")'>Done</button>";
 
-    return texte;
+    $(".footer").html(footer);
 }
 
-function retreiveDescription(type, value) {
-    var description = "Dan";
-    switch (type) {
-        case ("WHR"):
-            description = WHRDescription(value);
-            break;
-        case ("WTR"):
-            description = WTRDescription(value);
-            break;
-        case ("WPR"):
-            description = WPRDescription(value);
-            break;
-        case ("ZWR"):
-            description = ZWRDescription(value);
-            break;
-        case ("STR"):
-            description = STRDescription(value);
-            break;
-        case ("LDR"):
-            description = LDRDescription(value);
-            break;
-        case ("RCR"):
-            description = RCRDescription(value);
-            break;
-        case ("OHR"):
-            description = OHRDescription(value);
-            break;
-        default:
-            description = "Dan";
-    }
-
-    return description;
-}
-
-
-function nextRouteChange() {
-    if (window.location.hash = "#REV") {
-        $(window).on('hashchange', function hashChange() {
-            window.location.hash = "#REV";
-            console.log(window.location.hash);
-        })
-    }
-}
-
-
+/*
+*
+* This function determines what button is selected in the for selection screen
+*
+*/
 function shrFormSelect() {
     if ($('#shrRadio1').is(":checked")) {
         app.SHRFlag = 1;
