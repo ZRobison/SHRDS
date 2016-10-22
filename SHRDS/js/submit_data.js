@@ -71,8 +71,21 @@ function insertSHR() {
     }
     //Otherwise we have an incident report
     else {
-        //submitEvent();
-        submitIncidentReport();
+        submitEvent();
+        var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT,FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, INJURY_MINOR_, INJURYSERIOUS_, _INJURY , LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+            "(SELECT RACE_ID FROM RACE WHERE" +
+            "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
+            "AND AGE_GROUP = '" + app.eventSpercifcSHRData.age + "'" +
+            "AND GENDER = '" + app.eventSpercifcSHRData.gender + "'" +
+            "AND STARTING_CRAFT_ = 10" +
+            "AND CRAFT_TYPE = '" + app.eventSpercifcSHRData.craftType + "'" +
+            "AND ROUND = " + app.eventSpercifcSHRData.round +
+            "AND HEAT = " + app.eventSpercifcSHRData.heat +
+            "AND FINAL = 'SEMI')" +
+            "0, '12:00', '11:30'),"
+        app.loginData.pID + "," +
+
+
     }
 }
 
