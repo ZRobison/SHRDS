@@ -5,13 +5,14 @@ var SHRData = function () {
             this.pWPR = -1;
             this.pZWR = -1;
             this.pSTR = -1;
+			this.pCrossWaves = 0;
             this.pLDR = -1;
             this.pRCR = -1;
             this.pOHR = -1;
             this.totalSHR = -1;
         }
         this.calculate = function () {
-            this.totalSHR = (this.pWHR * 1) + (this.pWTR * 1) + (this.pWPR * 1) + (this.pZWR * 1) + (this.pSTR * 1) + (this.pLDR * 1) + (this.pRCR * 1) + (this.pOHR * 1);
+            this.totalSHR = (this.pWHR * 1) + (this.pWTR * 1) + (this.pWPR * 1) + (this.pZWR * 1) + (this.pSTR * 1) + (this.pCrossWaves*1) + (this.pLDR * 1) + (this.pRCR * 1) + (this.pOHR * 1);
             return this.totalSHR;
         }
     }
@@ -23,6 +24,7 @@ var PrevailingData = function () {
         this.time = "";
         this.beach = "";
         this.windDirection = "";
+		this.windSpeed = "";
         this.nearestTideLow = "";
         this.nearestTideHigh = "";
         this.tideTimeLow = -1;
