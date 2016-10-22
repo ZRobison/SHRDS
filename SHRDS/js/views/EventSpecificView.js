@@ -13,7 +13,7 @@ var EventSpecificView = function () {
 
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
-            "<select>" +
+            "<select name='ESArena'>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Arena 1</option>" +
             "<option value=''>Arena 2</option>" +
@@ -22,7 +22,7 @@ var EventSpecificView = function () {
             "</select>" +
 
             "<div class='irTitles'>Age:</div>" +
-            "<select>" +
+            "<select name='ESAge'>" +
             "<option value='' selected>Under 13</option>" +
             "<option value=''>Under 14</option>" +
             "<option value=''>Under 15</option>" +
@@ -41,7 +41,7 @@ var EventSpecificView = function () {
             "</select>" +
 
             "<div class='irTitles'>Heat:</div>" +
-            "<select>" +
+            "<select name='ESHeat'>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Heat 1</option>" +
             "<option value=''>Heat 2</option>" +
@@ -51,56 +51,50 @@ var EventSpecificView = function () {
             "</select>" +
 
             "<div class='irTitles'>Round:</div>" +
-            "<select>" +
+            "<select name='ESRound'>" +
             "<option value='' selected>Select one</option>" +
-            "<option value=''>Heat 1</option>" +
-            "<option value=''>Heat 2</option>" +
-            "<option value=''>Heat 3</option>" +
-            "<option value=''>Heat 4</option>" +
-            "<option value=''>Heat 5</option>" +
+            "<option value=''>Round 1</option>" +
+            "<option value=''>Round 2</option>" +
+            "<option value=''>Round 3</option>" +
+            "<option value=''>Round 4</option>" +
+            "<option value=''>Round 5</option>" +
             "</select>" +
 
-            "<div class='eventRadios'>" +
-            "<input type ='radio' name='raceTypeRadio' id=''/>" +
-            "Quater Final" +
-            "</div>" +
-
-            "<div class='eventRadios'>" +
-            " <input type ='radio' name='raceTypeRadio' id=''/>" +
-            "Semi Final" +
-            "</div>" +
-
-            "<div class='eventRadios'>" +
-            " <input type ='radio' name='raceTypeRadio' id=''/>" +
-            " Grand Final" +
-            " Craft Type:" +
-            "</div>" +
-
-            "<select>" +
+            "<div class='irTitles'>Final:</div>" +
+			"<select name='ESFinalType'>" +
+            "<option value=''selected>Select one</option>" +
+            "<option value=''>Quater Final</option>" +
+            "<option value=''>Semi Final</option>" +
+            "<option value=''>Grand Final</option>" +
+            "</select>" +
+            
+            "<div class='irTitles'>Craft Type:</div>" +
+            "<select name='ESCraftType'>" +
             "<option value='' selected>Select one</option>" +
             "<option value=''>Ski</option>" +
             "<option value=''>Double Ski</option>" +
             "<option value=''>Board</option>" +
             "<option value=''>Boat</option>" +
             "</select>" +
-            "<div class='irTitles'>Time:</div><br>" +
-            //put time here
-
-            "<div class='irTitles'>In/Out:</div>" +
+			
+			"<div class='irTitles'>In/Out:</div>" +
             "<div id='inlineOutIn'>" +
-            "<input type ='radio' name='inOut' id='in'/>" +
+            "<input type ='radio' name='ESInOut' id='in'/>" +
             "Out" +
-            "<input type ='radio' name='' id='out'/>" +
+            "<input type ='radio' name='ESInOut' id='out'/>" +
             "In" +
             "<div>" +
-            "<br>Beach/location:<input type = 'text' name='bl'>" +
+            "<br>Beach/location:<input type = 'text' name='ESBeach'>" +
             "</div>";
+			
+
+           
 
 
         var footer =
-            //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. 
+            //THIS IS A BROKEN WAY OF DOING THIS, IF AN IR USES THIS FORM THEY START FILLING OUT AN SHR. Is this an old issue? 22/10/2016 
             "<form action= '' >" +
-            "<button type='submit' class='blueButtons' onclick='routeIS()'>Next</button> " +
+            "<button type='submit' class='blueButtons' onclick='routeIS(); arenaES(); ageES(); heatES(); roundES(); finalES(); craftTypeES(); inOutES(); beachLocationES(); timeES();'>Next</button> " +
             "<button type='button' class='exitButton'>EXIT</button>" +
             "</form>";
 
