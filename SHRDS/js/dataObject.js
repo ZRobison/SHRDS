@@ -16,17 +16,15 @@ var SHRData = function () {
             return this.totalSHR;
         }
     }
-    //Have not made an event specific SHR - this might be an old comment 19/10/2016
+    
 var PrevailingData = function () {
     this.initialize = function () {
         this.SHR = new SHRData();
         this.SHR.initialize();
-        this.time = "";
-        this.beach = "";
-        this.windDirection = "";
-		this.windSpeed = "";
-        this.nearestTideLow = "";
-        this.nearestTideHigh = "";
+        this.time = -1;
+        this.beach = -1;
+        this.windDirection = -1;
+		this.windSpeed = -1;
         this.tideTimeLow = -1;
         this.tideTimeHigh = -1;
         this.tideHieghtLow = -1.0;
