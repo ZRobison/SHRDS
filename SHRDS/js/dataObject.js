@@ -35,26 +35,24 @@ var PrevailingData = function () {
         //this.date = "";
     }
 }
-var eventSpercifcSHRData = function () {
+var eventSpecifcSHRData = function () {
     this.initialize = function () {
         this.SHR = new SHRData();
         this.SHR.initialize();
         this.arena = "";
-        this.age = -1;
-        this.heat = "";
+		this.heat = "";
+        this.age = -1;        
         this.round = "";
-        this.quaterFinal = -1;
-        this.semiFinal = -1;
-        this.grandFinal = -1;
-        this.craftType = "";
-        this.time = ""; //might need to change 
+        this.finalType = -1;
+        this.craftType = ""; 
         this.inOrOut = -1;
-        this.raceNumber = -1;
         this.beach = "";
+		this.time = ""; //might need to change
         //need to be reviewed 
         //this.numberOfCraft = "";
         //this.date = "";
         //this.gender = '';
+		//this.raceNumber = -1;
     }
 }
 var IRData = function () {
@@ -74,7 +72,7 @@ var IRData = function () {
         this.pINJSev = -1;
     }
 }
-var eventSpercifcIRData = function () {
+var eventSpecifcIRData = function () {
         this.initialize = function () {
             this.IRIN = new IRData();
             this.IROUT = new IRData();

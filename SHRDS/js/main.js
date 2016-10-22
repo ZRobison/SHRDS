@@ -48,10 +48,10 @@ var app = {
         this.prevalingSHRData = new PrevailingData();
         this.prevalingSHRData.initialize();
         //IRSHR
-        this.esSHRData = new eventSpercifcSHRData();
+        this.esSHRData = new eventSpecifcSHRData();
         this.esSHRData.initialize();
         //IR
-        this.esIRData = new eventSpercifcIRData();
+        this.esIRData = new eventSpecifcIRData();
         this.esIRData.initialize();
         //Login data
         this.loginData = new loginData();
