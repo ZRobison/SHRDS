@@ -23,6 +23,7 @@ var PrevailingData = function () {
         this.time = "";
         this.beach = "";
         this.windDirection = "";
+		this.windSpeed = "";
         this.nearestTideLow = "";
         this.nearestTideHigh = "";
         this.tideTimeLow = -1;

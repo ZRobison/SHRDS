@@ -68,7 +68,7 @@ function getWHR() {
 
     var footer =
         //footer
-        "<button type='submit' class='blueButtons' onClick='getWHRvalue()'>NEXT</button> ";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WHR"' +", "+getWHRvalue + ")'>NEXT</button> ";
 
 
     $(".heading").text(header);
@@ -105,7 +105,7 @@ function getWTR() {
 
 
     var footer =
-        "<button type='submit' class='blueButtons' onClick='getWTRvalue()'>NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WTR"' +", "+getWTRvalue + ")'>NEXT</button>";
 
 
     $(".heading").text(header);
@@ -140,7 +140,7 @@ function getWPR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getWPRvalue()' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WPR"' +", "+getWPRvalue + ")' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -180,7 +180,7 @@ function getZWR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getZWRvalue()' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"ZWR"' +", "+getZWRvalue + ")' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -228,7 +228,7 @@ function getSTR() {
 
     var footer =
 
-        " <button type='submit' class='blueButtons' onClick='getSTRvalue()' >NEXT</button> ";
+        " <button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"STR"' +", "+getSTRvalue + ")' >NEXT</button> ";
 
 
     $(".heading").text(header);
@@ -264,7 +264,7 @@ function getLDR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getLDRvalue()' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"LDR"' +", "+getLDRvalue + ")' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -299,7 +299,7 @@ function getRCR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getRCRvalue()' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"RCR"' +", "+getRCRvalue + ")' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -341,7 +341,7 @@ function getOHR() {
 
     var footer =
 
-        "<button type='submit' class='blueButtons' onClick='getOHRvalue(); getREV();' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"OHR"' +", "+getOHRvalue + ")' >NEXT</button>";
 
 
     $(".heading").text(header);
@@ -383,27 +383,27 @@ function getREV() {
         "<div id='ratingsList'>" +
         "<ul>" +
         "<li>" +
-        "WHR  " + retreiveDescription("WHR", pWHR) + "<button type='submit' class='blueButtons' onClick='getWHR(); nextRouteChange();'>WHR</button>" +
+        "WHR  " + WHRDescription(pWHR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getWHR()} + ","+getWHRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "WTR  " + retreiveDescription("WTR", pWTR) + "<button type='submit' class='blueButtons' onClick='getWTR(); nextRouteChange();'>WTR</button>" +
+        "WTR  " + WTRDescription(pWTR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getWTR()} + ","+getWTRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "WPR  " + retreiveDescription("WPR", pWPR) + "<button type='submit' class='blueButtons' onClick='getWPR(); nextRouteChange();'>WPR</button>" +
+        "WPR  " + WPRDescription(pWPR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getWPR()} + ","+getWPRvalue+ ")'>Change</button>" +
         "</li><li>" +
-        "ZWR  " + retreiveDescription("ZWR", pZWR) + "<button type='submit' class='blueButtons' onClick='getZWR(); nextRouteChange();'>ZWR</button>" +
+        "ZWR  " + ZWRDescription(pZWR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getZWR()} + ","+getZWRvalue+ ")'>Change</button>" +
         "</li><li>" +
-        "STR  " + retreiveDescription("STR", pSTR) + "<button type='submit' class='blueButtons' onClick='getSTR(); nextRouteChange();'>STR</button>" +
+        "STR  " + STRDescription(pSTR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getSTR()} + ","+getSTRvalue+ ")'>Change</button>" +
         "</li><li>" +
-        "LDR  " + retreiveDescription("LDR", pLDR) + "<button type='submit' class='blueButtons' onClick='getLDR(); nextRouteChange();'>LDR</button>" +
+        "LDR  " + LDRDescription(pLDR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getLDR()} + ","+getLDRvalue+ ")'>Change</button>" +
         "</li><li>" +
-        "RCR  " + retreiveDescription("RCR", pRCR) + "<button type='submit' class='blueButtons' onClick='getRCR(); nextRouteChange();'>RCR</button>" +
+        "RCR  " + RCRDescription(pRCR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getRCR()} + ","+getRCRvalue+ ")'>Change</button>" +
         "</li><li>" +
-        "OHR  " + retreiveDescription("OHR", pOHR) + "<button type='submit' class='blueButtons' onClick='getOHR(); nextRouteChange();'>OHR</button>" +
+        "OHR  " + pOHR + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getOHR()} + ","+getOHRvalue+ ")'>Change</button>" +
         "</li>"
     "</ul>" +
     "</div>";
 
     var footer =
-        "<button type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -422,7 +422,7 @@ function getSHR() {
     var footer =
 
         "<form action = 'index.html' method=''>" +
-        "<button type='submit' class='blueButtons' onclick = 'insertSHR()'>LOG OUT</button>" +
+        "<button name='next' type='submit' class='blueButtons' onclick = 'insertSHR()'>LOG OUT</button>" +
         "</form>";
 
     var shr = -1;
