@@ -178,9 +178,11 @@ function getSTRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pSTR = $("select[name=STRForm]").val();
+		app.prevalingSHRData.SHR.pCrossWaves = $("select[name=STRCrossWavesForm]").val();
         score = app.prevalingSHRData.SHR.pSTR;
     } else {
         app.esSHRData.SHR.pSTR = $("select[name=STRForm]").val();
+		app.esSHRData.SHR.pCrossWaves = $("select[name=STRCrossWavesForm]").val();
         score = app.esSHRData.SHR.pSTR;
     }
     return score;
@@ -192,12 +194,30 @@ function getSTRvalue() {
 *
 */
 function getSTRInfo() {
-    if ($(".info").text()) {
+	if ($(".info").text() == "Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell."){
+		$(".info").text("Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.");
+	} else if ($(".info").text()) {
         $(".info").text("");
     } else {
         $(".info").text("Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.");
     }
-}
+}  
+
+
+/*
+*
+* Retries the describing information for cross waves in STR
+*
+*/
+function getSTRCrossWavesInfo() {
+	if ($(".info").text() == "Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction."){
+		$(".info").text("Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell.");
+	} else if ($(".info").text()) {
+        $(".info").text("");
+    } else {
+        $(".info").text("Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell.");
+    }
+} 
 
 /*
 *
@@ -451,6 +471,27 @@ function STRDescription(value) {
             break;
         default:
             description = "Dan is gay.";
+    }
+
+    return texte;
+}
+
+/*
+* Retreive the description of STR from a given value
+*
+*/
+function STRCrossWaveDescription(value) {
+    var texte = "ERROR";
+    switch (value * 1) {
+        case (0):
+            texte = "No Cross Waves";
+            break;
+        case (1):
+            texte = "Minor Cross Waves";
+            break;
+        case (2):
+            texte = "Moderate Cross Waves";
+            break;
     }
 
     return texte;

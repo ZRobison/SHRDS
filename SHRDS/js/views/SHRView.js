@@ -216,23 +216,14 @@ function getSTR() {
         "<option value='4'>Extreme Chop (>27kts)</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
-        "<div class='error'></div>" +
-        "<div class='info'></div>" +
-
-        "<br>" +
-        "<br>" +
-        "<br>" +
-
-        "<p>Cross Waves: form at random angles to the primary swell direction due to local storms or reflection of the primary swell.</p>" +
-        "<p>Select minor or moderate if Cross Waves are present.</p>" +
-        "<div class='radBut'>" +
-        "<input type ='radio' name='radio' id='radio9' class='radio' /><br>" +
-        "<label for='radio9'>Minor</label>" +
-        "</div>" +
-        "<div class='radBut' id='radBut2'>" +
-        "<input type='radio' name='radio' id='radio10' class='radio'/><br>" +
-        "<label for='radio10'>Moderate</label>" +
-        "</div>";
+		"<select class='allRatingsPos' name='STRCrossWavesForm'>" +
+        "<option value='0' selected>No Cross Waves</option>" +
+        "<option value='1'>Minor Cross Waves</option>" +
+        "<option value='2'>Moderate Cross Waves</option>" +
+        "</select>" +
+		"<button type='button' class='questionMark' onclick='getSTRCrossWavesInfo()')></button>" +
+		"<div class='error'></div>" +
+        "<div class='info'></div>";
 
     var footer =
 
@@ -247,8 +238,10 @@ function getSTR() {
 
     if (app.SHRFlag == 1) {
         $("select[name=STRForm]").val(app.prevalingSHRData.SHR.pSTR);
+		$("select[name=STRCrossWavesForm]").val(app.prevalingSHRData.SHR.pCrossWaves);
     } else {
         $("select[name=STRForm]").val(app.esSHRData.SHR.pSTR);
+		$("select[name=STRCrossWavesForm]").val(app.esSHRData.SHR.pCrossWaves);
     }
 }
 
@@ -379,6 +372,7 @@ function getREV() {
         var pWPR = app.prevalingSHRData.SHR.pWPR;
         var pZWR = app.prevalingSHRData.SHR.pZWR;
         var pSTR = app.prevalingSHRData.SHR.pSTR;
+		var pCrossWaves = app.prevalingSHRData.SHR.pCrossWaves;
         var pLDR = app.prevalingSHRData.SHR.pLDR;
         var pRCR = app.prevalingSHRData.SHR.pRCR;
         var pOHR = app.prevalingSHRData.SHR.pOHR;
@@ -388,6 +382,7 @@ function getREV() {
         var pWPR = app.esSHRData.SHR.pWPR;
         var pZWR = app.esSHRData.SHR.pZWR;
         var pSTR = app.esSHRData.SHR.pSTR;
+		var pCrossWaves = app.esSHRData.SHR.pCrossWaves;
         var pLDR = app.esSHRData.SHR.pLDR;
         var pRCR = app.esSHRData.SHR.pRCR;
         var pOHR = app.esSHRData.SHR.pOHR;
@@ -406,7 +401,7 @@ function getREV() {
         "</li><li>" +
         "ZWR  " + ZWRDescription(pZWR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getZWR()} + ","+getZWRvalue+ ")'>Change</button>" +
         "</li><li>" +
-        "STR  " + STRDescription(pSTR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getSTR()} + ","+getSTRvalue+ ")'>Change</button>" +
+        "STR  " + STRDescription(pSTR) + "  with " + STRCrossWaveDescription(pCrossWaves) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getSTR()} + ","+getSTRvalue+ ")'>Change</button>" +
         "</li><li>" +
         "LDR  " + LDRDescription(pLDR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getLDR()} + ","+getLDRvalue+ ")'>Change</button>" +
         "</li><li>" +
