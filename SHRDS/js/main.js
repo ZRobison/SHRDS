@@ -1,10 +1,22 @@
+/*
+*
+* app represents the core object within the mobile application.
+* This object handles page navigation and tracks the state of the system
+*
+*/
 var app = {
 
+	/*
+	*
+	*This function intialises the object 
+	* by creating its data objects, setting up call backs and routing.
+	*
+	*/
     initialize: function () {
         var self = this;
 
         //Flag for knowing if prevailing SHR or Event specific SHR
-        //Set to one if user is filling in Prev else 0;
+        //Set to one if user is filling in Prev, set to 2 if ir SHR and 0 if normal ir;
         self.SHRFlag = 0;
         //Init data stores for forms
         this.initData();
@@ -20,12 +32,17 @@ var app = {
         this.eventSpecificURL = /^#eventSpecific/;
         this.formSelectURL = /^#formSelect/;
         this.adminURLS = [/^#adminPageSelect/, /^#adminPasswordChange/, /^#adminMetadata/];
-        this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/];
+        this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/, /^#TRANS/];
 
-
+		//Intial routing to the logon page.
         self.route();
     },
-
+	
+	/*
+	*
+	* This is the function that intialises all the data objects
+	*
+	*/
     initData: function () {
         //PREVSHR
         this.prevalingSHRData = new PrevailingData();
@@ -42,7 +59,13 @@ var app = {
     },
 
 
-
+	/*
+	*
+	* The page routing is perfomed by this callback function.
+	* This function is called everytime the application sences that the HASH has changed.
+	* The application is routed based on this HASH.
+	*
+	*/
     route: function () {
         var hash = window.location.hash;
         if (!hash) {
@@ -67,6 +90,8 @@ var app = {
             new SHRView().render("REV");
         } else if (hash.match(app.SHRURLS[9])) {
             new SHRView().render("SHR");
+		} else if (hash.match(app.SHRURLS[10])) {
+            //During Transition we do not want to be routed anywhere
         } else if (hash.match(app.incidentStartURL)) {
             new IRView().render();
         } else if (hash.match(app.adminURLS[0])) {
