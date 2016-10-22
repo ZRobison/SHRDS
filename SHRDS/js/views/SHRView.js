@@ -45,7 +45,7 @@ function getWHR() {
     var header = "Wave Height Rating";
 
     var body =
-        //body
+        //body        
         "<div class='hazard'>WHR in Meters</div>" +
         "<select class='allRatingsPos' name='WHRForm'>" +
         "<option value='-1'>Select one</option>" +
@@ -66,14 +66,18 @@ function getWHR() {
         "<br>" +
         "<div class='info'></div>";
 
+
     var footer =
         //footer
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WHR"' +", "+getWHRvalue + ")'>NEXT</button> ";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WHR"' +", "+getWHRvalue + ")'>NEXT</button> " +
+        "<button type='button' class='exitButton'>EXIT</button>";
+
 
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+    console.log("SHRFlag is " + app.SHRFlag);
 
     if (app.SHRFlag == 1) {
         $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
@@ -105,7 +109,9 @@ function getWTR() {
 
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WTR"' +", "+getWTRvalue + ")'>NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WTR"' +", "+getWTRvalue + ")'>NEXT</button>"+
+        "<button type='button' class='exitButton'>EXIT</button>";
+
 
 
     $(".heading").text(header);
@@ -139,13 +145,15 @@ function getWPR() {
         "<div class='info'></div>";
 
     var footer =
-
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WPR"' +", "+getWPRvalue + ")' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WPR"' +", "+getWPRvalue + ")' >NEXT</button>"+
+        "<button type='button' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+    console.log(app.loginData.pID);
+    console.log(app.SHRFlag);
 
     if (app.SHRFlag == 1) {
         $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWPR);
@@ -179,8 +187,8 @@ function getZWR() {
         "<div class='info'></div>";
 
     var footer =
-
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"ZWR"' +", "+getZWRvalue + ")' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"ZWR"' +", "+getZWRvalue + ")' >NEXT</button>"+
+        "<button type='button' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -228,7 +236,9 @@ function getSTR() {
 
     var footer =
 
-        " <button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"STR"' +", "+getSTRvalue + ")' >NEXT</button> ";
+        " <button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"STR"' +", "+getSTRvalue + ")' >NEXT</button> " +
+        "<button type='button' class='exitButton'>EXIT</button>";
+
 
 
     $(".heading").text(header);
@@ -264,7 +274,9 @@ function getLDR() {
 
     var footer =
 
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"LDR"' +", "+getLDRvalue + ")' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"LDR"' +", "+getLDRvalue + ")' >NEXT</button>"+
+        "<button type='button' class='exitButton'>EXIT</button>";
+
 
 
     $(".heading").text(header);
@@ -299,7 +311,8 @@ function getRCR() {
 
     var footer =
 
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"RCR"' +", "+getRCRvalue + ")' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"RCR"' +", "+getRCRvalue + ")' >NEXT</button>" +
+        "<button type='button' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -341,7 +354,9 @@ function getOHR() {
 
     var footer =
 
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"OHR"' +", "+getOHRvalue + ")' >NEXT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"OHR"' +", "+getOHRvalue + ")' >NEXT</button>" +
+        "<button type='button' class='exitButton'>EXIT</button>";
+
 
 
     $(".heading").text(header);
@@ -404,6 +419,7 @@ function getREV() {
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
+        "<button type='button' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -422,7 +438,7 @@ function getSHR() {
     var footer =
 
         "<form action = 'index.html' method=''>" +
-        "<button name='next' type='submit' class='blueButtons' onclick = 'insertSHR()'>LOG OUT</button>" +
+        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>" +
         "</form>";
 
     var shr = -1;
