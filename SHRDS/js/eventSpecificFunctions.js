@@ -10,8 +10,8 @@ function getESValues(){
 	check = check && inOutES();
 	check = check && beachLocationES();
 	if (check) {
-		 app.esSHRData.time = getDateTime();
-		window.location.hash = "#WHR";
+		app.esSHRData.time = getDateTime();
+		routeIS();
 		console.log(app.esSHRData.time);
 	} else {
 		console.log("error");
