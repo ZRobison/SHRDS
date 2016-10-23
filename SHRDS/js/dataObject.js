@@ -1,22 +1,22 @@
 var SHRData = function () {
-        this.initialize = function () {
-            this.pWHR = -1;
-            this.pWTR = -1;
-            this.pWPR = -1;
-            this.pZWR = -1;
-            this.pSTR = -1;
-			this.pCrossWaves = 0;
-            this.pLDR = -1;
-            this.pRCR = -1;
-            this.pOHR = -1;
-            this.totalSHR = -1;
-        }
-        this.calculate = function () {
-            this.totalSHR = (this.pWHR * 1) + (this.pWTR * 1) + (this.pWPR * 1) + (this.pZWR * 1) + (this.pSTR * 1) + (this.pCrossWaves*1) + (this.pLDR * 1) + (this.pRCR * 1) + (this.pOHR * 1);
-            return this.totalSHR;
-        }
+    this.initialize = function () {
+        this.pWHR = -1;
+        this.pWTR = -1;
+        this.pWPR = -1;
+        this.pZWR = -1;
+        this.pSTR = -1;
+        this.pCrossWaves = 0;
+        this.pLDR = -1;
+        this.pRCR = -1;
+        this.pOHR = -1;
+        this.totalSHR = -1;
     }
-    
+    this.calculate = function () {
+        this.totalSHR = (this.pWHR * 1) + (this.pWTR * 1) + (this.pWPR * 1) + (this.pZWR * 1) + (this.pSTR * 1) + (this.pCrossWaves * 1) + (this.pLDR * 1) + (this.pRCR * 1) + (this.pOHR * 1);
+        return this.totalSHR;
+    }
+}
+
 var PrevailingData = function () {
     this.initialize = function () {
         this.SHR = new SHRData();
@@ -24,7 +24,7 @@ var PrevailingData = function () {
         this.time = -1;
         this.beach = -1;
         this.windDirection = -1;
-		this.windSpeed = -1;
+        this.windSpeed = -1;
         this.tideTimeLow = -1;
         this.tideTimeHigh = -1;
         this.tideHieghtLow = -1.0;
@@ -38,19 +38,19 @@ var eventSpecifcSHRData = function () {
         this.SHR = new SHRData();
         this.SHR.initialize();
         this.arena = "";
-		this.heat = "";
-        this.age = -1;        
+        this.heat = "";
+        this.age = "";
         this.round = "";
         this.finalType = -1;
-        this.craftType = ""; 
+        this.craftType = "";
         this.inOrOut = -1;
         this.beach = "";
-		this.time = ""; //might need to change
+        this.time = ""; //might need to change
         //need to be reviewed 
         //this.numberOfCraft = "";
         //this.date = "";
         //this.gender = '';
-		//this.raceNumber = -1;
+        //this.raceNumber = -1;
     }
 }
 var IRData = function () {
