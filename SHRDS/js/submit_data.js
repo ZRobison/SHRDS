@@ -71,19 +71,20 @@ function insertSHR() {
     }
     //Otherwise we have an incident report
     else {
+        //NOT FINISHED
         submitEvent();
         var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT,FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, INJURY_MINOR_, INJURYSERIOUS_, _INJURY , LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
             "(SELECT RACE_ID FROM RACE WHERE" +
             "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
-            "AND AGE_GROUP = '" + app.eventSpercifcSHRData.age + "'" +
-            "AND GENDER = '" + app.eventSpercifcSHRData.gender + "'" +
+            "AND AGE_GROUP = '" + app.esSHRData.age + "'" +
+            "AND GENDER = '" + app.esSHRData.gender + "'" +
             "AND STARTING_CRAFT_ = 10" +
-            "AND CRAFT_TYPE = '" + app.eventSpercifcSHRData.craftType + "'" +
-            "AND ROUND = " + app.eventSpercifcSHRData.round +
-            "AND HEAT = " + app.eventSpercifcSHRData.heat +
+            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "'" +
+            "AND ROUND = " + app.esSHRData.round +
+            "AND HEAT = " + app.esSHRData.heat +
             "AND FINAL = 'SEMI')" +
             "0, '12:00', '11:30'),"
-        app.loginData.pID + "," +
+        app.loginData.pID + ",";
 
 
     }
@@ -101,12 +102,12 @@ function submitEvent() {
     //first check if the event already exists in the DB
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE" +
         "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
-        "AND AGE_GROUP = '" + app.eventSpercifcSHRData.age + "'" +
-        "AND GENDER = '" + app.eventSpercifcSHRData.gender + "'" +
+        "AND AGE_GROUP = '" + app.esSHRData.age + "'" +
+        "AND GENDER = '" + app.esSHRData.gender + "'" +
         "AND STARTING_CRAFT_ = 10" +
-        "AND CRAFT_TYPE = '" + app.eventSpercifcSHRData.craftType + "'" +
-        "AND ROUND = " + app.eventSpercifcSHRData.round +
-        "AND HEAT = " + app.eventSpercifcSHRData.heat +
+        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "'" +
+        "AND ROUND = " + app.esSHRData.round +
+        "AND HEAT = " + app.esSHRData.heat +
         "AND FINAL = 'SEMI')";
     MySql.Execute(
         dbconfig.host,
@@ -114,17 +115,17 @@ function submitEvent() {
         dbconfig.dbPassword,
         dbconfig.dbUser,
         eventSQL,
-        //Check if an event with the exact same details currently exists
+        //Check if an event with the exact same details currently exists, if not create one
         function (data) {
             if (data.Result == null && data.Result == "") {
                 eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
                     "VALUES ('11:00'," +
-                    app.eventSpercifcSHRData.age + "," +
-                    app.eventSpercifcSHRData.gender + "," +
+                    app.esSHRData.age + "," +
+                    app.esSHRData.gender + "," +
                     10 + "," + //Starting craft - fill in SHR Data Object
-                    app.eventSpercifcSHRData.craftType + "," +
-                    app.eventSpercifcSHRData.round + "," +
-                    app.eventSpercifcSHRData.heat + "," +
+                    app.esSHRData.craftType + "," +
+                    app.esSHRData.round + "," +
+                    app.esSHRData.heat + "," +
                     "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
 
                 submit(eventSQL);
