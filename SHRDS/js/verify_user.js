@@ -1,14 +1,16 @@
 var loginSuccess = -1;
 
 function verify_user() {
+    console.log("doing verify user function");
 
     $('#logonmessage').text("Loading...");
     $(".error").text("");
-    //TSO selected
+
     if (document.getElementById("username").value == "") {
         $(".error").text("Please enter a user ID");
         return;
     }
+    //TSO selected
     if ($('#radio1').is(":checked")) {
         //dummy test db
         MySql.Execute(dbconfig.host,
@@ -24,10 +26,11 @@ function verify_user() {
 
                         //Also ensure that they are TSO certified
                         if (data.Result[0].TSO_QUALIFIED == true) {
-                            app.loginData.pID = data.Result[0].USER_ID
+                            app.loginData.pID = data.Result[0].USER_ID;
+                            console.log("current login id is: " + app.loginData.pID);
                             app.loginData.pTSOStatus = true;
                             app.loginData.pAdminStatus = false;
-                            location.href = 'index.html?#formSelect';
+                            window.location.hash = "#formSelect";
                         } else {
                             $(".error").text("You are not certified to log in as a TSO");
                             $('#logonmessage').text("");
@@ -62,9 +65,10 @@ function verify_user() {
                     //If we have a match that means the user has the correct credentials
                     if (data.Result != null && data.Result != "") {
                         app.loginData.pID = data.Result[0].USER_ID
+                        console.log("current login id is: " + app.loginData.pID);
                         app.loginData.pTSOStatus = false;
                         app.loginData.pAdminStatus = false;
-                        location.href = 'index.html?#eventSpecific';
+                        window.location.hash = "#eventSpecific";
                     } else {
                         $(".error").text("That user ID does not exists");
                         $('#logonmessage').text("");
@@ -98,7 +102,7 @@ function verify_user() {
                             app.loginData.pID = data.Result[0].USER_ID
                             app.loginData.pTSOStatus = false;
                             app.loginData.pAdminStatus = true;
-                            location.href = 'index.html?#adminPageSelect';
+                            window.location.hash = "#adminPageSelect";
                         } else {
                             $(".error").text("You are not certified to log in as an admin user");
                             $('#logonmessage').text("");
