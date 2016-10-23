@@ -100,23 +100,22 @@ var EventSpecificView = function () {
 
 
         var footer =
-            "<form action= '' >" +
             "<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> " +
-            "<button type='button' class='exitButton'>EXIT</button>" +
-            "</form>";
+            "<button type='button' class='exitButton'>EXIT</button>";
 
 
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
+        console.log(app.loginData.pID);
     }
 }
 
 
 function routeIS() {
     if (app.SHRFlag == 0) {
-        location.href = 'index.html?#incident1';
+        window.location.hash = "#incident1";
     } else {
-        location.href = 'index.html?#WHR';
+        window.location.hash = "#WHR";
     }
 }
