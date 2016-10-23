@@ -1,3 +1,5 @@
+var statementSitch = 0;
+
 function insertSHR() {
     console.log("Insert function firing");
     console.log(app.SHRFlag == 1);
@@ -37,36 +39,107 @@ function insertSHR() {
         //verifySubmission("select SHR");
 
     }
-    //If we have an event specific
+    //If we have an event specific SHR
     else if (app.SHRFlag == 2) {
-        submitEvent();
+        //submitEvent();
 
-        var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START) VALUES (" +
-            app.loginData.pID + "," +
-            "'2016/10/21'," + //All these values are not currently stored in any data objects
-            "'13:40'," +
-            "'BEACH1223'," +
-            app.eventSpercifcSHRData.SHR.pLDR + "," +
-            app.eventSpercifcSHRData.SHR.pOHR + "," +
-            app.eventSpercifcSHRData.SHR.pRCR + "," +
-            app.eventSpercifcSHRData.SHR.pSTR + "," +
-            app.eventSpercifcSHRData.SHR.pWHR + "," +
-            app.eventSpercifcSHRData.SHR.pWPR + "," +
-            app.eventSpercifcSHRData.SHR.pWTR + "," +
-            app.eventSpercifcSHRData.SHR.pZWR + "," +
-            app.eventSpercifcSHRData.SHR.totalSHR + "," +
-            "SELECT RACE_ID FROM RACE WHERE" +
-            "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
-            "AND AGE_GROUP = '" + app.eventSpercifcSHRData.age + "'" +
-            "AND GENDER = '" + app.eventSpercifcSHRData.gender + "'" +
-            "AND STARTING_CRAFT_ = 10" +
-            "AND CRAFT_TYPE = '" + app.eventSpercifcSHRData.craftType + "'" +
-            "AND ROUND = " + app.eventSpercifcSHRData.round +
-            "AND HEAT = " + app.eventSpercifcSHRData.heat +
-            "AND FINAL = 'SEMI')" +
-            "0, '12:00', '11:30')";
-        submit(sql);
-        console.log(sql);
+        var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
+            "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+            "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+            "AND GENDER = '" + app.esSHRData.gender + "' " +
+            "AND STARTING_CRAFT_ = 10 " +
+            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+            "AND ROUND = " + app.esSHRData.round + " " +
+            "AND HEAT = " + app.esSHRData.heat + " " +
+            "AND FINAL = 'SEMI'";
+        MySql.Execute(
+            dbconfig.host,
+            dbconfig.dbUser,
+            dbconfig.dbPassword,
+            dbconfig.dbUser,
+            eventSQL,
+            //Check if an event with the exact same details currently exists, if not create one
+            function (data) {
+                if (data.Result == null || data.Result == "") {
+                    console.log("preparing event sql for submission")
+                    var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+                        "VALUES ('11:00','" +
+                        app.esSHRData.age + "','" +
+                        app.esSHRData.gender + "'," +
+                        10 + ",'" + //Starting craft - fill in SHR Data Object
+                        app.esSHRData.craftType + "'," +
+                        app.esSHRData.round + "," +
+                        app.esSHRData.heat + "," +
+                        "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
+
+                    console.log("submitting EVENT Data");
+                    submit(eventSQL);
+                    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START) VALUES (" +
+                        app.loginData.pID + "," +
+                        "'2016/10/21'," + //All these values are not currently stored in any data objects
+                        "'13:40'," +
+                        "'" + app.esSHRData.beach + "'," +
+                        app.esSHRData.SHR.pLDR + "," +
+                        app.esSHRData.SHR.pOHR + "," +
+                        app.esSHRData.SHR.pRCR + "," +
+                        app.esSHRData.SHR.pSTR + "," +
+                        app.esSHRData.SHR.pWHR + "," +
+                        app.esSHRData.SHR.pWPR + "," +
+                        app.esSHRData.SHR.pWTR + "," +
+                        app.esSHRData.SHR.pZWR + "," +
+                        app.esSHRData.SHR.totalSHR + "," +
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+                        "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+                        "AND GENDER = '" + app.esSHRData.gender + "' " +
+                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+                        "AND ROUND = " + app.esSHRData.round + " " +
+                        "AND HEAT = " + app.esSHRData.heat + " " +
+                        "AND FINAL = 'SEMI')," +
+                        "0, '12:00', '11:30')";
+                    console.log("submitting SHRData")
+                    submit(sql);
+
+
+                }
+                //Otherwise we have found an event but we still want to insert the SHR data
+                else {
+                    console.log("I found an event already in the DB with those details");
+                    console.log(JSON.stringify(data));
+                    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START) VALUES (" +
+                        app.loginData.pID + "," +
+                        "'2016/10/21'," + //All these values are not currently stored in any data objects
+                        "'13:40'," +
+                        "'" + app.esSHRData.beach + "'," +
+                        app.esSHRData.SHR.pLDR + "," +
+                        app.esSHRData.SHR.pOHR + "," +
+                        app.esSHRData.SHR.pRCR + "," +
+                        app.esSHRData.SHR.pSTR + "," +
+                        app.esSHRData.SHR.pWHR + "," +
+                        app.esSHRData.SHR.pWPR + "," +
+                        app.esSHRData.SHR.pWTR + "," +
+                        app.esSHRData.SHR.pZWR + "," +
+                        app.esSHRData.SHR.totalSHR + "," +
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+                        "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+                        "AND GENDER = '" + app.esSHRData.gender + "' " +
+                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+                        "AND ROUND = " + app.esSHRData.round + " " +
+                        "AND HEAT = " + app.esSHRData.heat + " " +
+                        "AND FINAL = 'SEMI')," +
+                        "0, '12:00', '11:30')";
+                    console.log("submitting SHRData")
+                    submit(sql);
+                }
+
+            }
+
+        );
+
+
 
     }
     //Otherwise we have an incident report
@@ -74,7 +147,7 @@ function insertSHR() {
         //NOT FINISHED
         submitEvent();
         var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT,FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, INJURY_MINOR_, INJURYSERIOUS_, _INJURY , LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
-            "(SELECT RACE_ID FROM RACE WHERE" +
+            "(SELECT RACE_ID FROM RACE WHERE " +
             "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
             "AND AGE_GROUP = '" + app.esSHRData.age + "'" +
             "AND GENDER = '" + app.esSHRData.gender + "'" +
@@ -100,15 +173,15 @@ function submitIncidentReport() {
 
 function submitEvent() {
     //first check if the event already exists in the DB
-    var eventSQL = "SELECT RACE_ID FROM RACE WHERE" +
-        "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
-        "AND AGE_GROUP = '" + app.esSHRData.age + "'" +
-        "AND GENDER = '" + app.esSHRData.gender + "'" +
-        "AND STARTING_CRAFT_ = 10" +
-        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "'" +
-        "AND ROUND = " + app.esSHRData.round +
-        "AND HEAT = " + app.esSHRData.heat +
-        "AND FINAL = 'SEMI')";
+    var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
+        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+        "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+        "AND GENDER = '" + app.esSHRData.gender + "' " +
+        "AND STARTING_CRAFT_ = 10 " +
+        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+        "AND ROUND = " + app.esSHRData.round + " " +
+        "AND HEAT = " + app.esSHRData.heat + " " +
+        "AND FINAL = 'SEMI'";
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -117,20 +190,27 @@ function submitEvent() {
         eventSQL,
         //Check if an event with the exact same details currently exists, if not create one
         function (data) {
-            if (data.Result == null && data.Result == "") {
-                eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
-                    "VALUES ('11:00'," +
-                    app.esSHRData.age + "," +
-                    app.esSHRData.gender + "," +
-                    10 + "," + //Starting craft - fill in SHR Data Object
-                    app.esSHRData.craftType + "," +
+            console.log(JSON.stringify(data));
+            console.log(data.Success);
+            console.log("entering function call");
+            if (data.Result == null || data.Result == "") {
+                console.log("preparing event sql for submission")
+                var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+                    "VALUES ('11:00','" +
+                    app.esSHRData.age + "','" +
+                    app.esSHRData.gender + "'," +
+                    10 + ",'" + //Starting craft - fill in SHR Data Object
+                    app.esSHRData.craftType + "'," +
                     app.esSHRData.round + "," +
                     app.esSHRData.heat + "," +
                     "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
 
+                console.log(eventSQL);
                 submit(eventSQL);
+
             } else {
-                //In this case the event already exists in the DB so we do nothing
+                console.log("I found an event already in the DB with those details");
+                console.log(JSON.stringify(data));
             }
 
         }
