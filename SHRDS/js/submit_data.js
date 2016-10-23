@@ -38,25 +38,55 @@ function insertSHR() {
 
     }
     //If we have an event specific
-    else if (app.SHRFlag == 4) {
-        var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
-            "VALUES ('11:00'," +
-            app.eventSpercifcSHRData.age + "," +
-            +app.eventSpercifcSHRData.gender + "," +
-            10 + "," + //Starting craft - fill in SHR Data Object
-            app.eventSpercifcSHRData.craftType + "," +
-            app.eventSpercifcSHRData.round + "," +
-            app.eventSpercifcSHRData.heat + "," +
-            "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
+    else if (app.SHRFlag == 2) {
+        submitEvent();
 
-        //submitEvent(eventSQL);
-        submit(eventSQL);
+        var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START) VALUES (" +
+            app.loginData.pID + "," +
+            "'2016/10/21'," + //All these values are not currently stored in any data objects
+            "'13:40'," +
+            "'BEACH1223'," +
+            app.eventSpercifcSHRData.SHR.pLDR + "," +
+            app.eventSpercifcSHRData.SHR.pOHR + "," +
+            app.eventSpercifcSHRData.SHR.pRCR + "," +
+            app.eventSpercifcSHRData.SHR.pSTR + "," +
+            app.eventSpercifcSHRData.SHR.pWHR + "," +
+            app.eventSpercifcSHRData.SHR.pWPR + "," +
+            app.eventSpercifcSHRData.SHR.pWTR + "," +
+            app.eventSpercifcSHRData.SHR.pZWR + "," +
+            app.eventSpercifcSHRData.SHR.totalSHR + "," +
+            "SELECT RACE_ID FROM RACE WHERE" +
+            "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
+            "AND AGE_GROUP = '" + app.eventSpercifcSHRData.age + "'" +
+            "AND GENDER = '" + app.eventSpercifcSHRData.gender + "'" +
+            "AND STARTING_CRAFT_ = 10" +
+            "AND CRAFT_TYPE = '" + app.eventSpercifcSHRData.craftType + "'" +
+            "AND ROUND = " + app.eventSpercifcSHRData.round +
+            "AND HEAT = " + app.eventSpercifcSHRData.heat +
+            "AND FINAL = 'SEMI')" +
+            "0, '12:00', '11:30')";
+        submit(sql);
+        console.log(sql);
 
     }
     //Otherwise we have an incident report
     else {
-        //submitEvent();
-        submitIncidentReport();
+        //NOT FINISHED
+        submitEvent();
+        var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT,FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, INJURY_MINOR_, INJURYSERIOUS_, _INJURY , LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+            "(SELECT RACE_ID FROM RACE WHERE" +
+            "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
+            "AND AGE_GROUP = '" + app.esSHRData.age + "'" +
+            "AND GENDER = '" + app.esSHRData.gender + "'" +
+            "AND STARTING_CRAFT_ = 10" +
+            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "'" +
+            "AND ROUND = " + app.esSHRData.round +
+            "AND HEAT = " + app.esSHRData.heat +
+            "AND FINAL = 'SEMI')" +
+            "0, '12:00', '11:30'),"
+        app.loginData.pID + ",";
+
+
     }
 }
 
@@ -69,6 +99,44 @@ function submitIncidentReport() {
 }
 
 function submitEvent() {
+    //first check if the event already exists in the DB
+    var eventSQL = "SELECT RACE_ID FROM RACE WHERE" +
+        "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
+        "AND AGE_GROUP = '" + app.esSHRData.age + "'" +
+        "AND GENDER = '" + app.esSHRData.gender + "'" +
+        "AND STARTING_CRAFT_ = 10" +
+        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "'" +
+        "AND ROUND = " + app.esSHRData.round +
+        "AND HEAT = " + app.esSHRData.heat +
+        "AND FINAL = 'SEMI')";
+    MySql.Execute(
+        dbconfig.host,
+        dbconfig.dbUser,
+        dbconfig.dbPassword,
+        dbconfig.dbUser,
+        eventSQL,
+        //Check if an event with the exact same details currently exists, if not create one
+        function (data) {
+            if (data.Result == null && data.Result == "") {
+                eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+                    "VALUES ('11:00'," +
+                    app.esSHRData.age + "," +
+                    app.esSHRData.gender + "," +
+                    10 + "," + //Starting craft - fill in SHR Data Object
+                    app.esSHRData.craftType + "," +
+                    app.esSHRData.round + "," +
+                    app.esSHRData.heat + "," +
+                    "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
+
+                submit(eventSQL);
+            } else {
+                //In this case the event already exists in the DB so we do nothing
+            }
+
+        }
+
+    );
+
 
 }
 
