@@ -18,6 +18,8 @@ function getESValues(){
 		console.log("error");
 		$(".error").text("Please fill in all fields.");
 	}
+}
+	
 
 
 function arenaES() {
