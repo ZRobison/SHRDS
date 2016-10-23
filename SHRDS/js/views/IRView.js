@@ -68,32 +68,31 @@ var IRView = function () {
             "<div id='num8' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minus(8);'></button>" +
             "</div>" +
-
-
+			
             "<div class='num' >" +
             "<button type='submit' class='clickAdd' onclick='add(9);' ></button> " +
             "<div class='upDownText'>Injury (Minor)</div>" +
             "<div id='num9' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minus(9);'></button>" +
             "</div> " +
-
+			
             "<div class='num' >" +
             "<button type='submit' class='clickAdd' onclick='add(10);' ></button> " +
             "<div class='upDownText'>Injury (Serious)</div>" +
             "<div id='num10' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minus(10);'></button>" +
             "</div> " +
-
+		
             "<div class='num' >" +
             "<button type='submit' class='clickAdd' onclick='add(11);' ></button> " +
-            "<div class='upDownText'>Fall Offs (By wave)</div>" +
+            "<div class='upDownText'>Injury (Severe)</div>" +
             "<div id='num11' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minus(11);'></button>" +
             "</div> " +
-
+			
             "<div class='num' >" +
             "<button type='submit' class='clickAdd' onclick='add(12);' ></button> " +
-            "<div class='upDownText'>Injury (Severe)</div>" +
+            "<div class='upDownText'>Did Not Finish</div>" +
             "<div id='num12' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minus(12);'></button>" +
             "</div>" +
@@ -104,7 +103,7 @@ var IRView = function () {
 
         $(".body").html(body);
         var footer =
-            "<button type='button' class='blueButtons'>NEXT</button>" +
+            "<button type='button' class='blueButtons'>SUBMIT</button>" +
             "<button type='button' class='exitButton'>EXIT</button>" +
             "<form>";
 
