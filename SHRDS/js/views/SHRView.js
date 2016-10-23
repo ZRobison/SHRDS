@@ -67,9 +67,10 @@ function getWHR() {
         "<div class='info'></div>";
 
 
+
     var footer =
         //footer
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WHR"' +", "+getWHRvalue + ")'>NEXT</button> " +
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WHR"' + ", " + getWHRvalue + ")'>NEXT</button> " +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -109,7 +110,7 @@ function getWTR() {
 
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WTR"' +", "+getWTRvalue + ")'>NEXT</button>"+
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WTR"' + ", " + getWTRvalue + ")'>NEXT</button>" +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -145,7 +146,7 @@ function getWPR() {
         "<div class='info'></div>";
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"WPR"' +", "+getWPRvalue + ")' >NEXT</button>"+
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WPR"' + ", " + getWPRvalue + ")' >NEXT</button>" +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -187,7 +188,7 @@ function getZWR() {
         "<div class='info'></div>";
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"ZWR"' +", "+getZWRvalue + ")' >NEXT</button>"+
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"ZWR"' + ", " + getZWRvalue + ")' >NEXT</button>" +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -216,18 +217,18 @@ function getSTR() {
         "<option value='4'>Extreme Chop (>27kts)</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
-		"<select class='allRatingsPos' name='STRCrossWavesForm'>" +
+        "<select class='allRatingsPos' name='STRCrossWavesForm'>" +
         "<option value='0' selected>No Cross Waves</option>" +
         "<option value='1'>Minor Cross Waves</option>" +
         "<option value='2'>Moderate Cross Waves</option>" +
         "</select>" +
-		"<button type='button' class='questionMark' onclick='getSTRCrossWavesInfo()')></button>" +
-		"<div class='error'></div>" +
+        "<button type='button' class='questionMark' onclick='getSTRCrossWavesInfo()')></button>" +
+        "<div class='error'></div>" +
         "<div class='info'></div>";
 
     var footer =
 
-        " <button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"STR"' +", "+getSTRvalue + ")' >NEXT</button> " +
+        " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -238,10 +239,10 @@ function getSTR() {
 
     if (app.SHRFlag == 1) {
         $("select[name=STRForm]").val(app.prevalingSHRData.SHR.pSTR);
-		$("select[name=STRCrossWavesForm]").val(app.prevalingSHRData.SHR.pCrossWaves);
+        $("select[name=STRCrossWavesForm]").val(app.prevalingSHRData.SHR.pCrossWaves);
     } else {
         $("select[name=STRForm]").val(app.esSHRData.SHR.pSTR);
-		$("select[name=STRCrossWavesForm]").val(app.esSHRData.SHR.pCrossWaves);
+        $("select[name=STRCrossWavesForm]").val(app.esSHRData.SHR.pCrossWaves);
     }
 }
 
@@ -267,7 +268,7 @@ function getLDR() {
 
     var footer =
 
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"LDR"' +", "+getLDRvalue + ")' >NEXT</button>"+
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"LDR"' + ", " + getLDRvalue + ")' >NEXT</button>" +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -304,7 +305,7 @@ function getRCR() {
 
     var footer =
 
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"RCR"' +", "+getRCRvalue + ")' >NEXT</button>" +
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"RCR"' + ", " + getRCRvalue + ")' >NEXT</button>" +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -347,7 +348,7 @@ function getOHR() {
 
     var footer =
 
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage("+'"OHR"' +", "+getOHRvalue + ")' >NEXT</button>" +
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + getOHRvalue + ")' >NEXT</button>" +
         "<button type='button' class='exitButton'>EXIT</button>";
 
 
@@ -372,7 +373,7 @@ function getREV() {
         var pWPR = app.prevalingSHRData.SHR.pWPR;
         var pZWR = app.prevalingSHRData.SHR.pZWR;
         var pSTR = app.prevalingSHRData.SHR.pSTR;
-		var pCrossWaves = app.prevalingSHRData.SHR.pCrossWaves;
+        var pCrossWaves = app.prevalingSHRData.SHR.pCrossWaves;
         var pLDR = app.prevalingSHRData.SHR.pLDR;
         var pRCR = app.prevalingSHRData.SHR.pRCR;
         var pOHR = app.prevalingSHRData.SHR.pOHR;
@@ -382,7 +383,7 @@ function getREV() {
         var pWPR = app.esSHRData.SHR.pWPR;
         var pZWR = app.esSHRData.SHR.pZWR;
         var pSTR = app.esSHRData.SHR.pSTR;
-		var pCrossWaves = app.esSHRData.SHR.pCrossWaves;
+        var pCrossWaves = app.esSHRData.SHR.pCrossWaves;
         var pLDR = app.esSHRData.SHR.pLDR;
         var pRCR = app.esSHRData.SHR.pRCR;
         var pOHR = app.esSHRData.SHR.pOHR;
@@ -393,28 +394,44 @@ function getREV() {
         "<div id='ratingsList'>" +
         "<ul>" +
         "<li>" +
-        "WHR  " + WHRDescription(pWHR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getWHR()} + ","+getWHRvalue + ")'>Change</button>" +
+        "WHR  " + WHRDescription(pWHR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getWHR()
+        } + "," + getWHRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "WTR  " + WTRDescription(pWTR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getWTR()} + ","+getWTRvalue + ")'>Change</button>" +
+        "WTR  " + WTRDescription(pWTR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getWTR()
+        } + "," + getWTRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "WPR  " + WPRDescription(pWPR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getWPR()} + ","+getWPRvalue+ ")'>Change</button>" +
+        "WPR  " + WPRDescription(pWPR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getWPR()
+        } + "," + getWPRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "ZWR  " + ZWRDescription(pZWR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getZWR()} + ","+getZWRvalue+ ")'>Change</button>" +
+        "ZWR  " + ZWRDescription(pZWR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getZWR()
+        } + "," + getZWRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "STR  " + STRDescription(pSTR) + "  with " + STRCrossWaveDescription(pCrossWaves) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getSTR()} + ","+getSTRvalue+ ")'>Change</button>" +
+        "STR  " + STRDescription(pSTR) + "  with " + STRCrossWaveDescription(pCrossWaves) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getSTR()
+        } + "," + getSTRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "LDR  " + LDRDescription(pLDR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getLDR()} + ","+getLDRvalue+ ")'>Change</button>" +
+        "LDR  " + LDRDescription(pLDR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getLDR()
+        } + "," + getLDRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "RCR  " + RCRDescription(pRCR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getRCR()} + ","+getRCRvalue+ ")'>Change</button>" +
+        "RCR  " + RCRDescription(pRCR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getRCR()
+        } + "," + getRCRvalue + ")'>Change</button>" +
         "</li><li>" +
-        "OHR  " + pOHR + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange("+function(){getOHR()} + ","+getOHRvalue+ ")'>Change</button>" +
+        "OHR  " + pOHR + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+            getOHR()
+        } + "," + getOHRvalue + ")'>Change</button>" +
         "</li>"
     "</ul>" +
     "</div>";
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
-        "<button type='button' class='exitButton'>EXIT</button>";
+    "<button type='button' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -432,9 +449,10 @@ function getSHR() {
 
     var footer =
 
-        "<form action = 'index.html' method=''>" +
-        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>" +
-        "</form>";
+        //   "<form action = 'index.html' method=''>" +
+        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";
+    // "</form>";
+
 
     var shr = -1;
     if (app.SHRFlag == 1) {
