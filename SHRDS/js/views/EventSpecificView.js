@@ -19,12 +19,12 @@ var EventSpecificView = function () {
             "<option value=''>Arena 2</option>" +
             "<option value=''>Arena 3</option>" +
             "<option value=''>Arena 4</option>" +
-			"<option value=''>Arena 5</option>" +
-			"<option value=''>Arena 6</option>" +
-			"<option value=''>Arena 7</option>" +
-			"<option value=''>Arena 8</option>" +
-		    "<option value=''>Arena 9</option>" +
-		    "<option value=''>Arena 10</option>" +
+            "<option value=''>Arena 5</option>" +
+            "<option value=''>Arena 6</option>" +
+            "<option value=''>Arena 7</option>" +
+            "<option value=''>Arena 8</option>" +
+            "<option value=''>Arena 9</option>" +
+            "<option value=''>Arena 10</option>" +
             "</select>" +
 
             "<div class='irTitles'>Age:</div>" +
@@ -67,13 +67,13 @@ var EventSpecificView = function () {
             "</select>" +
 
             "<div class='irTitles'>Final:</div>" +
-			"<select name='ESFinalType'>" +
+            "<select name='ESFinalType'>" +
             "<option value='-1'selected>Select one</option>" +
             "<option value=''>Quater Final</option>" +
             "<option value=''>Semi Final</option>" +
             "<option value=''>Grand Final</option>" +
             "</select>" +
-            
+
             "<div class='irTitles'>Craft Type:</div>" +
             "<select name='ESCraftType'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -82,9 +82,9 @@ var EventSpecificView = function () {
             "<option value=''>Board</option>" +
             "<option value=''>Boat</option>" +
             "</select>" +
-			
-			"<div class='irTitles'>In/Out:</div>" +
-            "<div id='inlineOutIn'>" +
+
+            "<div class='irTitles'>In/Out:</div>" +
+            "<div class='inlineOutIn'>" +
             "<input type ='radio' name='ESInOut' id='in'/>" +
             "Out" +
             "<input type ='radio' name='ESInOut' id='out'/>" +
@@ -92,9 +92,8 @@ var EventSpecificView = function () {
             "<div>" +
             "<br>Beach/location:<input type = 'text' name='ESBeach'>" +
             "</div>";
-			
 
-           
+
 
 
         var footer =
@@ -119,5 +118,3 @@ function routeIS() {
         location.href = 'index.html?#WHR';
     }
 }
-
-
