@@ -65,6 +65,7 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
+    console.log(app.loginData.pID);
 
 
 
@@ -436,6 +437,7 @@ function getREV() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+    console.log(app.loginData.pID);
 }
 
 function getSHR() {

@@ -49,7 +49,7 @@ var eventSpecifcSHRData = function () {
         //need to be reviewed 
         //this.numberOfCraft = "";
         //this.date = "";
-        //this.gender = '';
+        this.gender = 'M';
         //this.raceNumber = -1;
     }
 }

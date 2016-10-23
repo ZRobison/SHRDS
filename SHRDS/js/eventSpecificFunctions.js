@@ -12,7 +12,6 @@ function getESValues() {
     if (check) {
         app.esSHRData.time = getDateTime();
         routeIS();
-        console.log(app.esSHRData.time);
     } else {
         console.log("error");
         $(".error").text("Please fill in all fields.");
@@ -26,7 +25,6 @@ function arenaES() {
         return false;
     } else {
         app.esSHRData.arena = score;
-        console.log(app.esSHRData.arena);
         return true;
     }
 }
@@ -38,7 +36,6 @@ function ageES() {
         return false;
     } else {
         app.esSHRData.age = score;
-        console.log(app.esSHRData.age);
         return true;
     }
 }
@@ -49,7 +46,6 @@ function heatES() {
         return false;
     } else {
         app.esSHRData.heat = score;
-        console.log(app.esSHRData.heat);
         return true;
     }
 }
@@ -60,7 +56,6 @@ function roundES() {
         return false;
     } else {
         app.esSHRData.round = score;
-        console.log(app.esSHRData.round);
         return true;
     }
 }
@@ -71,7 +66,6 @@ function finalES() {
         return false;
     } else {
         app.esSHRData.finalType = score;
-        console.log(app.esSHRData.finalType);
         return true;
     }
 }
@@ -82,7 +76,6 @@ function craftTypeES() {
         return false;
     } else {
         app.esSHRData.craftType = score;
-        console.log(app.esSHRData.craftType);
         return true;
     }
 }
@@ -93,7 +86,6 @@ function inOutES() {
         return false;
     } else {
         app.esSHRData.inOrOut = score;
-        console.log(app.esSHRData.inOrOut);
         return true;
     }
 }
@@ -105,7 +97,6 @@ function beachLocationES() {
         return false;
     } else {
         app.esSHRData.beach = score;
-        console.log(app.esSHRData.beach);
         return true;
     }
 }
