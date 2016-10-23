@@ -9,45 +9,46 @@ var PrevailingView = function () {
         var body =
             "<div id='beachBox'><p>Beach<p>" +
             "<select name='prevailingBeach'>" +
-            "<option value='1'>Select One</option>" +
-            "<option value='2'>Beach1</option>" +
-            "<option value='3'>Beach2</option>" +
-            "<option value='4'>Beach3</option>" +
-            "<option value='5'>Beach4</option>" +
+            "<option value='-1'>Select One</option>" +
+            "<option value='Beach1'>Beach1</option>" +
+            "<option value='Beach2'>Beach2</option>" +
+            "<option value='Beach3'>Beach3</option>" +
+            "<option value='Beach4'>Beach4</option>" +
             "</select>" +
-            "</div><br>" +
-            "<div id='windSpeedBox><p>Wind Speed</p>" +
-            "<p>We will fill this windspeed from BOM later</p>" +
-            "</div>" +
-			
-			"<div id='windDirBox'><p>Wind Direction<p>" +
-            "<select name='prevailingBeach'>" +
-            "<option value='6'>Select One</option>" +
-            "<option value='7'>North</option>" +
-            "<option value='8'>North East</option>" +
-            "<option value='9'>East</option>" +
-            "<option value='10'>South East</option>" +
-			"<option value='11'>South</option>" +
-			"<option value='12'>South West</option>" +
-			"<option value='13'>West</option>" +
-			"<option value='14'>North West</option>" +
-            "</select>" +
-            "</div><br>" +
-            "<div id='windSpeedBox><p>Wind Speed</p>" +
-            "<p>We will fill this windspeed from BOM later</p>" +
             "</div>" +
 
-            "<p>Nearest Tides</p>" +
-            "<div id='nearestTideBox>" +
+			"<div id='windDirBox'><p>Wind Direction<p>" +
+            "<select name='windDirection'>" +
+            "<option value='-1'>Select One</option>" +
+            "<option value='North'>North</option>" +
+            "<option value='North East'>North East</option>" +
+            "<option value='East'>East</option>" +
+            "<option value='South East'>South East</option>" +
+			"<option value='South'>South</option>" +
+			"<option value='South West'>South West</option>" +
+			"<option value='West'>West</option>" +
+			"<option value='North West'>North West</option>" +
+            "</select>" +
+            "</div>" +
+			
+            "<div id='windDirBox'><p>Wind Speed</p>" +
+			"<input type='text' name='windSpeed' placeholder='10 Knotts'>"+
+            "</div>" +
+
+            
+            "<div id='nearestTideBox'>" +
+			"<p>Nearest Tides</p>" +
             "<ul id='tidesListBox'><li>Low tide time</li>" +
-			"<li><input type='text' name=''placeholder='hr:mi:se'></li>"+			//I think there is the time of the 2 nearest tides??
+			"<li><input type='text' name='tideTimeLow' placeholder='hr:mi:se'></li>"+			//I think there is the time of the 2 nearest tides??
             "<li>High tide time</li>" +
-			"<li><input type='text' name=''placeholder='hr:mi:se'></li>"+
+			"<li><input type='text' name='tideTimeHigh' placeholder='hr:mi:se'></li>"+
             "<li>Low tide Height</li>" +
-			"<li><input type='text' name=''placeholder='Height'></li>"+
+			"<li><input type='text' name='tideHieghtLow' placeholder='Height'></li>"+
             "<li>High tide Height</li>" +
-			"<li><input type='text' name=''placeholder='Height'></li></ul>"+
-            "</div>";
+			"<li><input type='text' name='tideHieghtHigh' placeholder='Height'></li></ul>"+
+            "</div>"+
+			
+			"<div class='error'></div>";
 
 
         //DONT KNOW WHAT THESE INPUT BOXES ARE FOR, MAY NOT NEED THEM WITH AUTFILL DATA FROM BOM"<input type='text' name='text3'/>" +
@@ -56,8 +57,8 @@ var PrevailingView = function () {
         $(".body").html(body);
 
         var footer =
-            "<form action = 'index.html?#WHR' method='' onClick=''>" +
-            "<button action = 'index.html?#WHR' type='submit' onClick='prevailingBeachValue()' class='blueButtons'>NEXT</button>" +
+            "<form action = '' method='' onClick=''>" +
+            "<button action = 'index.html?#WHR' type='submit' onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
             "<button type='button' class='exitButton'>EXIT</button>" +
             "</form>";
 

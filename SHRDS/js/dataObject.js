@@ -16,17 +16,15 @@ var SHRData = function () {
             return this.totalSHR;
         }
     }
-    //Have not made an event specific SHR - this might be an old comment 19/10/2016
+    
 var PrevailingData = function () {
     this.initialize = function () {
         this.SHR = new SHRData();
         this.SHR.initialize();
-        this.time = "";
-        this.beach = "";
-        this.windDirection = "";
-		this.windSpeed = "";
-        this.nearestTideLow = "";
-        this.nearestTideHigh = "";
+        this.time = -1;
+        this.beach = -1;
+        this.windDirection = -1;
+		this.windSpeed = -1;
         this.tideTimeLow = -1;
         this.tideTimeHigh = -1;
         this.tideHieghtLow = -1.0;
@@ -35,26 +33,24 @@ var PrevailingData = function () {
         //this.date = "";
     }
 }
-var eventSpercifcSHRData = function () {
+var eventSpecifcSHRData = function () {
     this.initialize = function () {
         this.SHR = new SHRData();
         this.SHR.initialize();
         this.arena = "";
-        this.age = -1;
-        this.heat = "";
+		this.heat = "";
+        this.age = -1;        
         this.round = "";
-        this.quaterFinal = -1;
-        this.semiFinal = -1;
-        this.grandFinal = -1;
-        this.craftType = "";
-        this.time = ""; //might need to change 
+        this.finalType = -1;
+        this.craftType = ""; 
         this.inOrOut = -1;
-        this.raceNumber = -1;
         this.beach = "";
+		this.time = ""; //might need to change
         //need to be reviewed 
         //this.numberOfCraft = "";
         //this.date = "";
         //this.gender = '';
+		//this.raceNumber = -1;
     }
 }
 var IRData = function () {
@@ -74,7 +70,7 @@ var IRData = function () {
         this.pINJSev = -1;
     }
 }
-var eventSpercifcIRData = function () {
+var eventSpecifcIRData = function () {
         this.initialize = function () {
             this.IRIN = new IRData();
             this.IROUT = new IRData();
