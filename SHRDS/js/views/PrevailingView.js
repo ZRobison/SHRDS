@@ -7,6 +7,8 @@ var PrevailingView = function () {
         $(".heading").text("Prevailing Conditions");
 
         var body =
+            
+     
             "<div id='beachBox'><p>Beach<p>" +
             "<select name='prevailingBeach'>" +
             "<option value='-1'>Select One</option>" +
