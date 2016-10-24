@@ -25,6 +25,7 @@ var app = {
             console.log(window.location.hash);
             self.route();
         });
+	
 
         //URL detection
         this.incidentStartURL = [/^#incident1/, /#irComplete/];
@@ -56,8 +57,35 @@ var app = {
         //Login data
         this.loginData = new loginData();
         this.loginData.intitalize();
+		//store for previously filled data objects
+		this.prevSHRArray = [];
+		this.esSHRArray = [];
+		this.irArray = [];
+		//these one have been synced
+		this.prevSHRArrayFinished = [];
+		this.esSHRArrayFinished = [];
+		this.irArrayFinished = [];
+		//these one have not been synced
+		this.prevSHRArrayUnfinished = [];
+		this.esSHRArrayUnfinished = [];
+		this.irArrayUnfinished = [];
     },
-
+	
+	/*
+	* This resets the data objects
+	*
+	*/
+	resetData: function(){
+		//PREVSHR
+        this.prevalingSHRData = new PrevailingData();
+        this.prevalingSHRData.initialize();
+        //IRSHR
+        this.esSHRData = new eventSpecifcSHRData();
+        this.esSHRData.initialize();
+        //IR
+        this.esIRData = new eventSpecifcIRData();
+        this.esIRData.initialize();
+	},
 
     /*
      *

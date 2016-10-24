@@ -583,3 +583,29 @@ function shrFormSelect() {
         window.location.hash = "#eventSpecific";
     }
 }
+
+/**
+*
+*
+*
+*/
+function getSHRHistory(){
+	var plength =  app.prevSHRArray.length;
+	var eslength =  app.esSHRArray.length;
+	var his = "";
+	if (plength != 0){
+		his = "<p>Prevailing SHR History</p><ul>";
+		for (var i = 0; i < plength && i < 2; i ++ ){
+			his += "<li> Date Filled:" + app.prevSHRArray[i].time +  ", SHR: " + app.prevSHRArray[i].SHR.totalSHR  + "</li>";
+		}
+		his += "</ul>";
+	}
+	if (eslength != 0){
+		his += "<p>Event Specific SHR History</p><ul>";
+		for (var i = 0; i < eslength && i < 2; i ++ ){
+			his += "<li>Date Filled:" + app.esSHRArray[i].time + ", SHR: " + app.esSHRArray[i].SHR.totalSHR  + "</li>";
+		}
+		his += "</ul>";
+	}
+	return his;
+}
