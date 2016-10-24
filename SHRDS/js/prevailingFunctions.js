@@ -1,5 +1,9 @@
-// prevailing functions
-
+/**
+*
+* This methods gets all the data and checks that something has been filled in it.
+* If nothing has been filled in it return error, else continue onto SHR
+*
+*/
 function getPrevailingValues(){
 	var check = true;
 	check = check && beachValue();
@@ -8,7 +12,7 @@ function getPrevailingValues(){
 	check = check && tideTimes();
 	check = check && tideHeights();
 	if (check) {
-		 app.prevalingSHRData.time = getDateTime();
+		app.prevalingSHRData.time = getDateTime();
 		window.location.hash = "#WHR";
 	} else {
 		console.log("error");
@@ -17,7 +21,10 @@ function getPrevailingValues(){
 }
 
 
-
+/**
+* Retrives the beach value and checks if has been filled. 
+*
+*/
 function beachValue() {
 	  var score = $("select[name=prevailingBeach]").val();
 	  if (score == '-1') {
@@ -28,6 +35,10 @@ function beachValue() {
 	  }
 }
 
+/**
+* Retrives the wind direction value and checks if has been filled. 
+*
+*/
 function windDirection() {
 	  var score = $("select[name=windDirection]").val();
 	  if (score == '-1') {
@@ -38,6 +49,10 @@ function windDirection() {
 	  }
 }
 
+/**
+* Retrives the wind speed value and checks if has been filled. 
+*
+*/
 function windSpeed() {
 	  var score = $("input[name=windSpeed]").val();
 	  if (score == "") {
@@ -48,6 +63,10 @@ function windSpeed() {
 	  }	   
 }
 
+/**
+* Retrives the tide times value and checks if has been filled. 
+*
+*/
 function tideTimes() {
 	  var check = true;
 	  var score1 = $("input[name=tideTimeLow]").val();
@@ -68,6 +87,10 @@ function tideTimes() {
 	  return check;
 }
 
+/**
+* Retrives the tide heights value and checks if has been filled. 
+*
+*/
 function tideHeights() {
 	  var check = true;
 	  var score1 = $("input[name=tideHieghtHigh]").val();
