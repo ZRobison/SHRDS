@@ -53,9 +53,15 @@ var AdminSelectView = function () {
 
         function getMetaData() {
             //To be filled later
-            var header = "Password Reset";
-            var body = "fill later";
-            var footer = "submit button";
+            var header = "Completed Forms Meta Data";
+            var body =
+                "Toal Number of Forms Submitted Today: <div id='totalForms'></div><br>" +
+                "<div id='supervisingTSO' class='col-metadata'>Supervising TSO</div>" +
+                "<div id='formType' class='col-metadata'>Form Type</div>" +
+                "<div id='submittedTime' class='col-metadata'>Submission Time</div>" +
+                "<div id='raceDetails' class='col-metadata'>Race Details</div>";
+            //"<div id='totalForms' class='col-metadata'></div>";
+            var footer = "<button type='submit' class='blueButtons' onclick='getFormMetaData()'>Get It</button>";
 
             $(".heading").text(header);
             $(".body").html(body);

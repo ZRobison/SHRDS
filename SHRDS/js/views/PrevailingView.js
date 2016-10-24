@@ -59,10 +59,8 @@ var PrevailingView = function () {
         $(".body").html(body);
 
         var footer =
-            "<form action = '' method='' onClick=''>" +
-            "<button action = 'index.html?#WHR' type='submit' onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
-            "<button type='button' class='exitButton'>EXIT</button>" +
-            "</form>";
+            "<button onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
+            "<button type='button' class='exitButton'>EXIT</button>";
 
         $(".footer").html(footer);
 
