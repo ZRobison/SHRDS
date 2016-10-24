@@ -685,6 +685,7 @@ input[type="submit"] {
     width: 350px;
     height: 150px;
     border-radius: 12px;
+	border: 1px solid #333;
     padding: 5%;
     outline: none;
     background-color: beige;
