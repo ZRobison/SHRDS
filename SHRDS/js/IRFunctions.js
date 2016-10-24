@@ -21,8 +21,7 @@ function add(param) {
         num = numMax;
         numLoggedA = 20;
         gPMResult = numLoggedA;
-    }
-    else {
+    } else {
         document.getElementById("num" + param).innerHTML++;
         numLoggedA = (((numLoggedA) * 1) + ((num) * 1));
         gPMResult = numLoggedA;
@@ -40,8 +39,7 @@ function minus(param) {
         num = numMin;
         numLoggedM = 0;
         gPMResult = numLoggedM;
-    }
-    else {
+    } else {
         document.getElementById("num" + param).innerHTML--;
         numLoggedM = (((numLoggedM) * 1) + ((num) * 1));
         gPMResult = numLoggedM;
@@ -174,4 +172,8 @@ function getIRValues() {
     app.esIRData.IRIN.pDNF = gPMResultDNF;
     console.log(app.esIRData.IRIN.pDNF);
     //
+}
+
+function irComplete() {
+    window.location.hash = "#irComplete";
 }

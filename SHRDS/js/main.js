@@ -1,17 +1,17 @@
 /*
-*
-* app represents the core object within the mobile application.
-* This object handles page navigation and tracks the state of the system
-*
-*/
+ *
+ * app represents the core object within the mobile application.
+ * This object handles page navigation and tracks the state of the system
+ *
+ */
 var app = {
 
-	/*
-	*
-	*This function intialises the object 
-	* by creating its data objects, setting up call backs and routing.
-	*
-	*/
+    /*
+     *
+     *This function intialises the object 
+     * by creating its data objects, setting up call backs and routing.
+     *
+     */
     initialize: function () {
         var self = this;
 
@@ -25,25 +25,25 @@ var app = {
             console.log(window.location.hash);
             self.route();
         });
-		var isOffline = 'onLine' in navigator && !navigator.onLine;
+	
 
         //URL detection
-        this.incidentStartURL = /^#incident1/;
+        this.incidentStartURL = [/^#incident1/, /#irComplete/];
         this.prevailingStartURL = /^#prevailing1/;
         this.eventSpecificURL = /^#eventSpecific/;
         this.formSelectURL = /^#formSelect/;
         this.adminURLS = [/^#adminPageSelect/, /^#adminPasswordChange/, /^#adminMetadata/];
         this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/, /^#TRANS/];
 
-		//Intial routing to the logon page.
+        //Intial routing to the logon page.
         self.route();
     },
-	
-	/*
-	*
-	* This is the function that intialises all the data objects
-	*
-	*/
+
+    /*
+     *
+     * This is the function that intialises all the data objects
+     *
+     */
     initData: function () {
         //PREVSHR
         this.prevalingSHRData = new PrevailingData();
@@ -87,13 +87,13 @@ var app = {
         this.esIRData.initialize();
 	},
 
-	/*
-	*
-	* The page routing is perfomed by this callback function.
-	* This function is called everytime the application sences that the HASH has changed.
-	* The application is routed based on this HASH.
-	*
-	*/
+    /*
+     *
+     * The page routing is perfomed by this callback function.
+     * This function is called everytime the application sences that the HASH has changed.
+     * The application is routed based on this HASH.
+     *
+     */
     route: function () {
         var hash = window.location.hash;
         if (!hash) {
@@ -118,10 +118,12 @@ var app = {
             new SHRView().render("REV");
         } else if (hash.match(app.SHRURLS[9])) {
             new SHRView().render("SHR");
-		} else if (hash.match(app.SHRURLS[10])) {
+        } else if (hash.match(app.SHRURLS[10])) {
             //During Transition we do not want to be routed anywhere
-        } else if (hash.match(app.incidentStartURL)) {
-            new IRView().render();
+        } else if (hash.match(app.incidentStartURL[0])) {
+            new IRView().render("irFill");
+        } else if (hash.match(app.incidentStartURL[1])) {
+            new IRView().render("irDone");
         } else if (hash.match(app.adminURLS[0])) {
             new AdminSelectView().render("formSelect");
         } else if (hash.match(app.adminURLS[1])) {
@@ -142,28 +144,28 @@ var app = {
 
 //Get the current date and time in sql format
 function getDateTime() {
-    var now     = new Date(); 
-    var year    = now.getFullYear();
-    var month   = now.getMonth()+1; 
-    var day     = now.getDate();
-    var hour    = now.getHours();
-    var minute  = now.getMinutes();
-    var second  = now.getSeconds(); 
-    if(month.toString().length == 1) {
-        var month = '0'+month;
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    if (month.toString().length == 1) {
+        var month = '0' + month;
     }
-    if(day.toString().length == 1) {
-        var day = '0'+day;
-    }   
-    if(hour.toString().length == 1) {
-        var hour = '0'+hour;
+    if (day.toString().length == 1) {
+        var day = '0' + day;
     }
-    if(minute.toString().length == 1) {
-        var minute = '0'+minute;
+    if (hour.toString().length == 1) {
+        var hour = '0' + hour;
     }
-    if(second.toString().length == 1) {
-        var second = '0'+second;
-    }   
-    var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
-     return dateTime;
+    if (minute.toString().length == 1) {
+        var minute = '0' + minute;
+    }
+    if (second.toString().length == 1) {
+        var second = '0' + second;
+    }
+    var dateTime = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':' + second;
+    return dateTime;
 }

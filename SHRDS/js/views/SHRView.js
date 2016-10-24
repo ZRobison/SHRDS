@@ -217,6 +217,7 @@ function getSTR() {
         "<option value='3'>Excessive Chop (22-27 kts)</option>" +
         "<option value='4'>Extreme Chop (>27kts)</option>" +
         "</select>" +
+        
         "<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
         "<select class='allRatingsPos' name='STRCrossWavesForm'>" +
         "<option value='0' selected>No Cross Waves</option>" +
@@ -231,8 +232,8 @@ function getSTR() {
 
         " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
         "<button type='button' class='exitButton'>EXIT</button>";
-
-
+		
+		
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -392,43 +393,39 @@ function getREV() {
 
     var body =
 
-        "<div id='ratingsList'>" +
-        "<ul>" +
-        "<li>" +
-        "WHR  " + WHRDescription(pWHR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+
+        "<div class = 'singleRow'><div class='left1'>WHR</div> <div class='center1'>" + WHRDescription(pWHR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getWHR()
-        } + "," + getWHRvalue + ")'>Change</button>" +
-        "</li><li>" +
-        "WTR  " + WTRDescription(pWTR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+        } + "," + getWHRvalue + ")'>Change</button></div></div>" +
+
+        "<div class='singleRow'><div class='left1'>WTR</div> <div class='center1'>" + WTRDescription(pWTR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getWTR()
-        } + "," + getWTRvalue + ")'>Change</button>" +
-        "</li><li>" +
-        "WPR  " + WPRDescription(pWPR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+        } + "," + getWTRvalue + ")'>Change</button></div></div>" +
+
+        "<div class='singleRow'><div class='left1'>WPR</div> <div class='center1'>" + WPRDescription(pWPR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getWPR()
-        } + "," + getWPRvalue + ")'>Change</button>" +
-        "</li><li>" +
-        "ZWR  " + ZWRDescription(pZWR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+        } + "," + getWPRvalue + ")'>Change</button></div></div>" +
+
+        "<div class='singleRow'><div class='left1'>ZWR</div> <div class='center1'>" + ZWRDescription(pZWR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getZWR()
-        } + "," + getZWRvalue + ")'>Change</button>" +
-        "</li><li>" +
-        "STR  " + STRDescription(pSTR) + "  with " + STRCrossWaveDescription(pCrossWaves) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+        } + "," + getZWRvalue + ")'>Change</button></div></div>" +
+
+        "<div class='singleRow'><div class='left1'>STR</div> <div class='center1'>" + STRDescription(pSTR) + "  with " + STRCrossWaveDescription(pCrossWaves) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getSTR()
-        } + "," + getSTRvalue + ")'>Change</button>" +
-        "</li><li>" +
-        "LDR  " + LDRDescription(pLDR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+        } + "," + getSTRvalue + ")'>Change</button></div></div>" +
+
+        "<div class='singleRow'><div class='left1'>LDR</div> <div class='center1'>" + LDRDescription(pLDR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getLDR()
-        } + "," + getLDRvalue + ")'>Change</button>" +
-        "</li><li>" +
-        "RCR  " + RCRDescription(pRCR) + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+        } + "," + getLDRvalue + ")'>Change</button></div></div>" +
+
+        "<div class='singleRow'><div class='left1'>RCR</div> <div class='center1'>" + RCRDescription(pRCR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getRCR()
-        } + "," + getRCRvalue + ")'>Change</button>" +
-        "</li><li>" +
-        "OHR  " + pOHR + " <button name='next' type='submit' class='blueButtons' onClick='nextRouteChange(" + function () {
+        } + "," + getRCRvalue + ")'>Change</button></div></div>" +
+
+        "<div class='singleRow'><div class='left1'>OHR</div> <div class='center1'>" + pOHR + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getOHR()
-        } + "," + getOHRvalue + ")'>Change</button>" +
-        "</li>"
-    "</ul>" +
-    "</div>";
+        } + "," + getOHRvalue + ")'>Change</button></div></div>";
+
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
