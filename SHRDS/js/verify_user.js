@@ -97,7 +97,6 @@ function verify_user() {
                     //If we have a match that means the user has the correct credentials
                     if (data.Result != null && data.Result != "") {
                         //Also ensure that they are TSO certified
-                        console.log(JSON.stringify(data));
                         if (data.Result[0].ADMIN_QUALIFIED == true) {
                             app.loginData.pID = data.Result[0].USER_ID
                             app.loginData.pTSOStatus = false;
