@@ -15,6 +15,7 @@ var FormSelectView = function () {
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
+        console.log(app.loginData.pID);
 
     }
 }

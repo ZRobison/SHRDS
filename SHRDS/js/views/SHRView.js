@@ -65,6 +65,8 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
+    console.log(app.loginData.pID);
+
 
 
     var footer =
@@ -222,17 +224,16 @@ function getSTR() {
         "<option value='1'>Minor Cross Waves</option>" +
         "<option value='2'>Moderate Cross Waves</option>" +
         "</select>" +
-        
         "<button type='button' class='questionMark' onclick='getSTRCrossWavesInfo()')></button>" +
         "<div class='error'></div>" +
         "<div class='info'></div>";
 
     var footer =
 
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
+        " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
         "<button type='button' class='exitButton'>EXIT</button>";
-
-
+		
+		
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -433,6 +434,7 @@ function getREV() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
+    console.log(app.loginData.pID);
 }
 
 function getSHR() {
@@ -446,9 +448,10 @@ function getSHR() {
 
     var footer =
 
-        "<form action = 'index.html' method=''>" +
-        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>" +
-        "</form>";
+        //   "<form action = 'index.html' method=''>" +
+        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";
+    // "</form>";
+
 
     var shr = -1;
     if (app.SHRFlag == 1) {

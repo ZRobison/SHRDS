@@ -128,7 +128,7 @@ input.radio:empty~label {
     cursor: pointer;
     border: 1px solid black;
     box-shadow: 5px 5px 2.5px #333;
-    font-size: 120%;
+    font-size: 100%;
 }
 
 input.radio:empty~label:before {
