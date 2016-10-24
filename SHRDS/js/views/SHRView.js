@@ -444,13 +444,11 @@ function getSHR() {
     var body =
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
-        "<div class= 'rating'></div>";
+        "<div class= 'rating'></div>" +
+		"<div class='history'>"+getSHRHistory()+"</div>";
 
     var footer =
-
-        //   "<form action = 'index.html' method=''>" +
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";
-    // "</form>";
 
 
     var shr = -1;

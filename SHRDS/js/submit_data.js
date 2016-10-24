@@ -1,11 +1,13 @@
 var statementSitch = 0;
-
 //Do to the way the external MYSql.JS script works with callback function, all sql statements must be perfomred in sequence and 
 //cannot be encapsulated into re-useable functions
 function insertSHR() {
     console.log("Insert function firing");
     console.log(app.SHRFlag == 1);
     console.log(app.loginData.pID);
+	
+	
+	
     var sql = "";
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
@@ -39,11 +41,14 @@ function insertSHR() {
 
         submit(sql);
         //verifySubmission("select SHR");
+		
+		//TIM - if we succeed in storing make true else false.
+		var success = true;
+		storePrev(success);
 
     }
     //If we have an event specific SHR
     else if (app.SHRFlag == 2) {
-
         var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
             "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
             "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
@@ -135,12 +140,14 @@ function insertSHR() {
                     console.log("submitting SHRData")
                     submit(sql);
                 }
-
+				
             }
 
         );
 
-
+		//TIM - if we succeed in storing make true else false.
+		var success = true;
+		storeES(success);
 
     }
     //Otherwise we have an incident report
@@ -237,7 +244,10 @@ function insertSHR() {
 
                     submit(sql);
 
-
+					//TIM - if we succeed in storing make true else false.
+					var success = true;
+					storeIR(success);
+					
                 }
                 //Otherwise we have found an event but we still want to insert the IR DATA, so repeat all statement exactly like previous block
                 else {
@@ -344,4 +354,34 @@ function verifySubmission(sql) {
         }
     );
 
+}
+
+function storePrev(sucess){
+	if (sucess){
+		app.prevSHRArrayFinished.push(app.prevalingSHRData);
+	} else {
+		app.prevSHRArrayUnfinished.push(app.prevalingSHRData);
+	}
+	app.prevSHRArray.push(app.prevalingSHRData);
+	app.resetData();
+}
+
+function storeES(sucess){
+	if (sucess){
+		app.esSHRArrayFinished.push(app.esSHRData);
+	} else {
+		app.esSHRArrayUnfinished.push(app.esSHRData);
+	}
+	app.esSHRArray.push(app.esSHRData);
+	app.resetData();
+}
+
+function storeIR(sucess){
+	if (sucess){
+		app.irArrayFinished.push(app.esIRData);
+	} else {
+		app.irArrayUnfinished.push(app.esIRData);
+	}
+	app.irArray.push(app.esIRData);
+	app.resetData();
 }
