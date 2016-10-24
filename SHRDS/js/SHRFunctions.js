@@ -1,59 +1,59 @@
 /*
-* This function is use the supplied function fun to retreive the score
-* as specified by the user on their current page, then displays an error
-* if no value is specified or re routes to the next page in the SHR form. 
-*
-*/
-function nextPage(SHR, fun){
-		var score = fun();
-		if (score == -1){
-			$(".error").text("Please select a value.");
-		} else {
-		 switch (SHR) {
-        case ("WHR"):
-				window.location.hash = "#WTR";
-				$(".error").text("");
-            break;
-        case ("WTR"):
-				window.location.hash = "#WPR";
-				$(".error").text("");
-            break;
-        case ("WPR"):
-				window.location.hash = "#ZWR";
-				$(".error").text("");
-            break;
-        case ("ZWR"):
-				window.location.hash = "#STR";
-				$(".error").text("");
-            break;
-        case ("STR"):
-				window.location.hash = "#LDR";
-				$(".error").text("");
-            break;
-        case ("LDR"):
-				window.location.hash = "#RCR";
-				$(".error").text("");
-            break;
-        case ("RCR"):
-				window.location.hash = "#OHR";
-				$(".error").text("");
-            break;
-        case ("OHR"):
-				console.log( app.prevalingSHRData);
-				window.location.hash = "#REV";
-				$(".error").text("");
-            break;
-        default:
-            $(".error").text("Something went wrong");
+ * This function is use the supplied function fun to retreive the score
+ * as specified by the user on their current page, then displays an error
+ * if no value is specified or re routes to the next page in the SHR form. 
+ *
+ */
+function nextPage(SHR, fun) {
+    var score = fun();
+    if (score == -1) {
+        $(".error").text("Please select a value.");
+    } else {
+        switch (SHR) {
+            case ("WHR"):
+                window.location.hash = "#WTR";
+                $(".error").text("");
+                break;
+            case ("WTR"):
+                window.location.hash = "#WPR";
+                $(".error").text("");
+                break;
+            case ("WPR"):
+                window.location.hash = "#ZWR";
+                $(".error").text("");
+                break;
+            case ("ZWR"):
+                window.location.hash = "#STR";
+                $(".error").text("");
+                break;
+            case ("STR"):
+                window.location.hash = "#LDR";
+                $(".error").text("");
+                break;
+            case ("LDR"):
+                window.location.hash = "#RCR";
+                $(".error").text("");
+                break;
+            case ("RCR"):
+                window.location.hash = "#OHR";
+                $(".error").text("");
+                break;
+            case ("OHR"):
+                console.log(app.prevalingSHRData);
+                window.location.hash = "#REV";
+                $(".error").text("");
+                break;
+            default:
+                $(".error").text("Something went wrong");
+        }
     }
-}
 }
 
 /*
-*
-* Retries the value slected by the user for WHR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for WHR and returns it
+ *
+ */
 function getWHRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -68,10 +68,10 @@ function getWHRvalue() {
 
 
 /*
-*
-* Retries the describing information for WHR
-*
-*/
+ *
+ * Retries the describing information for WHR
+ *
+ */
 function getWHRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -81,10 +81,10 @@ function getWHRInfo() {
 }
 
 /*
-*
-* Retries the value slected by the user for WTR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for WTR and returns it
+ *
+ */
 function getWTRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -98,10 +98,10 @@ function getWTRvalue() {
 }
 
 /*
-*
-* Retries the describing information for WTR
-*
-*/
+ *
+ * Retries the describing information for WTR
+ *
+ */
 function getWTRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -111,10 +111,10 @@ function getWTRInfo() {
 }
 
 /*
-*
-* Retries the value slected by the user for WPR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for WPR and returns it
+ *
+ */
 function getWPRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -128,10 +128,10 @@ function getWPRvalue() {
 }
 
 /*
-*
-* Retries the describing information for WPR
-*
-*/
+ *
+ * Retries the describing information for WPR
+ *
+ */
 function getWPRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -141,10 +141,10 @@ function getWPRInfo() {
 }
 
 /*
-*
-* Retries the value slected by the user for ZWR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for ZWR and returns it
+ *
+ */
 function getZWRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -158,10 +158,10 @@ function getZWRvalue() {
 }
 
 /*
-*
-* Retries the describing information for Zwr
-*
-*/
+ *
+ * Retries the describing information for Zwr
+ *
+ */
 function getZWRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -171,60 +171,60 @@ function getZWRInfo() {
 }
 
 /*
-*
-* Retries the value slected by the user for STR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for STR and returns it
+ *
+ */
 function getSTRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
         app.prevalingSHRData.SHR.pSTR = $("select[name=STRForm]").val();
-		app.prevalingSHRData.SHR.pCrossWaves = $("select[name=STRCrossWavesForm]").val();
+        app.prevalingSHRData.SHR.pCrossWaves = $("select[name=STRCrossWavesForm]").val();
         score = app.prevalingSHRData.SHR.pSTR;
     } else {
         app.esSHRData.SHR.pSTR = $("select[name=STRForm]").val();
-		app.esSHRData.SHR.pCrossWaves = $("select[name=STRCrossWavesForm]").val();
+        app.esSHRData.SHR.pCrossWaves = $("select[name=STRCrossWavesForm]").val();
         score = app.esSHRData.SHR.pSTR;
     }
     return score;
 }
 
 /*
-*
-* Retries the describing information for STR
-*
-*/
+ *
+ * Retries the describing information for STR
+ *
+ */
 function getSTRInfo() {
-	if ($(".info").text() == "Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell."){
-		$(".info").text("Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.");
-	} else if ($(".info").text()) {
+    if ($(".info").text() == "Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell.") {
+        $(".info").text("Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.");
+    } else if ($(".info").text()) {
         $(".info").text("");
     } else {
         $(".info").text("Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.");
     }
-}  
+}
 
 
 /*
-*
-* Retries the describing information for cross waves in STR
-*
-*/
+ *
+ * Retries the describing information for cross waves in STR
+ *
+ */
 function getSTRCrossWavesInfo() {
-	if ($(".info").text() == "Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction."){
-		$(".info").text("Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell.");
-	} else if ($(".info").text()) {
+    if ($(".info").text() == "Wind Chops are small wavelets or localised roughing-up of the water surface due to the combined effects of wind speed and wind direction.") {
+        $(".info").text("Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell.");
+    } else if ($(".info").text()) {
         $(".info").text("");
     } else {
         $(".info").text("Cross Waves form at random angles to the primary swell direction due to local storms or reflection of the primary swell.");
     }
-} 
+}
 
 /*
-*
-* Retries the value slected by the user for LDR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for LDR and returns it
+ *
+ */
 function getLDRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -239,10 +239,10 @@ function getLDRvalue() {
 
 
 /*
-*
-* Retries the describing information for LDR
-*
-*/
+ *
+ * Retries the describing information for LDR
+ *
+ */
 function getLDRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -252,10 +252,10 @@ function getLDRInfo() {
 }
 
 /*
-*
-* Retries the value slected by the user for RCR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for RCR and returns it
+ *
+ */
 function getRCRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -269,10 +269,10 @@ function getRCRvalue() {
 }
 
 /*
-*
-* Retries the describing information for RCR
-*
-*/
+ *
+ * Retries the describing information for RCR
+ *
+ */
 function getRCRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -282,10 +282,10 @@ function getRCRInfo() {
 }
 
 /*
-*
-* Retries the value slected by the user for OHR and returns it
-*
-*/
+ *
+ * Retries the value slected by the user for OHR and returns it
+ *
+ */
 function getOHRvalue() {
     var score = -1;
     if (app.SHRFlag == 1) {
@@ -299,10 +299,10 @@ function getOHRvalue() {
 }
 
 /*
-*
-* Retries the describing information for OHR
-*
-*/
+ *
+ * Retries the describing information for OHR
+ *
+ */
 function getOHRInfo() {
     if ($(".info").text()) {
         $(".info").text("");
@@ -312,9 +312,9 @@ function getOHRInfo() {
 }
 
 /*
-* Retreive the description of WHR from a given value
-*
-*/
+ * Retreive the description of WHR from a given value
+ *
+ */
 function WHRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -356,9 +356,9 @@ function WHRDescription(value) {
 }
 
 /*
-* Retreive the description of WTR from a given value
-*
-*/
+ * Retreive the description of WTR from a given value
+ *
+ */
 function WTRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -382,9 +382,9 @@ function WTRDescription(value) {
 }
 
 /*
-* Retreive the description of WPR from a given value
-*
-*/
+ * Retreive the description of WPR from a given value
+ *
+ */
 function WPRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -408,9 +408,9 @@ function WPRDescription(value) {
 }
 
 /*
-* Retreive the description of ZWR from a given value
-*
-*/
+ * Retreive the description of ZWR from a given value
+ *
+ */
 function ZWRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -449,9 +449,9 @@ function ZWRDescription(value) {
 }
 
 /*
-* Retreive the description of STR from a given value
-*
-*/
+ * Retreive the description of STR from a given value
+ *
+ */
 function STRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -478,9 +478,9 @@ function STRDescription(value) {
 }
 
 /*
-* Retreive the description of STR from a given value
-*
-*/
+ * Retreive the description of STR from a given value
+ *
+ */
 function STRCrossWaveDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -499,9 +499,9 @@ function STRCrossWaveDescription(value) {
 }
 
 /*
-* Retreive the description of LDR from a given value
-*
-*/
+ * Retreive the description of LDR from a given value
+ *
+ */
 function LDRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -528,9 +528,9 @@ function LDRDescription(value) {
 }
 
 /*
-* Retreive the description of RCR from a given value
-*
-*/
+ * Retreive the description of RCR from a given value
+ *
+ */
 function RCRDescription(value) {
     var texte = "ERROR";
     switch (value * 1) {
@@ -554,26 +554,26 @@ function RCRDescription(value) {
 }
 
 /*
-*This function is used on the revision page. 
-*If a person wants to change a value, 
-*The page is rendered by the get function 
-*The calculation is retreived the the fun function.
-*
-*/
-function nextRouteChange (get, fun) {
-	get();
-	window.location.hash = "#TRANS";
-	var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" +'"OHR"'+", " + fun+")'>Done</button>";
+ *This function is used on the revision page. 
+ *If a person wants to change a value, 
+ *The page is rendered by the get function 
+ *The calculation is retreived the the fun function.
+ *
+ */
+function nextRouteChange(get, fun) {
+    get();
+    window.location.hash = "#TRANS";
+    var footer =
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + fun + ")'>Done</button>";
 
     $(".footer").html(footer);
 }
 
 /*
-*
-* This function determines what button is selected in the for selection screen
-*
-*/
+ *
+ * This function determines what button is selected in the for selection screen
+ *
+ */
 function shrFormSelect() {
     if ($('#shrRadio1').is(":checked")) {
         app.SHRFlag = 1;

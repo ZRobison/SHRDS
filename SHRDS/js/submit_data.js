@@ -1,6 +1,6 @@
 var statementSitch = 0;
-
-
+//Do to the way the external MYSql.JS script works with callback function, all sql statements must be perfomred in sequence and 
+//cannot be encapsulated into re-useable functions
 function insertSHR() {
     console.log("Insert function firing");
     console.log(app.SHRFlag == 1);
@@ -49,8 +49,6 @@ function insertSHR() {
     }
     //If we have an event specific SHR
     else if (app.SHRFlag == 2) {
-        //submitEvent();
-		
         var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
             "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
             "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
@@ -154,86 +152,176 @@ function insertSHR() {
     }
     //Otherwise we have an incident report
     else {
-        //NOT FINISHED
-        submitEvent();
-        var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT,FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, INJURY_MINOR_, INJURYSERIOUS_, _INJURY , LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
-            "(SELECT RACE_ID FROM RACE WHERE " +
-            "TIME = '11:00'" + //TIME IS STILL NOT SET IN OBJECT
-            "AND AGE_GROUP = '" + app.esSHRData.age + "'" +
-            "AND GENDER = '" + app.esSHRData.gender + "'" +
-            "AND STARTING_CRAFT_ = 10" +
-            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "'" +
-            "AND ROUND = " + app.esSHRData.round +
-            "AND HEAT = " + app.esSHRData.heat +
-            "AND FINAL = 'SEMI')" +
-            "0, '12:00', '11:30'),"
-        app.loginData.pID + ",";
-		
-			
-		//TIM - if we succeed in storing make true else false.
-		var success = true;
-		storeIR(success);
+        var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
+            "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+            "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+            "AND GENDER = '" + app.esIRData.gender + "' " +
+            "AND STARTING_CRAFT_ = 10 " +
+            "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
+            "AND ROUND = " + app.esIRData.round + " " +
+            "AND HEAT = " + app.esIRData.heat + " " +
+            "AND FINAL = 'SEMI'";
+        MySql.Execute(
+            dbconfig.host,
+            dbconfig.dbUser,
+            dbconfig.dbPassword,
+            dbconfig.dbUser,
+            eventSQL,
+            //Check if an event with the exact same details currently exists, if not create one
+            function (data) {
+                if (data.Result == null || data.Result == "") {
+                    console.log("preparing event sql for submission")
+                    var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+                        "VALUES ('11:00','" +
+                        app.esIRData.age + "','" +
+                        app.esIRData.gender + "'," +
+                        10 + ",'" + //Starting craft - fill in SHR Data Object
+                        app.esIRData.craftType + "'," +
+                        app.esIRData.round + "," +
+                        app.esIRData.heat + "," +
+                        "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
+
+                    console.log("submitting EVENT Data");
+                    submit(eventSQL);
+                    //Submit the in version of the IR report
+                    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT__NOSE_DIVE, BROACH, INJURY_MINOR_, INJURYSERIOUS_, _INJURY, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+                        //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AND GENDER = '" + app.esIRData.gender + "' " +
+                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
+                        "AND ROUND = " + app.esIRData.round + " " +
+                        "AND HEAT = " + app.esIRData.heat + " " +
+                        "AND FINAL = 'SEMI')," +
+                        app.loginData.pID + "," +
+                        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                        app.esIRData.IRIN.pDNF + "," +
+                        app.esIRData.IRIN.pFlyingCraft + "," +
+                        app.esIRData.IRIN.FOWave + "," +
+                        app.esIRData.IRIN.pFOCollision + "," +
+                        app.esIRData.IRIN.pBSND + "," +
+                        app.esIRData.IRIN.pBroach + "," +
+                        app.esIRData.IRIN.pINJMin + "," +
+                        app.esIRData.IRIN.pINJSer + "," +
+                        app.esIRData.IRIN.pINJSev + "," +
+                        app.esIRData.IRIN.pLCSerious + "," +
+                        app.esIRData.IRIN.pLCSevere + "," +
+                        app.esIRData.IRIN.pCollisionSer + "," +
+                        app.esIRData.IRIN.pCollisionMin + ")";
+
+                    console.log(sql);
+                    submit(sql);
+
+                    //Do all the same again for Out version of IR 
+                    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT__NOSE_DIVE, BROACH, INJURY_MINOR_, INJURYSERIOUS_, _INJURY, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+                        //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AND GENDER = '" + app.esIRData.gender + "' " +
+                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
+                        "AND ROUND = " + app.esIRData.round + " " +
+                        "AND HEAT = " + app.esIRData.heat + " " +
+                        "AND FINAL = 'SEMI')," +
+                        app.loginData.pID + "," +
+                        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                        app.esIRData.IROUT.pDNF + "," +
+                        app.esIRData.IROUT.pFlyingCraft + "," +
+                        app.esIRData.IROUT.FOWave + "," +
+                        app.esIRData.IROUT.pFOCollision + "," +
+                        app.esIRData.IROUT.pBSND + "," +
+                        app.esIRData.IROUT.pBroach + "," +
+                        app.esIRData.IROUT.pINJMin + "," +
+                        app.esIRData.IROUT.pINJSer + "," +
+                        app.esIRData.IROUT.pINJSev + "," +
+                        app.esIRData.IROUT.pLCSerious + "," +
+                        app.esIRData.IROUT.pLCSevere + "," +
+                        app.esIRData.IROUT.pCollisionSer + "," +
+                        app.esIRData.IROUT.pCollisionMin + ")";
+
+                    submit(sql);
+
+					//TIM - if we succeed in storing make true else false.
+					var success = true;
+					storeIR(success);
+					
+                }
+                //Otherwise we have found an event but we still want to insert the IR DATA, so repeat all statement exactly like previous block
+                else {
+                    //Submit the in version of the IR report
+                    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT__NOSE_DIVE, BROACH, INJURY_MINOR_, INJURYSERIOUS_, _INJURY, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+                        //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AND GENDER = '" + app.esIRData.gender + "' " +
+                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
+                        "AND ROUND = " + app.esIRData.round + " " +
+                        "AND HEAT = " + app.esIRData.heat + " " +
+                        "AND FINAL = 'SEMI')," +
+                        app.loginData.pID + "," +
+                        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                        app.esIRData.IRIN.pDNF + "," +
+                        app.esIRData.IRIN.pFlyingCraft + "," +
+                        app.esIRData.IRIN.FOWave + "," +
+                        app.esIRData.IRIN.pFOCollision + "," +
+                        app.esIRData.IRIN.pBSND + "," +
+                        app.esIRData.IRIN.pBroach + "," +
+                        app.esIRData.IRIN.pINJMin + "," +
+                        app.esIRData.IRIN.pINJSer + "," +
+                        app.esIRData.IRIN.pINJSev + "," +
+                        app.esIRData.IRIN.pLCSerious + "," +
+                        app.esIRData.IRIN.pLCSevere + "," +
+                        app.esIRData.IRIN.pCollisionSer + "," +
+                        app.esIRData.IRIN.pCollisionMin + ")";
+
+                    submit(sql);
+
+                    //Do all the same again for Out version of IR 
+                    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT__NOSE_DIVE, BROACH, INJURY_MINOR_, INJURYSERIOUS_, _INJURY, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+                        //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
+                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AND GENDER = '" + app.esIRData.gender + "' " +
+                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
+                        "AND ROUND = " + app.esIRData.round + " " +
+                        "AND HEAT = " + app.esIRData.heat + " " +
+                        "AND FINAL = 'SEMI')," +
+                        app.loginData.pID + "," +
+                        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                        app.esIRData.IROUT.pDNF + "," +
+                        app.esIRData.IROUT.pFlyingCraft + "," +
+                        app.esIRData.IROUT.FOWave + "," +
+                        app.esIRData.IROUT.pFOCollision + "," +
+                        app.esIRData.IROUT.pBSND + "," +
+                        app.esIRData.IROUT.pBroach + "," +
+                        app.esIRData.IROUT.pINJMin + "," +
+                        app.esIRData.IROUT.pINJSer + "," +
+                        app.esIRData.IROUT.pINJSev + "," +
+                        app.esIRData.IROUT.pLCSerious + "," +
+                        app.esIRData.IROUT.pLCSevere + "," +
+                        app.esIRData.IROUT.pCollisionSer + "," +
+                        app.esIRData.IROUT.pCollisionMin + ")";
+
+                    submit(sql);
+                }
+
+            }
+
+        );
+
 
 
     }
 }
 
-//var eventSubmit = function (){
-//
-//}
 
-function submitIncidentReport() {
-
-}
-
-function submitEvent() {
-    //first check if the event already exists in the DB
-    var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
-        "TIME = '11:00' " + //TIME IS STILL NOT SET IN OBJECT
-        "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
-        "AND GENDER = '" + app.esSHRData.gender + "' " +
-        "AND STARTING_CRAFT_ = 10 " +
-        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-        "AND ROUND = " + app.esSHRData.round + " " +
-        "AND HEAT = " + app.esSHRData.heat + " " +
-        "AND FINAL = 'SEMI'";
-    MySql.Execute(
-        dbconfig.host,
-        dbconfig.dbUser,
-        dbconfig.dbPassword,
-        dbconfig.dbUser,
-        eventSQL,
-        //Check if an event with the exact same details currently exists, if not create one
-        function (data) {
-            console.log(JSON.stringify(data));
-            console.log(data.Success);
-            console.log("entering function call");
-            if (data.Result == null || data.Result == "") {
-                console.log("preparing event sql for submission")
-                var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT_, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
-                    "VALUES ('11:00','" +
-                    app.esSHRData.age + "','" +
-                    app.esSHRData.gender + "'," +
-                    10 + ",'" + //Starting craft - fill in SHR Data Object
-                    app.esSHRData.craftType + "'," +
-                    app.esSHRData.round + "," +
-                    app.esSHRData.heat + "," +
-                    "'SEMI')"; //Lets consolidate quarter/semi/grandfinal into one string type
-
-                console.log(eventSQL);
-                submit(eventSQL);
-
-            } else {
-                console.log("I found an event already in the DB with those details");
-                console.log(JSON.stringify(data));
-            }
-
-        }
-
-    );
-
-
-}
 
 function submit(sql) {
     MySql.Execute(
@@ -247,6 +335,7 @@ function submit(sql) {
     );
 }
 
+//Currently unused -depending on query response times should be implemented later
 function verifySubmission(sql) {
     MySql.Execute(
         dbconfig.host,

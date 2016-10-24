@@ -86,7 +86,7 @@ var EventSpecificView = function () {
             "</select>" +
 
             "<div class='irTitles'>In/Out:</div>" +
-            "<div id='inlineOutIn'>" +
+            "<div class='inlineOutIn'>" +         
             "<input type ='radio' name='ESInOut' id='in' value='in'/>" +
             "Out" +
             "<input type ='radio' name='ESInOut' id='out' value='out'/>" +
@@ -119,3 +119,4 @@ function routeIS() {
         window.location.hash = "#WHR";
     }
 }
+

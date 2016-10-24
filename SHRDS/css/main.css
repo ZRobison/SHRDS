@@ -53,6 +53,11 @@ p {
     outline: none;
 }
 
+.exitButton:active {
+    color: snow;
+    background-color: #333;
+}
+
 .hazard {
     font-size: 190%;
     position: relative;
@@ -123,7 +128,7 @@ input.radio:empty~label {
     cursor: pointer;
     border: 1px solid black;
     box-shadow: 5px 5px 2.5px #333;
-    font-size: 120%;
+    font-size: 100%;
 }
 
 input.radio:empty~label:before {
@@ -216,6 +221,8 @@ select {
     border: solid #4d4d4d 2px;
     text-decoration: none;
     min-width: 200px;
+    display: block;
+    margin: 0 auto;
 }
 
 #loginBut {
@@ -224,6 +231,7 @@ select {
 }
 
 .blueButtons {
+    margin-left: 5%;
     background-color: #0060A9;
     margin-top: 0.6em;
     font-size: 14px;
@@ -237,13 +245,14 @@ select {
     border-radius: 5px;
     box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
     text-shadow: #000000 1px 1px 0px;
-    margin-left: 5%;
 }
 
 .blueButtons:active {
     top: 6px;
     background-image: linear-gradient(bottom, rgb(62, 51, 46) 100%, rgb(101, 86, 78) 0%);
     box-shadow: inset 0px 1px 0px #9e8d84, 0px 2px 0px 0px #322620, 0px 5px 3px #999;
+    color: snow;
+    background-color: #333;
 }
 
 .blueButtons::before {
@@ -298,15 +307,9 @@ select {
     margin-top: 10%;
 }
 
-
-/*What the hell?*/
-
 .info:before {
     visibility: hidden;
 }
-
-
-/*What the hell?*/
 
 .info {
     margin: 0 auto;
@@ -316,9 +319,6 @@ select {
     box-shadow: 5px 5px 2.5px #333;
     font-size: 120%;
 }
-
-
-/* TO DO TOOLTIP */
 
 input[type="text"],
 input[type="password"] {
@@ -551,22 +551,70 @@ input[type="submit"] {
     width: 35px;
     height: 35px;
     cursor: help;
-    position: relative;
-    top: 8px;
     box-shadow: 5px 5px 2.5px #333;
+    margin-top: 3%;
 }
 
-#ratingsList ul {
-    display: block;
+
+/*Review hazard rating page*/
+
+.singleRow {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    background-color: #e0efff;
+    min-height: 100px;
+    margin-top: 4%;
+    margin-left: 4%;
+    margin-right: 4%;
+    box-shadow: 0 7px 6px -6px #444;
 }
 
-#ratingsList ul li {
+.left1 {
+    width: 33.33333%;
+    float: left;
+    font-size: 190%;
+}
+
+.center1 {
+    width: 33.33333%;
+    float: left;
     text-align: left;
+    margin-top: 1.2em;
 }
+
+.right1 {
+    width: 33.33333%;
+    float: left;
+}
+
+.changeSHRbutton {
+    text-shadow: 1px 1px 1px #ccc;
+    color: #333;
+    margin-top: 20px;
+    padding: 14px;
+    background-color: #FFD520;
+    border: 2px solid #333;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0 10px 6px -6px #444;
+    -moz-box-shadow: 0 10px 6px -6px #444;
+    box-shadow: 0 10px 6px -6px #444;
+    cursor: pointer;
+    outline: none;
+}
+
+.changeSHRbutton:active {
+    color: snow;
+    background-color: #333;
+    border: 1px solid white;
+}
+
+
+/*End hazard rating page*/
 
 #bigBlock {
-    position: absolute;
-    left: 5%
+    margin: 0 auto;
 }
 
 .eventRadios {
@@ -577,9 +625,12 @@ input[type="submit"] {
 }
 
 .irTitles {
-    text-align: left;
+    color: firebrick;
+    margin-top: 2%;
+    text-align: center;
     padding-top: 1em;
     text-shadow: 1px 1px 1px #ccc;
+    font-size: 120%;
 }
 
 #inlineOutIn {
@@ -589,7 +640,7 @@ input[type="submit"] {
     margin-top: 1em;
 }
 
-#inlineOutIn #out {
+.inlineOutIn #out {
     margin-left: 40%;
 }
 
@@ -656,6 +707,15 @@ input[type="submit"] {
     font-size: 150%;
 }
 
+.upDownText:active {
+    background-color: red;
+}
+
 #logoutButton {
     margin-right: 100px;
+}
+
+.logoutButton:active {
+    color: snow;
+    background-color: #333;
 }
