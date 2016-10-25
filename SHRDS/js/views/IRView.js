@@ -63,7 +63,7 @@ var IRView = function () {
                 "<div id='num6' class='upDownNum'>0</div>" +
                 "<button type='submit' class='clickMinus' onclick='minus(6); incidentsReportedSix();'></button>" +
                 "</div> " +
-                            
+
 
                 "<div class='num' >" +
                 "<button type='submit' class='clickAdd' onclick='add(7); incidentsReportedSeven();' ></button> " +
@@ -107,9 +107,9 @@ var IRView = function () {
                 "<button type='submit' class='clickMinus' onclick='minus(12); incidentsReportedTwelve();'></button>" +
                 "</div>" +
 
-				"</div>" +
+                "</div>" +
                 "<div id='right'>" +
-                
+
 
                 "<div class='num' >" +
                 "<button type='submit' class='clickAdd' onclick='addOUT(1); incidentsReportedOneOUT();' ></button> " +
@@ -200,7 +200,7 @@ var IRView = function () {
 
 
             $(".body").html(body);
-			
+
             var footer =
                 "<button type='button' class='blueButtons' onClick='getIRValues(); getIRValuesOUT(); irComplete();'>SUBMIT</button>" +
                 "<button type='button' class='exitButton'>EXIT</button>" +
@@ -216,7 +216,7 @@ var IRView = function () {
 
             var body = "<p>Incident Report has been successfully submitted</p>"
 
-            var footer = "<button type='button' class='blueButtons' onClick='insertSHR()'>LOGOUT</button>";
+            var footer = "<button type='button' class='blueButtons' onClick='insertSHR()'>HOME</button>";
             $(".heading").text(header);
             $(".body").html(body);
             $(".footer").html(footer);
