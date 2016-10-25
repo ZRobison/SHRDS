@@ -1,34 +1,37 @@
 var LogonView = function () {
 
     this.render = function () {
-        var header = "SLSA SHRDS";	
+        var header = "SLSA SHRDS";
 
-        var body =			
+        var body =
             "<div class='radBut'>" +
+            "<div class='formSelRad'>" +
             "<input onClick='selected()' type='radio' name='radio' id='radio1' class='radio' value='checked' >" +
-            "<label for='radio1'>TSO</label>" +
+            "<label for='radio1'>TSO</label></div>" +
             "</div>" +
 
             "<div class='radBut'>" +
+            "<div class='formSelRad'>" +
             "<input onClick='selected()' type='radio' name='radio' id='radio2' class='radio' value='checked'/>" +
-            "<label for='radio2'>Incident Report</label>" +
+            "<label for='radio2'>Incident Report</label></div>" +
             "</div>" +
 
             "<div class='radBut'>" +
+            "<div class='formSelRad'>" +
             "<input onClick='selected()' type='radio' name='radio' id='radio3' class='radio' value='checked'/>" +
-            "<label for='radio3'>Admin</label>" +
+            "<label for='radio3'>Admin</label></div>" +
             "</div>" +
             "<div id='forming'></div>" +
-			"<div id='logonmessage'></div>" +
-            "<div class ='error'></div>" ;
-		
-		
+            "<div id='logonmessage'></div>" +
+            "<div class ='error'></div>";
+
+
 
 
         $(".heading").text(header);
         $(".body").html(body);
 
-    }		
+    }
 }
 
 function selected() {
@@ -56,5 +59,5 @@ function selected() {
     }
     var footer =
         "<button type='submit' class='blueButtons' id='loginBut' onclick='verify_user()'>LOGIN</button>";
-    $(".footer").html(footer);	
+    $(".footer").html(footer);
 }
