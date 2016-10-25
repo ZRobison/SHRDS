@@ -18,8 +18,9 @@ html {
 
 body {
     font-weight: bold;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
     font-family: Geneva, Tahoma, Verdana, sans-serif;
+    min-width: 100px;
 }
 
 p {
@@ -128,7 +129,8 @@ input.radio:empty~label {
     cursor: pointer;
     border: 1px solid black;
     box-shadow: 5px 5px 2.5px #333;
-    font-size: 100%;
+    font-size: 110%;
+    margin-left: 2%;
 }
 
 input.radio:empty~label:before {
@@ -146,10 +148,6 @@ input.radio:hover:not(:checked)~label:before {
     content: '\2714';
     text-indent: .9em;
     color: #C2C2C2;
-}
-
-input.radio:hover:not(:checked)~label {
-    color: #888;
 }
 
 input.radio:checked~label:before {
@@ -190,10 +188,7 @@ input.radio:checked~label {
 .formSelRad input.radio:empty~label {
     color: white;
     background-color: #0060A9;
-    width: 20%;
-    margin-top: 5%;
-    letter-spacing: 0.04em;
-    min-width: 200px;
+    text-align: center;
 }
 
 #radBut2 {
@@ -277,12 +272,6 @@ select {
     box-shadow: inset 0px 1px 0px #827066, 0px 3px 0px #19120f, 0px 6px 3px #382e29;
 }
 
-#windDirBox {
-    position: relative;
-    top: -100px;
-    text-shadow: 1px 1px 1px #ccc;
-}
-
 .error {
     color: #ED1C2E;
     font-style: italic;
@@ -355,6 +344,10 @@ input[type="submit"] {
         width: 300px;
         position: relative;
     }
+    .formSelRad input.radio:empty~label {
+        width: 90%;
+        margin-top: 40px;
+    }
 }
 
 
@@ -380,8 +373,8 @@ input[type="submit"] {
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 80%;
-        margin-top: 30%;
+        width: 85%;
+        margin-top: 15%;
     }
     #windDirBox {
         position: relative;
@@ -416,8 +409,8 @@ input[type="submit"] {
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 60%;
-        margin-top: 20%;
+        width: 70%;
+        margin-top: 10%;
     }
     #windDirBox {
         margin-top: 6%;
@@ -449,8 +442,8 @@ input[type="submit"] {
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 40%;
-        margin-top: 10%;
+        width: 55%;
+        margin-top: 6%;
     }
     #windDirBox {
         margin-top: 4%;
@@ -482,7 +475,7 @@ input[type="submit"] {
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 35%;
+        width: 40%;
         margin-top: 5%;
     }
     #windDirBox {
@@ -511,8 +504,8 @@ input[type="submit"] {
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 25%;
-        margin-top: 5%;
+        width: 30%;
+        margin-top: 2%;
     }
 }
 
@@ -592,6 +585,8 @@ input[type="submit"] {
     color: #333;
     margin-top: 20px;
     padding: 14px;
+    padding-right: 5%;
+    padding-left: 5%;
     background-color: #FFD520;
     border: 2px solid #333;
     border-radius: 10px;
@@ -685,6 +680,7 @@ input[type="submit"] {
     width: 350px;
     height: 150px;
     border-radius: 12px;
+    border: 1px solid #333;
     padding: 5%;
     outline: none;
     background-color: beige;
@@ -727,4 +723,28 @@ input[type="submit"] {
     padding-left: 2%;
     width: 25%;
     float: left;
+}
+
+#prevailingWrapper {
+    text-align: center;
+}
+
+#windBox {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%;
+}
+
+#tideBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.textPrev {
+    width: 200;
+    margin-top: 10%;
+    color: #555;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 120%;
 }
