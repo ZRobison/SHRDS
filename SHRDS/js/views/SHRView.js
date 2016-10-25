@@ -65,7 +65,24 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.loginData.pID);
+    console.log(app.loginData.pID + "," +
+        "'" + app.prevalingSHRData.date + "'," +
+        "'" + app.prevalingSHRData.time + "'," +
+        "'" + app.prevalingSHRData.beach + "'," +
+        app.prevalingSHRData.SHR.pLDR + "," +
+        app.prevalingSHRData.SHR.pOHR + "," +
+        app.prevalingSHRData.SHR.pRCR + "," +
+        app.prevalingSHRData.SHR.pSTR + "," +
+        app.prevalingSHRData.SHR.pWHR + "," +
+        app.prevalingSHRData.SHR.pWPR + "," +
+        app.prevalingSHRData.SHR.pWTR + "," +
+        app.prevalingSHRData.SHR.pZWR + "," +
+        app.prevalingSHRData.SHR.totalSHR + "," +
+        app.prevalingSHRData.tideHieghtLow + "," +
+        app.prevalingSHRData.tideHieghtHigh + "," +
+        "'" + app.prevalingSHRData.tideTimeLow + "'," +
+        "'" + app.prevalingSHRData.tideTimeHigh + "'," +
+        "'" + app.prevalingSHRData.windDirection + "')");
 
 
 
@@ -217,7 +234,7 @@ function getSTR() {
         "<option value='3'>Excessive Chop (22-27 kts)</option>" +
         "<option value='4'>Extreme Chop (>27kts)</option>" +
         "</select>" +
-        
+
         "<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
         "<select class='allRatingsPos' name='STRCrossWavesForm'>" +
         "<option value='0' selected>No Cross Waves</option>" +
@@ -232,8 +249,8 @@ function getSTR() {
 
         " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
         "<button type='button' class='exitButton'>EXIT</button>";
-		
-		
+
+
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -445,7 +462,7 @@ function getSHR() {
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
-		"<div class='history'>"+getSHRHistory()+"</div>";
+        "<div class='history'>" + getSHRHistory() + "</div>";
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";

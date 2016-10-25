@@ -30,7 +30,7 @@ var PrevailingData = function () {
         this.tideHieghtLow = -1.0;
         this.tideHieghtHigh = -1.0;
         //needs to be reviewed 
-        //this.date = "";
+        this.date = "";
     }
 }
 var eventSpecifcSHRData = function () {
@@ -48,7 +48,7 @@ var eventSpecifcSHRData = function () {
         this.time = ""; //might need to change
         //need to be reviewed 
         //this.numberOfCraft = "";
-        //this.date = "";
+        this.date = "";
         this.gender = 'M';
         //this.raceNumber = -1;
     }
@@ -87,6 +87,7 @@ var eventSpecifcIRData = function () {
             this.round = "";
             this.craftType = "";
             this.numberOfCraft = "";
+            this.finalType = -1;
         }
     }
     // new login object
