@@ -22,6 +22,7 @@ var PrevailingView = function () {
             "</select>" +
 
             "<div class='textPrev'>Wind Direction</div>" +
+
             "<select name='windDirection'>" +
             "<option value='-1'>Select One</option>" +
             "<option value='North'>North</option>" +

@@ -84,6 +84,13 @@ var EventSpecificView = function () {
             "<option value='Board'>Board</option>" +
             "<option value='Boat'>Boat</option>" +
             "</select>" +
+			
+			"<div class='irTitles'>Gender:</div>" +
+            "<select name='ESGender'>" +
+            "<option value='-1' selected>Select one</option>" +
+            "<option value='Male'>Male</option>" +
+            "<option value='Female'>Female</option>" +
+            "</select>" +
 
             "<div class='irTitles'>In/Out:</div>" +
             "<div class='inlineOutIn'>" +         
