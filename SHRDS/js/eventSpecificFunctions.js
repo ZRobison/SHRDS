@@ -9,6 +9,7 @@ function getESValues() {
     check = check && finalES();
     check = check && craftTypeES();
     check = check && inOutES();
+	check = check && genderES();
     check = check && beachLocationES();
     if (check) {
         getFormDate();
@@ -20,18 +21,18 @@ function getESValues() {
     }
 }
 
-
-
-
 function arenaES() {
     var score = $("select[name=ESArena]").val();
     if (score == '-1') {
         return false;
-    } else {
+    } else if (app.SHRFlag == 2) {
         app.esSHRData.arena = score;
         return true;
+	} else {
+        app.esIRData.arena = score;
+        return true;
     }
-}
+} //added IR funtionality 
 
 function ageES() {
     var score = $("select[name=ESAge]").val();
@@ -103,16 +104,33 @@ function craftTypeES() {
     }
 }
 
-function inOutES() {
-    var score = $("input[name=ESInOut]").val();
-    if (score == "") {
+function genderES() {
+    var score = $("select[name=ESGender]").val();
+    if (score == '-1') {
         return false;
+    } else if (app.SHRFlag == 2) {
+        app.esSHRData.gender = score;
+		console.log(app.esSHRData.gender);
+        return true;
     } else {
-        app.esSHRData.inOrOut = score;
+        app.esIRData.gender = score;
+		console.log(app.esIRData.gender);
         return true;
     }
 }
 
+function inOutES() {
+    var score = $("input[name=ESInOut]").val();
+    if (score == "") {
+        return false;
+    }  else if (app.SHRFlag == 2) {
+        app.esSHRData.inOrOut = score;
+        return true;
+	} else {
+        app.esIRData.inOrOut = score;
+        return true;
+    }
+} //added IR funtionality 
 
 function beachLocationES() {
     var score = $("input[name=ESBeach]").val();
