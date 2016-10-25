@@ -6,7 +6,7 @@ function getFormTime() {
         app.esSHRData.time = addZero(date.getHours()) + ":" + addZero(date.getMinutes());
         console.log("setting time equal to: " + app.esSHRData.time);
     } else if (app.SHRFlag == 1) {
-        app.prevailingSHRData.time = addZero(date.getHours()) + ":" + addZero(date.getMinutes());
+        app.prevalingSHRData.time = addZero(date.getHours()) + ":" + addZero(date.getMinutes());
 
     } else {
         app.esIRData.time = addZero(date.getHours()) + ":" + addZero(date.getMinutes());
