@@ -12,14 +12,10 @@ var PrevailingView = function () {
 
             "<div id='windBox'>" +
 
-            "<div class='textPrev'>Beach</div>" +
-            "<select name='prevailingBeach'>" +
-            "<option value='-1'>Select One</option>" +
-            "<option value='Beach1'>Beach1</option>" +
-            "<option value='Beach2'>Beach2</option>" +
-            "<option value='Beach3'>Beach3</option>" +
-            "<option value='Beach4'>Beach4</option>" +
-            "</select>" +
+            "<div class='textPrev'>Beach</div>" +		
+			"<div>" +
+            "<input type='text' name='beachName' placeholder = 'Beach'>" +
+            "</div>" +
 
             "<div class='textPrev'>Wind Direction</div>" +
 
