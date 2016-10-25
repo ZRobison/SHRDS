@@ -13,6 +13,7 @@ function getESValues() {
     if (check) {
         getFormDate();
         getFormTime();
+        console.log("setting time equal to: " + app.esSHRData.time);
         routeIS();
     } else {
         console.log("error");
@@ -125,23 +126,4 @@ function beachLocationES() {
         app.esIRData.beach = score;
         return true;
     }
-}
-
-function getFormTime() {
-    var date = new Date()
-    if (app.SHRFlag == 2) {
-        app.prevalingSHRData.time = date.getHours() + ":" + date.getMinutes();
-    } else {
-        app.esIRData.time = date.getHours() + ":" + date.getMinutes();
-    }
-}
-
-function getFormDate() {
-    var d = new Date();
-    if (app.SHRFlag == 2) {
-        app.prevalingSHRData.date = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
-    } else {
-        app.esIRData.time = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
-    }
-
 }

@@ -65,24 +65,13 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.loginData.pID + "," +
-        "'" + app.prevalingSHRData.date + "'," +
-        "'" + app.prevalingSHRData.time + "'," +
-        "'" + app.prevalingSHRData.beach + "'," +
-        app.prevalingSHRData.SHR.pLDR + "," +
-        app.prevalingSHRData.SHR.pOHR + "," +
-        app.prevalingSHRData.SHR.pRCR + "," +
-        app.prevalingSHRData.SHR.pSTR + "," +
-        app.prevalingSHRData.SHR.pWHR + "," +
-        app.prevalingSHRData.SHR.pWPR + "," +
-        app.prevalingSHRData.SHR.pWTR + "," +
-        app.prevalingSHRData.SHR.pZWR + "," +
-        app.prevalingSHRData.SHR.totalSHR + "," +
-        app.prevalingSHRData.tideHieghtLow + "," +
-        app.prevalingSHRData.tideHieghtHigh + "," +
-        "'" + app.prevalingSHRData.tideTimeLow + "'," +
-        "'" + app.prevalingSHRData.tideTimeHigh + "'," +
-        "'" + app.prevalingSHRData.windDirection + "')");
+    console.log(app.esSHRData.age + "','" +
+        app.esSHRData.gender + "'," +
+        10 + ",'" + //Starting craft - fill in SHR Data Object
+        app.esSHRData.craftType + "'," +
+        app.esSHRData.round + "," +
+        app.esSHRData.heat + ",'" +
+        app.esSHRData.finalType);
 
 
 
@@ -125,6 +114,13 @@ function getWTR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
+    console.log(app.esSHRData.age + "','" +
+        app.esSHRData.gender + "'," +
+        10 + ",'" + //Starting craft - fill in SHR Data Object
+        app.esSHRData.craftType + "'," +
+        app.esSHRData.round + "," +
+        app.esSHRData.heat + ",'" +
+        app.esSHRData.finalType);
 
 
     var footer =
@@ -204,6 +200,13 @@ function getZWR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
+    console.log(app.esSHRData.age + "','" +
+        app.esSHRData.gender + "'," +
+        10 + ",'" + //Starting craft - fill in SHR Data Object
+        app.esSHRData.craftType + "'," +
+        app.esSHRData.round + "," +
+        app.esSHRData.heat + ",'" +
+        app.esSHRData.finalType);
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"ZWR"' + ", " + getZWRvalue + ")' >NEXT</button>" +
@@ -320,6 +323,13 @@ function getRCR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
+    console.log(app.esSHRData.age + "','" +
+        app.esSHRData.gender + "'," +
+        10 + ",'" + //Starting craft - fill in SHR Data Object
+        app.esSHRData.craftType + "'," +
+        app.esSHRData.round + "," +
+        app.esSHRData.heat + ",'" +
+        app.esSHRData.finalType);
 
 
     var footer =
@@ -385,6 +395,13 @@ function getOHR() {
 
 function getREV() {
     var header = "Review SHR";
+    console.log(app.esSHRData.age + "','" +
+        app.esSHRData.gender + "'," +
+        10 + ",'" + //Starting craft - fill in SHR Data Object
+        app.esSHRData.craftType + "'," +
+        app.esSHRData.round + "," +
+        app.esSHRData.heat + ",'" +
+        app.esSHRData.finalType);
 
     if (app.SHRFlag == 1) {
         var pWHR = app.prevalingSHRData.SHR.pWHR;
@@ -466,6 +483,7 @@ function getSHR() {
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";
+
 
 
     var shr = -1;
