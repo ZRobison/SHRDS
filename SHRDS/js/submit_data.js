@@ -49,8 +49,7 @@ function insertSHR() {
     //If we have an event specific SHR
     else if (app.SHRFlag == 2) {
         var eventcheckSQL = "SELECT RACE_ID FROM RACE WHERE " +
-            "TIME = '" + app.esSHRData.time + "' " +
-            "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+            "AGE_GROUP = '" + app.esSHRData.age + "' " +
             "AND GENDER = '" + app.esSHRData.gender + "' " +
             "AND STARTING_CRAFT = 10 " +
             "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
@@ -59,8 +58,8 @@ function insertSHR() {
             "AND FINAL = '" + app.esSHRData.finalType + "' " +
             "AND GENDER = '" + app.esSHRData.gender + "'";
         var eventInsertSQL =
-            "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL, GENDER)" +
-            "VALUES ('" + app.esSHRData.time + "','" +
+            "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL, GENDER)" +
+            "VALUES ('" +
             app.esSHRData.age + "','" +
             app.esSHRData.gender + "'," +
             10 + ",'" + //Starting craft - fill in SHR Data Object
@@ -85,8 +84,7 @@ function insertSHR() {
             app.esSHRData.SHR.pZWR + "," +
             app.esSHRData.SHR.totalSHR + "," +
             "(SELECT RACE_ID FROM RACE WHERE " +
-            "TIME = '" + app.esSHRData.time + "' " +
-            "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+            "AGE_GROUP = '" + app.esSHRData.age + "' " +
             "AND GENDER = '" + app.esSHRData.gender + "' " +
             "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
             "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
@@ -133,8 +131,7 @@ function insertSHR() {
                         app.esSHRData.SHR.pZWR + "," +
                         app.esSHRData.SHR.totalSHR + "," +
                         "(SELECT RACE_ID FROM RACE WHERE " +
-                        "TIME = '" + app.esSHRData.time + "' " +
-                        "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+                        "AGE_GROUP = '" + app.esSHRData.age + "' " +
                         "AND GENDER = '" + app.esSHRData.gender + "' " +
                         "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
                         "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
@@ -158,8 +155,7 @@ function insertSHR() {
     //Otherwise we have an incident report
     else {
         var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
-            "TIME = '" + app.esIRData.time + "' " +
-            "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+            "AGE_GROUP = '" + app.esIRData.age + "' " +
             "AND GENDER = '" + app.esIRData.gender + "' " +
             "AND STARTING_CRAFT = 10 " +
             "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
@@ -177,9 +173,8 @@ function insertSHR() {
             function (data) {
                 if (data.Result == null || data.Result == "") {
                     console.log("preparing event sql for submission")
-                    var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+                    var eventSQL = "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
                         "VALUES ('" +
-                        app.esIRData.time + "','" +
                         app.esIRData.age + "','" +
                         app.esIRData.gender + "'," +
                         10 + ",'" + //Starting craft - fill in SHR Data Object
@@ -194,14 +189,13 @@ function insertSHR() {
                         "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
                         //Race ID is a big select statemeent - is it is an auto increment value in the DB
                         "(SELECT RACE_ID FROM RACE WHERE " +
-                        "TIME = '" + app.esIRData.time + "' " +
-                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AGE_GROUP = '" + app.esIRData.age + "' " +
                         "AND GENDER = '" + app.esIRData.gender + "' " +
                         "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
                         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
                         "AND ROUND = " + app.esIRData.round + " " +
                         "AND HEAT = " + app.esIRData.heat + " " +
-                        "AND FINAL = '" + app.esIRData.finalType + "')" +
+                        "AND FINAL = '" + app.esIRData.finalType + "')," +
                         app.loginData.pID + "," +
                         "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
                         app.esIRData.IRIN.pDNF + "," +
@@ -225,8 +219,7 @@ function insertSHR() {
                     var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
                         //Race ID is a big select statemeent - is it is an auto increment value in the DB
                         "(SELECT RACE_ID FROM RACE WHERE " +
-                        "TIME = '" + app.esIRData.time + "' " +
-                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AGE_GROUP = '" + app.esIRData.age + "' " +
                         "AND GENDER = '" + app.esIRData.gender + "' " +
                         "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
                         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
@@ -262,16 +255,15 @@ function insertSHR() {
                     var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
                         //Race ID is a big select statemeent - is it is an auto increment value in the DB
                         "(SELECT RACE_ID FROM RACE WHERE " +
-                        "TIME = '" + app.esIRData.time + "' " +
-                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AGE_GROUP = '" + app.esIRData.age + "' " +
                         "AND GENDER = '" + app.esIRData.gender + "' " +
                         "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
                         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
                         "AND ROUND = " + app.esIRData.round + " " +
                         "AND HEAT = " + app.esIRData.heat + " " +
-                        "AND FINAL = '" + app.esIRData.finalType + "'" +
+                        "AND FINAL = '" + app.esIRData.finalType + "')," +
                         app.loginData.pID + "," +
-                        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                        "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
                         app.esIRData.IRIN.pDNF + "," +
                         app.esIRData.IRIN.pFlyingCraft + "," +
                         app.esIRData.IRIN.FOWave + "," +
@@ -292,8 +284,7 @@ function insertSHR() {
                     var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
                         //Race ID is a big select statemeent - is it is an auto increment value in the DB
                         "(SELECT RACE_ID FROM RACE WHERE " +
-                        "TIME = '" + app.esIRData.time + "' " +
-                        "AND AGE_GROUP = '" + app.esIRData.age + "' " +
+                        "AGE_GROUP = '" + app.esIRData.age + "' " +
                         "AND GENDER = '" + app.esIRData.gender + "' " +
                         "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
                         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
@@ -322,6 +313,11 @@ function insertSHR() {
             }
 
         );
+    }
+    if (app.SHRFlag == 1 || app.SHRFlag == 2) {
+        window.location.hash = "#formSelect";
+    } else {
+        window.location.hash = "#eventSpecific";
     }
 }
 

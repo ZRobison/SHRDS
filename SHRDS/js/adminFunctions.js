@@ -40,6 +40,8 @@ function getFormMetaData() {
                 dbconfig.dbUser,
                 sql,
                 function (data) {
+                    //SQL for Incident Data
+
                     if (data.Result != null && data.Result != "") {
                         for (var i = 0; i < data.Result.length; i++) {
                             name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
@@ -55,7 +57,6 @@ function getFormMetaData() {
                     }
                 }
             );
-            console.log(JSON.stringify(data));
             if (data.Result != null && data.Result != "") {
                 for (var i = 0; i < data.Result.length; i++) {
                     name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
