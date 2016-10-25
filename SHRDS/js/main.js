@@ -28,7 +28,7 @@ var app = {
 	
 
         //URL detection
-        this.incidentStartURL = [/^#incident1/, /#irComplete/];
+        this.incidentStartURL = [/^#incident1/, /^#incident2/, /#irComplete/];
         this.prevailingStartURL = /^#prevailing1/;
         this.eventSpecificURL = /^#eventSpecific/;
         this.formSelectURL = /^#formSelect/;
@@ -123,6 +123,8 @@ var app = {
         } else if (hash.match(app.incidentStartURL[0])) {
             new IRView().render("irFill");
         } else if (hash.match(app.incidentStartURL[1])) {
+            new IRView().render("irFill2");
+        } else if (hash.match(app.incidentStartURL[2])) {
             new IRView().render("irDone");
         } else if (hash.match(app.adminURLS[0])) {
             new AdminSelectView().render("formSelect");
