@@ -2,9 +2,6 @@ var statementSitch = 0;
 //Do to the way the external MYSql.JS script works with callback function, all sql statements must be perfomred in sequence and 
 //cannot be encapsulated into re-useable functions
 function insertSHR() {
-    console.log("Insert function firing");
-    console.log(app.SHRFlag == 1);
-    console.log(app.loginData.pID);
 
 
 
@@ -51,7 +48,7 @@ function insertSHR() {
     }
     //If we have an event specific SHR
     else if (app.SHRFlag == 2) {
-        var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
+        var eventcheckSQL = "SELECT RACE_ID FROM RACE WHERE " +
             "TIME = '" + app.esSHRData.time + "' " +
             "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
             "AND GENDER = '" + app.esSHRData.gender + "' " +
@@ -59,7 +56,46 @@ function insertSHR() {
             "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
             "AND ROUND = " + app.esSHRData.round + " " +
             "AND HEAT = " + app.esSHRData.heat + " " +
-            "AND FINAL = '" + app.esSHRData.finalType + "'";
+            "AND FINAL = '" + app.esSHRData.finalType + "' " +
+            "AND GENDER = '" + app.esSHRData.gender + "'";
+        var eventInsertSQL =
+            "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL, GENDER)" +
+            "VALUES ('" + app.esSHRData.time + "','" +
+            app.esSHRData.age + "','" +
+            app.esSHRData.gender + "'," +
+            10 + ",'" + //Starting craft - fill in SHR Data Object
+            app.esSHRData.craftType + "'," +
+            app.esSHRData.round + "," +
+            app.esSHRData.heat + ",'" +
+            app.esSHRData.finalType + "','" +
+            app.esSHRData.gender + "')";
+        var esSHRInsertSQL =
+            "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+            app.loginData.pID + "," +
+            "'" + app.esSHRData.date + "'," +
+            "'" + app.esSHRData.time + "'," +
+            "'" + app.esSHRData.beach + "'," +
+            app.esSHRData.SHR.pLDR + "," +
+            app.esSHRData.SHR.pOHR + "," +
+            app.esSHRData.SHR.pRCR + "," +
+            app.esSHRData.SHR.pSTR + "," +
+            app.esSHRData.SHR.pWHR + "," +
+            app.esSHRData.SHR.pWPR + "," +
+            app.esSHRData.SHR.pWTR + "," +
+            app.esSHRData.SHR.pZWR + "," +
+            app.esSHRData.SHR.totalSHR + "," +
+            "(SELECT RACE_ID FROM RACE WHERE " +
+            "TIME = '" + app.esSHRData.time + "' " +
+            "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
+            "AND GENDER = '" + app.esSHRData.gender + "' " +
+            "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
+            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+            "AND ROUND = " + app.esSHRData.round + " " +
+            "AND HEAT = " + app.esSHRData.heat + " " +
+            "AND FINAL = '" + app.esSHRData.finalType + "')," +
+            "0, '12:00', '11:30', TRUE)";
+
+        console.log(app.esSHRData.age);
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
@@ -69,45 +105,12 @@ function insertSHR() {
             //Check if an event with the exact same details currently exists, if not create one
             function (data) {
                 if (data.Result == null || data.Result == "") {
-                    console.log("preparing event sql for submission")
-                    var eventSQL = "INSERT INTO RACE (TIME, AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
-                        "VALUES ('" + app.esSHRData.time + "','" +
-                        app.esSHRData.age + "','" +
-                        app.esSHRData.gender + "'," +
-                        10 + ",'" + //Starting craft - fill in SHR Data Object
-                        app.esSHRData.craftType + "'," +
-                        app.esSHRData.round + "," +
-                        app.esSHRData.heat + ",'" +
-                        app.esSHRData.finalType + "')";
+                    console.log(app.esSHRData.age);
+                    var eventSQL =
 
-                    console.log(eventSQL);
-                    submit(eventSQL);
-                    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
-                        app.loginData.pID + "," +
-                        "'" + app.esSHRData.date + "'," +
-                        "'" + app.esSHRData.time + "'," +
-                        "'" + app.esSHRData.beach + "'," +
-                        app.esSHRData.SHR.pLDR + "," +
-                        app.esSHRData.SHR.pOHR + "," +
-                        app.esSHRData.SHR.pRCR + "," +
-                        app.esSHRData.SHR.pSTR + "," +
-                        app.esSHRData.SHR.pWHR + "," +
-                        app.esSHRData.SHR.pWPR + "," +
-                        app.esSHRData.SHR.pWTR + "," +
-                        app.esSHRData.SHR.pZWR + "," +
-                        app.esSHRData.SHR.totalSHR + "," +
-                        "(SELECT RACE_ID FROM RACE WHERE " +
-                        "TIME = '" + app.esSHRData.time + "' " +
-                        "AND AGE_GROUP = '" + app.esSHRData.age + "' " +
-                        "AND GENDER = '" + app.esSHRData.gender + "' " +
-                        "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-                        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-                        "AND ROUND = " + app.esSHRData.round + " " +
-                        "AND HEAT = " + app.esSHRData.heat + " " +
-                        "AND FINAL = '" + app.esSHRData.finalType + "')," +
-                        "0, '12:00', '11:30', TRUE)";
-                    console.log("submitting SHRData")
-                    submit(sql);
+                        console.log(eventInsertSQL);
+                    submit(eventInsertSQL);
+                    submit(esSHRInsertSQL);
 
 
                 }
@@ -163,6 +166,7 @@ function insertSHR() {
             "AND ROUND = " + app.esIRData.round + " " +
             "AND HEAT = " + app.esIRData.heat + " " +
             "AND FINAL = '" + app.esIRData.finalType + "'";
+
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
@@ -183,11 +187,11 @@ function insertSHR() {
                         app.esIRData.round + "," +
                         app.esIRData.heat + ",'" +
                         app.esIRData.finalType + "')";
-
-                    console.log("submitting EVENT Data");
+                    console.log(eventSQL);
                     submit(eventSQL);
                     //Submit the in version of the IR report
-                    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+                    var sql =
+                        "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
                         //Race ID is a big select statemeent - is it is an auto increment value in the DB
                         "(SELECT RACE_ID FROM RACE WHERE " +
                         "TIME = '" + app.esIRData.time + "' " +
@@ -197,7 +201,7 @@ function insertSHR() {
                         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
                         "AND ROUND = " + app.esIRData.round + " " +
                         "AND HEAT = " + app.esIRData.heat + " " +
-                        "AND FINAL = '" + app.esIRData.finalType + "')," +
+                        "AND FINAL = '" + app.esIRData.finalType + "')" +
                         app.loginData.pID + "," +
                         "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
                         app.esIRData.IRIN.pDNF + "," +
@@ -265,7 +269,7 @@ function insertSHR() {
                         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
                         "AND ROUND = " + app.esIRData.round + " " +
                         "AND HEAT = " + app.esIRData.heat + " " +
-                        "AND FINAL = '" + app.esIRData.finalType + "')," +
+                        "AND FINAL = '" + app.esIRData.finalType + "'" +
                         app.loginData.pID + "," +
                         "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
                         app.esIRData.IRIN.pDNF + "," +
