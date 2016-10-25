@@ -12,8 +12,8 @@ var PrevailingView = function () {
 
             "<div id='windBox'>" +
 
-            "<div class='textPrev'>Beach</div>" +		
-			"<div>" +
+            "<div class='textPrev'>Beach</div>" +
+            "<div>" +
             "<input type='text' name='beachName' placeholder = 'Beach'>" +
             "</div>" +
 
@@ -32,7 +32,7 @@ var PrevailingView = function () {
             "</select>" +
 
             "<div class='textPrev'>Wind Speed</div><br><br>" +
-            "<input type='text' name='windSpeed' placeholder='10 Knotts'>" +
+            "<input type='text' name='windSpeed' placeholder=''>" +
 
             "</div>" + //wind
 
@@ -40,9 +40,9 @@ var PrevailingView = function () {
 
             "<div class='textPrev'>Nearest Tides</div>" +
             "<div class='textPrev'>Low tide time</div>" +
-            "<input type='text' name='tideTimeLow' placeholder='hr:mi:se'>" + //I think there is the time of the 2 nearest tides??
+            "<input type='text' name='tideTimeLow' placeholder='HH:MM'>" + //I think there is the time of the 2 nearest tides??
             "<div class='textPrev'>High tide time</div>" +
-            "<input type='text' name='tideTimeHigh' placeholder='hr:mi:se'>" +
+            "<input type='text' name='tideTimeHigh' placeholder='HH:MM'>" +
             "<div class='textPrev'>Low tide Height</div>" +
             "<input type='text' name='tideHieghtLow' placeholder='Height'>" +
             "<div class='textPrev'>High tide Height</div>" +

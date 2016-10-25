@@ -17,6 +17,8 @@ function getFormDate() {
     var d = new Date();
     if (app.SHRFlag == 2) {
         app.esSHRData.date = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+    } else if (app.SHRFlag == 1) {
+        app.prevalingSHRData.date = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
     } else {
         app.esIRData.time = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
     }
