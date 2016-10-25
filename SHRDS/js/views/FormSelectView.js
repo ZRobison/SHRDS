@@ -4,7 +4,7 @@ var FormSelectView = function () {
         var body =
             "<div class='formSelRad'>" +
             "<input type='radio' name='shrRadio' id='shrRadio1' class='radio' value='checked' >" +
-            "<label for='shrRadio1'>Prevailing Surf Hazard Rating</label></div>" +
+            "<label for='shrRadio1'>Prevailing Surf Hazard Rating</label></div><br><br><br>" +
             "<div class='formSelRad'>" +
             "<input type='radio' name='shrRadio' id='shrRadio2' class='radio' value='checked' >" +
             "<label for='shrRadio2'>Event Specific Surf Hazard Rating</label></div>";
