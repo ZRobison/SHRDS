@@ -21,7 +21,7 @@ var PrevailingData = function () {
     this.initialize = function () {
         this.SHR = new SHRData();
         this.SHR.initialize();
-        this.time = -1;
+        this.time = "";
         this.beach = -1;
         this.windDirection = -1;
         this.windSpeed = -1;
@@ -45,7 +45,7 @@ var eventSpecifcSHRData = function () {
         this.craftType = "";
         this.inOrOut = -1;
         this.beach = "";
-        this.time = ""; //might need to change
+        this.time = "";
         //need to be reviewed 
         //this.numberOfCraft = "";
         this.date = "";
