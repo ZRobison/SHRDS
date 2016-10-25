@@ -36,7 +36,6 @@ function insertSHR() {
         //app.prevalingSHRData.windSpeed+")" +  NOT IN DATA PBJECT YET
 
         //Descriptors to insert    
-        console.log(sql);
 
         submit(sql);
         //verifySubmission("select SHR");
@@ -55,10 +54,9 @@ function insertSHR() {
             "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
             "AND ROUND = " + app.esSHRData.round + " " +
             "AND HEAT = " + app.esSHRData.heat + " " +
-            "AND FINAL = '" + app.esSHRData.finalType + "' " +
-            "AND GENDER = '" + app.esSHRData.gender + "'";
+            "AND FINAL = '" + app.esSHRData.finalType + "' ";
         var eventInsertSQL =
-            "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL, GENDER)" +
+            "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
             "VALUES ('" +
             app.esSHRData.age + "','" +
             app.esSHRData.gender + "'," +
@@ -66,8 +64,7 @@ function insertSHR() {
             app.esSHRData.craftType + "'," +
             app.esSHRData.round + "," +
             app.esSHRData.heat + ",'" +
-            app.esSHRData.finalType + "','" +
-            app.esSHRData.gender + "')";
+            app.esSHRData.finalType + "')";
         var esSHRInsertSQL =
             "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
             app.loginData.pID + "," +
@@ -93,7 +90,6 @@ function insertSHR() {
             "AND FINAL = '" + app.esSHRData.finalType + "')," +
             "0, '12:00', '11:30', TRUE)";
 
-        console.log(app.esSHRData.age);
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
@@ -103,13 +99,19 @@ function insertSHR() {
             //Check if an event with the exact same details currently exists, if not create one
             function (data) {
                 if (data.Result == null || data.Result == "") {
-                    console.log(app.esSHRData.age);
-                    var eventSQL =
-
-                        console.log(eventInsertSQL);
-                    submit(eventInsertSQL);
-                    submit(esSHRInsertSQL);
-
+                    console.log(eventInsertSQL);
+                    MySql.Execute(
+                        dbconfig.host,
+                        dbconfig.dbUser,
+                        dbconfig.dbPassword,
+                        dbconfig.dbUser,
+                        eventInsertSQL,
+                        //Check if an event with the exact same details currently exists, if not create one
+                        function (data) {
+                            console.log("Submitted event sql, now submitting esSHR");
+                            submit(esSHRInsertSQL);
+                        }
+                    );
 
                 }
                 //Otherwise we have found an event but we still want to insert the SHR data
