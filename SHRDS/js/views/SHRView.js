@@ -479,7 +479,8 @@ function getSHR() {
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
-        "<div class='history'>" + getSHRHistory() + "</div>";
+        "<div class='history'>" + getSHRHistory() + "</div>" +
+		"<div class ='status'></div>";
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";
