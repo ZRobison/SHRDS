@@ -17,6 +17,290 @@ function insertSHR() {
     }
 }
 
+
+function flagUpdated(formType){
+	switch (formType){
+		case(1):
+			postPrevSubmit();
+		break;
+		case(2):
+			postESSubmit();		
+		break;
+		case(3):
+			postIRSubmit();
+		break;
+	}
+	  
+	app.updatedFlag = 0;  
+	app.watch('updatedFlag', function(id, oldval, newval){
+						app.unwatch('updatedFlag');
+						flagUpdated(newval); 
+						return newval;				
+					}
+		);
+}
+
+
+
+
+/**
+*
+* This is the first method in submitting Event spercifc data
+* It checks if that Race Already Exists, THen passes the information to the next method
+*
+*/
+function submitEventSpercific(){
+	var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
+            "AGE_GROUP = '" + app.esSHRData.age + "' " +
+            "AND GENDER = '" + app.esSHRData.gender + "' " +
+            "AND STARTING_CRAFT = 10 " +
+            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+            "AND ROUND = " + app.esSHRData.round + " " +
+            "AND HEAT = " + app.esSHRData.heat + " " +
+            "AND FINAL = '" + app.esSHRData.finalType + "' ";      
+
+        MySql.Execute(
+            dbconfig.host,
+            dbconfig.dbUser,
+            dbconfig.dbPassword,
+            dbconfig.dbUser,
+            eventSQL,
+            //Check if an event with the exact same details currently exists, if not create one
+            function (data) {function nest(){submitESDataAfterCheck(data);};  nest();}
+            );
+}
+
+
+/**
+*
+* If the data qurried returns something then we know that the race already exist so just submit data, 
+* else creat an event then submit data
+*
+*/
+function submitESDataAfterCheck(data){
+    if (data.Result == null || data.Result == "") {
+        submitESAfterCheckFalse();
+    }
+    //Otherwise we have found an event but we still want to insert the SHR data
+    else {
+        submitESAfterCheckTrue();                    
+    }
+	app.esSHRArrayUnfinished.push(app.esSHRData);
+	app.esSHRArray.push(app.esSHRData);
+	app.resetData();
+	//After everythign has been done go back home
+	window.location.hash = "#formSelect";
+            
+}
+
+/**
+*
+* IF the data check is true just submit data
+*
+*/
+function submitESAfterCheckFalse(){
+		  var esSHRInsertSQL =
+            "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+            app.loginData.pID + "," +
+            "'" + app.esSHRData.date + "'," +
+            "'" + app.esSHRData.time + "'," +
+            "'" + app.esSHRData.beach + "'," +
+            app.esSHRData.SHR.pLDR + "," +
+            app.esSHRData.SHR.pOHR + "," +
+            app.esSHRData.SHR.pRCR + "," +
+            app.esSHRData.SHR.pSTR + "," +
+            app.esSHRData.SHR.pWHR + "," +
+            app.esSHRData.SHR.pWPR + "," +
+            app.esSHRData.SHR.pWTR + "," +
+            app.esSHRData.SHR.pZWR + "," +
+            app.esSHRData.SHR.totalSHR + "," +
+            "(SELECT RACE_ID FROM RACE WHERE " +
+            "AGE_GROUP = '" + app.esSHRData.age + "' " +
+            "AND GENDER = '" + app.esSHRData.gender + "' " +
+            "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
+            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+            "AND ROUND = " + app.esSHRData.round + " " +
+            "AND HEAT = " + app.esSHRData.heat + " " +
+            "AND FINAL = '" + app.esSHRData.finalType + "')," +
+            "0, '12:00', '11:30', TRUE)";
+		
+
+	 var eventInsertSQL =
+            "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+            "VALUES ('" +
+            app.esSHRData.age + "','" +
+            app.esSHRData.gender + "'," +
+            10 + ",'" + //Starting craft - fill in SHR Data Object
+            app.esSHRData.craftType + "'," +
+            app.esSHRData.round + "," +
+            app.esSHRData.heat + ",'" +
+            app.esSHRData.finalType + "')";
+			
+			
+	  
+                    MySql.Execute(
+                        dbconfig.host,
+                        dbconfig.dbUser,
+                        dbconfig.dbPassword,
+                        dbconfig.dbUser,
+                        eventInsertSQL,
+                        //Check if an event with the exact same details currently exists, if not create one
+                        function (data) {
+                            
+                            
+							MySql.Execute(
+								dbconfig.host,
+								dbconfig.dbUser,
+								dbconfig.dbPassword,
+								dbconfig.dbUser,
+								esSHRInsertSQL,
+								//Currently function can be empty as call back will not return anything
+								function (data) {function nest(){app.updatedFlag = 2;};  nest();}
+							);
+                        }
+                    );
+}
+
+/**
+*
+* Race already exists so just inset data
+*
+*/
+function submitESAfterCheckTrue(){
+	
+	
+                    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+                        app.loginData.pID + "," +
+                        "'" + app.esSHRData.date + "'," +
+                        "'" + app.esSHRData.time + "'," +
+                        "'" + app.esSHRData.beach + "'," +
+                        app.esSHRData.SHR.pLDR + "," +
+                        app.esSHRData.SHR.pOHR + "," +
+                        app.esSHRData.SHR.pRCR + "," +
+                        app.esSHRData.SHR.pSTR + "," +
+                        app.esSHRData.SHR.pWHR + "," +
+                        app.esSHRData.SHR.pWPR + "," +
+                        app.esSHRData.SHR.pWTR + "," +
+                        app.esSHRData.SHR.pZWR + "," +
+                        app.esSHRData.SHR.totalSHR + "," +
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "AGE_GROUP = '" + app.esSHRData.age + "' " +
+                        "AND GENDER = '" + app.esSHRData.gender + "' " +
+                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+                        "AND ROUND = " + app.esSHRData.round + " " +
+                        "AND HEAT = " + app.esSHRData.heat + " " +
+                        "AND FINAL = '" + app.esSHRData.finalType + "')," +
+                        "0, '12:00', '11:30', TRUE)";
+                    
+					MySql.Execute(
+						dbconfig.host,
+						dbconfig.dbUser,
+						dbconfig.dbPassword,
+						dbconfig.dbUser,
+						sql,
+						//Currently function can be empty as call back will not return anything
+						function (data) {function nest(){app.updatedFlag = 2;};  nest();}
+					);
+}
+
+function postESSubmit() {
+    app.esSHRArrayFinished.push(app.esSHRArrayUnfinished.push[app.esSHRArrayUnfinished.push.length-1]);
+	app.esSHRArrayUnfinished.pop();
+	if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0){
+		$(".error").text("");
+		$(".good").text("All data has been successfully sent to the server.");
+	} else {
+		$(".good").text("");
+		$(".error").text("Some data you have collected is in the process of or could not be sent to the server. Please find internet connection and press the sync button.");
+	}
+}
+
+/**
+*
+* Submit the the prevailing data into the data base.
+*
+**/ 
+function submitPrevailing(){
+	$('.status').text("Attempting to Submit Data to Server...");
+	
+        var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
+         
+            app.loginData.pID + "," +
+            "'" + app.prevalingSHRData.date + "'," +
+            "'" + app.prevalingSHRData.time + "'," +
+            "'" + app.prevalingSHRData.beach + "'," +
+            app.prevalingSHRData.SHR.pLDR + "," +
+            app.prevalingSHRData.SHR.pOHR + "," +
+            app.prevalingSHRData.SHR.pRCR + "," +
+            app.prevalingSHRData.SHR.pSTR + "," +
+            app.prevalingSHRData.SHR.pWHR + "," +
+            app.prevalingSHRData.SHR.pWPR + "," +
+            app.prevalingSHRData.SHR.pWTR + "," +
+            app.prevalingSHRData.SHR.pZWR + "," +
+            app.prevalingSHRData.SHR.totalSHR + "," +
+            app.prevalingSHRData.tideHieghtLow + "," +
+            app.prevalingSHRData.tideHieghtHigh + "," +
+            "'" + app.prevalingSHRData.tideTimeLow + "'," +
+            "'" + app.prevalingSHRData.tideTimeHigh + "'," +
+            "'" + app.prevalingSHRData.windDirection + "'," +
+            app.prevalingSHRData.windSpeed + "," +
+            "FALSE)"; //False as this is a prevailing report
+
+        //Descriptors to insert    
+		MySql.Execute(
+			dbconfig.host,
+			dbconfig.dbUser,
+			dbconfig.dbPassword,
+			dbconfig.dbUser,
+			sql,
+			//Currently function can be empty as call back will not return anything
+			function (data) {function nest(){checkPrev();};  nest();}
+		);
+		app.prevSHRArrayUnfinished.push(app.prevalingSHRData);
+		app.prevSHRArray.push(app.prevalingSHRData);
+		app.resetData();
+		//After everythign has been done go back home
+		window.location.hash = "#formSelect";
+}
+
+function checkPrev(){
+	$('.status').text("Success! Verifying changes...");
+	 var sql = "SELECT * FROM SHR WHERE " +
+            "USER_ID='" +app.loginData.pID + "' AND " +
+            "DATE='" + app.prevalingSHRData.date + "' AND " +
+            "TIME='" + app.prevalingSHRData.time + "';";  
+			
+		MySql.Execute(
+			dbconfig.host,
+			dbconfig.dbUser,
+			dbconfig.dbPassword,
+			dbconfig.dbUser,
+			sql,
+			function (data) {function nest(){ app.updatedFlag = 1;};  nest();}
+		);
+	
+}
+
+
+
+
+
+function postPrevSubmit(){
+    app.prevSHRArrayFinished.push(app.prevSHRArrayUnfinished[app.prevSHRArrayUnfinished.length-1]);
+	app.prevSHRArrayUnfinished.pop();
+	if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0){
+		$(".error").text("");
+		$(".good").text("All data has been successfully sent to the server.");
+	} else {
+		$(".good").text("");
+		$(".error").text("Some data you have collected is in the process of or could not be sent to the server. Please find internet connection and press the sync button.");
+	}
+ 
+}
+
+
+
 /**
 *
 * Submit IR Data
@@ -39,7 +323,7 @@ function sumbitIncerdentReport(){
             dbconfig.dbUser,
             eventSQL,
             //Check if an event with the exact same details currently exists, if not create one
-            function (data) {function nest(){submitESDataAfterCheck(data);};  nest();}
+            function (data) {function nest(){submitIRDataAfterCheck(data);};  nest();}
         );
 }
 
@@ -58,8 +342,12 @@ function submitIRDataAfterCheck(data){
     else {
         submitIRAfterCheckTrue();                    
     }
-
-            
+	
+	app.irArrayUnfinished.push(app.esIRData);	
+	app.irArray.push(app.esIRData);
+    app.resetData();
+	//After everythign has been done go back home CHANGE!!!!!!!!!!!!!!!!
+	window.location.hash = "#eventSpecific";    		
 }
 
 /**
@@ -68,7 +356,7 @@ function submitIRDataAfterCheck(data){
 *
 */
 function submitIRAfterCheckFalse(){
-	console.log("preparing event sql for submission")
+	
                     var eventSQL = "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
                         "VALUES ('" +
                         app.esIRData.age + "','" +
@@ -78,7 +366,7 @@ function submitIRAfterCheckFalse(){
                         app.esIRData.round + "," +
                         app.esIRData.heat + ",'" +
                         app.esIRData.finalType + "')";
-                    console.log(eventSQL);
+                    
                     //Submit the in version of the IR report
                     var sql =
                         "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
@@ -107,7 +395,7 @@ function submitIRAfterCheckFalse(){
                         app.esIRData.IRIN.pCollisionSer + "," +
                         app.esIRData.IRIN.pCollisionMin + ")";
 
-                    console.log(sql);
+                    
                     MySql.Execute(
 								dbconfig.host,
 								dbconfig.dbUser,
@@ -152,7 +440,7 @@ function submitIRAfterCheckFalse(){
 								dbconfig.dbUser,
 								sql,
 								//Currently function can be empty as call back will not return anything
-								function (data) {function nest(){postIRSubmit();};  nest();}
+								function (data) {function nest(){app.updatedFlag = 3;};  nest();}
 							);	
 }
 
@@ -233,295 +521,19 @@ function submitIRAfterCheckTrue(){
 								dbconfig.dbUser,
 								sql,
 								//Currently function can be empty as call back will not return anything
-								function (data) {function nest(){postIRSubmit();};  nest();}
+								function (data) {function nest(){app.updatedFlag = 3;};  nest();}
 							);
                 
 }
 
-
-/**
-*
-* This is the first method in submitting Event spercifc data
-* It checks if that Race Already Exists, THen passes the information to the next method
-*
-*/
-function submitEventSpercific(){
-	var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
-            "AGE_GROUP = '" + app.esSHRData.age + "' " +
-            "AND GENDER = '" + app.esSHRData.gender + "' " +
-            "AND STARTING_CRAFT = 10 " +
-            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-            "AND ROUND = " + app.esSHRData.round + " " +
-            "AND HEAT = " + app.esSHRData.heat + " " +
-            "AND FINAL = '" + app.esSHRData.finalType + "' ";      
-
-        MySql.Execute(
-            dbconfig.host,
-            dbconfig.dbUser,
-            dbconfig.dbPassword,
-            dbconfig.dbUser,
-            eventSQL,
-            //Check if an event with the exact same details currently exists, if not create one
-            function (data) {function nest(){submitESDataAfterCheck(data);};  nest();}
-            );
-}
-
-
-/**
-*
-* If the data qurried returns something then we know that the race already exist so just submit data, 
-* else creat an event then submit data
-*
-*/
-function submitESDataAfterCheck(data){
-    if (data.Result == null || data.Result == "") {
-        submitESAfterCheckFalse();
-    }
-    //Otherwise we have found an event but we still want to insert the SHR data
-    else {
-        submitESAfterCheckTrue();                    
-    }
-
-            
-}
-
-/**
-*
-* IF the data check is true just submit data
-*
-*/
-function submitESAfterCheckFalse(){
-		  var esSHRInsertSQL =
-            "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
-            app.loginData.pID + "," +
-            "'" + app.esSHRData.date + "'," +
-            "'" + app.esSHRData.time + "'," +
-            "'" + app.esSHRData.beach + "'," +
-            app.esSHRData.SHR.pLDR + "," +
-            app.esSHRData.SHR.pOHR + "," +
-            app.esSHRData.SHR.pRCR + "," +
-            app.esSHRData.SHR.pSTR + "," +
-            app.esSHRData.SHR.pWHR + "," +
-            app.esSHRData.SHR.pWPR + "," +
-            app.esSHRData.SHR.pWTR + "," +
-            app.esSHRData.SHR.pZWR + "," +
-            app.esSHRData.SHR.totalSHR + "," +
-            "(SELECT RACE_ID FROM RACE WHERE " +
-            "AGE_GROUP = '" + app.esSHRData.age + "' " +
-            "AND GENDER = '" + app.esSHRData.gender + "' " +
-            "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-            "AND ROUND = " + app.esSHRData.round + " " +
-            "AND HEAT = " + app.esSHRData.heat + " " +
-            "AND FINAL = '" + app.esSHRData.finalType + "')," +
-            "0, '12:00', '11:30', TRUE)";
-		
-
-	 var eventInsertSQL =
-            "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
-            "VALUES ('" +
-            app.esSHRData.age + "','" +
-            app.esSHRData.gender + "'," +
-            10 + ",'" + //Starting craft - fill in SHR Data Object
-            app.esSHRData.craftType + "'," +
-            app.esSHRData.round + "," +
-            app.esSHRData.heat + ",'" +
-            app.esSHRData.finalType + "')";
-			
-			
-	  console.log(eventInsertSQL);
-                    MySql.Execute(
-                        dbconfig.host,
-                        dbconfig.dbUser,
-                        dbconfig.dbPassword,
-                        dbconfig.dbUser,
-                        eventInsertSQL,
-                        //Check if an event with the exact same details currently exists, if not create one
-                        function (data) {
-                            console.log("Submitted event sql, now submitting esSHR");
-                            
-							MySql.Execute(
-								dbconfig.host,
-								dbconfig.dbUser,
-								dbconfig.dbPassword,
-								dbconfig.dbUser,
-								esSHRInsertSQL,
-								//Currently function can be empty as call back will not return anything
-								function (data) {function nest(){postESSubmit();};  nest();}
-							);
-                        }
-                    );
-}
-
-/**
-*
-* Race already exists so just inset data
-*
-*/
-function submitESAfterCheckTrue(){
-	
-	 console.log("I found an event already in the DB with those details");
-                    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
-                        app.loginData.pID + "," +
-                        "'" + app.esSHRData.date + "'," +
-                        "'" + app.esSHRData.time + "'," +
-                        "'" + app.esSHRData.beach + "'," +
-                        app.esSHRData.SHR.pLDR + "," +
-                        app.esSHRData.SHR.pOHR + "," +
-                        app.esSHRData.SHR.pRCR + "," +
-                        app.esSHRData.SHR.pSTR + "," +
-                        app.esSHRData.SHR.pWHR + "," +
-                        app.esSHRData.SHR.pWPR + "," +
-                        app.esSHRData.SHR.pWTR + "," +
-                        app.esSHRData.SHR.pZWR + "," +
-                        app.esSHRData.SHR.totalSHR + "," +
-                        "(SELECT RACE_ID FROM RACE WHERE " +
-                        "AGE_GROUP = '" + app.esSHRData.age + "' " +
-                        "AND GENDER = '" + app.esSHRData.gender + "' " +
-                        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
-                        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-                        "AND ROUND = " + app.esSHRData.round + " " +
-                        "AND HEAT = " + app.esSHRData.heat + " " +
-                        "AND FINAL = '" + app.esSHRData.finalType + "')," +
-                        "0, '12:00', '11:30', TRUE)";
-                    console.log("submitting SHRData")
-					MySql.Execute(
-						dbconfig.host,
-						dbconfig.dbUser,
-						dbconfig.dbPassword,
-						dbconfig.dbUser,
-						sql,
-						//Currently function can be empty as call back will not return anything
-						function (data) {function nest(){postESSubmit();};  nest();}
-					);
-}
-
-
-
-/**
-*
-* Submit the the prevailing data into the data base.
-*
-**/ 
-function submitPrevailing(){
-	$('.status').text("Loading...");
-	console.log("Preparing SQL statement");
-        var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
-            //MANY VALUES ARE CURRENTLY HARDCODED, THIS IS NECCASARY TO SUCCESSFULLY INSERT A QUERY.
-            app.loginData.pID + "," +
-            "'" + app.prevalingSHRData.date + "'," +
-            "'" + app.prevalingSHRData.time + "'," +
-            "'" + app.prevalingSHRData.beach + "'," +
-            app.prevalingSHRData.SHR.pLDR + "," +
-            app.prevalingSHRData.SHR.pOHR + "," +
-            app.prevalingSHRData.SHR.pRCR + "," +
-            app.prevalingSHRData.SHR.pSTR + "," +
-            app.prevalingSHRData.SHR.pWHR + "," +
-            app.prevalingSHRData.SHR.pWPR + "," +
-            app.prevalingSHRData.SHR.pWTR + "," +
-            app.prevalingSHRData.SHR.pZWR + "," +
-            app.prevalingSHRData.SHR.totalSHR + "," +
-            app.prevalingSHRData.tideHieghtLow + "," +
-            app.prevalingSHRData.tideHieghtHigh + "," +
-            "'" + app.prevalingSHRData.tideTimeLow + "'," +
-            "'" + app.prevalingSHRData.tideTimeHigh + "'," +
-            "'" + app.prevalingSHRData.windDirection + "'," +
-            app.prevalingSHRData.windSpeed + "," +
-            "FALSE)"; //False as this is a prevailing report
-
-        //Descriptors to insert    
-		MySql.Execute(
-			dbconfig.host,
-			dbconfig.dbUser,
-			dbconfig.dbPassword,
-			dbconfig.dbUser,
-			sql,
-			//Currently function can be empty as call back will not return anything
-			function (data) {function nest(){postPrevSubmit();};  nest();}
-		);
-}
-
-
-
-//Currently unused -depending on query response times should be implemented later
-function verifySubmission(sql) {
-    MySql.Execute(
-        dbconfig.host,
-        dbconfig.dbUser,
-        dbconfig.dbPassword,
-        dbconfig.dbUser,
-        sql,
-        //Currently function can be empty as call back will not return anything
-        function (data) {
-            //If we do not have a match the data did not insert correctly
-            if (data.Result == null && data.Result == "") {
-                $(".error").text("Error: SHR data was not successfully insert");
-            } else {
-                $(".error").text("Success: The SHR data has been successfully inserted");
-            }
-        }
-    );
-
-}
-
-function postIRSubmit(){
-	//TIM - if we succeed in storing make true else false.
-    var success = true;
-    storeIR(success);
-	
-	
-	//After everythign has been done go back home
-	//NEEDS CHANGING TO IR HOME PAGE
-	window.location.hash = "";
-}
-
-function postESSubmit(){
-	//TIM - if we succeed in storing make true else false.
-    var success = true;
-    storeES(success);
-	
-	
-	//After everythign has been done go back home
-	window.location.hash = "#formSelect";
-}
-
-
-function postPrevSubmit(){
-    //TIM - if we succeed in storing make true else false.
-	//var success = some method to test success();
-    var success = true;
-    storePrev(success);
-	
-	//After everythign has been done go back home
-	window.location.hash = "#formSelect";
-}
-
-function storePrev(sucess) {
-    if (sucess) {
-        app.prevSHRArrayFinished.push(app.prevalingSHRData);
-    } else {
-        app.prevSHRArrayUnfinished.push(app.prevalingSHRData);
-    }
-    app.prevSHRArray.push(app.prevalingSHRData);
-    app.resetData();
-}
-
-function storeES(sucess) {
-    if (sucess) {
-        app.esSHRArrayFinished.push(app.esSHRData);
-    } else {
-        app.esSHRArrayUnfinished.push(app.esSHRData);
-    }
-    app.esSHRArray.push(app.esSHRData);
-    app.resetData();
-}
-
-function storeIR(sucess) {
-    if (sucess) {
-        app.irArrayFinished.push(app.esIRData);
-    } else {
-        app.irArrayUnfinished.push(app.esIRData);
-    }
-    app.irArray.push(app.esIRData);
-    app.resetData();
+function postIRSubmit() {
+    app.irArrayFinished.push( app.irArrayUnfinished[ app.irArrayUnfinished.length-1]);
+	app.irArrayUnfinished.pop();
+	if (app.irArray.length == 0){
+		$(".error").text("");
+		$(".good").text("All data has been successfully sent to the server.");
+	} else {
+		$(".good").text("");
+		$(".error").text("Some data you have collected is in the process of or could not be sent to the server. Please find internet connection and press the sync button.");
+	}
 }

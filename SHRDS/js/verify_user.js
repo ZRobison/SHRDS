@@ -3,7 +3,7 @@ var loginSuccess = -1;
 function verify_user() {
     console.log("doing verify user function");
 
-    $('#logonmessage').text("Loading...");
+    $('#logonmessage').text("Loading... (If takes more the 30 seconds check internet connection and try again.)");
     $(".error").text("");
 
     if (document.getElementById("username").value == "") {
