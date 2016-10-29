@@ -33,6 +33,12 @@
     <script type="text/javascript" src="lib/iscroll.js"></script>
     <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="lib/mysql.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/core.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/cipher-core.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/cipher-core-min.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/md5.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/md5.js"></script>
+
 
     <!-- Views-->
     <script type="text/javascript" src="js/views/LogonView.js"></script>
@@ -56,6 +62,7 @@
     <script type="text/javascript" src="js/prevailingFunctions.js"></script>
     <script type="text/javascript" src="js/util.js"></script>
 
+
     <script type="text/javascript" src="js/main.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -65,27 +72,24 @@
         $(document).ready(function() {
             // call main from Cordova
             if (window.device) {
-                document.addEventListener("deviceready", function(){
-				app.initialize(); 
-				app.watch('updatedFlag', function(id, oldval, newval){
-					app.unwatch('updatedFlag');
-					flagUpdated(newval);  
-					return newval;				
-					}
-					);
-				}
-				, false);
+                document.addEventListener("deviceready", function() {
+                    app.initialize();
+                    app.watch('updatedFlag', function(id, oldval, newval) {
+                        app.unwatch('updatedFlag');
+                        flagUpdated(newval);
+                        return newval;
+                    });
+                }, false);
             }
 
             // from browser
             else {
                 app.initialize();
-				app.watch('updatedFlag', function(id, oldval, newval){
-					app.unwatch('updatedFlag');
-					flagUpdated(newval);  
-					return newval;				
-					}
-					);
+                app.watch('updatedFlag', function(id, oldval, newval) {
+                    app.unwatch('updatedFlag');
+                    flagUpdated(newval);
+                    return newval;
+                });
             }
         });
 

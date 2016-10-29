@@ -13,11 +13,12 @@ function verify_user() {
     //TSO selected
     if ($('#radio1').is(":checked")) {
         //dummy test db
+        var password = passwordHash(document.getElementById("password").value, document.getElementById("username").value);
         MySql.Execute(dbconfig.host,
             dbconfig.dbUser,
             dbconfig.dbPassword,
             dbconfig.dbUser,
-            "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + document.getElementById("password").value + "'",
+            "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + password + "'",
             function (data) {
                 //First Ensure the query succeded
                 if (data.Success == true) {
@@ -27,7 +28,6 @@ function verify_user() {
                         //Also ensure that they are TSO certified
                         if (data.Result[0].TSO_QUALIFIED == true) {
                             app.loginData.pID = data.Result[0].USER_ID;
-                            console.log("current login id is: " + app.loginData.pID);
                             app.loginData.pTSOStatus = true;
                             app.loginData.pAdminStatus = false;
                             window.location.hash = "#formSelect";
@@ -85,12 +85,13 @@ function verify_user() {
     }
     //Admin Selected
     else {
+        var password = passwordHash(document.getElementById("password").value, document.getElementById("username").value);
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
             dbconfig.dbPassword,
             dbconfig.dbUser,
-            "select USER_ID, ADMIN_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + document.getElementById("password").value + "'",
+            "select USER_ID, ADMIN_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + password + "'",
             function (data) {
                 //First Ensure the query succeded
                 if (data.Success === true) {
