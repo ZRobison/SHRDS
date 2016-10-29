@@ -14,11 +14,12 @@ function verify_user() {
     if ($('#radio1').is(":checked")) {
         //dummy test db
         var password = passwordHash(document.getElementById("password").value, document.getElementById("username").value);
+        console.log(password + " " + wash_SQL_string(document.getElementById("username").value));
         MySql.Execute(dbconfig.host,
             dbconfig.dbUser,
             dbconfig.dbPassword,
             dbconfig.dbUser,
-            "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + password + "'",
+            "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + wash_SQL_string(document.getElementById("username").value) + "' and PASSWORD ='" + password + "'",
             function (data) {
                 //First Ensure the query succeded
                 if (data.Success == true) {
@@ -29,14 +30,13 @@ function verify_user() {
                         if (data.Result[0].TSO_QUALIFIED == true) {
                             app.loginData.pID = data.Result[0].USER_ID;
                             app.loginData.pTSOStatus = true;
-                            app.loginData.pAdminStatus = false;
                             window.location.hash = "#formSelect";
                         } else {
                             $(".error").text("You are not certified to log in as a TSO");
                             $('#logonmessage').text("");
                         }
                     }
-                    //Otherwise there is a match for the user number in the DB
+                    //Otherwise there isnt a match for that user number/password in the DB
                     else {
                         //                        loginSuccess = 20;
                         //                        console.log(loginSuccess);
@@ -57,24 +57,31 @@ function verify_user() {
             dbconfig.dbUser,
             dbconfig.dbPassword,
             dbconfig.dbUser,
-            "select USER_ID from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "'",
+            "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + wash_SQL_string(document.getElementById("username").value) + "'",
             function (data) {
                 //First Ensure the query succeded
-                console.log(JSON.stringify(data));
                 if (data.Success === true) {
                     //If we have a match that means the user has the correct credentials
                     if (data.Result != null && data.Result != "") {
-                        app.loginData.pID = data.Result[0].USER_ID
-                        console.log("current login id is: " + app.loginData.pID);
-                        app.loginData.pTSOStatus = false;
-                        app.loginData.pAdminStatus = false;
-                        window.location.hash = "#eventSpecific";
+                        //If the the supervising user is TSO qualified 
+                        if (data.Result[0].TSO_QUALIFIED == true) {
+                            app.loginData.pID = data.Result[0].USER_ID
+                            console.log("current login id is: " + app.loginData.pID);
+                            app.loginData.pTSOStatus = false;
+                            app.loginData.pAdminStatus = false;
+                            app.loginData.incidentFName = wash_SQL_string(document.getElementById("fname").value);
+                            app.loginData.incidentLName = wash_SQL_string(document.getElementById("lname").value);
+                            app.loginData.incidentEmail = wash_SQL_string(document.getElementById("email").value);
+                            window.location.hash = "#eventSpecific";
+                        } else {
+                            $(".error").text("The user with that ID is not qualified to supervise an IR");
+                        }
                     } else {
                         $(".error").text("That user ID does not exists");
                         $('#logonmessage').text("");
                     }
                 }
-                //Otherwise there is a match for the user number in the DB
+                //Otherwise the database query has not succeeded
                 else {
                     $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection");
                     $('#logonmessage').text("");
@@ -86,12 +93,13 @@ function verify_user() {
     //Admin Selected
     else {
         var password = passwordHash(document.getElementById("password").value, document.getElementById("username").value);
+        console.log(password + " " + wash_SQL_string(document.getElementById("username").value));
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
             dbconfig.dbPassword,
             dbconfig.dbUser,
-            "select USER_ID, ADMIN_QUALIFIED from SHRDS_USER where USER_ID ='" + document.getElementById("username").value + "' and PASSWORD ='" + password + "'",
+            "select USER_ID, ADMIN_QUALIFIED from SHRDS_USER where USER_ID ='" + wash_SQL_string(document.getElementById("username").value) + "' and PASSWORD ='" + password + "'",
             function (data) {
                 //First Ensure the query succeded
                 if (data.Success === true) {
@@ -99,7 +107,7 @@ function verify_user() {
                     if (data.Result != null && data.Result != "") {
                         //Also ensure that they are TSO certified
                         if (data.Result[0].ADMIN_QUALIFIED == true) {
-                            app.loginData.pID = data.Result[0].USER_ID
+                            app.loginData.pID = wash_SQL_string(data.Result[0].USER_ID);
                             app.loginData.pTSOStatus = false;
                             app.loginData.pAdminStatus = true;
                             window.location.hash = "#adminPageSelect";
