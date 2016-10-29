@@ -1,3 +1,47 @@
+if (!Object.prototype.watch) {
+	Object.defineProperty(Object.prototype, "watch", {
+		  enumerable: false
+		, configurable: true
+		, writable: false
+		, value: function (prop, handler) {
+			var
+			  oldval = this[prop]
+			, newval = oldval
+			, getter = function () {
+				return newval;
+			}
+			, setter = function (val) {
+				oldval = newval;
+				return newval = handler.call(this, prop, oldval, val);
+			}
+			;
+			
+			if (delete this[prop]) { // can't watch constants
+				Object.defineProperty(this, prop, {
+					  get: getter
+					, set: setter
+					, enumerable: true
+					, configurable: true
+				});
+			}
+		}
+	});
+}
+
+// object.unwatch
+if (!Object.prototype.unwatch) {
+	Object.defineProperty(Object.prototype, "unwatch", {
+		  enumerable: false
+		, configurable: true
+		, writable: false
+		, value: function (prop) {
+			var val = this[prop];
+			delete this[prop]; // remove accessors
+			this[prop] = val;
+		}
+	});
+}
+
 /*
  *
  * app represents the core object within the mobile application.
@@ -18,6 +62,8 @@ var app = {
         //Flag for knowing if prevailing SHR or Event specific SHR
         //Set to one if user is filling in Prev, set to 2 if ir SHR and 0 if normal ir;
         self.SHRFlag = 0;
+		//Flag for successfuly databse connection.
+		var updatedFlag = self.updatedFlag = 0;
         //Init data stores for forms
         this.initData();
         //Detect if HASH changes
@@ -142,30 +188,5 @@ var app = {
     }
 };
 
-//Get the current date and time in sql format
-function getDateTime() {
-    var now = new Date();
-    var year = now.getFullYear();
-    var month = now.getMonth() + 1;
-    var day = now.getDate();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var second = now.getSeconds();
-    if (month.toString().length == 1) {
-        var month = '0' + month;
-    }
-    if (day.toString().length == 1) {
-        var day = '0' + day;
-    }
-    if (hour.toString().length == 1) {
-        var hour = '0' + hour;
-    }
-    if (minute.toString().length == 1) {
-        var minute = '0' + minute;
-    }
-    if (second.toString().length == 1) {
-        var second = '0' + second;
-    }
-    var dateTime = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':' + second;
-    return dateTime;
-}
+
+
