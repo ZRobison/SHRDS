@@ -65,13 +65,7 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+  
 
 
 
@@ -85,7 +79,7 @@ function getWHR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-    console.log("SHRFlag is " + app.SHRFlag);
+   
 
     if (app.SHRFlag == 1) {
         $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
@@ -114,13 +108,7 @@ function getWTR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+   
 
 
     var footer =
@@ -167,8 +155,7 @@ function getWPR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-    console.log(app.loginData.pID);
-    console.log(app.SHRFlag);
+
 
     if (app.SHRFlag == 1) {
         $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWPR);
@@ -200,13 +187,8 @@ function getZWR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+
+
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"ZWR"' + ", " + getZWRvalue + ")' >NEXT</button>" +
@@ -323,13 +305,7 @@ function getRCR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+ 
 
 
     var footer =
@@ -395,13 +371,7 @@ function getOHR() {
 
 function getREV() {
     var header = "Review SHR";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+
 
     if (app.SHRFlag == 1) {
         var pWHR = app.prevalingSHRData.SHR.pWHR;
@@ -462,13 +432,13 @@ function getREV() {
 
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>";
     "<button type='button' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-    console.log(app.loginData.pID);
+
 }
 
 function getSHR() {
@@ -479,10 +449,11 @@ function getSHR() {
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
-        "<div class='history'>" + getSHRHistory() + "</div>";
+        "<div class='history'>" + getSHRHistory() + "</div>" +
+		"<div class ='status'></div>";
 
     var footer =
-        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";
+        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
 
 
 
