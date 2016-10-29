@@ -46,7 +46,14 @@ function selected() {
     } else if ($('#radio2').is(":checked")) {
         var forming = "<form action = '' method='' id='submitForm1'>" +
             "<div class='loginText'>Supervisors Reference Number: </div><br>" +
-            "<input type='text' name='' id='username'><br>";
+            "<input type='text' name='' id='username'><br>" +
+            "<div class='loginText'>First Name: </div><br>" +
+            "<input type='text' name='' id='fname'><br>" +
+            "<div class='loginText'>Last Name: </div><br>" +
+            "<input type='text' name='' id='lname'><br>" +
+            "<div class='loginText'>Contact Email: </div><br>" +
+            "<input type='text' name='' id='email'>";
+
         $("#forming").html(forming);
     } else if ($('#radio3').is(":checked")) {
         var forming = "<form action = '' method='' id='submitForm1'>" +
