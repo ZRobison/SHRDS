@@ -1,10 +1,15 @@
 function change_password() {
+    //First clear up any leftover error messages
+    $(".error").text("");
     if (document.getElementById("userID").value == "" || document.getElementById("userPassword").value == "") {
-        $(".message").text("Error: Please enter a username and new password");
+        $(".error").text("Error: Please enter a username and new password");
+        return;
+    } else if (document.getElementById("userPassword").value != document.getElementById("userPasswordConfirm").value) {
+        $(".error").text("Error: Those passwords do not match, try again");
         return;
     }
-    //This is a gross way of updating passwords. 
     //TO DO: An update statement does not return anything using this mysql.js library. Maybe imbed a select in the upsate to force a data return
+    password = passwordHash(document.getElementById("userPassword").value, document.getElementById("userID").value);
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -22,8 +27,10 @@ function change_password() {
                             dbconfig.dbUser,
                             dbconfig.dbPassword,
                             dbconfig.dbUser,
-                            "update SHRDS_USER set PASSWORD ='" + document.getElementById("userPassword").value + "' where USER_ID ='" + document.getElementById("userID").value + "'",
-                            function (data) {console.log(JSON.stringyfy(data));}
+                            "update SHRDS_USER set PASSWORD ='" + password + "' where USER_ID ='" + document.getElementById("userID").value + "'",
+                            function (data) {
+                                console.log(JSON.stringify(data));
+                            }
 
                         );
                     }
