@@ -96,5 +96,8 @@ var loginData = function () {
         this.pID = -1;
         this.pTSOStatus = -1;
         this.pAdminStatus = -1;
+        this.incidentFName = "";
+        this.incidentLName = "";
+        this.incidentEmail = "";
     }
 }

@@ -58,3 +58,24 @@ function passwordHash(password, salt) {
     return hashedPassword;
 
 }
+
+//Utility to wash any escape characters and prevent against sql injection
+function wash_SQL_string(str) {
+    var toString = "" + str;
+    return toString.replace(/[\|&;\$%"<>\(\)\+,']/g, "");
+}
+
+//Utility to automatically add a colon when filling the time on prevailing page
+function addColon(nameString) {
+    document.getElementsByName(nameString)[0].onkeydown = function (e) {
+        if (this.value.length == 2) {
+            this.value += ":";
+        }
+    }
+}
+
+
+
+function passwordEqualityUtil() {
+
+}
