@@ -46,8 +46,19 @@ var EventSpecificView = function () {
             "<option value='70+'>70+</option>" +
             "<option value='open'>Open</option>" +
             "</select>" +
+			
+			
+            "<div class='irTitles'>Final:</div>" +
+            "<select name='ESFinalType' onChange='updateForm()'>" +
+            "<option value='-1'selected>Select one</option>" +
+            "<option value='Qualifier'>Qualifier</option>" +
+            "<option value='Quater Final'>Quater Final</option>" +
+            "<option value='Semi Final'>Semi Final</option>" +
+            "<option value='Grand Final'>Grand Final</option>" +
+            "</select>" +
 
-            "<div class='irTitles'>Heat:</div>" +
+			"<div class='removal'>"+
+			"<div class='irTitles'>Heat:</div>" +
             "<select name='ESHeat'>" +
             "<option value='-1' selected>Select one</option>" +
             "<option value='1'>Heat 1</option>" +
@@ -56,7 +67,7 @@ var EventSpecificView = function () {
             "<option value='4'>Heat 4</option>" +
             "<option value='5'>Heat 5</option>" +
             "</select>" +
-
+			
             "<div class='irTitles'>Round:</div>" +
             "<select name='ESRound'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -66,16 +77,9 @@ var EventSpecificView = function () {
             "<option value='4'>Round 4</option>" +
             "<option value='5'>Round 5</option>" +
             "</select>" +
-
-            "<div class='irTitles'>Final:</div>" +
-            "<select name='ESFinalType'>" +
-            "<option value='-1'selected>Select one</option>" +
-            "<option value='Qualifier'>Qualifier</option>" +
-            "<option value='Quater Final'>Quater Final</option>" +
-            "<option value='Semi Final'>Semi Final</option>" +
-            "<option value='Grand Final'>Grand Final</option>" +
-            "</select>" +
-
+			"</div>"+
+			
+			
             "<div class='irTitles'>Craft Type:</div>" +
             "<select name='ESCraftType'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -83,6 +87,7 @@ var EventSpecificView = function () {
             "<option value='Double Ski'>Double Ski</option>" +
             "<option value='Board'>Board</option>" +
             "<option value='Boat'>Boat</option>" +
+			"<option value='N/A'>N/A</option>" +
             "</select>" +
 			
 			"<div class='irTitles'>Gender:</div>" +
@@ -92,15 +97,12 @@ var EventSpecificView = function () {
             "<option value='Female'>Female</option>" +
             "</select>" +
 
-            "<div class='irTitles'>In/Out:</div>" +
-            "<div class='inlineOutIn'>" +         
-            "<input type ='radio' name='ESInOut' id='in' value='in'/>" +
-            "Out" +
-            "<input type ='radio' name='ESInOut' id='out' value='out'/>" +
-            "In" +
+            "<div class='check'><div class='irTitles'>In/Out:</div></div>" +
+            "<div class='inlineOutIn'></div>" +
             "<div>" +
             "<br>Beach/location:<input type = 'text' name='ESBeach'>" +
-            "</div>";
+            "</div>"+
+			"<div class='error'></div>";
 
 
 
@@ -114,8 +116,17 @@ var EventSpecificView = function () {
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
-        console.log(app.loginData.pID);
-    }
+		
+		 if (app.SHRFlag == 2) {
+		 
+           $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' value='in'/>" +
+            "Out" +
+            "<input type ='radio' name='ESInOut' id='out' value='out'/>" +
+            "In");
+        } else {
+		  $(".check").text("");
+		}
+	}
 }
 
 

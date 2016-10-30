@@ -1,12 +1,58 @@
 // event specific functions 
 
+function updateForm(){
+	var score = $("select[name=ESFinalType]").val();
+	if (score == 'Grand Final') {
+		$(".removal").html(" ");
+		if (app.SHRFlag == 2) {
+			app.esSHRData.heat = 'N/A';
+			app.esSHRData.round = 'N/A';
+		} else {
+			app.esIRData.heat = 'N/A';
+			app.esIRData.round = 'N/A';
+		}
+	} else {
+		$(".removal").html(
+		"<div class='irTitles'>Heat:</div>" +
+            "<select name='ESHeat'>" +
+            "<option value='-1' selected>Select one</option>" +
+            "<option value='1'>Heat 1</option>" +
+            "<option value='2'>Heat 2</option>" +
+            "<option value='3'>Heat 3</option>" +
+            "<option value='4'>Heat 4</option>" +
+            "<option value='5'>Heat 5</option>" +
+            "</select>" +
+			
+            "<div class='irTitles'>Round:</div>" +
+            "<select name='ESRound'>" +
+            "<option value='-1' selected>Select one</option>" +
+            "<option value='1'>Round 1</option>" +
+            "<option value='2'>Round 2</option>" +
+            "<option value='3'>Round 3</option>" +
+            "<option value='4'>Round 4</option>" +
+            "<option value='5'>Round 5</option>" +
+            "</select>" );
+		if (app.SHRFlag == 2) {
+			app.esSHRData.heat = '-1';
+			app.esSHRData.round = '-1';
+		} else {
+			app.esIRData.heat = '-1';
+			app.esIRData.round = '-1';
+		}
+	}
+}
+
+
 function getESValues() {
     var check = true;
     check = check && arenaES();
     check = check && ageES();
-    check = check && heatES();
-    check = check && roundES();
-    check = check && finalES();
+	check = check && finalES();
+	var score = $("select[name=ESFinalType]").val();
+	if (score != 'Grand Final') {
+		check = check && heatES();
+		check = check && roundES();
+	}
     check = check && craftTypeES();
     check = check && inOutES();
     check = check && genderES();
@@ -16,7 +62,6 @@ function getESValues() {
         getFormTime();
         routeIS();
     } else {
-        console.log("error");
         $(".error").text("Please fill in all fields.");
     }
 }

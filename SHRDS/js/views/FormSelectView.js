@@ -13,9 +13,9 @@ var FormSelectView = function () {
         var footer = "<button type='submit' class='blueButtons' onclick='shrFormSelect()'>NEXT</button>" +
             "<button type='button' class='exitButton'>EXIT</button>";
 
-
+		console.log("**********************");
         console.log(app.prevSHRArrayUnfinished);
-
+		console.log("**********************");
 
 
         $(".heading").text(header);
