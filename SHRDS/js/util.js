@@ -73,9 +73,25 @@ function addColon(nameString) {
         }
     }
 }
+//Utility ensures an input contains only numerical digits - used when creating a new user
+function verifyNonNumericCharacters(input) {
+    if (/\D/.test(input)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+//This utility checks to see if any mandatory radio buttons are unchecked
+function checkRadioButtons(radioGroup) {
+    if (!$("input[name='" + radioGroup + "']").is(":checked")) {
+        return false;
+    } else {
+        return true;
+    }
+
+}
 
 
-
-function passwordEqualityUtil() {
+function passwordEquality() {
 
 }
