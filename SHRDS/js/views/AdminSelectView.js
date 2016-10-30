@@ -42,7 +42,10 @@ var AdminSelectView = function () {
             var body =
                 "User ID: <input type='text' name='fname' id = 'userID'><br>" +
                 "New Password: <input type='password' id='userPassword'><br>" +
-                "<div class ='message'></div>";
+                "Confirm New Password: <input type='password' id='userPasswordConfirm'><br>" +
+                "<div class ='message'></div>" +
+                "<div class ='error'></div";
+
             var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>Submit</button>";
 
             $(".heading").text(header);
