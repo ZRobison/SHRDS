@@ -12,7 +12,7 @@ function verify_user() {
     }
     //TSO selected
     if ($('#radio1').is(":checked")) {
-        //dummy test db
+        //Hasing the password will also clear it of any SQL injection stuff
         var password = passwordHash(document.getElementById("password").value, document.getElementById("username").value);
         console.log(password + " " + wash_SQL_string(document.getElementById("username").value));
         MySql.Execute(dbconfig.host,
