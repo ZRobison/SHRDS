@@ -117,7 +117,7 @@ function submitNewUser() {
                 if (data.Success === true) {
                     //If we have a match that means that user ID already exists
                     if (data.Result != null && data.Result != "") {
-                        $(".error").text("The user with that ID already exists");
+                        $(".error").text("A user with that ID already exists");
                     } else {
                         // A user with that ID does not exist, so create one
                         sql =
