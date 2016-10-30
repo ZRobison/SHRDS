@@ -1,7 +1,7 @@
 //Do to the way the external MYSql.JS script works with callback function, all sql statements must be perfomred in sequence and 
 //cannot be encapsulated into re-useable functions
 function insertSHR() {
-
+	
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
         submitPrevailing();
@@ -58,7 +58,7 @@ function submitEventSpercific(){
             "AND ROUND = " + app.esSHRData.round + " " +
             "AND HEAT = " + app.esSHRData.heat + " " +
             "AND FINAL = '" + app.esSHRData.finalType + "' ";      
-
+		
         MySql.Execute(
             dbconfig.host,
             dbconfig.dbUser,
@@ -66,8 +66,15 @@ function submitEventSpercific(){
             dbconfig.dbUser,
             eventSQL,
             //Check if an event with the exact same details currently exists, if not create one
-            function (data) {function nest(){ console.log(data); submitESDataAfterCheck(data);};  nest();}
+            function (data) {function nest(){ submitESDataAfterCheck(data);};  nest();}
             );
+			
+			
+	app.esSHRArrayUnfinished.push(app.esSHRData);
+    app.esSHRArray.push(app.esSHRData);
+    app.resetData();
+    //After everythign has been done go back home
+    window.location.hash = "#formSelect";
 }
 
 
@@ -85,12 +92,6 @@ function submitESDataAfterCheck(data) {
     else {
         submitESAfterCheckTrue();
     }
-    app.esSHRArrayUnfinished.push(app.esSHRData);
-    app.esSHRArray.push(app.esSHRData);
-    app.resetData();
-    //After everythign has been done go back home
-    window.location.hash = "#formSelect";
-
 }
 
 /**
@@ -100,7 +101,7 @@ function submitESDataAfterCheck(data) {
  */
 function submitESAfterCheckFalse() {
     var esSHRInsertSQL =
-        "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+        "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.esSHRData.date + "'," +
         "'" + app.esSHRData.time + "'," +
@@ -174,7 +175,7 @@ function submitESAfterCheckFalse() {
 function submitESAfterCheckTrue() {
 
 
-    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.esSHRData.date + "'," +
         "'" + app.esSHRData.time + "'," +
@@ -234,8 +235,7 @@ function postESSubmit() {
 function submitPrevailing() {
     $('.status').text("Attempting to Submit Data to Server...");
 
-    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
-
+    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_TOTAL, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.prevalingSHRData.date + "'," +
         "'" + app.prevalingSHRData.time + "'," +
@@ -256,7 +256,8 @@ function submitPrevailing() {
         "'" + app.prevalingSHRData.windDirection + "'," +
         app.prevalingSHRData.windSpeed + "," +
         "FALSE)"; //False as this is a prevailing report
-
+	
+	
     //Descriptors to insert    
     MySql.Execute(
         dbconfig.host,
@@ -267,7 +268,8 @@ function submitPrevailing() {
         //Currently function can be empty as call back will not return anything
         function (data) {
             function nest() {
-                checkPrev();
+			
+               app.updatedFlag = 1;
             };
             nest();
         }
@@ -278,31 +280,6 @@ function submitPrevailing() {
     //After everythign has been done go back home
     window.location.hash = "#formSelect";
 }
-
-function checkPrev() {
-    $('.status').text("Success! Verifying changes...");
-    var sql = "SELECT * FROM SHR WHERE " +
-        "USER_ID='" + app.loginData.pID + "' AND " +
-        "DATE='" + app.prevalingSHRData.date + "' AND " +
-        "TIME='" + app.prevalingSHRData.time + "';";
-
-    MySql.Execute(
-        dbconfig.host,
-        dbconfig.dbUser,
-        dbconfig.dbPassword,
-        dbconfig.dbUser,
-        sql,
-        function (data) {
-            function nest() {
-                app.updatedFlag = 1;
-            };
-            nest();
-        }
-    );
-
-}
-
-
 
 
 
@@ -350,6 +327,12 @@ function sumbitIncerdentReport() {
             nest();
         }
     );
+	
+	app.irArrayUnfinished.push(app.esIRData);
+    app.irArray.push(app.esIRData);
+    app.resetData();
+	    //After everythign has been done go back home CHANGE!!!!!!!!!!!!!!!!
+    window.location.hash = "#eventSpecific";
 }
 
 
@@ -367,12 +350,6 @@ function submitIRDataAfterCheck(data) {
     else {
         submitIRAfterCheckTrue();
     }
-
-    app.irArrayUnfinished.push(app.esIRData);
-    app.irArray.push(app.esIRData);
-    app.resetData();
-    //After everythign has been done go back home CHANGE!!!!!!!!!!!!!!!!
-    window.location.hash = "#eventSpecific";
 }
 
 /**
@@ -423,8 +400,8 @@ function submitIRAfterCheckFalse() {
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
 
-    console.log(sql);
-    console.log(eventSQL);
+  
+    
 
     MySql.Execute(
         dbconfig.host,
@@ -465,8 +442,7 @@ function submitIRAfterCheckFalse() {
         app.loginData.incidentEmail + "','" +
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
-    console.log(sql);
-    console.log(eventSQL);
+
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -518,8 +494,7 @@ function submitIRAfterCheckTrue() {
         app.loginData.incidentEmail + "','" +
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
-    console.log(sql);
-    console.log(eventSQL);
+
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -559,7 +534,7 @@ function submitIRAfterCheckTrue() {
         app.loginData.incidentEmail + "','" +
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
-    console.log(sql);
+    
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
