@@ -66,7 +66,7 @@ function submitEventSpercific(){
             dbconfig.dbUser,
             eventSQL,
             //Check if an event with the exact same details currently exists, if not create one
-            function (data) {function nest(){submitESDataAfterCheck(data);};  nest();}
+            function (data) {function nest(){ console.log(data); submitESDataAfterCheck(data);};  nest();}
             );
 }
 
