@@ -9,12 +9,11 @@ function getESValues() {
     check = check && finalES();
     check = check && craftTypeES();
     check = check && inOutES();
-	check = check && genderES();
+    check = check && genderES();
     check = check && beachLocationES();
     if (check) {
         getFormDate();
         getFormTime();
-        console.log("setting time equal to: " + app.esSHRData.time);
         routeIS();
     } else {
         console.log("error");
@@ -29,7 +28,7 @@ function arenaES() {
     } else if (app.SHRFlag == 2) {
         app.esSHRData.arena = score;
         return true;
-	} else {
+    } else {
         app.esIRData.arena = score;
         return true;
     }
@@ -111,11 +110,11 @@ function genderES() {
         return false;
     } else if (app.SHRFlag == 2) {
         app.esSHRData.gender = score;
-		console.log(app.esSHRData.gender);
+        console.log(app.esSHRData.gender);
         return true;
     } else {
         app.esIRData.gender = score;
-		console.log(app.esIRData.gender);
+        console.log(app.esIRData.gender);
         return true;
     }
 }
@@ -124,10 +123,10 @@ function inOutES() {
     var score = $("input[name=ESInOut]").val();
     if (score == "") {
         return false;
-    }  else if (app.SHRFlag == 2) {
+    } else if (app.SHRFlag == 2) {
         app.esSHRData.inOrOut = score;
         return true;
-	} else {
+    } else {
         app.esIRData.inOrOut = score;
         return true;
     }
