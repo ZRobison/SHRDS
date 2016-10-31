@@ -119,9 +119,9 @@ var EventSpecificView = function () {
 		
 		 if (app.SHRFlag == 2) {
 		 
-           $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' value='in'/>" +
+           $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' value='IN'/>" +
             "Out" +
-            "<input type ='radio' name='ESInOut' id='out' value='out'/>" +
+            "<input type ='radio' name='ESInOut' id='out' value='OUT'/>" +
             "In");
         } else {
 		  $(".check").text("");
