@@ -124,9 +124,9 @@ function submitESAfterCheckFalse() {
         "AND ROUND = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "' " +
         "AND HEAT = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "' " +
         "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')," +
-        "0, '12:00', '11:30', TRUE)";
+        "'"+ app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut+"', '12:00', '11:30', TRUE)";
 
-
+	
     var eventInsertSQL =
         "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
         "VALUES ('" +
@@ -140,6 +140,7 @@ function submitESAfterCheckFalse() {
 
 		
 	console.log(eventInsertSQL);
+	console.log(esSHRInsertSQL);
 	
     MySql.Execute(
         dbconfig.host,
@@ -147,17 +148,13 @@ function submitESAfterCheckFalse() {
         dbconfig.dbPassword,
         dbconfig.dbUser,
         eventInsertSQL,
-        //Check if an event with the exact same details currently exists, if not create one
         function (data) {
-
-
             MySql.Execute(
                 dbconfig.host,
                 dbconfig.dbUser,
                 dbconfig.dbPassword,
                 dbconfig.dbUser,
                 esSHRInsertSQL,
-                //Currently function can be empty as call back will not return anything
                 function (data) {
                     function nest() {
                         app.updatedFlag = 2;
@@ -199,8 +196,10 @@ function submitESAfterCheckTrue() {
         "AND ROUND = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "' " +
         "AND HEAT = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "' " +
         "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')," +
-        "0, '12:00', '11:30', TRUE)";
+        "'"+ app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut+"', '12:00', '11:30', TRUE)";
 
+		console.log(sql);
+		
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -433,7 +432,7 @@ function submitIRAfterCheckFalse() {
 			"AND HEAT = '" +app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
 			"AND FINAL = '" +app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
 			app.loginData.pID + "," +
-			"'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+			"'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
 			app.esIRData.IROUT.pDNF + "," +
 			app.esIRData.IROUT.pFlyingCraft + "," +
 			app.esIRData.IROUT.FOWave + "," +
