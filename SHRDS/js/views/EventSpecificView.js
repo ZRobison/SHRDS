@@ -11,6 +11,7 @@ var EventSpecificView = function () {
 
         var body =
 
+
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
             "<select name='ESArena'>" +
@@ -104,19 +105,20 @@ var EventSpecificView = function () {
             "</div>" +
             "<div class='error'></div>";
 
+        console.log(app.loginData.pID);
 
 
-		if(app.SHRFlag==2){
-			var footer =
-			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
-            "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-		}else{
-			var footer =
-			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
-            "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>";
-		}
-    
-	
+        if (app.SHRFlag == 2) {
+            var footer =
+                "<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> " +
+                "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
+        } else {
+            var footer =
+                "<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> " +
+                "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>";
+        }
+
+
 
 
         $(".heading").text(header);
