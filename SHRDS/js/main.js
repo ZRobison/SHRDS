@@ -1,3 +1,46 @@
+if (!Object.prototype.watch) {
+    Object.defineProperty(Object.prototype, "watch", {
+        enumerable: false,
+        configurable: true,
+        writable: false,
+        value: function (prop, handler) {
+            var
+                oldval = this[prop],
+                newval = oldval,
+                getter = function () {
+                    return newval;
+                },
+                setter = function (val) {
+                    oldval = newval;
+                    return newval = handler.call(this, prop, oldval, val);
+                };
+
+            if (delete this[prop]) { // can't watch constants
+                Object.defineProperty(this, prop, {
+                    get: getter,
+                    set: setter,
+                    enumerable: true,
+                    configurable: true
+                });
+            }
+        }
+    });
+}
+
+// object.unwatch
+if (!Object.prototype.unwatch) {
+    Object.defineProperty(Object.prototype, "unwatch", {
+        enumerable: false,
+        configurable: true,
+        writable: false,
+        value: function (prop) {
+            var val = this[prop];
+            delete this[prop]; // remove accessors
+            this[prop] = val;
+        }
+    });
+}
+
 /*
  *
  * app represents the core object within the mobile application.
@@ -18,6 +61,8 @@ var app = {
         //Flag for knowing if prevailing SHR or Event specific SHR
         //Set to one if user is filling in Prev, set to 2 if ir SHR and 0 if normal ir;
         self.SHRFlag = 0;
+        //Flag for successfuly databse connection.
+        var updatedFlag = self.updatedFlag = 0;
         //Init data stores for forms
         this.initData();
         //Detect if HASH changes
@@ -25,14 +70,14 @@ var app = {
             console.log(window.location.hash);
             self.route();
         });
-	
+
 
         //URL detection
-        this.incidentStartURL = [/^#incident1/, /#irComplete/];
+        this.incidentStartURL = [/^#incident1/, /#irComplete/, /#irHome/];
         this.prevailingStartURL = /^#prevailing1/;
         this.eventSpecificURL = /^#eventSpecific/;
         this.formSelectURL = /^#formSelect/;
-        this.adminURLS = [/^#adminPageSelect/, /^#adminPasswordChange/, /^#adminMetadata/];
+        this.adminURLS = [/^#adminPageSelect/, /^#adminPasswordChange/, /^#adminMetadata/, /^#adminNewUser/];
         this.SHRURLS = [/^#WHR/, /^#WTR/, /^#WPR/, /^#ZWR/, /^#STR/, /^#LDR/, /^#RCR/, /^#OHR/, /^#REV/, /^#SHR/, /^#TRANS/];
 
         //Intial routing to the logon page.
@@ -57,26 +102,26 @@ var app = {
         //Login data
         this.loginData = new loginData();
         this.loginData.intitalize();
-		//store for previously filled data objects
-		this.prevSHRArray = [];
-		this.esSHRArray = [];
-		this.irArray = [];
-		//these one have been synced
-		this.prevSHRArrayFinished = [];
-		this.esSHRArrayFinished = [];
-		this.irArrayFinished = [];
-		//these one have not been synced
-		this.prevSHRArrayUnfinished = [];
-		this.esSHRArrayUnfinished = [];
-		this.irArrayUnfinished = [];
+        //store for previously filled data objects
+        this.prevSHRArray = [];
+        this.esSHRArray = [];
+        this.irArray = [];
+        //these one have been synced
+        this.prevSHRArrayFinished = [];
+        this.esSHRArrayFinished = [];
+        this.irArrayFinished = [];
+        //these one have not been synced
+        this.prevSHRArrayUnfinished = [];
+        this.esSHRArrayUnfinished = [];
+        this.irArrayUnfinished = [];
     },
-	
-	/*
-	* This resets the data objects
-	*
-	*/
-	resetData: function(){
-		//PREVSHR
+
+    /*
+     * This resets the data objects
+     *
+     */
+    resetData: function () {
+        //PREVSHR
         this.prevalingSHRData = new PrevailingData();
         this.prevalingSHRData.initialize();
         //IRSHR
@@ -85,7 +130,7 @@ var app = {
         //IR
         this.esIRData = new eventSpecifcIRData();
         this.esIRData.initialize();
-	},
+    },
 
     /*
      *
@@ -124,12 +169,16 @@ var app = {
             new IRView().render("irFill");
         } else if (hash.match(app.incidentStartURL[1])) {
             new IRView().render("irDone");
+        } else if (hash.match(app.incidentStartURL[2])) {
+            new IRView().render("irHome");
         } else if (hash.match(app.adminURLS[0])) {
             new AdminSelectView().render("formSelect");
         } else if (hash.match(app.adminURLS[1])) {
             new AdminSelectView().render("resetPassword");
         } else if (hash.match(app.adminURLS[2])) {
             new AdminSelectView().render("metaData");
+        } else if (hash.match(app.adminURLS[3])) {
+            new AdminSelectView().render("newUser");
         } else if (hash.match(app.eventSpecificURL)) {
             new EventSpecificView().render();
         } else if (hash.match(app.formSelectURL)) {
@@ -141,31 +190,3 @@ var app = {
         }
     }
 };
-
-//Get the current date and time in sql format
-function getDateTime() {
-    var now = new Date();
-    var year = now.getFullYear();
-    var month = now.getMonth() + 1;
-    var day = now.getDate();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var second = now.getSeconds();
-    if (month.toString().length == 1) {
-        var month = '0' + month;
-    }
-    if (day.toString().length == 1) {
-        var day = '0' + day;
-    }
-    if (hour.toString().length == 1) {
-        var hour = '0' + hour;
-    }
-    if (minute.toString().length == 1) {
-        var minute = '0' + minute;
-    }
-    if (second.toString().length == 1) {
-        var second = '0' + second;
-    }
-    var dateTime = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':' + second;
-    return dateTime;
-}

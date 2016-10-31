@@ -55,19 +55,19 @@ var eventSpecifcSHRData = function () {
 }
 var IRData = function () {
     this.initialize = function () {
-        this.pDNF = -1;
-        this.FOWave = -1;
-        this.pFOCollision = -1;
-        this.pBSND = -1;
-        this.pBroach = -1;
-        this.pFlyingCraft = -1;
-        this.pLCSerious = -1;
-        this.pLCSevere = -1;
-        this.pCollisionMin = -1;
-        this.pCollisionSer = -1;
-        this.pINJMin = -1;
-        this.pINJSer = -1;
-        this.pINJSev = -1;
+        this.pDNF = 0;
+        this.FOWave = 0;
+        this.pFOCollision = 0;
+        this.pBSND = 0;
+        this.pBroach = 0;
+        this.pFlyingCraft = 0;
+        this.pLCSerious = 0;
+        this.pLCSevere = 0;
+        this.pCollisionMin = 0;
+        this.pCollisionSer = 0;
+        this.pINJMin = 0;
+        this.pINJSer = 0;
+        this.pINJSev = 0;
     }
 }
 var eventSpecifcIRData = function () {
@@ -96,5 +96,8 @@ var loginData = function () {
         this.pID = -1;
         this.pTSOStatus = -1;
         this.pAdminStatus = -1;
+        this.incidentFName = "";
+        this.incidentLName = "";
+        this.incidentEmail = "";
     }
 }

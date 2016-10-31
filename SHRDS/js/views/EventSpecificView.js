@@ -47,6 +47,17 @@ var EventSpecificView = function () {
             "<option value='open'>Open</option>" +
             "</select>" +
 
+
+            "<div class='irTitles'>Final:</div>" +
+            "<select name='ESFinalType' onChange='updateForm()'>" +
+            "<option value='-1'selected>Select one</option>" +
+            "<option value='Qualifier'>Qualifier</option>" +
+            "<option value='Quater Final'>Quater Final</option>" +
+            "<option value='Semi Final'>Semi Final</option>" +
+            "<option value='Grand Final'>Grand Final</option>" +
+            "</select>" +
+
+            "<div class='removal'>" +
             "<div class='irTitles'>Heat:</div>" +
             "<select name='ESHeat'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -66,15 +77,8 @@ var EventSpecificView = function () {
             "<option value='4'>Round 4</option>" +
             "<option value='5'>Round 5</option>" +
             "</select>" +
+            "</div>" +
 
-            "<div class='irTitles'>Final:</div>" +
-            "<select name='ESFinalType'>" +
-            "<option value='-1'selected>Select one</option>" +
-            "<option value='Qualifier'>Qualifier</option>" +
-            "<option value='Quater Final'>Quater Final</option>" +
-            "<option value='Semi Final'>Semi Final</option>" +
-            "<option value='Grand Final'>Grand Final</option>" +
-            "</select>" +
 
             "<div class='irTitles'>Craft Type:</div>" +
             "<select name='ESCraftType'>" +
@@ -83,38 +87,51 @@ var EventSpecificView = function () {
             "<option value='Double Ski'>Double Ski</option>" +
             "<option value='Board'>Board</option>" +
             "<option value='Boat'>Boat</option>" +
+            "<option value='N/A'>N/A</option>" +
             "</select>" +
-			
-			"<div class='irTitles'>Gender:</div>" +
+
+            "<div class='irTitles'>Gender:</div>" +
             "<select name='ESGender'>" +
             "<option value='-1' selected>Select one</option>" +
-            "<option value='Male'>Male</option>" +
-            "<option value='Female'>Female</option>" +
+            "<option value='M'>Male</option>" +
+            "<option value='F'>Female</option>" +
             "</select>" +
 
-            "<div class='irTitles'>In/Out:</div>" +
-            "<div class='inlineOutIn'>" +         
-            "<input type ='radio' name='ESInOut' id='in' value='in'/>" +
-            "Out" +
-            "<input type ='radio' name='ESInOut' id='out' value='out'/>" +
-            "In" +
+            "<div class='check'><div class='irTitles'>In/Out:</div></div>" +
+            "<div class='inlineOutIn'></div>" +
             "<div>" +
             "<br>Beach/location:<input type = 'text' name='ESBeach'>" +
-            "</div>";
+            "</div>" +
+            "<div class='error'></div>";
 
 
 
-
-
-        var footer =
-            "<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> " +
-            "<button type='button' class='exitButton'>EXIT</button>";
+		if(app.SHRFlag==2){
+			var footer =
+			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
+            "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
+		}else{
+			var footer =
+			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
+            "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>";
+		}
+    
+	
 
 
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
-        console.log(app.loginData.pID);
+
+        if (app.SHRFlag == 2) {
+
+            $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' value='IN'/>" +
+                "Out" +
+                "<input type ='radio' name='ESInOut' id='out' value='OUT'/>" +
+                "In");
+        } else {
+            $(".check").text("");
+        }
     }
 }
 
@@ -126,4 +143,3 @@ function routeIS() {
         window.location.hash = "#WHR";
     }
 }
-

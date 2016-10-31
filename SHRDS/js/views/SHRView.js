@@ -65,27 +65,21 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+  
 
 
 
     var footer =
         //footer
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WHR"' + ", " + getWHRvalue + ")'>NEXT</button> " +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-    console.log("SHRFlag is " + app.SHRFlag);
+   
 
     if (app.SHRFlag == 1) {
         $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
@@ -114,18 +108,12 @@ function getWTR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+   
 
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WTR"' + ", " + getWTRvalue + ")'>NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -161,14 +149,13 @@ function getWPR() {
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WPR"' + ", " + getWPRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-    console.log(app.loginData.pID);
-    console.log(app.SHRFlag);
+
 
     if (app.SHRFlag == 1) {
         $("select[name=WPRForm]").val(app.prevalingSHRData.SHR.pWPR);
@@ -200,17 +187,12 @@ function getZWR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+
+
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"ZWR"' + ", " + getZWRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -251,7 +233,7 @@ function getSTR() {
     var footer =
 
         " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -291,7 +273,7 @@ function getLDR() {
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"LDR"' + ", " + getLDRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -323,19 +305,13 @@ function getRCR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+ 
 
 
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"RCR"' + ", " + getRCRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -378,7 +354,7 @@ function getOHR() {
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + getOHRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -395,13 +371,7 @@ function getOHR() {
 
 function getREV() {
     var header = "Review SHR";
-    console.log(app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
-        10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType);
+
 
     if (app.SHRFlag == 1) {
         var pWHR = app.prevalingSHRData.SHR.pWHR;
@@ -462,13 +432,13 @@ function getREV() {
 
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>SUBMIT</button>";
-    "<button type='button' class='exitButton'>EXIT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>";
+    "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-    console.log(app.loginData.pID);
+
 }
 
 function getSHR() {
@@ -479,10 +449,11 @@ function getSHR() {
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
-        "<div class='history'>" + getSHRHistory() + "</div>";
+        "<div class='history'>" + getSHRHistory() + "</div>" +
+		"<div class ='status'></div>";
 
     var footer =
-        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR()'>LOG OUT</button>";
+        "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
 
 
 

@@ -39,7 +39,6 @@ function nextPage(SHR, fun) {
                 $(".error").text("");
                 break;
             case ("OHR"):
-                console.log(app.prevalingSHRData);
                 window.location.hash = "#REV";
                 $(".error").text("");
                 break;

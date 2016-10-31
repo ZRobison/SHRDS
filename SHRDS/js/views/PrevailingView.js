@@ -40,9 +40,9 @@ var PrevailingView = function () {
 
             "<div class='textPrev'>Nearest Tides</div>" +
             "<div class='textPrev'>Low tide time</div>" +
-            "<input type='text' name='tideTimeLow' placeholder='HH:MM'>" + //I think there is the time of the 2 nearest tides??
+            "<input type='text' name='tideTimeLow' placeholder='HHMM'>'" + //I think there is the time of the 2 nearest tides??
             "<div class='textPrev'>High tide time</div>" +
-            "<input type='text' name='tideTimeHigh' placeholder='HH:MM'>" +
+            "<input type='text' name='tideTimeHigh' placeholder='HHMM'>" +
             "<div class='textPrev'>Low tide Height</div>" +
             "<input type='text' name='tideHieghtLow' placeholder='Height'>" +
             "<div class='textPrev'>High tide Height</div>" +
@@ -54,15 +54,15 @@ var PrevailingView = function () {
 
             "<div class='error'></div>";
 
-
-        //DONT KNOW WHAT THESE INPUT BOXES ARE FOR, MAY NOT NEED THEM WITH AUTFILL DATA FROM BOM"<input type='text' name='text3'/>" +
-        //"<input type='text' name='text3'/>" +
-
         $(".body").html(body);
+
+        addColon("tideTimeLow");
+        addColon("tideTimeHigh");
+
 
         var footer =
             "<button onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
-            "<button type='button' class='exitButton'>EXIT</button>";
+            "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
         $(".footer").html(footer);
 
