@@ -74,6 +74,7 @@ function submitEventSpercific() {
             nest();
         }
     );
+    console.log(eventSQL);
 
 
     app.esSHRArrayUnfinished.push(app.esSHRData);
@@ -138,9 +139,9 @@ function submitESAfterCheckFalse() {
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].age + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].gender + "'," +
         10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "'," +
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "," +
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + ",'" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "','" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "','" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')";
 
 
@@ -370,9 +371,9 @@ function submitIRAfterCheckFalse() {
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "','" +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "'," +
         10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "'," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + ",'" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "','" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "','" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "','" +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')";
 
     MySql.Execute(
