@@ -70,7 +70,7 @@ function submitEventSpercific(){
             function (data) {function nest(){ submitESDataAfterCheck(data);};  nest();}
             );
 			
-			
+	console.log(eventSQL);
 	app.esSHRArrayUnfinished.push(app.esSHRData);
     app.esSHRArray.push(app.esSHRData);
     app.resetData();
@@ -133,9 +133,9 @@ function submitESAfterCheckFalse() {
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].age + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].gender + "'," +
         10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "'," +
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "," +
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + ",'" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "','" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "','" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')";
 
 		
@@ -314,6 +314,8 @@ function sumbitIncerdentReport() {
         "AND HEAT = '" + app.esIRData.heat + "' " +
         "AND FINAL = '" + app.esIRData.finalType + "'";
 
+		
+	console.log(eventSQL);
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -408,6 +410,8 @@ function submitIRAfterCheckFalse() {
 			app.loginData.incidentEmail + "','" +
 			app.loginData.incidentFName + "','" +
 			app.loginData.incidentLName + "')";
+			
+			
 		MySql.Execute(
 			dbconfig.host,
 			dbconfig.dbUser,
@@ -510,7 +514,7 @@ function submitIRAfterCheckTrue() {
         dbconfig.dbUser,
         sql,
         //Currently function can be empty as call back will not return anything
-        function (data) {}
+        function (data) {app.updatedFlag += .5;}
     );
 
     //Do all the same again for Out version of IR 
@@ -525,7 +529,7 @@ function submitIRAfterCheckTrue() {
         "AND HEAT = '" +app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
         "AND FINAL = '" +app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
         app.loginData.pID + "," +
-        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+        "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
@@ -554,7 +558,7 @@ function submitIRAfterCheckTrue() {
         //Currently function can be empty as call back will not return anything
         function (data) {
             function nest() {
-                app.updatedFlag = 3;
+                app.updatedFlag += 2.5;
             };
             nest();
         }
