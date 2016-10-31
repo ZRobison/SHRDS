@@ -26,8 +26,7 @@ function add(param) {
         numLoggedA = (((numLoggedA) * 1) + ((num) * 1));
         gPMResult = numLoggedA;
     }
-    console.log(numLoggedA);
-    console.log(gPMResult);
+
     return gPMResult;
 }
 
@@ -44,8 +43,6 @@ function minus(param) {
         numLoggedM = (((numLoggedM) * 1) + ((num) * 1));
         gPMResult = numLoggedM;
     }
-    console.log(numLoggedM);
-    console.log(gPMResult);
     return gPMResult;
 }
 // data storing functions
@@ -137,49 +134,34 @@ function incidentsReportedTwelve() {
 function getIRValues() {
     // storing variables that hold the value to memory 
     app.esIRData.IRIN.FOWave = gPMResultFOWave;
-    console.log(app.esIRData.IRIN.FOWave);
     //
     app.esIRData.IRIN.pFOCollision = gPMResultFOColl;
-    console.log(app.esIRData.IRIN.pFOCollision);
     //
     app.esIRData.IRIN.pBSND = gPMResultBSND;
-    console.log(app.esIRData.IRIN.pBSND);
     //
     app.esIRData.IRIN.pBroach = gPMResultBroach;
-    console.log(app.esIRData.IRIN.pBroach);
     //
     app.esIRData.IRIN.pFlyingCraft = gPMResultFlyingCraft;
-    console.log(app.esIRData.IRIN.pFlyingCraft);
     //
     app.esIRData.IRIN.pLCSerious = gPMResultLCSerious;
-    console.log(app.esIRData.IRIN.pLCSerious);
     //
     app.esIRData.IRIN.pLCSevere = gPMResultLCSevere;
-    console.log(app.esIRData.IRIN.pLCSevere);
     //
     app.esIRData.IRIN.pCollisionSer = gPMResultCollisionSer;
-    console.log(app.esIRData.IRIN.pCollisionSer);
     //
     app.esIRData.IRIN.pINJMin = gPMResultINJMin;
-    console.log(app.esIRData.IRIN.pINJMin);
     //
     app.esIRData.IRIN.pINJSer = gPMResultINJSer;
-    console.log(app.esIRData.IRIN.pINJSer);
     //
     app.esIRData.IRIN.pINJSev = gPMResultINJSev;
-    console.log(app.esIRData.IRIN.pINJSev);
     //
     app.esIRData.IRIN.pDNF = gPMResultDNF;
-    console.log(app.esIRData.IRIN.pDNF);
     //
 }
 
 function irComplete() {
     window.location.hash = "#irComplete";
 }
-////////
-////////
-////////
 
 //IR 2 - OUT Functions  TRANSFER TO ORIGINAL 
 var numMin2 = 0;
