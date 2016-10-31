@@ -104,7 +104,7 @@ function submitESDataAfterCheck(data) {
 
 /**
  *
- * IF the data check is true just submit data
+ * IF the data check is false submit the event and SHR data
  *
  */
 function submitESAfterCheckFalse() {
@@ -130,12 +130,13 @@ function submitESAfterCheckFalse() {
         "AND CRAFT_TYPE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "' " +
         "AND ROUND = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "' " +
         "AND HEAT = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "' " +
-        "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')," +
+        "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "' " +
+        "AND RACE_DATE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "')," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE)";
 
 
     var eventInsertSQL =
-        "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+        "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL, RACE_DATE, SUBMIT_TIME)" +
         "VALUES ('" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].age + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].gender + "'," +
@@ -143,7 +144,9 @@ function submitESAfterCheckFalse() {
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "','" +
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')";
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "','" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "','" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "')";
 
 
     console.log(eventInsertSQL);
@@ -202,7 +205,8 @@ function submitESAfterCheckTrue() {
         "AND CRAFT_TYPE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "' " +
         "AND ROUND = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "' " +
         "AND HEAT = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "' " +
-        "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')," +
+        "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "' " +
+        "AND RACE_DATE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "')," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE)";
 
     console.log(sql);
@@ -319,7 +323,8 @@ function sumbitIncerdentReport() {
         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
         "AND ROUND = '" + app.esIRData.round + "' " +
         "AND HEAT = '" + app.esIRData.heat + "' " +
-        "AND FINAL = '" + app.esIRData.finalType + "'";
+        "AND FINAL = '" + app.esIRData.finalType + "' " +
+        "AND RACE_DATE = '" + app.esIRData.date + "'";
 
 
     console.log(eventSQL);
@@ -364,12 +369,12 @@ function submitIRDataAfterCheck(data) {
 
 /**
  *
- * IF the data check is true just submit data
+ * IF the data check is false submit Event data then IR data
  *
  */
 function submitIRAfterCheckFalse() {
 
-    var eventSQL = "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
+    var eventSQL = "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL, RACE_DATE, SUBMIT_TIME) " +
         "VALUES ('" +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "','" +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "'," +
@@ -377,7 +382,9 @@ function submitIRAfterCheckFalse() {
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "','" +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "','" +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "','" +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')";
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "','" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "','" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].time + "')";
 
     MySql.Execute(
         dbconfig.host,
@@ -398,7 +405,8 @@ function submitIRAfterCheckFalse() {
                 "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
                 "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
                 "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
-                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
+                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
+                "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
                 app.loginData.pID + "," +
                 "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
                 app.esIRData.IRIN.pDNF + "," +
@@ -441,7 +449,8 @@ function submitIRAfterCheckFalse() {
                 "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
                 "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
                 "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
-                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
+                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
+                "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
                 app.loginData.pID + "," +
                 "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
                 app.esIRData.IROUT.pDNF + "," +
@@ -494,7 +503,8 @@ function submitIRAfterCheckTrue() {
         "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
         "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
         "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
-        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
+        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
+        "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
         app.loginData.pID + "," +
         "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pDNF + "," +
@@ -536,7 +546,8 @@ function submitIRAfterCheckTrue() {
         "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
         "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
         "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
-        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
+        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
+        "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
         app.loginData.pID + "," +
         "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
