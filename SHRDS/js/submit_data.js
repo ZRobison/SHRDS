@@ -50,6 +50,7 @@ function flagUpdated(formType) {
 *
 */
 
+
 function submitEventSpercific() {
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esSHRData.age + "' " +
@@ -320,6 +321,8 @@ function sumbitIncerdentReport() {
         "AND HEAT = '" + app.esIRData.heat + "' " +
         "AND FINAL = '" + app.esIRData.finalType + "'";
 
+
+    console.log(eventSQL);
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -518,7 +521,9 @@ function submitIRAfterCheckTrue() {
         dbconfig.dbUser,
         sql,
         //Currently function can be empty as call back will not return anything
-        function (data) {}
+        function (data) {
+            app.updatedFlag += .5;
+        }
     );
 
     //Do all the same again for Out version of IR 
@@ -533,7 +538,7 @@ function submitIRAfterCheckTrue() {
         "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
         "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
         app.loginData.pID + "," +
-        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+        "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
         app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
@@ -561,7 +566,7 @@ function submitIRAfterCheckTrue() {
         //Currently function can be empty as call back will not return anything
         function (data) {
             function nest() {
-                app.updatedFlag = 3;
+                app.updatedFlag += 2.5;
             };
             nest();
         }
