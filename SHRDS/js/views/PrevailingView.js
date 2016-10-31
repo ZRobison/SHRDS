@@ -62,7 +62,7 @@ var PrevailingView = function () {
 
         var footer =
             "<button onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
-            "<button type='button' class='exitButton'>EXIT</button>";
+            "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
         $(".footer").html(footer);
 
