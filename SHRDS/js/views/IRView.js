@@ -206,7 +206,8 @@ var IRView = function () {
 
             var footer =
                 "<button type='button' class='blueButtons' onClick='getIRValues(); getIRValuesOUT(); irComplete();'>SUBMIT</button>" +
-                "<button type='button' class='exitButton'>EXIT</button>" +
+                "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>" +
+				
                 "<form>";
 
 
@@ -219,7 +220,7 @@ var IRView = function () {
 
             var body = "<p>Incident Report has been successfully submitted</p>"
 
-            var footer = "<button type='button' class='blueButtons' onClick='insertSHR()'>HOME</button>";
+            var footer = "<button type='button' class='blueButtons' onclick='window.location.replace(\"index.html#irHome\")'>HOME</button>";
             $(".heading").text(header);
             $(".body").html(body);
             $(".footer").html(footer);
@@ -231,7 +232,8 @@ var IRView = function () {
 
             var body = "<button type='button' class='blueButtons' >Sync</button>"
 
-            var footer = "<button type='button' class='blueButtons' >Start</button>";
+            var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >Start</button>"+
+			"<button type='button' onclick='window.location.replace(\"index.html\")' class='blueButtons'>Home</button>";
             $(".heading").text(header);
             $(".body").html(body);
             $(".footer").html(footer);
