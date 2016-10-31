@@ -11,6 +11,9 @@ var IRView = function () {
             case 'irDone':
                 getIRDone();
                 break;
+            case 'irHome':
+                getIRHome();
+                break;
         }
 
         function getIRFill() {
@@ -217,6 +220,18 @@ var IRView = function () {
             var body = "<p>Incident Report has been successfully submitted</p>"
 
             var footer = "<button type='button' class='blueButtons' onClick='insertSHR()'>HOME</button>";
+            $(".heading").text(header);
+            $(".body").html(body);
+            $(".footer").html(footer);
+        }
+		
+		function getIRHome() {
+            var header = "Incident Report Home";
+
+
+            var body = "<button type='button' class='blueButtons' >Sync</button>"
+
+            var footer = "<button type='button' class='blueButtons' >Start</button>";
             $(".heading").text(header);
             $(".body").html(body);
             $(".footer").html(footer);
