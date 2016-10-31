@@ -90,8 +90,3 @@ function checkRadioButtons(radioGroup) {
     }
 
 }
-
-
-function passwordEquality() {
-
-}
