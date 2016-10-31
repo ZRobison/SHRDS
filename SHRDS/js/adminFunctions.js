@@ -8,21 +8,23 @@ function adminPageSelect() {
     }
 }
 
-//
+//Variables to store return data
+var dataPrev;
+var dataES;
+var dataIR;
 
 function getFormMetaData() {
-    var data1;
-    var data2;
+
     var name = "<br>";
     var formType = "<br>"
     var raceDeets = "<br>";
     var raceTime = "<br>";
     var notify = -1;
-    //Get ir form metadata
-    var sql = "SELECT FIRST_NAME, LAST_NAME, SHR.RACE_ID, AGE_GROUP, CRAFT_TYPE, SHR.TIME " +
-        "FROM SHR, RACE, SHRDS_USER " +
-        "WHERE SHR.RACE_ID = RACE.RACE_ID AND SHR.USER_ID = SHRDS_USER.USER_ID";
-    console.log("about to fire form metadata sql");
+    //Get ES SHR and ES IR form data
+    var sql =
+        "SELECT FIRST_NAME, LAST_NAME, SHR.RACE_ID, AGE_GROUP, CRAFT_TYPE, SHR.TIME, IR_FIRST_NAME, IR_LAST_NAME, (DNF + FLYING_CRAFT + FALL_OFF_WAVE +" + "FALL_OFF_COLLISION + BACK_SHOOT_NOSE_DIVE + BROACH + INJURY_MINOR + INJURY_SERIOUS + INJURY_SEVERE + LOST_CRAFT_SERIOUS + LOST_CRAFT_SEVERE + COLLISION_MINOR +" + "COLLISION_SERIOUS) AS Total_Incidents " +
+        "FROM SHR, RACE, SHRDS_USER, INCIDENTS_REPORT " +
+        "WHERE SHR.RACE_ID = RACE.RACE_ID AND SHR.USER_ID = SHRDS_USER.USER_ID AND INCIDENTS_REPORT.USER_ID = SHR.USER_ID AND EVENT_SPECIFIC = TRUE";
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -30,50 +32,32 @@ function getFormMetaData() {
         dbconfig.dbUser,
         sql,
         function (data) {
-            //Get Prevailing form metadata
-            sql = "SELECT FIRST_NAME, LAST_NAME, TIME " +
-                "FROM SHR, SHRDS_USER " +
-                "WHERE SHR.USER_ID = SHRDS_USER.USER_ID";
-            console.log("about to fire callback2");
-            MySql.Execute(
-                dbconfig.host,
-                dbconfig.dbUser,
-                dbconfig.dbPassword,
-                dbconfig.dbUser,
-                sql,
-                function (data) {
-                    //SQL for Incident Data
-
-                    if (data.Result != null && data.Result != "") {
-                        for (var i = 0; i < data.Result.length; i++) {
-                            name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
-                            formType += "Prevailing SHR" + "<br>";
-                            raceDeets += "<br>";
-                            raceTime += data.Result[i].TIME + "<br>";
-                        }
-                        document.getElementById("supervisingTSO").innerHTML += name;
-                        document.getElementById("raceDetails").innerHTML += raceDeets;
-                        document.getElementById("submittedTime").innerHTML += raceTime;
-                        document.getElementById("formType").innerHTML += formType;
-
-                    }
-                }
-            );
-            if (data.Result != null && data.Result != "") {
-                for (var i = 0; i < data.Result.length; i++) {
-                    name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
-                    formType += "Event Specific SHR" + "<br>";
-                    raceDeets += data.Result[i].AGE_GROUP + " " + data.Result[i].CRAFT_TYPE + "<br>";
-                    raceTime += data.Result[i].TIME + "<br>";
-                }
-
-
+            function nest() {
+                dataES = data;
             }
+        });
+    nest();
 
-        }
-    );
+    //Get Prevailing form metadata
+    sql = "SELECT FIRST_NAME, LAST_NAME, TIME " +
+        "FROM SHR, SHRDS_USER " +
+        "WHERE SHR.USER_ID = SHRDS_USER.USER_ID";
+    MySql.Execute(
+        dbconfig.host,
+        dbconfig.dbUser,
+        dbconfig.dbPassword,
+        dbconfig.dbUser,
+        sql,
+        function (data) {
+            function nest() {
+                dataPrev = data;
+            }
+        });
+    nest();
+
 
 }
+
 
 //The following functions verify that the correct user data has been input, ensures the username is unique, then submits to the DB
 function checkNewUserDetails() {
@@ -173,3 +157,29 @@ function checkNewUser(userName) {
     );
 
 }
+
+
+
+//if (data.Result != null && data.Result != "") {
+//    for (var i = 0; i < data.Result.length; i++) {
+//        name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
+//        formType += "Prevailing SHR" + "<br>";
+//        raceDeets += "<br>";
+//        raceTime += data.Result[i].TIME + "<br>";
+//    }
+//    document.getElementById("supervisingTSO").innerHTML += name;
+//    document.getElementById("raceDetails").innerHTML += raceDeets;
+//    document.getElementById("submittedTime").innerHTML += raceTime;
+//    document.getElementById("formType").innerHTML += formType;
+//
+//}
+//if (data.Result != null && data.Result != "") {
+//    for (var i = 0; i < data.Result.length; i++) {
+//        name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
+//        formType += "Event Specific SHR" + "<br>";
+//        raceDeets += data.Result[i].AGE_GROUP + " " + data.Result[i].CRAFT_TYPE + "<br>";
+//        raceTime += data.Result[i].TIME + "<br>";
+//    }
+//
+//
+//}
