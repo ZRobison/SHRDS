@@ -72,7 +72,7 @@ function getWHR() {
     var footer =
         //footer
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WHR"' + ", " + getWHRvalue + ")'>NEXT</button> " +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -113,7 +113,7 @@ function getWTR() {
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WTR"' + ", " + getWTRvalue + ")'>NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -149,7 +149,7 @@ function getWPR() {
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WPR"' + ", " + getWPRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -192,7 +192,7 @@ function getZWR() {
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"ZWR"' + ", " + getZWRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -233,7 +233,7 @@ function getSTR() {
     var footer =
 
         " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -273,7 +273,7 @@ function getLDR() {
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"LDR"' + ", " + getLDRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -311,7 +311,7 @@ function getRCR() {
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"RCR"' + ", " + getRCRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
     $(".heading").text(header);
@@ -354,7 +354,7 @@ function getOHR() {
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + getOHRvalue + ")' >NEXT</button>" +
-        "<button type='button' class='exitButton'>EXIT</button>";
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
 
 
@@ -433,7 +433,7 @@ function getREV() {
 
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>";
-    "<button type='button' class='exitButton'>EXIT</button>";
+    "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
