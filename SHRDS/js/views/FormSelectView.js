@@ -11,7 +11,7 @@ var FormSelectView = function () {
             "<label for='shrRadio2'>Event Specific Surf Hazard Rating</label></div>";
 
         var footer = "<button type='submit' class='blueButtons' onclick='shrFormSelect()'>NEXT</button>" +
-            "<button type='button' class='exitButton'>EXIT</button>";
+            "<button type='button' onclick='window.location.replace(\"index.html\")' class='exitButton'>EXIT</button>";
 
 		console.log("**********************");
         console.log(app.prevSHRArrayUnfinished);
