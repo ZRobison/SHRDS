@@ -15,10 +15,7 @@ var dataIR;
 
 function getFormMetaData() {
 
-    var name = "<br>";
-    var formType = "<br>"
-    var raceDeets = "<br>";
-    var raceTime = "<br>";
+
     var notify = -1;
     //Get ES SHR and ES IR form data
     var sql =
@@ -33,10 +30,11 @@ function getFormMetaData() {
         sql,
         function (data) {
             function nest() {
-                dataES = data;
-            }
+                outputESData(data)
+            };
+            nest();
         });
-    nest();
+
 
     //Get Prevailing form metadata
     sql = "SELECT FIRST_NAME, LAST_NAME, TIME " +
@@ -51,10 +49,42 @@ function getFormMetaData() {
         function (data) {
             function nest() {
                 dataPrev = data;
-            }
+            };
+            nest();
         });
-    nest();
 
+
+}
+
+function outputESData(data) {
+    var name = "<br>";
+    var formType = "<br>"
+    var raceDeets = "<br>";
+    var raceTime = "<br>";
+    console.log(data)
+    if (data.Result != null && data.Result != "") {
+        for (var i = 0; i < data.Result.length; i++) {
+            name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
+            formType += "Events" + "<br>";
+            raceDeets += data.Result[i].AGE_GROUP + " " + data.Result[i].CRAFT_TYPE + "<br>";;
+            raceTime += data.Result[i].TIME + "<br>";
+        }
+        document.getElementById("supervisingTSO").innerHTML += name;
+        document.getElementById("raceDetails").innerHTML += raceDeets;
+        document.getElementById("submittedTime").innerHTML += raceTime;
+        document.getElementById("formType").innerHTML += formType;
+
+    }
+    //    if (data.Result != null && data.Result != "") {
+    //        for (var i = 0; i < data.Result.length; i++) {
+    //            name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
+    //            formType += "Event Specific SHR" + "<br>";
+    //            raceDeets += data.Result[i].AGE_GROUP + " " + data.Result[i].CRAFT_TYPE + "<br>";
+    //            raceTime += data.Result[i].TIME + "<br>";
+    //        }
+    //
+    //
+    //    }
 
 }
 
@@ -157,29 +187,3 @@ function checkNewUser(userName) {
     );
 
 }
-
-
-
-//if (data.Result != null && data.Result != "") {
-//    for (var i = 0; i < data.Result.length; i++) {
-//        name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
-//        formType += "Prevailing SHR" + "<br>";
-//        raceDeets += "<br>";
-//        raceTime += data.Result[i].TIME + "<br>";
-//    }
-//    document.getElementById("supervisingTSO").innerHTML += name;
-//    document.getElementById("raceDetails").innerHTML += raceDeets;
-//    document.getElementById("submittedTime").innerHTML += raceTime;
-//    document.getElementById("formType").innerHTML += formType;
-//
-//}
-//if (data.Result != null && data.Result != "") {
-//    for (var i = 0; i < data.Result.length; i++) {
-//        name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
-//        formType += "Event Specific SHR" + "<br>";
-//        raceDeets += data.Result[i].AGE_GROUP + " " + data.Result[i].CRAFT_TYPE + "<br>";
-//        raceTime += data.Result[i].TIME + "<br>";
-//    }
-//
-//
-//}
