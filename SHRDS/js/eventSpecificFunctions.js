@@ -1,19 +1,19 @@
 // event specific functions 
 
-function updateForm(){
-	var score = $("select[name=ESFinalType]").val();
-	if (score == 'Grand Final') {
-		$(".removal").html(" ");
-		if (app.SHRFlag == 2) {
-			app.esSHRData.heat = 'N/A';
-			app.esSHRData.round = 'N/A';
-		} else {
-			app.esIRData.heat = 'N/A';
-			app.esIRData.round = 'N/A';
-		}
-	} else {
-		$(".removal").html(
-		"<div class='irTitles'>Heat:</div>" +
+function updateForm() {
+    var score = $("select[name=ESFinalType]").val();
+    if (score == 'Grand Final') {
+        $(".removal").html(" ");
+        if (app.SHRFlag == 2) {
+            app.esSHRData.heat = 'N/A';
+            app.esSHRData.round = 'N/A';
+        } else {
+            app.esIRData.heat = 'N/A';
+            app.esIRData.round = 'N/A';
+        }
+    } else {
+        $(".removal").html(
+            "<div class='irTitles'>Heat:</div>" +
             "<select name='ESHeat'>" +
             "<option value='-1' selected>Select one</option>" +
             "<option value='1'>Heat 1</option>" +
@@ -22,7 +22,7 @@ function updateForm(){
             "<option value='4'>Heat 4</option>" +
             "<option value='5'>Heat 5</option>" +
             "</select>" +
-			
+
             "<div class='irTitles'>Round:</div>" +
             "<select name='ESRound'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -31,15 +31,15 @@ function updateForm(){
             "<option value='3'>Round 3</option>" +
             "<option value='4'>Round 4</option>" +
             "<option value='5'>Round 5</option>" +
-            "</select>" );
-		if (app.SHRFlag == 2) {
-			app.esSHRData.heat = '-1';
-			app.esSHRData.round = '-1';
-		} else {
-			app.esIRData.heat = '-1';
-			app.esIRData.round = '-1';
-		}
-	}
+            "</select>");
+        if (app.SHRFlag == 2) {
+            app.esSHRData.heat = '-1';
+            app.esSHRData.round = '-1';
+        } else {
+            app.esIRData.heat = '-1';
+            app.esIRData.round = '-1';
+        }
+    }
 }
 
 
@@ -47,12 +47,12 @@ function getESValues() {
     var check = true;
     check = check && arenaES();
     check = check && ageES();
-	check = check && finalES();
-	var score = $("select[name=ESFinalType]").val();
-	if (score != 'Grand Final') {
-		check = check && heatES();
-		check = check && roundES();
-	}
+    check = check && finalES();
+    var score = $("select[name=ESFinalType]").val();
+    if (score != 'Grand Final') {
+        check = check && heatES();
+        check = check && roundES();
+    }
     check = check && craftTypeES();
     check = check && inOutES();
     check = check && genderES();
@@ -92,6 +92,7 @@ function ageES() {
     }
     //Otherwise we have an ES IR
     else {
+        console.log("Setting ES IR Age Group");
         app.esIRData.age = score;
         return true;
     }
@@ -105,6 +106,7 @@ function heatES() {
         app.esSHRData.heat = score;
         return true;
     } else {
+        console.log("Setting ES IR HEat");
         app.esIRData.heat = score;
         return true;
     }
@@ -112,12 +114,14 @@ function heatES() {
 
 function roundES() {
     var score = $("select[name=ESRound]").val();
+
     if (score == '-1') {
         return false;
     } else if (app.SHRFlag == 2) {
         app.esSHRData.round = score;
         return true;
     } else {
+        console.log("Setting ES IR round");
         app.esIRData.round = score;
         return true;
     }
@@ -125,6 +129,7 @@ function roundES() {
 
 function finalES() {
     var score = $("select[name=ESFinalType]").val();
+    console.log(score);
     if (score == '-1') {
         return false;
     } else if (app.SHRFlag == 2) {
@@ -144,6 +149,7 @@ function craftTypeES() {
         app.esSHRData.craftType = score;
         return true;
     } else {
+        console.log("Setting ES IR Round");
         app.esIRData.craftType = score;
         return true;
     }
