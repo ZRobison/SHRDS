@@ -1,7 +1,6 @@
 //Do to the way the external MYSql.JS script works with callback function, all sql statements must be perfomred in sequence and 
 //cannot be encapsulated into re-useable functions
 function insertSHR() {
-	
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
         submitPrevailing();
@@ -49,28 +48,33 @@ function flagUpdated(formType) {
 * It checks if that Race Already Exists, THen passes the information to the next method
 *
 */
-function submitEventSpercific(){
-	var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
-            "AGE_GROUP = '" + app.esSHRData.age + "' " +
-            "AND GENDER = '" + app.esSHRData.gender + "' " +
-            "AND STARTING_CRAFT = 10 " +
-            "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-            "AND ROUND = " + app.esSHRData.round + " " +
-            "AND HEAT = " + app.esSHRData.heat + " " +
-            "AND FINAL = '" + app.esSHRData.finalType + "' ";      
-		
-        MySql.Execute(
-            dbconfig.host,
-            dbconfig.dbUser,
-            dbconfig.dbPassword,
-            dbconfig.dbUser,
-            eventSQL,
-            //Check if an event with the exact same details currently exists, if not create one
-            function (data) {function nest(){ submitESDataAfterCheck(data);};  nest();}
-            );
-			
-			
-	app.esSHRArrayUnfinished.push(app.esSHRData);
+function submitEventSpercific() {
+    var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
+        "AGE_GROUP = '" + app.esSHRData.age + "' " +
+        "AND GENDER = '" + app.esSHRData.gender + "' " +
+        "AND STARTING_CRAFT = 10 " +
+        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
+        "AND ROUND = " + app.esSHRData.round + " " +
+        "AND HEAT = " + app.esSHRData.heat + " " +
+        "AND FINAL = '" + app.esSHRData.finalType + "' ";
+
+    MySql.Execute(
+        dbconfig.host,
+        dbconfig.dbUser,
+        dbconfig.dbPassword,
+        dbconfig.dbUser,
+        eventSQL,
+        //Check if an event with the exact same details currently exists, if not create one
+        function (data) {
+            function nest() {
+                submitESDataAfterCheck(data);
+            };
+            nest();
+        }
+    );
+
+
+    app.esSHRArrayUnfinished.push(app.esSHRData);
     app.esSHRArray.push(app.esSHRData);
     app.resetData();
     //After everythign has been done go back home
@@ -124,6 +128,7 @@ function submitESAfterCheckFalse() {
         "AND HEAT = " + app.esSHRData.heat + " " +
         "AND FINAL = '" + app.esSHRData.finalType + "')," +
         "0, '12:00', '11:30', TRUE)";
+    console.log(esSHRInsertSQL);
 
 
     var eventInsertSQL =
@@ -256,8 +261,8 @@ function submitPrevailing() {
         "'" + app.prevalingSHRData.windDirection + "'," +
         app.prevalingSHRData.windSpeed + "," +
         "FALSE)"; //False as this is a prevailing report
-	
-	
+
+
     //Descriptors to insert    
     MySql.Execute(
         dbconfig.host,
@@ -268,8 +273,8 @@ function submitPrevailing() {
         //Currently function can be empty as call back will not return anything
         function (data) {
             function nest() {
-			
-               app.updatedFlag = 1;
+
+                app.updatedFlag = 1;
             };
             nest();
         }
@@ -327,11 +332,11 @@ function sumbitIncerdentReport() {
             nest();
         }
     );
-	
-	app.irArrayUnfinished.push(app.esIRData);
+
+    app.irArrayUnfinished.push(app.esIRData);
     app.irArray.push(app.esIRData);
     app.resetData();
-	    //After everythign has been done go back home CHANGE!!!!!!!!!!!!!!!!
+    //After everythign has been done go back home CHANGE!!!!!!!!!!!!!!!!
     window.location.hash = "#eventSpecific";
 }
 
@@ -368,6 +373,7 @@ function submitIRAfterCheckFalse() {
         app.esIRData.round + "," +
         app.esIRData.heat + ",'" +
         app.esIRData.finalType + "')";
+    console.log(eventSQL);
 
     //Submit the in version of the IR report
     var sql =
@@ -400,8 +406,8 @@ function submitIRAfterCheckFalse() {
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
 
-  
-    
+    console.log(sql);
+
 
     MySql.Execute(
         dbconfig.host,
@@ -534,7 +540,7 @@ function submitIRAfterCheckTrue() {
         app.loginData.incidentEmail + "','" +
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
-    
+
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
