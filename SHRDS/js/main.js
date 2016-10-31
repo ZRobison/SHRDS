@@ -169,7 +169,7 @@ var app = {
             new IRView().render("irFill");
         } else if (hash.match(app.incidentStartURL[1])) {
             new IRView().render("irDone");
-		  else if (hash.match(app.incidentStartURL[2])) {
+        } else if (hash.match(app.incidentStartURL[2])) {
             new IRView().render("irHome");
         } else if (hash.match(app.adminURLS[0])) {
             new AdminSelectView().render("formSelect");
