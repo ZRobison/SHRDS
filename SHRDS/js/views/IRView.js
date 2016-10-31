@@ -207,7 +207,7 @@ var IRView = function () {
             var footer =
                 "<button type='button' class='blueButtons' onClick='getIRValues(); getIRValuesOUT(); irComplete();'>SUBMIT</button>" +
                 "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>" +
-				
+
                 "<form>";
 
 
@@ -225,15 +225,16 @@ var IRView = function () {
             $(".body").html(body);
             $(".footer").html(footer);
         }
-		
-		function getIRHome() {
+
+        function getIRHome() {
             var header = "Incident Report Home";
+            console.log(app.loginData.pID);
 
 
             var body = "<button type='button' class='blueButtons' >Sync</button>"
 
-            var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >Start</button>"+
-			"<button type='button' onclick='window.location.replace(\"index.html\")' class='blueButtons'>Home</button>";
+            var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >Start</button>" +
+                "<button type='button' onclick='window.location.replace(\"index.html\")' class='blueButtons'>Home</button>";
             $(".heading").text(header);
             $(".body").html(body);
             $(".footer").html(footer);
