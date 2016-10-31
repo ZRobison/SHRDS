@@ -106,11 +106,17 @@ var EventSpecificView = function () {
 
 
 
-
-
-        var footer =
-            "<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> " +
-            "<button type='button' class='exitButton'>EXIT</button>";
+		if(app.SHRFlag==2){
+			var footer =
+			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
+            "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
+		}else{
+			var footer =
+			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
+            "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>";
+		}
+    
+	
 
 
         $(".heading").text(header);
