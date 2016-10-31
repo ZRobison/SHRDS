@@ -29,8 +29,9 @@ function flagUpdated(formType) {
             postIRSubmit();
             break;
     }
-
-    app.updatedFlag = 0;
+    if (formType != 2.5 && formType != .5) {
+        app.updatedFlag = 0;
+    }
     app.watch('updatedFlag', function (id, oldval, newval) {
         app.unwatch('updatedFlag');
         flagUpdated(newval);
@@ -48,14 +49,15 @@ function flagUpdated(formType) {
 * It checks if that Race Already Exists, THen passes the information to the next method
 *
 */
+
 function submitEventSpercific() {
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esSHRData.age + "' " +
         "AND GENDER = '" + app.esSHRData.gender + "' " +
         "AND STARTING_CRAFT = 10 " +
         "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-        "AND ROUND = " + app.esSHRData.round + " " +
-        "AND HEAT = " + app.esSHRData.heat + " " +
+        "AND ROUND = '" + app.esSHRData.round + "' " +
+        "AND HEAT = '" + app.esSHRData.heat + "' " +
         "AND FINAL = '" + app.esSHRData.finalType + "' ";
 
     MySql.Execute(
@@ -107,42 +109,43 @@ function submitESAfterCheckFalse() {
     var esSHRInsertSQL =
         "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
-        "'" + app.esSHRData.date + "'," +
-        "'" + app.esSHRData.time + "'," +
-        "'" + app.esSHRData.beach + "'," +
-        app.esSHRData.SHR.pLDR + "," +
-        app.esSHRData.SHR.pOHR + "," +
-        app.esSHRData.SHR.pRCR + "," +
-        app.esSHRData.SHR.pSTR + "," +
-        app.esSHRData.SHR.pWHR + "," +
-        app.esSHRData.SHR.pWPR + "," +
-        app.esSHRData.SHR.pWTR + "," +
-        app.esSHRData.SHR.pZWR + "," +
-        app.esSHRData.SHR.totalSHR + "," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "'," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "'," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].beach + "'," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pLDR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pRCR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pSTR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWHR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWPR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWTR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pZWR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.totalSHR + "," +
         "(SELECT RACE_ID FROM RACE WHERE " +
-        "AGE_GROUP = '" + app.esSHRData.age + "' " +
-        "AND GENDER = '" + app.esSHRData.gender + "' " +
+        "AGE_GROUP = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].age + "' " +
+        "AND GENDER = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].gender + "' " +
         "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-        "AND ROUND = " + app.esSHRData.round + " " +
-        "AND HEAT = " + app.esSHRData.heat + " " +
-        "AND FINAL = '" + app.esSHRData.finalType + "')," +
-        "0, '12:00', '11:30', TRUE)";
-    console.log(esSHRInsertSQL);
+        "AND CRAFT_TYPE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "' " +
+        "AND ROUND = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "' " +
+        "AND HEAT = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "' " +
+        "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE)";
 
 
     var eventInsertSQL =
         "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
         "VALUES ('" +
-        app.esSHRData.age + "','" +
-        app.esSHRData.gender + "'," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].age + "','" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].gender + "'," +
         10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esSHRData.craftType + "'," +
-        app.esSHRData.round + "," +
-        app.esSHRData.heat + ",'" +
-        app.esSHRData.finalType + "')";
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "'," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + ",'" +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')";
 
 
+    console.log(eventInsertSQL);
+    console.log(esSHRInsertSQL);
 
     MySql.Execute(
         dbconfig.host,
@@ -150,17 +153,13 @@ function submitESAfterCheckFalse() {
         dbconfig.dbPassword,
         dbconfig.dbUser,
         eventInsertSQL,
-        //Check if an event with the exact same details currently exists, if not create one
         function (data) {
-
-
             MySql.Execute(
                 dbconfig.host,
                 dbconfig.dbUser,
                 dbconfig.dbPassword,
                 dbconfig.dbUser,
                 esSHRInsertSQL,
-                //Currently function can be empty as call back will not return anything
                 function (data) {
                     function nest() {
                         app.updatedFlag = 2;
@@ -182,27 +181,29 @@ function submitESAfterCheckTrue() {
 
     var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
-        "'" + app.esSHRData.date + "'," +
-        "'" + app.esSHRData.time + "'," +
-        "'" + app.esSHRData.beach + "'," +
-        app.esSHRData.SHR.pLDR + "," +
-        app.esSHRData.SHR.pOHR + "," +
-        app.esSHRData.SHR.pRCR + "," +
-        app.esSHRData.SHR.pSTR + "," +
-        app.esSHRData.SHR.pWHR + "," +
-        app.esSHRData.SHR.pWPR + "," +
-        app.esSHRData.SHR.pWTR + "," +
-        app.esSHRData.SHR.pZWR + "," +
-        app.esSHRData.SHR.totalSHR + "," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "'," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "'," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].beach + "'," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pLDR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pRCR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pSTR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWHR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWPR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWTR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pZWR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.totalSHR + "," +
         "(SELECT RACE_ID FROM RACE WHERE " +
-        "AGE_GROUP = '" + app.esSHRData.age + "' " +
-        "AND GENDER = '" + app.esSHRData.gender + "' " +
+        "AGE_GROUP = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].age + "' " +
+        "AND GENDER = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].gender + "' " +
         "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
-        "AND CRAFT_TYPE = '" + app.esSHRData.craftType + "' " +
-        "AND ROUND = " + app.esSHRData.round + " " +
-        "AND HEAT = " + app.esSHRData.heat + " " +
-        "AND FINAL = '" + app.esSHRData.finalType + "')," +
-        "0, '12:00', '11:30', TRUE)";
+        "AND CRAFT_TYPE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "' " +
+        "AND ROUND = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "' " +
+        "AND HEAT = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "' " +
+        "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "')," +
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE)";
+
+    console.log(sql);
 
     MySql.Execute(
         dbconfig.host,
@@ -221,7 +222,7 @@ function submitESAfterCheckTrue() {
 }
 
 function postESSubmit() {
-    app.esSHRArrayFinished.push(app.esSHRArrayUnfinished.push[app.esSHRArrayUnfinished.push.length - 1]);
+    app.esSHRArrayFinished.push(app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1]);
     app.esSHRArrayUnfinished.pop();
     if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0) {
         $(".error").text("");
@@ -314,8 +315,8 @@ function sumbitIncerdentReport() {
         "AND GENDER = '" + app.esIRData.gender + "' " +
         "AND STARTING_CRAFT = 10 " +
         "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
-        "AND ROUND = " + app.esIRData.round + " " +
-        "AND HEAT = " + app.esIRData.heat + " " +
+        "AND ROUND = '" + app.esIRData.round + "' " +
+        "AND HEAT = '" + app.esIRData.heat + "' " +
         "AND FINAL = '" + app.esIRData.finalType + "'";
 
     MySql.Execute(
@@ -366,103 +367,111 @@ function submitIRAfterCheckFalse() {
 
     var eventSQL = "INSERT INTO RACE (AGE_GROUP, GENDER, STARTING_CRAFT, CRAFT_TYPE, ROUND, HEAT, FINAL)" +
         "VALUES ('" +
-        app.esIRData.age + "','" +
-        app.esIRData.gender + "'," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "','" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "'," +
         10 + ",'" + //Starting craft - fill in SHR Data Object
-        app.esIRData.craftType + "'," +
-        app.esIRData.round + "," +
-        app.esIRData.heat + ",'" +
-        app.esIRData.finalType + "')";
-    console.log(eventSQL);
-
-    //Submit the in version of the IR report
-    var sql =
-        "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
-        //Race ID is a big select statemeent - is it is an auto increment value in the DB
-        "(SELECT RACE_ID FROM RACE WHERE " +
-        "AGE_GROUP = '" + app.esIRData.age + "' " +
-        "AND GENDER = '" + app.esIRData.gender + "' " +
-        "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
-        "AND ROUND = " + app.esIRData.round + " " +
-        "AND HEAT = " + app.esIRData.heat + " " +
-        "AND FINAL = '" + app.esIRData.finalType + "')," +
-        app.loginData.pID + "," +
-        "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
-        app.esIRData.IRIN.pDNF + "," +
-        app.esIRData.IRIN.pFlyingCraft + "," +
-        app.esIRData.IRIN.FOWave + "," +
-        app.esIRData.IRIN.pFOCollision + "," +
-        app.esIRData.IRIN.pBSND + "," +
-        app.esIRData.IRIN.pBroach + "," +
-        app.esIRData.IRIN.pINJMin + "," +
-        app.esIRData.IRIN.pINJSer + "," +
-        app.esIRData.IRIN.pINJSev + "," +
-        app.esIRData.IRIN.pLCSerious + "," +
-        app.esIRData.IRIN.pLCSevere + "," +
-        app.esIRData.IRIN.pCollisionSer + "," +
-        app.esIRData.IRIN.pCollisionMin + ",'" +
-        app.loginData.incidentEmail + "','" +
-        app.loginData.incidentFName + "','" +
-        app.loginData.incidentLName + "')";
-
-    console.log(sql);
-
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "'," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + ",'" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')";
 
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
         dbconfig.dbPassword,
         dbconfig.dbUser,
-        sql,
-        //Currently function can be empty as call back will not return anything
-        function (data) {}
-    );
-
-    //Do all the same again for Out version of IR 
-    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
-        //Race ID is a big select statemeent - is it is an auto increment value in the DB
-        "(SELECT RACE_ID FROM RACE WHERE " +
-        "AGE_GROUP = '" + app.esIRData.age + "' " +
-        "AND GENDER = '" + app.esIRData.gender + "' " +
-        "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
-        "AND ROUND = " + app.esIRData.round + " " +
-        "AND HEAT = " + app.esIRData.heat + " " +
-        "AND FINAL = '" + app.esIRData.finalType + "')," +
-        app.loginData.pID + "," +
-        "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
-        app.esIRData.IROUT.pDNF + "," +
-        app.esIRData.IROUT.pFlyingCraft + "," +
-        app.esIRData.IROUT.FOWave + "," +
-        app.esIRData.IROUT.pFOCollision + "," +
-        app.esIRData.IROUT.pBSND + "," +
-        app.esIRData.IROUT.pBroach + "," +
-        app.esIRData.IROUT.pINJMin + "," +
-        app.esIRData.IROUT.pINJSer + "," +
-        app.esIRData.IROUT.pINJSev + "," +
-        app.esIRData.IROUT.pLCSerious + "," +
-        app.esIRData.IROUT.pLCSevere + "," +
-        app.esIRData.IROUT.pCollisionSer + "," +
-        app.esIRData.IROUT.pCollisionMin + ",'" +
-        app.loginData.incidentEmail + "','" +
-        app.loginData.incidentFName + "','" +
-        app.loginData.incidentLName + "')";
-
-    MySql.Execute(
-        dbconfig.host,
-        dbconfig.dbUser,
-        dbconfig.dbPassword,
-        dbconfig.dbUser,
-        sql,
-        //Currently function can be empty as call back will not return anything
+        eventSQL,
+        //Check if an event with the exact same details currently exists, if not create one
         function (data) {
-            function nest() {
-                app.updatedFlag = 3;
-            };
-            nest();
-        }
-    );
+            //Submit the in version of the IR report
+            var sql =
+                "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
+                //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                "(SELECT RACE_ID FROM RACE WHERE " +
+                "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
+                "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
+                "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
+                "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
+                "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
+                "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
+                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
+                app.loginData.pID + "," +
+                "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
+                app.esIRData.IRIN.pDNF + "," +
+                app.esIRData.IRIN.pFlyingCraft + "," +
+                app.esIRData.IRIN.FOWave + "," +
+                app.esIRData.IRIN.pFOCollision + "," +
+                app.esIRData.IRIN.pBSND + "," +
+                app.esIRData.IRIN.pBroach + "," +
+                app.esIRData.IRIN.pINJMin + "," +
+                app.esIRData.IRIN.pINJSer + "," +
+                app.esIRData.IRIN.pINJSev + "," +
+                app.esIRData.IRIN.pLCSerious + "," +
+                app.esIRData.IRIN.pLCSevere + "," +
+                app.esIRData.IRIN.pCollisionSer + "," +
+                app.esIRData.IRIN.pCollisionMin + ",'" +
+                app.loginData.incidentEmail + "','" +
+                app.loginData.incidentFName + "','" +
+                app.loginData.incidentLName + "')";
+            MySql.Execute(
+                dbconfig.host,
+                dbconfig.dbUser,
+                dbconfig.dbPassword,
+                dbconfig.dbUser,
+                sql,
+                //Currently function can be empty as call back will not return anything
+                function (data) {
+                    app.updatedFlag += .5
+                }
+            );
+
+            console.log(sql);
+
+            //Do all the same again for Out version of IR 
+            var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
+                //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                "(SELECT RACE_ID FROM RACE WHERE " +
+                "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
+                "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
+                "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
+                "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
+                "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
+                "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
+                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
+                app.loginData.pID + "," +
+                "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                app.esIRData.IROUT.pDNF + "," +
+                app.esIRData.IROUT.pFlyingCraft + "," +
+                app.esIRData.IROUT.FOWave + "," +
+                app.esIRData.IROUT.pFOCollision + "," +
+                app.esIRData.IROUT.pBSND + "," +
+                app.esIRData.IROUT.pBroach + "," +
+                app.esIRData.IROUT.pINJMin + "," +
+                app.esIRData.IROUT.pINJSer + "," +
+                app.esIRData.IROUT.pINJSev + "," +
+                app.esIRData.IROUT.pLCSerious + "," +
+                app.esIRData.IROUT.pLCSevere + "," +
+                app.esIRData.IROUT.pCollisionSer + "," +
+                app.esIRData.IROUT.pCollisionMin + ",'" +
+                app.loginData.incidentEmail + "','" +
+                app.loginData.incidentFName + "','" +
+                app.loginData.incidentLName + "')";
+            console.log(sql);
+            MySql.Execute(
+                dbconfig.host,
+                dbconfig.dbUser,
+                dbconfig.dbPassword,
+                dbconfig.dbUser,
+                sql,
+                //Currently function can be empty as call back will not return anything
+                function (data) {
+                    function nest() {
+                        app.updatedFlag += 2.5;
+                    };
+                    nest();
+                }
+            );
+        });
 }
 
 /**
@@ -475,28 +484,28 @@ function submitIRAfterCheckTrue() {
     var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
         //Race ID is a big select statemeent - is it is an auto increment value in the DB
         "(SELECT RACE_ID FROM RACE WHERE " +
-        "AGE_GROUP = '" + app.esIRData.age + "' " +
-        "AND GENDER = '" + app.esIRData.gender + "' " +
+        "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
+        "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
         "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
-        "AND ROUND = " + app.esIRData.round + " " +
-        "AND HEAT = " + app.esIRData.heat + " " +
-        "AND FINAL = '" + app.esIRData.finalType + "')," +
+        "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
+        "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
+        "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
+        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
         app.loginData.pID + "," +
         "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
-        app.esIRData.IRIN.pDNF + "," +
-        app.esIRData.IRIN.pFlyingCraft + "," +
-        app.esIRData.IRIN.FOWave + "," +
-        app.esIRData.IRIN.pFOCollision + "," +
-        app.esIRData.IRIN.pBSND + "," +
-        app.esIRData.IRIN.pBroach + "," +
-        app.esIRData.IRIN.pINJMin + "," +
-        app.esIRData.IRIN.pINJSer + "," +
-        app.esIRData.IRIN.pINJSev + "," +
-        app.esIRData.IRIN.pLCSerious + "," +
-        app.esIRData.IRIN.pLCSevere + "," +
-        app.esIRData.IRIN.pCollisionSer + "," +
-        app.esIRData.IRIN.pCollisionMin + ",'" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pDNF + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pFlyingCraft + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.FOWave + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pFOCollision + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pBSND + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pBroach + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pINJMin + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pINJSer + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pINJSev + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pLCSerious + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pLCSevere + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pCollisionSer + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pCollisionMin + ",'" +
         app.loginData.incidentEmail + "','" +
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
@@ -515,32 +524,33 @@ function submitIRAfterCheckTrue() {
     var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS) VALUES (" +
         //Race ID is a big select statemeent - is it is an auto increment value in the DB
         "(SELECT RACE_ID FROM RACE WHERE " +
-        "AGE_GROUP = '" + app.esIRData.age + "' " +
-        "AND GENDER = '" + app.esIRData.gender + "' " +
+        "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
+        "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
         "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-        "AND CRAFT_TYPE = '" + app.esIRData.craftType + "' " +
-        "AND ROUND = " + app.esIRData.round + " " +
-        "AND HEAT = " + app.esIRData.heat + " " +
-        "AND FINAL = '" + app.esIRData.finalType + "')," +
+        "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
+        "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
+        "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
+        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "')," +
         app.loginData.pID + "," +
         "'IN'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
-        app.esIRData.IROUT.pDNF + "," +
-        app.esIRData.IROUT.pFlyingCraft + "," +
-        app.esIRData.IROUT.FOWave + "," +
-        app.esIRData.IROUT.pFOCollision + "," +
-        app.esIRData.IROUT.pBSND + "," +
-        app.esIRData.IROUT.pBroach + "," +
-        app.esIRData.IROUT.pINJMin + "," +
-        app.esIRData.IROUT.pINJSer + "," +
-        app.esIRData.IROUT.pINJSev + "," +
-        app.esIRData.IROUT.pLCSerious + "," +
-        app.esIRData.IROUT.pLCSevere + "," +
-        app.esIRData.IROUT.pCollisionSer + "," +
-        app.esIRData.IROUT.pCollisionMin + ",'" +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFOCollision + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBSND + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBroach + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJMin + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSer + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSev + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSerious + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSevere + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionSer + "," +
+        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionMin + ",'" +
         app.loginData.incidentEmail + "','" +
         app.loginData.incidentFName + "','" +
         app.loginData.incidentLName + "')";
 
+    console.log(sql);
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
