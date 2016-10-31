@@ -4,6 +4,7 @@ var LogonView = function () {
         var header = "SLSA SHRDS";
 
         var body =
+            "<div id = 'background'></div>" +
             "<div class='radBut'>" +
             "<div class='formSelRad'>" +
             "<input onClick='selected()' type='radio' name='radio' id='radio1' class='radio' value='checked' >" +

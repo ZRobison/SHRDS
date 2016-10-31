@@ -4,13 +4,14 @@ html {
     text-align: center;
 }
 
-#backgroundImage {
+
+/*
+#background {
     background-image: url(../images/backg1.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
+*/
 
 .container-fluid {
     padding: 0px;
