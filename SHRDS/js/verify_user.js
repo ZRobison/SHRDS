@@ -72,7 +72,7 @@ function verify_user() {
                             app.loginData.incidentFName = wash_SQL_string(document.getElementById("fname").value);
                             app.loginData.incidentLName = wash_SQL_string(document.getElementById("lname").value);
                             app.loginData.incidentEmail = wash_SQL_string(document.getElementById("email").value);
-                            window.location.hash = "#eventSpecific";
+                            window.location.hash = "#irHome";
                         } else {
                             $(".error").text("The user with that ID is not qualified to supervise an IR");
                         }
