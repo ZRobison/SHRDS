@@ -130,37 +130,13 @@ function incidentsReportedTwelve() {
         return gPMResultDNF;
     }
 }
-// function for incident values 
-function getIRValues() {
-    // storing variables that hold the value to memory 
-    app.esIRData.IRIN.FOWave = gPMResultFOWave;
-    //
-    app.esIRData.IRIN.pFOCollision = gPMResultFOColl;
-    //
-    app.esIRData.IRIN.pBSND = gPMResultBSND;
-    //
-    app.esIRData.IRIN.pBroach = gPMResultBroach;
-    //
-    app.esIRData.IRIN.pFlyingCraft = gPMResultFlyingCraft;
-    //
-    app.esIRData.IRIN.pLCSerious = gPMResultLCSerious;
-    //
-    app.esIRData.IRIN.pLCSevere = gPMResultLCSevere;
-    //
-    app.esIRData.IRIN.pCollisionSer = gPMResultCollisionSer;
-    //
-    app.esIRData.IRIN.pINJMin = gPMResultINJMin;
-    //
-    app.esIRData.IRIN.pINJSer = gPMResultINJSer;
-    //
-    app.esIRData.IRIN.pINJSev = gPMResultINJSev;
-    //
-    app.esIRData.IRIN.pDNF = gPMResultDNF;
-    //
-}
+
 
 function irComplete() {
-    window.location.hash = "#irComplete";
+    getIRValues();
+    getIRValuesOUT();
+    console.log("Value of FOWave within IR Functions " + app.esIRData.IRIN.FOWave);
+    insertSHR();
 }
 
 //IR 2 - OUT Functions  TRANSFER TO ORIGINAL 
@@ -192,8 +168,6 @@ function addOUT(param) {
         numLoggedA2 = (((numLoggedA2) * 1) + ((num2) * 1));
         gPMResult2 = numLoggedA2;
     }
-    console.log(numLoggedA2);
-    console.log(gPMResult2);
     return gPMResult2;
 }
 
@@ -210,8 +184,6 @@ function minusOUT(param) {
         numLoggedM2 = (((numLoggedM2) * 1) + ((num2) * 1));
         gPMResult2 = numLoggedM2;
     }
-    console.log(numLoggedM2);
-    console.log(gPMResult2);
     return gPMResult2;
 }
 // data storing functions
@@ -303,39 +275,32 @@ function incidentsReportedTwelveOUT() {
 function getIRValuesOUT() {
     // storing variables that hold the value to memory 
     app.esIRData.IROUT.FOWave = gPMResultFOWave2;
-
-    //
     app.esIRData.IROUT.pFOCollision = gPMResultFOColl2;
-
-    //
     app.esIRData.IROUT.pBSND = gPMResultBSND2;
-
-    //
     app.esIRData.IROUT.pBroach = gPMResultBroach2;
-
-    //
     app.esIRData.IROUT.pFlyingCraft = gPMResultFlyingCraft2;
-
-    //
     app.esIRData.IROUT.pLCSerious = gPMResultLCSerious2;
-
-    //
     app.esIRData.IROUT.pLCSevere = gPMResultLCSevere2;
-
-    //
     app.esIRData.IROUT.pCollisionSer = gPMResultCollisionSer2;
-
-    //
     app.esIRData.IROUT.pINJMin = gPMResultINJMin2;
-
-    //
     app.esIRData.IROUT.pINJSer = gPMResultINJSer2;
-
-    //
     app.esIRData.IROUT.pINJSev = gPMResultINJSev2;
-
-    //
     app.esIRData.IROUT.pDNF = gPMResultDNF2;
-
+}
+// function for incident values 
+function getIRValues() {
+    // storing variables that hold the value to memory 
+    app.esIRData.IRIN.FOWave = gPMResultFOWave;
+    app.esIRData.IRIN.pFOCollision = gPMResultFOColl;
+    app.esIRData.IRIN.pBSND = gPMResultBSND;
+    app.esIRData.IRIN.pBroach = gPMResultBroach;
+    app.esIRData.IRIN.pFlyingCraft = gPMResultFlyingCraft;
+    app.esIRData.IRIN.pLCSerious = gPMResultLCSerious;
+    app.esIRData.IRIN.pLCSevere = gPMResultLCSevere;
+    app.esIRData.IRIN.pCollisionSer = gPMResultCollisionSer;
+    app.esIRData.IRIN.pINJMin = gPMResultINJMin;
+    app.esIRData.IRIN.pINJSer = gPMResultINJSer;
+    app.esIRData.IRIN.pINJSev = gPMResultINJSev;
+    app.esIRData.IRIN.pDNF = gPMResultDNF;
     //
 }
