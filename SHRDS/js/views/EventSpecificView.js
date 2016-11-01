@@ -16,16 +16,16 @@ var EventSpecificView = function () {
             "<div class='irTitles'>Arena:</div>" +
             "<select name='ESArena'>" +
             "<option value='-1' selected>Select one</option>" +
-            "<option value=''>Arena 1</option>" +
-            "<option value=''>Arena 2</option>" +
-            "<option value=''>Arena 3</option>" +
-            "<option value=''>Arena 4</option>" +
-            "<option value=''>Arena 5</option>" +
-            "<option value=''>Arena 6</option>" +
-            "<option value=''>Arena 7</option>" +
-            "<option value=''>Arena 8</option>" +
-            "<option value=''>Arena 9</option>" +
-            "<option value=''>Arena 10</option>" +
+            "<option value='1'>Arena 1</option>" +
+            "<option value='2'>Arena 2</option>" +
+            "<option value='3'>Arena 3</option>" +
+            "<option value='4'>Arena 4</option>" +
+            "<option value='5'>Arena 5</option>" +
+            "<option value='6'>Arena 6</option>" +
+            "<option value='7'>Arena 7</option>" +
+            "<option value='8'>Arena 8</option>" +
+            "<option value='9'>Arena 9</option>" +
+            "<option value='10'>Arena 10</option>" +
             "</select>" +
 
             "<div class='irTitles'>Age:</div>" +
