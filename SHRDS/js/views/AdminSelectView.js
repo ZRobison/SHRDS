@@ -66,7 +66,7 @@ function getMetaData() {
     //To be filled later
     var header = "Completed Forms Meta Data";
     var body =
-        "Toal Number of Forms Submitted Today: <div id='totalForms'></div><br>" +
+        "Total Number of Forms Submitted Today: <div id='totalForms'></div><br>" +
         "<div id='supervisingTSO' class='col-metadata'>Supervising TSO</div>" +
         "<div id='formType' class='col-metadata'>Form Type</div>" +
         "<div id='submittedTime' class='col-metadata'>Submission Time</div>" +

@@ -316,6 +316,7 @@ function postPrevSubmit() {
  *
  */
 function sumbitIncerdentReport() {
+    console.log("")
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esIRData.age + "' " +
         "AND GENDER = '" + app.esIRData.gender + "' " +
@@ -327,7 +328,7 @@ function sumbitIncerdentReport() {
         "AND RACE_DATE = '" + app.esIRData.date + "'";
 
 
-    console.log(eventSQL);
+    console.log("Value of FOWave within Submit Data " + app.esIRData.IRIN.FOWave);
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -347,7 +348,7 @@ function sumbitIncerdentReport() {
     app.irArray.push(app.esIRData);
     app.resetData();
     //After everythign has been done go back home CHANGE!!!!!!!!!!!!!!!!
-    window.location.hash = "#eventSpecific";
+    window.location.hash = "#irHome";
 }
 
 
@@ -359,6 +360,7 @@ function sumbitIncerdentReport() {
  */
 function submitIRDataAfterCheck(data) {
     if (data.Result == null || data.Result == "") {
+        console.log("Value of FOWave withing falseCheck is " + app.esIRData.IRIN.FOWave);
         submitIRAfterCheckFalse();
     }
     //Otherwise we have found an event but we still want to insert the SHR data
@@ -409,22 +411,23 @@ function submitIRAfterCheckFalse() {
                 "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
                 app.loginData.pID + "," +
                 "'IN'," + //Hardcoded - as we will have to do two IR data insert statements for every single IR report
-                app.esIRData.IRIN.pDNF + "," +
-                app.esIRData.IRIN.pFlyingCraft + "," +
-                app.esIRData.IRIN.FOWave + "," +
-                app.esIRData.IRIN.pFOCollision + "," +
-                app.esIRData.IRIN.pBSND + "," +
-                app.esIRData.IRIN.pBroach + "," +
-                app.esIRData.IRIN.pINJMin + "," +
-                app.esIRData.IRIN.pINJSer + "," +
-                app.esIRData.IRIN.pINJSev + "," +
-                app.esIRData.IRIN.pLCSerious + "," +
-                app.esIRData.IRIN.pLCSevere + "," +
-                app.esIRData.IRIN.pCollisionSer + "," +
-                app.esIRData.IRIN.pCollisionMin + ",'" +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pDNF + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pFlyingCraft + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.FOWave + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pFOCollision + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pBSND + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pBroach + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pINJMin + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pINJSer + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pINJSev + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pLCSerious + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pLCSevere + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pCollisionSer + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IRIN.pCollisionMin + ",'" +
                 app.loginData.incidentEmail + "','" +
                 app.loginData.incidentFName + "','" +
                 app.loginData.incidentLName + "')";
+            console.log(sql);
             MySql.Execute(
                 dbconfig.host,
                 dbconfig.dbUser,
@@ -437,7 +440,7 @@ function submitIRAfterCheckFalse() {
                 }
             );
 
-            console.log(sql);
+
 
             //Do all the same again for Out version of IR 
             var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
@@ -453,19 +456,19 @@ function submitIRAfterCheckFalse() {
                 "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
                 app.loginData.pID + "," +
                 "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
-                app.esIRData.IROUT.pDNF + "," +
-                app.esIRData.IROUT.pFlyingCraft + "," +
-                app.esIRData.IROUT.FOWave + "," +
-                app.esIRData.IROUT.pFOCollision + "," +
-                app.esIRData.IROUT.pBSND + "," +
-                app.esIRData.IROUT.pBroach + "," +
-                app.esIRData.IROUT.pINJMin + "," +
-                app.esIRData.IROUT.pINJSer + "," +
-                app.esIRData.IROUT.pINJSev + "," +
-                app.esIRData.IROUT.pLCSerious + "," +
-                app.esIRData.IROUT.pLCSevere + "," +
-                app.esIRData.IROUT.pCollisionSer + "," +
-                app.esIRData.IROUT.pCollisionMin + ",'" +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFOCollision + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBSND + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBroach + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJMin + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSer + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSev + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSerious + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSevere + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionSer + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionMin + ",'" +
                 app.loginData.incidentEmail + "','" +
                 app.loginData.incidentFName + "','" +
                 app.loginData.incidentLName + "')";

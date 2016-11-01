@@ -34,36 +34,23 @@ function getFormMetaData() {
             console.log("in nest statment");
 
             function nest() {
-                console.log("in nest statment");
-                console.log(sql);
-                console.log(JSON.stringify(data));
-                outputESData(data)
+                console.log("got ES data, now getting Prev Data");
+                setESData(data);
+                outputESData();
             };
             nest();
         });
 
 
-    //    //Get Prevailing form metadata
-    //    sql = "SELECT FIRST_NAME, LAST_NAME, TIME " +
-    //        "FROM SHR, SHRDS_USER " +
-    //        "WHERE SHR.USER_ID = SHRDS_USER.USER_ID";
-    //    MySql.Execute(
-    //        dbconfig.host,
-    //        dbconfig.dbUser,
-    //        dbconfig.dbPassword,
-    //        dbconfig.dbUser,
-    //        sql,
-    //        function (data) {
-    //            function nest() {
-    //                dataPrev = data;
-    //            };
-    //            nest();
-    //        });
-    //
-    //
+
 }
 
-function outputESData(data) {
+function setESData(data) {
+    dataES = data;
+}
+
+function outputESData() {
+    var data = dataES;
     var name = "<br>";
     var formType = "<br>"
     var raceDeets = "<br>";
@@ -82,21 +69,27 @@ function outputESData(data) {
         document.getElementById("formType").innerHTML += formType;
 
     }
-    //    if (data.Result != null && data.Result != "") {
-    //        for (var i = 0; i < data.Result.length; i++) {
-    //            name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
-    //            formType += "Event Specific SHR" + "<br>";
-    //            raceDeets += data.Result[i].AGE_GROUP + " " + data.Result[i].CRAFT_TYPE + "<br>";
-    //            raceTime += data.Result[i].TIME + "<br>";
-    //        }
-    //
-    //
-    //    }
-    //    "SELECT FIRST_NAME, LAST_NAME, SHR.RACE_ID, AGE_GROUP, CRAFT_TYPE, SHR.TIME, IR_FIRST_NAME, IR_LAST_NAME, (DNF + FLYING_CRAFT + FALL_OFF_WAVE + " + //"FALL_OFF_COLLISION + BACK_SHOOT_NOSE_DIVE + BROACH + INJURY_MINOR + INJURY_SERIOUS + INJURY_SEVERE + LOST_CRAFT_SERIOUS + LOST_CRAFT_SEVERE + " +
-    //        "COLLISION_MINOR + COLLISION_SERIOUS) AS Total_Incidents " +
-    //        "FROM SHR, RACE, SHRDS_USER, INCIDENTS_REPORT " +
-    //        "WHERE SHR.RACE_ID = RACE.RACE_ID AND SHR.USER_ID = SHRDS_USER.USER_ID AND INCIDENTS_REPORT.USER_ID = SHR.USER_ID AND EVENT_SPECIFIC = TRUE";
+}
 
+function getPrevSHRData() {
+    //Get Prevailing form metadata
+    var sql =
+        "SELECT FIRST_NAME, LAST_NAME, TIME, TOTAL_SHR " +
+        "FROM SHR, SHRDS_USER " +
+        "WHERE SHR.USER_ID = SHRDS_USER.USER_ID";
+    MySql.Execute(
+        dbconfig.host,
+        dbconfig.dbUser,
+        dbconfig.dbPassword,
+        dbconfig.dbUser,
+        sql,
+        function (data) {
+            function nest() {
+                dataPrev = data;
+                outputPrevData(dataPrev);
+            };
+            nest();
+        });
 }
 
 
