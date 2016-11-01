@@ -73,7 +73,7 @@ var app = {
 
 
         //URL detection
-        this.incidentStartURL = [/^#incident1/, /#irComplete/, /#irHome/];
+        this.incidentStartURL = [/^#incident1/, /^#irComplete/, /^#irHome/];
         this.prevailingStartURL = /^#prevailing1/;
         this.eventSpecificURL = /^#eventSpecific/;
         this.formSelectURL = /^#formSelect/;
