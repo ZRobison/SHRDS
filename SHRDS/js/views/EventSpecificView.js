@@ -53,7 +53,7 @@ var EventSpecificView = function () {
             "<select name='ESFinalType' onChange='updateForm()'>" +
             "<option value='-1'selected>Select one</option>" +
             "<option value='Qualifier'>Qualifier</option>" +
-            "<option value='Quater Final'>Quater Final</option>" +
+            "<option value='Quarter Final'>Quarter Final</option>" +
             "<option value='Semi Final'>Semi Final</option>" +
             "<option value='Grand Final'>Grand Final</option>" +
             "</select>" +
