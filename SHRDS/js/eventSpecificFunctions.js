@@ -71,9 +71,11 @@ function arenaES() {
     if (score == '-1') {
         return false;
     } else if (app.SHRFlag == 2) {
+        console.log("Setting arean = " + score);
         app.esSHRData.arena = score;
         return true;
     } else {
+        console.log("Setting arean = " + score);
         app.esIRData.arena = score;
         return true;
     }
