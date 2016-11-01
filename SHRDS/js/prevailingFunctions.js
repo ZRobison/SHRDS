@@ -5,12 +5,14 @@
  *
  */
 function getPrevailingValues() {
+	
     var check = true;
     check = check && beachValue();
     check = check && windDirection();
     check = check && windSpeed();
     check = check && tideTimes();
     check = check && tideHeights();
+	//check = check && tideTimesRegEx();
     if (check) {
         getFormTime();
         getFormDate();
@@ -87,6 +89,25 @@ function tideTimes() {
     }
     return check;
 }
+// reg ex for tide times 
+function tideTimesRegEx() {
+	var check = true;
+	var tideTimes = "^(1[0-2]|0?[1-9]):([0-5]?[0-9])$"
+	var tideLowCheck = $("input[name=tideTimeLow]").val()
+	if (tideTimes.tideLowCheck === true) {
+		console.log("pass");
+		check = check && true;
+		
+		
+		
+		
+		
+		check = check && false;
+	}
+	 return check;
+}
+
+
 
 /**
  * Retrives the tide heights value and checks if has been filled. 
