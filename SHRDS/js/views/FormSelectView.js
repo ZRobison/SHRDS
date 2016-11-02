@@ -2,7 +2,7 @@ var FormSelectView = function () {
     this.render = function () {
         var header = "Form Select";
         var body =
-            "<div class='error'></div><div class='good'></div>" +
+            "<div class='error'></div><div class='sync'></div><div class='good'></div>" +
             "<div class='formSelRad'>" +
             "<input type='radio' name='shrRadio' id='shrRadio1' class='radio' value='checked' >" +
             "<label for='shrRadio1'>Prevailing Surf Hazard Rating</label></div>" +
@@ -13,9 +13,7 @@ var FormSelectView = function () {
         var footer = "<button type='submit' class='blueButtons' onclick='shrFormSelect()'>NEXT</button>" +
             "<button type='button' onclick='window.location.replace(\"index.html\")' class='exitButton'>EXIT</button>";
 
-		console.log("**********************");
-        console.log(app.prevSHRArrayUnfinished);
-		console.log("**********************");
+		
 
 
         $(".heading").text(header);
@@ -32,7 +30,11 @@ function checkData() {
         //Think of something good to do	
     } else if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0) {
         $(".good").text("All data has been successfully sent to the server.");
+		$(".sync").text("");
     } else {
-        $(".error").text("Some data you have collected is in the process of or could not be sent to the server. If this is disaplyed for more then 30 seconds check internet connection and press the sync button.");
-    }
+       $(".good").text("");
+		var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
+        $(".error").text("You have "+ count +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
+		$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
+ }
 }

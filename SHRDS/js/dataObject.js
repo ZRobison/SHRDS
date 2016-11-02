@@ -50,7 +50,6 @@ var eventSpecifcSHRData = function () {
         //this.numberOfCraft = "";
         this.date = "";
         this.gender = 'M';
-        //this.raceNumber = -1;
     }
 }
 var IRData = function () {

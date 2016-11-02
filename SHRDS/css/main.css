@@ -223,7 +223,8 @@ select {
 
 #loginBut {
     margin-top: 0.6em;
-    margin-right: 70px;
+    text-align: center;
+
 }
 
 .blueButtons {
@@ -277,6 +278,18 @@ select {
     color: #ED1C2E;
     font-style: italic;
     background-color: rgba(220, 0, 0, 0.1);
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 5%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 1.5px #888888;
+    font-size: 120%;
+}
+
+.good {
+    color: #12b41d;
+    font-style: italic;
+    background-color: rgba(0, 220, 0, 0.1);
     width: 250px;
     margin: 0 auto;
     margin-top: 5%;
@@ -734,6 +747,11 @@ input[type="submit"] {
     display: inline-block;
     vertical-align: top;
     margin-right: 5%;
+    margin-top: 10%;
+}
+
+#beachName  {
+    margin-bottom: 10%;
 }
 
 #tideBox {

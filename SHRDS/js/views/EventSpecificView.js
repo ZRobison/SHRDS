@@ -11,20 +11,21 @@ var EventSpecificView = function () {
 
         var body =
 
+
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
             "<select name='ESArena'>" +
             "<option value='-1' selected>Select one</option>" +
-            "<option value=''>Arena 1</option>" +
-            "<option value=''>Arena 2</option>" +
-            "<option value=''>Arena 3</option>" +
-            "<option value=''>Arena 4</option>" +
-            "<option value=''>Arena 5</option>" +
-            "<option value=''>Arena 6</option>" +
-            "<option value=''>Arena 7</option>" +
-            "<option value=''>Arena 8</option>" +
-            "<option value=''>Arena 9</option>" +
-            "<option value=''>Arena 10</option>" +
+            "<option value='1'>Arena 1</option>" +
+            "<option value='2'>Arena 2</option>" +
+            "<option value='3'>Arena 3</option>" +
+            "<option value='4'>Arena 4</option>" +
+            "<option value='5'>Arena 5</option>" +
+            "<option value='6'>Arena 6</option>" +
+            "<option value='7'>Arena 7</option>" +
+            "<option value='8'>Arena 8</option>" +
+            "<option value='9'>Arena 9</option>" +
+            "<option value='10'>Arena 10</option>" +
             "</select>" +
 
             "<div class='irTitles'>Age:</div>" +
@@ -52,7 +53,7 @@ var EventSpecificView = function () {
             "<select name='ESFinalType' onChange='updateForm()'>" +
             "<option value='-1'selected>Select one</option>" +
             "<option value='Qualifier'>Qualifier</option>" +
-            "<option value='Quater Final'>Quater Final</option>" +
+            "<option value='Quarter Final'>Quarter Final</option>" +
             "<option value='Semi Final'>Semi Final</option>" +
             "<option value='Grand Final'>Grand Final</option>" +
             "</select>" +
@@ -104,19 +105,20 @@ var EventSpecificView = function () {
             "</div>" +
             "<div class='error'></div>";
 
+        console.log(app.loginData.pID);
 
 
-		if(app.SHRFlag==2){
-			var footer =
-			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
-            "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-		}else{
-			var footer =
-			"<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> "+
-            "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>";
-		}
-    
-	
+        if (app.SHRFlag == 2) {
+            var footer =
+                "<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> " +
+                "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
+        } else {
+            var footer =
+                "<button type='submit' class='blueButtons' onclick='getESValues()'>Next</button> " +
+                "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>";
+        }
+
+
 
 
         $(".heading").text(header);

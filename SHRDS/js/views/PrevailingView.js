@@ -12,7 +12,7 @@ var PrevailingView = function () {
 
             "<div id='windBox'>" +
 
-            "<div class='textPrev'>Beach</div>" +
+            "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
             "<input type='text' name='beachName' placeholder = 'Beach'>" +
             "</div>" +
