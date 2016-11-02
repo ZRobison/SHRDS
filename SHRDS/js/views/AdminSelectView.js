@@ -81,7 +81,10 @@ function getMetaData() {
         "<option value='6'>6</option>" +
         "<option value='7'>7</option></select>" +
         "<div id='supervisingTSO' class='col-metadata'>Supervising TSO</div>" +
-        "<div id='formType' class='col-metadata'>Form Type</div>" +
+        "<div id='totalSHR' class='col-metadata'>Total SHR</div>" +
+		"<div id='arena' class='col-metadata'>Arena</div>" +
+		"<div id='inOut' class='col-metadata'>In/Out</div>" +
+		"<div id='totalIncidents' class='col-metadata'>Incidents</div>" +
         "<div id='submittedTime' class='col-metadata'>Submission Time</div>" +
         "<div id='raceDetails' class='col-metadata'>Race Details</div>";
     //"<div id='totalForms' class='col-metadata'></div>";
