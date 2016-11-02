@@ -207,7 +207,7 @@ function submitESAfterCheckTrue() {
         "(SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].age + "' " +
         "AND GENDER = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].gender + "' " +
-        "AND STARTING_CRAFT_ = 10 " + //This data attribute does not currently exist
+        "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
         "AND CRAFT_TYPE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].craftType + "' " +
         "AND ROUND = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].round + "' " +
         "AND HEAT = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].heat + "' " +

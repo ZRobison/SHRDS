@@ -64,9 +64,22 @@ function getResetPassword() {
 
 function getMetaData() {
     //To be filled later
+    var today = getDateTodayOrYesterday(0);
+    var yesterday = getDateTodayOrYesterday(1);
     var header = "Completed Forms Meta Data";
     var body =
-        "Total Number of Forms Submitted Today: <div id='totalForms'></div><br>" +
+        "Date: <select name='dataReviewDate'>" +
+        "<option value='" + today + "'>Today</option>" +
+        "<option value='" + yesterday + "'>Yesterday</option></select>" +
+        "Arena: <select name='arenaSelection'>" +
+        "<option value='1, 2, 3, 4, 5, 6, 7, 8, 9, 10'>All Arenas</option>" +
+        "<option value='1'>1</option>" +
+        "<option value='1'>2</option>" +
+        "<option value='3'>3</option>" +
+        "<option value='4'>4</option>" +
+        "<option value='5'>5</option>" +
+        "<option value='6'>6</option>" +
+        "<option value='7'>7</option></select>" +
         "<div id='supervisingTSO' class='col-metadata'>Supervising TSO</div>" +
         "<div id='formType' class='col-metadata'>Form Type</div>" +
         "<div id='submittedTime' class='col-metadata'>Submission Time</div>" +
