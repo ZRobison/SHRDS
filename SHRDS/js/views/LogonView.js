@@ -36,6 +36,7 @@ var LogonView = function () {
 function selected() {
     if ($('#radio1').is(":checked")) {
         var forming = "<form action = '' id='submitForm1' method=''>" +
+            "<div class='loginBlock'>" +
             "<div class='loginText'>TSO Reference Number: </div><br>" +
             "<input type='text' name='' id='username'><br>" +
             "<div class='loginText'>Password: </div><br>" +
@@ -44,6 +45,7 @@ function selected() {
         $("#forming").html(forming);
     } else if ($('#radio2').is(":checked")) {
         var forming = "<form action = '' method='' id='submitForm1'>" +
+            "<div class='loginBlock'>" +
             "<div class='loginText'>Supervisors Reference Number: </div><br>" +
             "<input type='text' name='' id='username'><br>" +
             "<div class='loginText'>First Name: </div><br>" +
@@ -56,11 +58,15 @@ function selected() {
         $("#forming").html(forming);
     } else if ($('#radio3').is(":checked")) {
         var forming = "<form action = '' method='' id='submitForm1'>" +
+            "<div class='loginBlock'>" +
             "<div class='loginText'>Admin User Name </div><br>" +
             "<input type='text' name='' id='username'><br>" +
             "<div class='loginText'>Password: </div><br>" +
             "<input type='password' name='' id='password'><br>" +
-            "</form>";
+            "</form>" +
+
+            "</div></div></div>";
+
         $("#forming").html(forming);
     }
     var footer =
