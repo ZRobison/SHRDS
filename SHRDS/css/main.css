@@ -222,7 +222,8 @@ select {
 
 #loginBut {
     margin-top: 0.6em;
-    margin-right: 70px;
+    text-align: center;
+
 }
 
 .blueButtons {
@@ -733,6 +734,11 @@ input[type="submit"] {
     display: inline-block;
     vertical-align: top;
     margin-right: 5%;
+    margin-top: 10%;
+}
+
+#beachName  {
+    margin-bottom: 10%;
 }
 
 #tideBox {
