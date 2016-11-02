@@ -563,7 +563,7 @@ function nextRouteChange(get, fun) {
     get();
     window.location.hash = "#TRANS";
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + fun + ")'>Done</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + fun + ")'>DONE</button>";
 
     $(".footer").html(footer);
 }
@@ -593,16 +593,16 @@ function getSHRHistory() {
     var eslength = app.esSHRArray.length;
     var his = "";
     if (plength != 0) {
-        his = "<p>Prevailing SHR History</p><ul class='SHRfunctionList'>";
+        his = "<p class='overideP'>Prevailing SHR History</p><ul class='SHRfunctionList'>";
         for (var i = 0; i < plength && i < 2; i++) {
-            his += "<li> Date Filled:" + app.prevSHRArray[i].time + ", SHR: " + app.prevSHRArray[i].SHR.totalSHR + "</li>";
+            his += "<li class='overideP'> Date Filled:" + app.prevSHRArray[i].time + ", SHR: " + app.prevSHRArray[i].SHR.totalSHR + "</li>";
         }
         his += "</ul>";
     }
     if (eslength != 0) {
-        his += "<p>Event Specific SHR History</p><ul class='SHRfunctionList'>";
+        his += "<p class='overideP'>Event Specific SHR History</p><ul class='SHRfunctionList'>";
         for (var i = 0; i < eslength && i < 2; i++) {
-            his += "<li>Date Filled:" + app.esSHRArray[i].time + ", SHR: " + app.esSHRArray[i].SHR.totalSHR + "</li>";
+            his += "<li class='overideP'>Date Filled:" + app.esSHRArray[i].time + ", SHR: " + app.esSHRArray[i].SHR.totalSHR + "</li>";
         }
         his += "</ul>";
     }

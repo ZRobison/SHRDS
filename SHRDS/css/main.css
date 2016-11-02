@@ -229,20 +229,22 @@ select {
 }
 
 .blueButtons {
-
     background-color: #0060A9;
-    margin-top: 0.6em;
+
     font-size: 14px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
     position: relative;
+    top: 8px;
     padding: 10px 20px;
     padding-right: 50px;
     background-image: linear-gradient(bottom, rgb(62, 51, 46) 0%, rgb(101, 86, 78) 100%);
     border-radius: 5px;
     box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
     text-shadow: #000000 1px 1px 0px;
+    margin: 0 auto;
+
 }
 
 .blueButtons:active {
@@ -555,7 +557,6 @@ input[type="submit"] {
     outline: none;
     background-image: url(../images/help.png);
     border-radius: 50%;
-    margin-left: 2%;
     width: 35px;
     height: 35px;
     cursor: help;
@@ -662,7 +663,7 @@ input[type="submit"] {
 #left {
     text-align: left;
     display: inline-block;
-    margin-right: 5%;
+    margin-right: 2%;
 }
 
 #right {
@@ -674,8 +675,8 @@ input[type="submit"] {
     float: right;
     border-radius: 50%;
     background-image: url(../images/up.png);
-    width: 39px;
-    height: 39px;
+    width: 29px;
+    height: 29px;
     outline: none;
     box-shadow: 5px 5px 2.5px #333;
 }
@@ -684,19 +685,19 @@ input[type="submit"] {
     float: right;
     border-radius: 50%;
     background-image: url(../images/down.png);
-    width: 39px;
-    height: 39px;
+    width: 29px;
+    height: 29px;
     outline: none;
     box-shadow: 5px 5px 2.5px #333;
 }
 
 .num {
     margin-bottom: 5%;
-    width: 350px;
-    height: 150px;
+    width: 260px;
+    height: 80px;
     border-radius: 12px;
     border: 1px solid #333;
-    padding: 5%;
+    padding-left: 10%;
     outline: none;
     background-color: beige;
     -webkit-box-shadow: 0 10px 6px -6px #777;
@@ -705,17 +706,32 @@ input[type="submit"] {
     color: #333333;
 }
 
+.num2   {
+    margin-bottom: 5%;
+    width: 260px;
+    height: 80px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    padding-left: 10%;
+    outline: none;
+    background-color: #e0efff;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+    color: #333333;
+
+}
+
 .upDownNum {
     color: black;
-    font-size: 250%;
+    font-size: 150%;
     text-align: center;
     padding-right: 2%;
 }
 
 .upDownText {
-    padding-left: 5%;
-    text-align: center;
-    font-size: 150%;
+    text-align: left;
+    font-size: 100%;
 }
 
 .upDownText:active {
@@ -774,7 +790,7 @@ input[type="submit"] {
     text-align: center;
 }
 
-p#overideP   {
+.overideP   {
    color: #333;
     text-align: center;
     margin-top: 8%;
@@ -801,3 +817,52 @@ p#overideP   {
     outline: none;
     text-align: center;
 }
+
+#moveRight   {
+    margin-right: 0;
+    text-align: center;
+
+}
+
+#IRhome1   {
+    position: relative;
+    left: 25%;
+
+}
+
+#IRhome2   {
+    position: relative;
+    left: 25%;
+}
+
+#blockNewUserFloat  {
+    display: inline-block;
+    text-align: right;
+
+
+}
+
+#tsoTrue{
+    background-color: #12b41d ;
+}
+
+#tsoFalse{
+    background-color: firebrick;
+
+}
+
+#adminTrue  {
+    background-color: #12b41d ;
+
+}
+
+#adminFalse  {
+    background-color: firebrick;
+
+}
+
+
+
+/*.sync {*/
+    /*background-color: #666;*/
+/*}*/
