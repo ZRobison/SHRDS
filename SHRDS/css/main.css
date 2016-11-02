@@ -858,7 +858,33 @@ input[type="submit"] {
 
 #adminFalse  {
     background-color: firebrick;
+}
 
+#mainPassBlock  {
+    display: block;
+    padding: 1%;
+    margin: 0 auto;
+    margin-top: 5em;
+    background-color: #e2e2e2;
+    border-radius: 8px;
+    border: 1px solid #999;
+    width: 400px;
+    box-shadow: 0 10px 6px -6px #444;
+}
+
+.resetPassBlock {
+    margin-top: 1%;
+    width: 300px;
+}
+
+.loginBlock {
+    display: block;
+    margin: 0 auto;
+    background-color: #e2e2e2;
+    border-radius: 8px;
+    border: 2px solid #999;
+    width: 350px;
+    box-shadow: 0 10px 6px -6px #444;
 }
 
 

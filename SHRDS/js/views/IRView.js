@@ -234,7 +234,7 @@ var IRView = function () {
             "<p class='overideP'>Press start to begin data collection... </p>"
 
         var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >START</button>" +
-            "<button type='button' onclick='window.location.replace(\"index.html\")' id='IRhome2' class='blueButtons'>HOME</button>";
+            "<button type='button' onclick='window.location.replace(\"index.html\")' id='IRhome2' class='exitButton'>LOGOUT</button>";
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);

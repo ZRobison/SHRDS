@@ -26,13 +26,16 @@ function getFormSelect() {
 
     var header = "Form Select";
     var body =
+
         "<div class='radBut'>" +
         "<input type='radio' name='adminRadio' id='adminRadio1' class='radio' value='checked' >" +
         "<label for='adminRadio1'>Password Reset</label></div>" +
-        "<div class'radBut'>" +
+
+        "<div class='radBut'>" +
         "<input type='radio' name='adminRadio' id='adminRadio2' class='radio' value='checked' >" +
         "<label for='adminRadio2'>Meta Data Review</label></div>" +
-        "<div class'radBut'>" +
+
+        "<div class='radBut'>" +
         "<input type='radio' name='adminRadio' id='adminRadio3' class='radio' value='checked' >" +
         "<label for='adminRadio3'>Add a New User</label></div>";
 
@@ -48,11 +51,13 @@ function getResetPassword() {
     //To be filled later
     var header = "Password Reset";
     var body =
-        "User ID: <input type='text' name='fname' id = 'userID'><br>" +
-        "New Password: <input type='password' id='userPassword'><br>" +
-        "Confirm New Password: <input type='password' id='userPasswordConfirm'><br>" +
+        "<div id='mainPassBlock'>" +
+        "<p class='resetPassBlock'>User ID: </p><input type='text' name='fname' id = 'userID'><br>" +
+        "<p class='resetPassBlock'>New Password: </p><input type='password' id='userPassword'><br>" +
+        "<p class='resetPassBlock'>Confirm New Password: </p><input type='password' id='userPasswordConfirm'><br>" +
         "<div class ='message'></div>" +
-        "<div class ='error'></div";
+        "<div class ='error'></div>" +
+        "</div>" ;
 
     var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>SUBMIT</button>";
 
@@ -107,18 +112,22 @@ function getCreateNewUser() {
         "<p>TSO Qualified: </p>" +
 
         "<div class='radBut'>" +
-        "<input type ='radio' name='TSOQualified' class='radio' id='tsoTrue' value='TRUE'/><label for='tsoTrue'>Yes</label></div>" +
+        "<input type ='radio' name='TSOQualified' class='radio' id='tsoTrue' value='TRUE'/>" +
+        "<label for='tsoTrue'>Yes</label></div>" +
 
         "<div class='radBut'>" +
-        "<input type ='radio' name='TSOQualified' class='radio' id='tsoFalse' value='FALSE'/><label for='tsoFalse'>No</label></div>" +
+        "<input type ='radio' name='TSOQualified' class='radio' id='tsoFalse' value='FALSE'/>" +
+        "<label for='tsoFalse'>No</label></div>" +
 
         "<p>Admin Qualified: </p>" +
 
         "<div class='radBut'>" +
-        "<input type ='radio' name='AdminQualified' class='radio' id='adminTrue' value='TRUE'/><label for='adminTrue'>Yes</label></div> " +
+        "<input type ='radio' name='AdminQualified' class='radio' id='adminTrue' value='TRUE'/>" +
+        "<label for='adminTrue'>Yes</label></div> " +
 
         "<div class='radBut'>" +
-        "<input type ='radio' name='AdminQualified' class='radio' id='adminFalse' value='FALSE'/><label for='adminFalse'>No</label></div>" +
+        "<input type ='radio' name='AdminQualified' class='radio' id='adminFalse' value='FALSE'/>" +
+        "<label for='adminFalse'>No</label></div>" +
 
         "<div class='error'></div>" +
         "<div class='message'></div>" ;
