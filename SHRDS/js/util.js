@@ -98,3 +98,12 @@ function checkRadioButtons(radioGroup) {
     }
 
 }
+
+function HeatNum(obj){
+	var value = obj.value.replace(/\D/g,'');
+	if(value>30){
+	  obj.value = 30;
+	}else{
+	  obj.value = value;
+	}
+}

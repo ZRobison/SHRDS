@@ -58,16 +58,7 @@ var EventSpecificView = function () {
             "<option value='Grand Final'>Grand Final</option>" +
             "</select>" +
 
-            "<div class='removal'>" +
-            "<div class='irTitles'>Heat:</div>" +
-            "<select name='ESHeat'>" +
-            "<option value='-1' selected>Select one</option>" +
-            "<option value='1'>Heat 1</option>" +
-            "<option value='2'>Heat 2</option>" +
-            "<option value='3'>Heat 3</option>" +
-            "<option value='4'>Heat 4</option>" +
-            "<option value='5'>Heat 5</option>" +
-            "</select>" +
+			"<br>Heat:<input type = 'text' name='Heat' onkeyup=\"HeatNum(this)\" onafterpaste=\"HeatNum(this)\">" +
 
             "<div class='irTitles'>Round:</div>" +
             "<select name='ESRound'>" +
