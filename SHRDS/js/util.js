@@ -25,6 +25,13 @@ function getFormDate() {
     }
 
 }
+//Second Date function to return system date. Offest allows for values + or minus current date
+//0 offset is today, 1 is yesterday
+function getDateTodayOrYesterday(offset) {
+    var d = new Date();
+    d.setDate(d.getDate() - offset);
+    return (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate);
+}
 
 //Utility to ensure leading zeros are not ignored when getting system date
 function addZero(i) {
