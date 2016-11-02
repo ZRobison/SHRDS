@@ -747,11 +747,11 @@ input[type="submit"] {
     display: inline-block;
     vertical-align: top;
     margin-right: 5%;
-    margin-top: 10%;
+ 
 }
 
 #beachName  {
-    margin-bottom: 10%;
+    margin-bottom: 2.8em;
 }
 
 #tideBox {
