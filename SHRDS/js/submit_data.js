@@ -3,16 +3,16 @@
 function insertSHR() {
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
-        submitPrevailing();
+        submitPrevailing(true);
     }
     //If we have an event specific SHR
     else if (app.SHRFlag == 2) {
-        submitEventSpercific();
+        submitEventSpercific(true);
 
     }
     //Otherwise we have an incident report
     else {
-        sumbitIncerdentReport();
+        sumbitIncerdentReport(true);
     }
 }
 
@@ -240,9 +240,11 @@ function postESSubmit() {
     if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0) {
         $(".error").text("");
         $(".good").text("All data has been successfully sent to the server.");
+		$(".sync").text("");
     } else {
         $(".good").text("");
-        $(".error").text("Some data you have collected is in the process of or could not be sent to the server. Please find internet connection and press the sync button.");
+		var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
+        $(".error").text("You have "+ count +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
     }
 }
 
@@ -303,16 +305,19 @@ function submitPrevailing() {
 
 
 
+
 function postPrevSubmit() {
     app.prevSHRArrayFinished.push(app.prevSHRArrayUnfinished[app.prevSHRArrayUnfinished.length - 1]);
     app.prevSHRArrayUnfinished.pop();
     if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0) {
         $(".error").text("");
         $(".good").text("All data has been successfully sent to the server.");
+		$(".sync").text("");
     } else {
         $(".good").text("");
-        $(".error").text("Some data you have collected is in the process of or could not be sent to the server. Please find internet connection and press the sync button.");
-    }
+       var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
+        $(".error").text("You have "+ count +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
+   }
 
 }
 
@@ -605,11 +610,12 @@ function submitIRAfterCheckTrue() {
 function postIRSubmit() {
     app.irArrayFinished.push(app.irArrayUnfinished[app.irArrayUnfinished.length - 1]);
     app.irArrayUnfinished.pop();
-    if (app.irArray.length == 0) {
+    if (app.irArrayUnfinished.length == 0) {
         $(".error").text("");
         $(".good").text("All data has been successfully sent to the server.");
+		$(".sync").text("");
     } else {
         $(".good").text("");
-        $(".error").text("Some data you have collected is in the process of or could not be sent to the server. Please find internet connection and press the sync button.");
+        $(".error").text("You have "+app.irArrayUnfinished.length +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
     }
 }
