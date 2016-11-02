@@ -36,7 +36,7 @@ function getFormSelect() {
         "<input type='radio' name='adminRadio' id='adminRadio3' class='radio' value='checked' >" +
         "<label for='adminRadio3'>Add a New User</label></div>";
 
-    var footer = "<button type='submit' class='blueButtons' id='submitBut' onclick='adminPageSelect()'>Next</button>";
+    var footer = "<button type='submit' class='blueButtons' id='submitBut' onclick='adminPageSelect()'>NEXT</button>";
 
 
     $(".heading").text(header);
@@ -54,7 +54,7 @@ function getResetPassword() {
         "<div class ='message'></div>" +
         "<div class ='error'></div";
 
-    var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>Submit</button>";
+    var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>SUBMIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -88,7 +88,7 @@ function getMetaData() {
         "<div id='submittedTime' class='col-metadata'>Submission Time</div>" +
         "<div id='raceDetails' class='col-metadata'>Race Details</div>";
     //"<div id='totalForms' class='col-metadata'></div>";
-    var footer = "<button type='submit' class='blueButtons' onclick='getFormMetaData()'>Get It</button>";
+    var footer = "<button type='submit' class='blueButtons' onclick='getFormMetaData()'>GET IT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -98,20 +98,33 @@ function getMetaData() {
 function getCreateNewUser() {
     var header = "Create New Admin or TSO User";
     var body =
-        "User number: <input type='text' id='newUserNum'> <br>" +
-        "User Password: <input type='text' id='newPassword'> <br>" +
-        "Confirm Password: <input type='text' id='newPasswordConfirm'><br>" +
-        "First Name: <input type='text' id='userFName'><br>" +
-        "Last Name: <input type='text' id='userLName'><br>" +
-        "TSO Qualified: <div class='radBut'><input type ='radio' name='TSOQualified' id='tsoTrue' value='TRUE'/><label for='tsoTrue'>Yes</label></div>" +
-        "<div class='radBut'><input type ='radio' name='TSOQualified' id='tsoFalse' value='FALSE'/><label for='tsoFalse'>No</label></div>" +
-        "Admin Qualified: <div class='radBut'><input type ='radio' name='AdminQualified' id='adminTrue' value='TRUE'/><label for='adminTrue'>Yes</label></div> " +
-        "<div class='radBut'><input type ='radio' name='AdminQualified' id='adminFalse' value='FALSE'/><label for='adminFalse'>No</label></div>" +
+        "<p>User number: </p><input type='text' id='newUserNum'> <br>" +
+        "<p>User Password: </p><input type='text' id='newPassword'> <br>" +
+        "<p>Confirm Password: </p><input type='text' id='newPasswordConfirm'><br>" +
+        "<p>First Name: </p><input type='text' id='userFName'><br>" +
+        "<p>Last Name: </p><input type='text' id='userLName'><br>" +
+
+        "<p>TSO Qualified: </p>" +
+
+        "<div class='radBut'>" +
+        "<input type ='radio' name='TSOQualified' class='radio' id='tsoTrue' value='TRUE'/><label for='tsoTrue'>Yes</label></div>" +
+
+        "<div class='radBut'>" +
+        "<input type ='radio' name='TSOQualified' class='radio' id='tsoFalse' value='FALSE'/><label for='tsoFalse'>No</label></div>" +
+
+        "<p>Admin Qualified: </p>" +
+
+        "<div class='radBut'>" +
+        "<input type ='radio' name='AdminQualified' class='radio' id='adminTrue' value='TRUE'/><label for='adminTrue'>Yes</label></div> " +
+
+        "<div class='radBut'>" +
+        "<input type ='radio' name='AdminQualified' class='radio' id='adminFalse' value='FALSE'/><label for='adminFalse'>No</label></div>" +
+
         "<div class='error'></div>" +
-        "<div class='message'></div>";
+        "<div class='message'></div>" ;
 
 
-    var footer = "<button type='submit' class='blueButtons' onclick='submitNewUser()'>Submit</button>";
+    var footer = "<button type='submit' class='blueButtons' onclick='submitNewUser()'>SUBMIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);

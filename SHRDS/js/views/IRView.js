@@ -217,9 +217,9 @@ var IRView = function () {
         var header = "Incident Report";
 
 
-        var body = "<p>Incident Report has been successfully submitted</p>"
+        var body = "<p class='overideP'>Incident Report has been successfully submitted</p>"
 
-        var footer = "<button type='button' class='blueButtons' onclick='window.location.replace(\"index.html#irHome\")'>HOME</button>";
+        var footer = "<button type='button' id='IRhome1' class='blueButtons' onclick='window.location.replace(\"index.html#irHome\")'>HOME</button>";
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
@@ -231,10 +231,10 @@ var IRView = function () {
 
 
         var body = "<div class='error'></div><div class='sync'></div><div class='good'></div>" +
-            "<p id='overideP'>Press start to begin data collection... </p>"
+            "<p class='overideP'>Press start to begin data collection... </p>"
 
-        var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >Start</button>" +
-            "<button type='button' onclick='window.location.replace(\"index.html\")' class='blueButtons'>Home</button>";
+        var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >START</button>" +
+            "<button type='button' onclick='window.location.replace(\"index.html\")' id='IRhome2' class='blueButtons'>HOME</button>";
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
