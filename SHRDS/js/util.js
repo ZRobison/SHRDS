@@ -81,7 +81,7 @@ function addColon(nameString) {
         }
     }
 }
-//Utility ensures an input contains only numerical digits - used when creating a new user
+//Utility ensures an input contains only numerical digits
 function verifyNonNumericCharacters(input) {
     if (/\D/.test(input)) {
         return false;
@@ -99,11 +99,12 @@ function checkRadioButtons(radioGroup) {
 
 }
 
-function HeatNum(obj){
-	var value = obj.value.replace(/\D/g,'');
-	if(value>30){
-	  obj.value = 30;
-	}else{
-	  obj.value = value;
-	}
+//Utility ensuring that a maximum value exists for a value
+function HeatNum(obj) {
+    var value = obj.value.replace(/\D/g, '');
+    if (value > 30) {
+        obj.value = 30;
+    } else {
+        obj.value = value;
+    }
 }
