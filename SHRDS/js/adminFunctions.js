@@ -120,7 +120,7 @@ function checkNewUserDetails() {
     }
     //Now check if the user number contains any non-numerical characters
     if (!verifyNonNumericCharacters(document.getElementById("newUserNum").value)) {
-        $(".error").text("Please use a user number consisting of only numerical characters");
+        $(".error").text("Please use a user value consisting of only numerical characters");
         return false;
     }
     if (document.getElementById("newPassword").value != document.getElementById("newPasswordConfirm").value) {

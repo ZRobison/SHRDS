@@ -45,6 +45,8 @@ function updateForm() {
 
 function getESValues() {
     var check = true;
+    var heat = $("input[name=ESHeat]").val();
+    var round = $("input[name=ESRound]").val();
     check = check && arenaES();
     check = check && ageES();
     check = check && finalES();
@@ -61,6 +63,8 @@ function getESValues() {
         getFormDate();
         getFormTime();
         routeIS();
+    } else if (!verifyNonNumericCharacters(heat) || !verifyNonNumericCharacters(round)) {
+        $(".error").text("Only numerical digits can be placed in heat and round");
     } else {
         $(".error").text("Please fill in all fields.");
     }
@@ -101,8 +105,10 @@ function ageES() {
 }
 
 function heatES() {
-    var score = $("select[name=ESHeat]").val();
+    var score = $("input[name=ESHeat]").val();
     if (score == '-1') {
+        return false;
+    } else if (!verifyNonNumericCharacters(score)) {
         return false;
     } else if (app.SHRFlag == 2) {
         app.esSHRData.heat = score;
@@ -115,9 +121,10 @@ function heatES() {
 }
 
 function roundES() {
-    var score = $("select[name=ESRound]").val();
-
+    var score = $("input[name=ESRound]").val();
     if (score == '-1') {
+        return false;
+    } else if (!verifyNonNumericCharacters(score)) {
         return false;
     } else if (app.SHRFlag == 2) {
         app.esSHRData.round = score;
