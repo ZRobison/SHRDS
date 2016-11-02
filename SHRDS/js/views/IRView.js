@@ -115,84 +115,84 @@ var IRView = function () {
             "<div id='right'>" +
 
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(1); incidentsReportedOneOUT();' ></button> " +
             "<div class='upDownText'>Fall Offs (By wave) - OUT</div>" +
             "<div id='numOUT1' class='upDownNum' name='IRDiv1'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(1); incidentsReportedOneOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(2); incidentsReportedTwoOUT();' ></button> " +
             "<div class='upDownText'>Fall Offs (By collision) - OUT</div>" +
             "<div id='numOUT2' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(2); incidentsReportedTwoOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(3); incidentsReportedThreeOUT();' ></button>" +
             "<div class='upDownText'>Back-shoot/Nose-Dive - OUT</div>" +
             "<div id='numOUT3' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(3); incidentsReportedThreeOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(4); incidentsReportedFourOUT();' ></button> " +
             "<div class='upDownText'>Broaches - OUT</div>" +
             "<div id='numOUT4' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(4); incidentsReportedFourOUT();'></button>" +
             "</div> " +
 
-            "<div class='num'>" +
+            "<div class='num2'>" +
             "<button type='submit' class='clickAdd' onclick='addOUT(5); incidentsReportedFiveOUT();' ></button> " +
             "<div class='upDownText'>Flying Craft - OUT</div>" +
             "<div id='numOUT5' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(5); incidentsReportedFiveOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(6); incidentsReportedSixOUT();' ></button> " +
             "<div class='upDownText'>Lost Craft (Serious) - OUT</div>" +
             "<div id='numOUT6' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(6); incidentsReportedSixOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(7); incidentsReportedSevenOUT();' ></button> " +
             "<div class='upDownText'>Lost Craft (Severe) - OUT</div>" +
             "<div id='numOUT7' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(7); incidentsReportedSevenOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(8); incidentsReportedEightOUT();' ></button> " +
             "<div class='upDownText'>Collision (Serious) - OUT</div>" +
             "<div id='numOUT8' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(8); incidentsReportedEightOUT();'></button>" +
             "</div>" +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(9); incidentsReportedNineOUT();' ></button> " +
             "<div class='upDownText'>Injury (Minor) - OUT</div>" +
             "<div id='numOUT9' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(9); incidentsReportedNineOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(10); incidentsReportedTenOUT();' ></button> " +
             "<div class='upDownText'>Injury (Serious) - OUT</div>" +
             "<div id='numOUT10' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(10); incidentsReportedTenOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(11); incidentsReportedElevenOUT();' ></button> " +
             "<div class='upDownText'>Injury (Severe) - OUT</div>" +
             "<div id='numOUT11' class='upDownNum'>0</div>" +
             "<button type='submit' class='clickMinus' onclick='minusOUT(11); incidentsReportedElevenOUT();'></button>" +
             "</div> " +
 
-            "<div class='num' >" +
+            "<div class='num2' >" +
             "<button type='submit' class='clickAdd' onclick='addOUT(12); incidentsReportedTwelveOUT();' ></button> " +
             "<div class='upDownText'>Did Not Finish - OUT</div>" +
             "<div id='numOUT12' class='upDownNum'>0</div>" +

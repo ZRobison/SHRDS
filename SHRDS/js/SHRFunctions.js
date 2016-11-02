@@ -593,7 +593,7 @@ function getSHRHistory() {
     var eslength = app.esSHRArray.length;
     var his = "";
     if (plength != 0) {
-        his = "<p>Prevailing SHR History</p><ul class='SHRfunctionList'>";
+        his = "<p id='overideP'>Prevailing SHR History</p><ul class='SHRfunctionList'>";
         for (var i = 0; i < plength && i < 2; i++) {
             his += "<li> Date Filled:" + app.prevSHRArray[i].time + ", SHR: " + app.prevSHRArray[i].SHR.totalSHR + "</li>";
         }
