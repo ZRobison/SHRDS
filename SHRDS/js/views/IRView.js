@@ -231,7 +231,7 @@ var IRView = function () {
 
 
         var body = "<div class='error'></div><div class='sync'></div><div class='good'></div>" +
-            "<p> Press start to begin data collection. </p>"
+            "<p id='overideP'>Press start to begin data collection... </p>"
 
         var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >Start</button>" +
             "<button type='button' onclick='window.location.replace(\"index.html\")' class='blueButtons'>Home</button>";

@@ -4,13 +4,14 @@ html {
     text-align: center;
 }
 
-#backgroundImage {
+
+/*
+#background {
     background-image: url(../images/backg1.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
+*/
 
 .container-fluid {
     padding: 0px;
@@ -119,7 +120,7 @@ header img {
 }
 
 input.radio:empty {
-    margin-left: -9999;
+    margin-left: -9999px;
 }
 
 input.radio:empty~label {
@@ -183,6 +184,7 @@ input.radio:checked~label {
 
 .allRatingsPos {
     margin-top: 6em;
+    text-align: center;
 }
 
 .formSelRad input.radio:empty~label {
@@ -221,12 +223,13 @@ select {
 }
 
 #loginBut {
-    margin-top: 0.6em;
-    margin-right: 70px;
+    text-align: center;
+    margin: 0 auto;
+
 }
 
 .blueButtons {
-    margin-left: 5%;
+
     background-color: #0060A9;
     margin-top: 0.6em;
     font-size: 14px;
@@ -720,7 +723,8 @@ input[type="submit"] {
 }
 
 #logoutButton {
-    margin-right: 100px;
+    text-align: center;
+
 }
 
 .logoutButton:active {
@@ -745,6 +749,11 @@ input[type="submit"] {
     display: inline-block;
     vertical-align: top;
     margin-right: 5%;
+ 
+}
+
+#beachName  {
+    margin-bottom: 2.8em;
 }
 
 #tideBox {
@@ -753,10 +762,42 @@ input[type="submit"] {
 }
 
 .textPrev {
-    width: 200;
+    width: 200px;
     margin-top: 10%;
     color: #555;
     text-align: justify;
     text-justify: inter-word;
     font-size: 120%;
+}
+
+.SHRfunctionList {
+    text-align: center;
+}
+
+p#overideP   {
+   color: #333;
+    text-align: center;
+    margin-top: 8%;
+    padding: 1%;
+}
+
+.syncButton {
+    margin-top: 8%;
+    color: snow;
+    text-shadow: 1px 1px 1px #ccc;
+    margin-top: 20px;
+    padding: 14px;
+    padding-right: 5%;
+    padding-left: 5%;
+    background-color: #12b41d;
+    border: 2px solid #333;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0 10px 6px -6px #444;
+    -moz-box-shadow: 0 10px 6px -6px #444;
+    box-shadow: 0 10px 6px -6px #444;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
 }
