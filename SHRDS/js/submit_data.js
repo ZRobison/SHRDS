@@ -1,6 +1,7 @@
 //Do to the way the external MYSql.JS script works with callback function, all sql statements must be perfomred in sequence and 
 //cannot be encapsulated into re-useable functions
 function insertSHR() {
+	 $(".footer").text("");
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
         submitPrevailing(true);
@@ -52,6 +53,7 @@ function flagUpdated(formType) {
 
 
 function submitEventSpercific(check) {
+	$(".status").text("Contacting Server...");
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esSHRData.age + "' " +
         "AND GENDER = '" + app.esSHRData.gender + "' " +
@@ -85,7 +87,10 @@ function submitEventSpercific(check) {
     app.resetData();
     //After everythign has been done go back home
 	if (check){
-		window.location.hash = "#formSelect";
+		setTimeout(function(){
+				window.location.hash = "#formSelect";
+		}, 2500);
+		
 	}
 }
 
@@ -97,6 +102,7 @@ function submitEventSpercific(check) {
  *
  */
 function submitESDataAfterCheck(data) {
+	$(".status").text("Submitting data to server now...");
     if (data.Result == null || data.Result == "") {
         submitESAfterCheckFalse();
     }
@@ -155,9 +161,6 @@ function submitESAfterCheckFalse() {
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "')";
 
-
-    console.log(eventInsertSQL);
-    console.log(esSHRInsertSQL);
 
     MySql.Execute(
         dbconfig.host,
@@ -246,7 +249,7 @@ function postESSubmit() {
     } else {
         $(".good").text("");
 		var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
-        $(".error").text("You have "+ count +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
+        $(".error").text("You have "+ count +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
     }
 }
 
@@ -256,7 +259,7 @@ function postESSubmit() {
  *
  **/
 function submitPrevailing(check) {
- 
+	$(".status").text("Submitting data to server now...");
     var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.prevalingSHRData.date + "'," +
@@ -303,7 +306,9 @@ function submitPrevailing(check) {
     app.resetData();
     //After everythign has been done go back home
 	if (check){
-		window.location.hash = "#formSelect";
+		setTimeout(function(){
+				window.location.hash = "#formSelect";
+		}, 2500);
 	}
 }
 
@@ -320,7 +325,7 @@ function postPrevSubmit() {
     } else {
         $(".good").text("");
        var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
-        $(".error").text("You have "+ count +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
+        $(".error").text("You have "+ count +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
    }
 
 }
@@ -333,7 +338,7 @@ function postPrevSubmit() {
  *
  */
 function sumbitIncerdentReport(check) {
-    console.log("")
+   $(".status").text("Contacting Server...");
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esIRData.age + "' " +
         "AND GENDER = '" + app.esIRData.gender + "' " +
@@ -367,7 +372,11 @@ function sumbitIncerdentReport(check) {
     app.resetData();
     //After everythign has been done go back home
 	if (check){
-		window.location.hash = "#irHome";
+		
+		setTimeout(function(){
+				window.location.hash = "#irHome";
+		}, 2500);
+		
 	}
 }
 
@@ -379,8 +388,8 @@ function sumbitIncerdentReport(check) {
  *
  */
 function submitIRDataAfterCheck(data) {
+	$(".status").text("Submitting data to server now...");
     if (data.Result == null || data.Result == "") {
-        console.log("Value of FOWave withing falseCheck is " + app.esIRData.IRIN.FOWave);
         submitIRAfterCheckFalse();
     }
     //Otherwise we have found an event but we still want to insert the SHR data
@@ -625,7 +634,7 @@ function postIRSubmit() {
 		$(".sync").text("");
     } else {
         $(".good").text("");
-        $(".error").text("You have "+app.irArrayUnfinished.length +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
+        $(".error").text("You have "+app.irArrayUnfinished.length +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
     }
 }
 
@@ -650,5 +659,11 @@ function sync(){
 		sumbitIncerdentReport(true);
 	}
 	
-	$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
+	setTimeout(function(){
+			if (! $(".good").text()){
+					$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
+					$(".error").text("Timed out. You have "+app.irArrayUnfinished.length +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
+			}
+		}, 5000);
+	
 }

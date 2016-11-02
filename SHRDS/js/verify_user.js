@@ -3,8 +3,15 @@ var loginSuccess = -1;
 function verify_user() {
     console.log("doing verify user function");
 
-    $('#logonmessage').text("Loading... (If takes more the 30 seconds check internet connection and try again.)");
+    $('#logonmessage').text("Loading...");
     $(".error").text("");
+	
+	setTimeout(function(){
+			if (!$(".error").text()){
+				$('#logonmessage').text("Login Timed Out. Please check Internet conection and try again.");
+			}
+				
+		}, 5000);
 
     if (document.getElementById("username").value == "") {
         $(".error").text("Please enter a user ID");
