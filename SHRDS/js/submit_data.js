@@ -51,7 +51,7 @@ function flagUpdated(formType) {
 */
 
 
-function submitEventSpercific() {
+function submitEventSpercific(check) {
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esSHRData.age + "' " +
         "AND GENDER = '" + app.esSHRData.gender + "' " +
@@ -84,7 +84,9 @@ function submitEventSpercific() {
     app.esSHRArray.push(app.esSHRData);
     app.resetData();
     //After everythign has been done go back home
-    window.location.hash = "#formSelect";
+	if (check){
+		window.location.hash = "#formSelect";
+	}
 }
 
 
@@ -253,9 +255,8 @@ function postESSubmit() {
  * Submit the the prevailing data into the data base.
  *
  **/
-function submitPrevailing() {
-    $('.status').text("Attempting to Submit Data to Server...");
-
+function submitPrevailing(check) {
+ 
     var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.prevalingSHRData.date + "'," +
@@ -279,7 +280,7 @@ function submitPrevailing() {
         app.prevalingSHRData.windSpeed + "," +
         "FALSE)"; //False as this is a prevailing report
 
-
+	console.log(sql);
     //Descriptors to insert    
     MySql.Execute(
         dbconfig.host,
@@ -297,10 +298,13 @@ function submitPrevailing() {
         }
     );
     app.prevSHRArrayUnfinished.push(app.prevalingSHRData);
+	console.log(app.prevSHRArray);
     app.prevSHRArray.push(app.prevalingSHRData);
     app.resetData();
     //After everythign has been done go back home
-    window.location.hash = "#formSelect";
+	if (check){
+		window.location.hash = "#formSelect";
+	}
 }
 
 
@@ -328,7 +332,7 @@ function postPrevSubmit() {
  * Submit IR Data
  *
  */
-function sumbitIncerdentReport() {
+function sumbitIncerdentReport(check) {
     console.log("")
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esIRData.age + "' " +
@@ -362,7 +366,9 @@ function sumbitIncerdentReport() {
     app.irArray.push(app.esIRData);
     app.resetData();
     //After everythign has been done go back home
-    window.location.hash = "#irHome";
+	if (check){
+		window.location.hash = "#irHome";
+	}
 }
 
 
@@ -452,9 +458,8 @@ function submitIRAfterCheckFalse() {
                 sql,
                 //Currently function can be empty as call back will not return anything
                 function (data) {
-                    app.updatedFlag += .5
-                }
-            );
+                
+          
 
 
 
@@ -499,10 +504,13 @@ function submitIRAfterCheckFalse() {
                 //Currently function can be empty as call back will not return anything
                 function (data) {
                     function nest() {
-                        app.updatedFlag += 2.5;
+                        app.updatedFlag += 3;
                     };
                     nest();
                 }
+            );
+			
+			      }
             );
         });
 }
@@ -553,10 +561,8 @@ function submitIRAfterCheckTrue() {
         sql,
         //Currently function can be empty as call back will not return anything
         function (data) {
-            app.updatedFlag += .5;
-        }
-    );
-
+           
+      
     //Do all the same again for Out version of IR 
     var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
         //Race ID is a big select statemeent - is it is an auto increment value in the DB
@@ -599,11 +605,14 @@ function submitIRAfterCheckTrue() {
         //Currently function can be empty as call back will not return anything
         function (data) {
             function nest() {
-                app.updatedFlag += 2.5;
+                app.updatedFlag = 3;
             };
             nest();
         }
     );
+	  }
+    );
+
 
 }
 
@@ -618,4 +627,28 @@ function postIRSubmit() {
         $(".good").text("");
         $(".error").text("You have "+app.irArrayUnfinished.length +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
     }
+}
+
+function sync(){
+	var length = app.esSHRArrayUnfinished.length;
+	$(".sync").html("");
+	for (var i=0; i < length; i++){
+		app.esSHRData = app.esSHRArrayUnfinished.shift();
+		submitEventSpercific(false);
+	}
+	
+	length = app.prevSHRArrayUnfinished.length;
+	for (var i=0; i < length; i++){
+		app.prevalingSHRData = app.prevSHRArrayUnfinished.shift();
+		submitPrevailing(true);
+		
+	}
+	
+	length = app.irArrayUnfinished.length;
+	for (var i=0; i < length; i++){
+		app.esIRData = app.irArrayUnfinished.shift();
+		sumbitIncerdentReport(true);
+	}
+	
+	$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
 }
