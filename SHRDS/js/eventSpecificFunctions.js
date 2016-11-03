@@ -3,7 +3,7 @@
 function updateForm() {
     var score = $("select[name=ESFinalType]").val();
     if (score == 'Grand Final') {
-        $(".removal").html(" ");
+        $(".disapear").html(" ");
         if (app.SHRFlag == 2) {
             app.esSHRData.heat = 'N/A';
             app.esSHRData.round = 'N/A';
@@ -12,26 +12,12 @@ function updateForm() {
             app.esIRData.round = 'N/A';
         }
     } else {
-        $(".removal").html(
-            "<div class='irTitles'>Heat:</div>" +
-            "<select name='ESHeat'>" +
-            "<option value='-1' selected>Select one</option>" +
-            "<option value='1'>Heat 1</option>" +
-            "<option value='2'>Heat 2</option>" +
-            "<option value='3'>Heat 3</option>" +
-            "<option value='4'>Heat 4</option>" +
-            "<option value='5'>Heat 5</option>" +
-            "</select>" +
-
+        $(".disapear").html(
+             "<div class='irTitles '>Heat:</div>" +
+            "<input type = 'text' name='ESHeat'>" +
             "<div class='irTitles'>Round:</div>" +
-            "<select name='ESRound'>" +
-            "<option value='-1' selected>Select one</option>" +
-            "<option value='1'>Round 1</option>" +
-            "<option value='2'>Round 2</option>" +
-            "<option value='3'>Round 3</option>" +
-            "<option value='4'>Round 4</option>" +
-            "<option value='5'>Round 5</option>" +
-            "</select>");
+            "<input type = 'text' name='ESRound'>" +
+            "</div>")
         if (app.SHRFlag == 2) {
             app.esSHRData.heat = '-1';
             app.esSHRData.round = '-1';

@@ -34,7 +34,7 @@ function checkData() {
     } else {
        $(".good").text("");
 		var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
-        $(".error").text("You have "+ count +" form/s in the process of being sent or could not be sent to the server. Please check internet connection and press the sync button.");
+        $(".error").text("You have "+ count +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
 		$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
  }
 }

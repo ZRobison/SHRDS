@@ -89,7 +89,7 @@ function submitEventSpercific(check) {
 	if (check){
 		setTimeout(function(){
 				window.location.hash = "#formSelect";
-		}, 2500);
+		}, 5000);
 		
 	}
 }
@@ -308,7 +308,7 @@ function submitPrevailing(check) {
 	if (check){
 		setTimeout(function(){
 				window.location.hash = "#formSelect";
-		}, 2500);
+		}, 5000);
 	}
 }
 
@@ -338,7 +338,8 @@ function postPrevSubmit() {
  *
  */
 function sumbitIncerdentReport(check) {
-   $(".status").text("Contacting Server...");
+	$(".body").html("Contacting server...");
+
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esIRData.age + "' " +
         "AND GENDER = '" + app.esIRData.gender + "' " +
@@ -375,7 +376,7 @@ function sumbitIncerdentReport(check) {
 		
 		setTimeout(function(){
 				window.location.hash = "#irHome";
-		}, 2500);
+		}, 5000);
 		
 	}
 }
@@ -388,7 +389,7 @@ function sumbitIncerdentReport(check) {
  *
  */
 function submitIRDataAfterCheck(data) {
-	$(".status").text("Submitting data to server now...");
+	$(".body").text("Submitting data to server now...");
     if (data.Result == null || data.Result == "") {
         submitIRAfterCheckFalse();
     }
@@ -659,10 +660,11 @@ function sync(){
 		sumbitIncerdentReport(true);
 	}
 	
+	var score = app.irArrayUnfinished.length + app.esSHRArrayUnfinished.length + app.prevSHRArrayUnfinished.length;
 	setTimeout(function(){
 			if (! $(".good").text()){
 					$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
-					$(".error").text("Timed out. You have "+app.irArrayUnfinished.length +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
+					$(".error").text("Timed out. You have "+score+" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
 			}
 		}, 5000);
 	

@@ -57,14 +57,14 @@ var EventSpecificView = function () {
             "<option value='Semi Final'>Semi Final</option>" +
             "<option value='Grand Final'>Grand Final</option>" +
             "</select>" +
-
-            "<div class='irTitles'>Heat:</div>" +
+			"<div class='disapear'>"+
+            "<div class='irTitles '>Heat:</div>" +
             "<input type = 'text' name='ESHeat'>" +
 
             "<div class='irTitles'>Round:</div>" +
             "<input type = 'text' name='ESRound'>" +
             "</div>" +
-
+			"</div>"+
             "<div class='irTitles'>Craft Type:</div>" +
             "<select name='ESCraftType'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -89,7 +89,6 @@ var EventSpecificView = function () {
             "</div>" +
             "<div class='error'></div>";
 
-        console.log(app.loginData.pID);
 
 
         if (app.SHRFlag == 2) {
