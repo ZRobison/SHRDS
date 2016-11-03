@@ -331,19 +331,18 @@ function getOHR() {
     var body =
 
 
-        "<div class='hazard'>OHR: one for each extra hazard present</div><select class='allRatingsPos' name='OHRForm'>" +
-        "<option value='-1' selected>Select one</option>" +
-        "<option value='0'>0</option>" +
-        "<option value='1'>1</option>" +
-        "<option value='2'>2</option>" +
-        "<option value='3'>3</option>" +
-        "<option value='4'>4</option>" +
-        "<option value='5'>5</option>" +
-        "<option value='6'>6</option>" +
-        "<option value='7'>7</option>" +
-        "<option value='8'>8</option>" +
-        "<option value='9'>9</option>" +
-        "</select>" +
+        "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' name='OHRForm'>" +
+        "<input type='radio' name='rockReef' value='1' id='OHRButton1'>Rocks, reefs or groynes<br>" +
+        "<input type='radio' name='jettyOutflow' value='1' id='OHRButton2' >Jetties, outflow pipes, wrecks etc<br>" +
+        "<input type='radio' name='uncontrolledSurf' value='1' id='OHRButton3'>Uncontrolled surf craft<br>" +   
+        "<input type='radio' name='floatingLogs' value='1' id='OHRButton4'>Floating logs, seaweed and other Floatsam<br>" +
+        "<input type='radio' name='waterTemp' value='1' id='OHRButton5'>Water temperature (without wetsuits)<br>" +
+        "<input type='radio' name='pollutionMarine' value='1' id='OHRButton6'>Pollution, marine stingers etc<br>" +
+        "<input type='radio' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +
+		"<input type='radio' name='noOtherHazards' value='0' id='OHRButton8'>No other hazards present<br>" +
+      
+       
+        "</form>" +
         "<button type='button' class='questionMark' onclick='getOHRInfo()'></button>" +
         "<div class='error'></div>" +
         "<br>" +
@@ -469,3 +468,15 @@ function getSHR() {
     $(".rating").text(shr);
 
 }
+
+/*
+"<button type='submit' class='clickAdd' onclick='addOUT(13); incidentsReportedThirteenOUT();' ></button> " +
+            "<div>Uncontrolled surf craft. E.g. Ski rating: 1 for each ski. Boat Rating: 6 per boat (denoting 1 boat and 5 oars)</div>" +
+            "<div id='numOUT13'>0</div>" +
+            "<button type='submit' class='clickMinus' onclick='minusOUT(13); incidentsReportedThirteenOUT();'></button>" +
+			
+			
+			 "<input type='radio' value='9'>9<br>" +
+*/ 
+
+
