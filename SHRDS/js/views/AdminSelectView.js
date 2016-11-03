@@ -57,7 +57,7 @@ function getResetPassword() {
         "<p class='resetPassBlock'>Confirm New Password: </p><input type='password' id='userPasswordConfirm'><br>" +
         "<div class ='message'></div>" +
         "<div class ='error'></div>" +
-        "</div>" ;
+        "</div>";
 
     var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>SUBMIT</button>";
 
@@ -85,13 +85,7 @@ function getMetaData() {
         "<option value='5'>5</option>" +
         "<option value='6'>6</option>" +
         "<option value='7'>7</option></select>" +
-        "<div id='supervisingTSO' class='col-metadata'>Supervising TSO</div>" +
-        "<div id='totalSHR' class='col-metadata'>Total SHR</div>" +
-		"<div id='arena' class='col-metadata'>Arena</div>" +
-		"<div id='inOut' class='col-metadata'>In/Out</div>" +
-		"<div id='totalIncidents' class='col-metadata'>Incidents</div>" +
-        "<div id='submittedTime' class='col-metadata'>Submission Time</div>" +
-        "<div id='raceDetails' class='col-metadata'>Race Details</div>";
+        "<div class='tableData'></div>";
     //"<div id='totalForms' class='col-metadata'></div>";
     var footer = "<button type='submit' class='blueButtons' onclick='getFormMetaData()'>GET IT</button>";
 
@@ -130,7 +124,7 @@ function getCreateNewUser() {
         "<label for='adminFalse'>No</label></div>" +
 
         "<div class='error'></div>" +
-        "<div class='message'></div>" ;
+        "<div class='message'></div>";
 
 
     var footer = "<button type='submit' class='blueButtons' onclick='submitNewUser()'>SUBMIT</button>";
