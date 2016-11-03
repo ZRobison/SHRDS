@@ -332,14 +332,14 @@ function getOHR() {
 
 
         "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' name='OHRForm'>" +
-        "<input type='radio' name='rockReef' value='1' id='OHRButton1'>Rocks, reefs or groynes<br>" +
-        "<input type='radio' name='jettyOutflow' value='1' id='OHRButton2' >Jetties, outflow pipes, wrecks etc<br>" +
-        "<input type='radio' name='uncontrolledSurf' value='1' id='OHRButton3'>Uncontrolled surf craft<br>" +   
-        "<input type='radio' name='floatingLogs' value='1' id='OHRButton4'>Floating logs, seaweed and other Floatsam<br>" +
-        "<input type='radio' name='waterTemp' value='1' id='OHRButton5'>Water temperature (without wetsuits)<br>" +
-        "<input type='radio' name='pollutionMarine' value='1' id='OHRButton6'>Pollution, marine stingers etc<br>" +
-        "<input type='radio' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +
-		"<input type='radio' name='noOtherHazards' value='0' id='OHRButton8'>No other hazards present<br>" +
+        "<input type='checkbox' name='rockReef' value='1' id='OHRButton1'>Rocks, reefs or groynes<br>" +
+        "<input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' >Jetties, outflow pipes, wrecks etc<br>" +
+        "<input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3'>Uncontrolled surf craft<br>" +   
+        "<input type='checkbox' name='floatingLogs' value='1' id='OHRButton4'>Floating logs, seaweed and other Floatsam<br>" +
+        "<input type='checkbox' name='waterTemp' value='1' id='OHRButton5'>Water temperature (without wetsuits)<br>" +
+        "<input type='checkbox' name='pollutionMarine' value='1' id='OHRButton6'>Pollution, marine stingers etc<br>" +
+        "<input type='checkbox' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +
+		"<input type='checkbox' name='noOtherHazards' value='0' id='OHRButton8'>No other hazards present<br>" +
       
        
         "</form>" +
