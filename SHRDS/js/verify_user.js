@@ -1,8 +1,47 @@
 var loginSuccess = -1;
 
+
+function checkInputs(){
+	var check = true;
+	var value = $('#username').val();
+	if (!value){
+		check = false;
+		 $('#logonmessage').text("");
+		$(".error").text("Please enter a reference number")
+	}
+	value = $('#fname').val();
+	if (!value){
+		check = false;
+		 $('#logonmessage').text("");
+		$(".error").text("Please enter your first name")
+	}
+		
+	value = $('#lname').val();
+	if (!value){
+		check = false;
+		 $('#logonmessage').text("");
+		$(".error").text("Please enter your last name")
+	}
+	
+	value = $('#email').val();
+	if (!validateEmail(value)){
+		check = false;
+		 $('#logonmessage').text("");
+		$(".error").text("Please enter a valid email")
+	}					
+	return check;
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
 function verify_user() {
     console.log("doing verify user function");
-
+	if  ($('#radio2').is(":checked") && !checkInputs()){
+		return;
+	}
     $('#logonmessage').text("Loading...");
     $(".error").text("");
 	
@@ -58,43 +97,45 @@ function verify_user() {
     }
     //Incident Selected
     else if ($('#radio2').is(":checked")) {
-        app.SHRFlag = 0;
-        MySql.Execute(
-            dbconfig.host,
-            dbconfig.dbUser,
-            dbconfig.dbPassword,
-            dbconfig.dbUser,
-            "select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + wash_SQL_string(document.getElementById("username").value) + "'",
-            function (data) {
-                //First Ensure the query succeded
-                if (data.Success === true) {
-                    //If we have a match that means the user has the correct credentials
-                    if (data.Result != null && data.Result != "") {
-                        //If the the supervising user is TSO qualified 
-                        if (data.Result[0].TSO_QUALIFIED == true) {
-                            app.loginData.pID = data.Result[0].USER_ID
-                            console.log("current login id is: " + app.loginData.pID);
-                            app.loginData.pTSOStatus = false;
-                            app.loginData.pAdminStatus = false;
-                            app.loginData.incidentFName = wash_SQL_string(document.getElementById("fname").value);
-                            app.loginData.incidentLName = wash_SQL_string(document.getElementById("lname").value);
-                            app.loginData.incidentEmail = wash_SQL_string(document.getElementById("email").value);
-                            window.location.hash = "#irHome";
-                        } else {
-                            $(".error").text("The user with that ID is not qualified to supervise an IR");
-                        }
-                    } else {
-                        $(".error").text("That user ID does not exists");
-                        $('#logonmessage').text("");
-                    }
-                }
-                //Otherwise the database query has not succeeded
-                else {
-                    $(".error").text("Error: Database Connection Failure: For initial login you need an internet connection");
-                    $('#logonmessage').text("");
-                }
-            }
-        );
+		
+			app.SHRFlag = 0;
+			MySql.Execute(
+				dbconfig.host,
+				dbconfig.dbUser,
+				dbconfig.dbPassword,
+				dbconfig.dbUser,
+				"select USER_ID, TSO_QUALIFIED from SHRDS_USER where USER_ID ='" + wash_SQL_string(document.getElementById("username").value) + "'",
+				function (data) {
+					//First Ensure the query succeded
+					if (data.Success === true) {
+						//If we have a match that means the user has the correct credentials
+						if (data.Result != null && data.Result != "") {
+							//If the the supervising user is TSO qualified 
+							if (data.Result[0].TSO_QUALIFIED == true) {
+								app.loginData.pID = data.Result[0].USER_ID
+								console.log("current login id is: " + app.loginData.pID);
+								app.loginData.pTSOStatus = false;
+								app.loginData.pAdminStatus = false;
+								app.loginData.incidentFName = wash_SQL_string(document.getElementById("fname").value);
+								app.loginData.incidentLName = wash_SQL_string(document.getElementById("lname").value);
+								app.loginData.incidentEmail = wash_SQL_string(document.getElementById("email").value);
+								window.location.hash = "#irHome";
+							} else {
+								$(".error").text("The user with that ID is not qualified to supervise an IR");
+							}
+						} else {
+							$(".error").text("That user ID does not exists");
+							$('#logonmessage').text("");
+						}
+					}
+					//Otherwise the database query has not succeeded
+					else {
+						$(".error").text("Error: Database Connection Failure: For initial login you need an internet connection");
+						$('#logonmessage').text("");
+					}
+				}
+			);
+		
 
     }
     //Admin Selected
