@@ -21,7 +21,7 @@ function getFormMetaData() {
     //Get ES SHR and ES IR form data
     var sql =
         "SELECT FIRST_NAME, LAST_NAME, SHR.RACE_ID, AGE_GROUP, CRAFT_TYPE, SHR.TIME, IR_FIRST_NAME, IR_LAST_NAME, INCIDENTS_REPORT.IN_OUT," + "SHR_TOTAL, ARENA, DNF ,FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, " + "INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, " +
-        "COLLISION_MINOR, COLLISION_SERIOUS, GENDER " +
+        "COLLISION_MINOR, COLLISION_SERIOUS, GENDER, SHR.BEACH_NAME " +
         "FROM SHR, RACE, SHRDS_USER, INCIDENTS_REPORT " +
         "WHERE SHR.RACE_ID = RACE.RACE_ID AND SHR.USER_ID = SHRDS_USER.USER_ID AND INCIDENTS_REPORT.USER_ID = SHR.USER_ID AND EVENT_SPECIFIC = TRUE";
     MySql.Execute(
@@ -85,12 +85,14 @@ function setESData(data) {
 function outPutInTableES(data) {
     //First Set up the table
     console.log(JSON.stringify(data));
-    var table = "<table class = 'dataTable'><tr><th>TSO</th><th>SHR</th><th>Incidents</th><th>Arena</th><th>In/Out</th><th>Race Details</th></tr>";
+    var table = "<table><tr><th>TSO</th><th>Beach</th><th>SHR</th><th>Incidents</th><th>Arena</th><th>In/Out</th><th>Race Details</th></tr>";
     if (data.Result != null && data.Result != "") {
         for (var i = 0; i < data.Result.length; i++) {
             table += "<tr>";
             //Add TSO
             table += "<td>" + data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "</td>";
+            //Add Beach
+            table += "<td>" + data.Result[i].BEACH_NAME + "</td>";
             //Add SHR data
             table += "<td>" + data.Result[i].SHR_TOTAL + "</td>";
             //Add incidents
@@ -104,6 +106,7 @@ function outPutInTableES(data) {
             //raceTime += data.Result[i].TIME + "<br>";
             table += "</tr>";
         }
+        table += "</table>";
     }
     $(".tableData").html(table);
 }

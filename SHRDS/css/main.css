@@ -752,10 +752,19 @@ input[type="submit"] {
     float: left;
 }
 
-.dataTable th,
+table {
+    width: 80%;
+    border-spacing: 100px;
+}
+
+th,
 td {
-    padding: 1%;
+    padding: 0.5%;
     text-align: center;
+}
+
+th {
+    text-decoration-style: solid;
 }
 
 #prevailingWrapper {
