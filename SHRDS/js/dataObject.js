@@ -1,3 +1,19 @@
+var OHRData = function(){
+	 this.initialize = function () {
+        this.pRRG = 0; //Rocks, Reeds or Grornes
+        this.pGOW = 0; //Jetties, outflow pipes, wrecks
+		this.pUCS = 0; //Uncontriled surf craft
+        this.pFSF = 0; //Floating logs, Seaweed and other Floatsam
+        this.pWT = 0; //Water temp
+        this.pPMS = 0; //Pollution or marine stingers
+        this.pVI = 0; //Visual Impairment
+    }
+	 this.calculate = function () {
+        this.totalSHR = (this.pRRG * 1) + (this.pGOW * 1) + (this.pFSF * 1) + (this.pWT * 1) + (this.pPMS * 1) + (this.pVI * 1) + (this.pUCS * 1);
+        return this.totalSHR;
+    }
+}
+
 var SHRData = function () {
     this.initialize = function () {
         this.pWHR = -1;
@@ -8,11 +24,12 @@ var SHRData = function () {
         this.pCrossWaves = 0;
         this.pLDR = -1;
         this.pRCR = -1;
-        this.pOHR = -1;
+        this.pOHR = new OHRData();
+		this.pOHR.initialize();
         this.totalSHR = -1;
     }
     this.calculate = function () {
-        this.totalSHR = (this.pWHR * 1) + (this.pWTR * 1) + (this.pWPR * 1) + (this.pZWR * 1) + (this.pSTR * 1) + (this.pCrossWaves * 1) + (this.pLDR * 1) + (this.pRCR * 1) + (this.pOHR * 1);
+        this.totalSHR = (this.pWHR * 1) + (this.pWTR * 1) + (this.pWPR * 1) + (this.pZWR * 1) + (this.pSTR * 1) + (this.pCrossWaves * 1) + (this.pLDR * 1) + (this.pRCR * 1) + (this.pOHR.calculate());
         return this.totalSHR;
     }
 }

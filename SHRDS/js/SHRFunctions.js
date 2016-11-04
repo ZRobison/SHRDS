@@ -5,6 +5,7 @@
  *
  */
 function nextPage(SHR, fun) {
+	console.log("Before Call");
     var score = fun();
     if (score == -1) {
         $(".error").text("Please select a value.");
@@ -286,101 +287,61 @@ function getRCRInfo() {
  *
  */
 function getOHRvalue() {
-    var score = -1;
+	var pRRG = 0; //Rocks, Reeds or Grornes
+	var pGOW = 0; //Jetties, outflow pipes, wrecks
+	var pUCS = 0; //Uncontriled surf craft
+	var pFSF = 0; //Floating logs, Seaweed and other Floatsam
+    var pWT = 0; //Water temp
+    var pPMS = 0; //Pollution or marine stingers
+    var pVI = 0; //Visual Impairment
+	console.log("In Call");
 	
-	var newValOHRRockReef = 0;
-	var newValOHRJettyOutflow = 0;
-	var newValOHRUncontrolledSurf = 0; 
-	var newValOHRFloatingLogs = 0;
-	var newValOHRWaterTemp = 0; 
-	var newValOHRPollutionMarine = 0; 
-	var newValOHRVisualImpairment = 0; 
-	var newValOHRNoOtherHazards = 0;
-	
-	var button1 = document.getElementById("OHRButton1").innerHTML;
-    var button2 = document.getElementById("OHRButton2").innerHTML;
-	var button3 = document.getElementById("OHRButton3").innerHTML;
-	var button4 = document.getElementById("OHRButton4").innerHTML;
-	var button5 = document.getElementById("OHRButton5").innerHTML;
-    var button6 = document.getElementById("OHRButton6").innerHTML;
-    var button7 = document.getElementById("OHRButton7").innerHTML;
-    var button8 = document.getElementById("OHRButton8").innerHTML;
+	if ($("#OHRButton1").is(":checked")){
+		pRRG = $("input[name=rockReef]").val();
+	} 
+	if ($("#OHRButton2").is(":checked")) {
+		pGOW = $("input[name=jettyOutflow]").val();
+	}
 
-if (OHRButton1.checked){
-    newValOHRRockReef = $("input[name=rockReef]").val();
-} else {
-	newValOHRRockReef = 0; 
-} //return newValOHRRockReef;
+	if ($("#OHRButton3").is(":checked")) {
+		pUCS = $("input[name=uncontrolledSurf]").val();
+	}
 
-if (OHRButton2.checked) {
-    newValOHRJettyOutflow = $("input[name=jettyOutflow]").val();
-}else {
-  newValOHRJettyOutflow = 0; 
-} //return newValOHRJettyOutflow;
+	if ($("#OHRButton4").is(":checked")) {
+		pFSF = $("input[name=floatingLogs]").val();
+	}
 
-if (OHRButton3.checked) {
-   newValOHRUncontrolledSurf = $("input[name=uncontrolledSurf]").val();
-}else {
-   newValOHRUncontrolledSurf = 0; 
-} //return newValOHRUncontrolledSurf;
+	if ($("#OHRButton5").is(":checked")) {
+		pWT = $("input[name=waterTemp]").val();
+	}
 
-if (OHRButton4.checked) {
-    newValOHRFloatingLogs = $("input[name=floatingLogs]").val();
-}else {
-	newValOHRFloatingLogs = 0; 
-}// return FloatingLogs;
+	if ($("#OHRButton6").is(":checked")) {
+		pPMS = $("input[name=pollutionMarine]").val();
+	}
 
-if (OHRButton5.checked) {
-    newValOHRWaterTemp = $("input[name=waterTemp]").val();
-}else {
-	newValOHRWaterTemp = 0; 
-} //return newValOHRWaterTemp;
+	if ($("#OHRButton7").is(":checked")) {
+		pVI = $("input[name=visualImpairment]").val();
+	}
 
-if (OHRButton6.checked) {
-    newValOHRPollutionMarine = $("input[name=pollutionMarine]").val();
-}else {
-	newValOHRPollutionMarine = 0; 
-} //return newValOHRPollutionMarine;
-
-if (OHRButton7.checked) {
-   newValOHRVisualImpairment = $("input[name=visualImpairment]").val();
-}else {
-   newValOHRVisualImpairment = 0; 
-} //return newValOHRVisualImpairment;
-
-if (OHRButton8.checked) {
-   newValOHRNoOtherHazards = 0;
-   if (app.SHRFlag == 1){
-	  app.prevalingSHRData.SHR.pOHR = 0; 
-	  score = app.prevalingSHRData.SHR.pOHR;
-   } else {
-        app.esSHRData.SHR.pOHR = 0;
-		score = app.esSHRData.SHR.pOHR;
-}
-    newValOHRRockReef = 0;
-	 newValOHRJettyOutflow = 0;
-	 newValOHRUncontrolledSurf = 0; 
-	 newValOHRFloatingLogs = 0;
-	 newValOHRWaterTemp = 0; 
-	 newValOHRPollutionMarine = 0; 
-	 newValOHRVisualImpairment = 0; 
-}
-else {
-   newValOHRNoOtherHazards = 0; 
- }
-
-// return newValOHRNoOtherHazards;
-	
-
-	
-    if (app.SHRFlag == 1) {
-        app.prevalingSHRData.SHR.pOHR = ((newValOHRRockReef *1) + (newValOHRJettyOutflow *1) + (newValOHRUncontrolledSurf *1) + (newValOHRFloatingLogs *1) + (newValOHRWaterTemp *1) + (newValOHRPollutionMarine *1) + (newValOHRVisualImpairment *1) + (newValOHRNoOtherHazards *1));
-        score = app.prevalingSHRData.SHR.pOHR;
+	if (app.SHRFlag == 1) {
+		app.prevalingSHRData.SHR.pOHR.pRRG = pRRG;
+		app.prevalingSHRData.SHR.pOHR.pGOW = pGOW;
+		app.prevalingSHRData.SHR.pOHR.pUCS = pUCS;
+		app.prevalingSHRData.SHR.pOHR.pFSF = pFSF;
+		app.prevalingSHRData.SHR.pOHR.pWT = pWT;
+		app.prevalingSHRData.SHR.pOHR.pPMS = pPMS;
+		app.prevalingSHRData.SHR.pOHR.pVI = pVI;
+		return app.prevalingSHRData.SHR.pOHR.calculate();
     } else {
-        app.esSHRData.SHR.pOHR = ((newValOHRRockReef *1) + (newValOHRJettyOutflow *1) + (newValOHRUncontrolledSurf *1) + (newValOHRFloatingLogs *1) + (newValOHRWaterTemp *1) + (newValOHRPollutionMarine *1) + (newValOHRVisualImpairment *1) + (newValOHRNoOtherHazards *1));
-        score = app.esSHRData.SHR.pOHR;
+		app.esSHRData.SHR.pOHR.pRRG = pRRG;
+		app.esSHRData.SHR.pOHR.pGOW = pGOW;
+		app.esSHRData.SHR.pOHR.pUCS = pUCS;
+		app.esSHRData.SHR.pOHR.pFSF = pFSF;
+		app.esSHRData.SHR.pOHR.pWT = pWT;
+		app.esSHRData.SHR.pOHR.pPMS = pPMS;
+		app.esSHRData.SHR.pOHR.pVI = pVI;
+		return app.esSHRData.SHR.pOHR.calculate();
     }
-    return score;
 }
 
 /*

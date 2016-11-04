@@ -4,7 +4,6 @@ var LogonView = function () {
         var header = "SLSA SHRDS";
 
         var body =
-            "<div class ='error'></div>" +
             "<div id = 'background'></div>" +
             "<div class='radBut'>" +
             "<div class='formSelRad'>" +
@@ -36,7 +35,9 @@ var LogonView = function () {
 function selected() {
     if ($('#radio1').is(":checked")) {
         var forming = "<form action = '' id='submitForm1' method=''>" +
+		
             "<div class='loginBlock'>" +
+			 "<div class ='error'></div>"+
             "<div class='loginText'>TSO Reference Number: </div><br>" +
             "<input type='text' name='' id='username'><br>" +
             "<div class='loginText'>Password: </div><br>" +
@@ -45,7 +46,10 @@ function selected() {
         $("#forming").html(forming);
     } else if ($('#radio2').is(":checked")) {
         var forming = "<form action = '' method='' id='submitForm1'>" +
+		
             "<div class='loginBlock'>" +
+			
+			 "<div class ='error'></div>"+
             "<div class='loginText'>Supervisors Reference Number: </div><br>" +
             "<input type='text' name='' id='username'><br>" +
             "<div class='loginText'>First Name: </div><br>" +
@@ -53,17 +57,21 @@ function selected() {
             "<div class='loginText'>Last Name: </div><br>" +
             "<input type='text' name='' id='lname'><br>" +
             "<div class='loginText'>Contact Email: </div><br>" +
-            "<input type='text' name='' id='email'>";
+            "<input type='text' name='' id='email'>" ;
 
         $("#forming").html(forming);
     } else if ($('#radio3').is(":checked")) {
         var forming = "<form action = '' method='' id='submitForm1'>" +
+		 
             "<div class='loginBlock'>" +
+			 "<div class ='error'></div>"+
+			"<div class ='error'></div>" +
             "<div class='loginText'>Admin User Name </div><br>" +
             "<input type='text' name='' id='username'><br>" +
             "<div class='loginText'>Password: </div><br>" +
             "<input type='password' name='' id='password'><br>" +
             "</form>" +
+			
 
             "</div></div></div>";
 

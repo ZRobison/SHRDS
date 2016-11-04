@@ -338,9 +338,7 @@ function getOHR() {
         "<input type='checkbox' name='floatingLogs' value='1' id='OHRButton4'>Floating logs, seaweed and other Floatsam<br>" +
         "<input type='checkbox' name='waterTemp' value='1' id='OHRButton5'>Water temperature (without wetsuits)<br>" +
         "<input type='checkbox' name='pollutionMarine' value='1' id='OHRButton6'>Pollution, marine stingers etc<br>" +
-        "<input type='checkbox' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +
-		"<input type='checkbox' name='noOtherHazards' value='0' id='OHRButton8'>No other hazards present<br>" +
-      
+        "<input type='checkbox' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +  
        
         "</form>" +
         "<button type='button' class='questionMark' onclick='getOHRInfo()'></button>" +
@@ -425,7 +423,7 @@ function getREV() {
             getRCR()
         } + "," + getRCRvalue + ")'>Change</button></div></div>" +
 
-        "<div class='singleRow'><div class='left1'>OHR</div> <div class='center1'>" + pOHR + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
+        "<div class='singleRow'><div class='left1'>OHR</div> <div class='center1'>There are " + pOHR.calculate() + " other hazzards selected.</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getOHR()
         } + "," + getOHRvalue + ")'>Change</button></div></div>";
 
