@@ -9,21 +9,13 @@
     <name>SHRDS</name>
 
     <description>
-        Surf Hazzard Rating Digitalisation System for recording SHR and incerdent report information to be sent to SLSA Web application server
-    </description>
+        Surf Hazzard Rating Digitalisation System for recording SHR and incident report .
+		</description>
 
     <author href="https://sls.com.au/">
         Macquarie University COMP355 Group 5 project
     </author>
     
-	<!-- Includes -->
-    <feature name="http://api.phonegap.com/1.0/camera"/>
-    <feature name="http://api.phonegap.com/1.0/contacts"/>
-    <feature name="http://api.phonegap.com/1.0/file"/>
-    <feature name="http://api.phonegap.com/1.0/geolocation"/>
-    <feature name="http://api.phonegap.com/1.0/media"/>
-    <feature name="http://api.phonegap.com/1.0/network"/>
-    <feature name="http://api.phonegap.com/1.0/notification"/>
 
     <!-- Define the main entry-point to the application -->
     <content src="index.html" />
@@ -46,11 +38,13 @@
     <splash src="res/icon/android/drawable-xhdpi-icon.png" density="port-xhdpi"/>
     <splash src="res/icon/android/drawable-xxhdpi-icon.png" density="port-xxhdpi"/>
     <splash src="res/icon/android/drawable-xxxhdpi-icon.png" density="port-xxxhdpi"/>
-       
-    <!--Plugin config stuff to allow sending http requests -->
+     
+
+  </platform>
+  
+      <!--Plugin config stuff to allow sending http requests -->
     <allow-navigation href="http://mysqljs.com/*"/>
     <allow-intent href="http://mysqljs.com/*" />
-  </platform>
   
   <!--Whitelist plugin allows http requests through  CONSIDER DOWNLOAD PLUGIN MANUALLY-->
   <plugin name="cordova-plugin-whitelist" source="npm" />
