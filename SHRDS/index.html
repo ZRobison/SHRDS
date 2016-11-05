@@ -6,6 +6,8 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!--CSS For Beach Autofill-->
+    <link href="css/awesomplete.css" rel="stylesheet" />
 
     <!-- BOOTSTRAP CSS -->
     <link href="css/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,6 +40,7 @@
     <script type="text/javascript" src="lib/CryptoJS/components/cipher-core-min.js"></script>
     <script type="text/javascript" src="lib/CryptoJS/components/md5.js"></script>
     <script type="text/javascript" src="lib/CryptoJS/rollups/md5.js"></script>
+    <script type="text/javascript" src="lib/awesomplete.js" async></script>
 
 
     <!-- Views-->
@@ -61,6 +64,7 @@
     <script type="text/javascript" src="js/eventSpecificFunctions.js"></script>
     <script type="text/javascript" src="js/prevailingFunctions.js"></script>
     <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/autoFillBeach.js"></script>
 
 
     <script type="text/javascript" src="js/main.js"></script>
@@ -70,10 +74,10 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-			  document.addEventListener("backbutton", function (e) {
-			e.preventDefault();
-			}, false )
-            // call main from Cordova
+            document.addEventListener("backbutton", function(e) {
+                    e.preventDefault();
+                }, false)
+                // call main from Cordova
             if (window.device) {
                 document.addEventListener("deviceready", function() {
                     app.initialize();
