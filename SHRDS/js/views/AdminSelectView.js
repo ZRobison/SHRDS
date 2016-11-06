@@ -51,12 +51,12 @@ function getResetPassword() {
     //To be filled later
     var header = "Password Reset";
     var body =
+        "<div class ='error'></div>" +
         "<div id='mainPassBlock'>" +
         "<p class='resetPassBlock'>User ID: </p><input type='text' name='fname' id = 'userID'><br>" +
         "<p class='resetPassBlock'>New Password: </p><input type='password' id='userPassword'><br>" +
         "<p class='resetPassBlock'>Confirm New Password: </p><input type='password' id='userPasswordConfirm'><br>" +
         "<div class ='message'></div>" +
-        "<div class ='error'></div>" +
         "</div>";
 
     var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>SUBMIT</button>";
@@ -73,10 +73,10 @@ function getMetaData() {
     var yesterday = getDateTodayOrYesterday(1);
     var header = "Completed Forms Meta Data";
     var body =
-        "Date: <select name='dataReviewDate'>" +
+        "<div class='irTitles'>Date: </div><select name='dataReviewDate'>" +
         "<option value='" + today + "'>Today</option>" +
         "<option value='" + yesterday + "'>Yesterday</option></select>" +
-        "Arena: <select name='arenaSelection'>" +
+        "<div class='irTitles'>Arena: </div><select name='arenaSelection'>" +
         "<option value='1, 2, 3, 4, 5, 6, 7, 8, 9, 10'>All Arenas</option>" +
         "<option value='1'>1</option>" +
         "<option value='2'>2</option>" +

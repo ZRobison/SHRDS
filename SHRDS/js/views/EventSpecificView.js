@@ -8,9 +8,7 @@ var EventSpecificView = function () {
             header = "Event specific Incident Report";
         }
 
-
         var body =
-
 
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
@@ -115,10 +113,9 @@ var EventSpecificView = function () {
 
         if (app.SHRFlag == 2) {
 
-            $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' value='IN'/>" +
-                "Out" +
-                "<input type ='radio' name='ESInOut' id='out' value='OUT'/>" +
-                "In");
+            $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' ><label for='in'>IN</label>" +
+
+                "<input type ='radio' name='ESInOut' id='out' ><label for='out'>OUT</label>");
         } else {
             $(".check").text("");
         }
