@@ -30,7 +30,7 @@ function getFormDate() {
 function getDateTodayOrYesterday(offset) {
     var d = new Date();
     d.setDate(d.getDate() - offset);
-    return (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate);
+    return (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
 }
 
 //Utility to ensure leading zeros are not ignored when getting system date
