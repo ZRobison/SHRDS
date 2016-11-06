@@ -8,6 +8,7 @@ var PrevailingView = function () {
 
         var body =
 
+            "<div class='error'></div>" +
             "<div id='prevailingWrapper'> " +
 
             "<div id='windBox'>" +
@@ -54,9 +55,9 @@ var PrevailingView = function () {
 
             "</div>" + //tides
 
-            "</div>" + //wrapper
+            "</div>" ; //wrapper
 
-            "<div class='error'></div>";
+
 
         $(".body").html(body);
 

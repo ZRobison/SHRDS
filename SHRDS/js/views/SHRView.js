@@ -45,7 +45,8 @@ function getWHR() {
     var header = "Wave Height Rating";
 
     var body =
-        //body        
+        //body
+        "<div class='error'></div>" +
         "<div class='hazard'>WHR in Meters</div>" +
         "<select class='allRatingsPos' name='WHRForm'>" +
         "<option value='-1'>Select one</option>" +
@@ -61,7 +62,6 @@ function getWHR() {
         "<option value='12'>Up to 4.5</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getWHRInfo()'></button>" +
-        "<div class='error'></div>" +
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
@@ -95,6 +95,7 @@ function getWTR() {
     var header = "Wave Type Rating";
 
     var body =
+        "<div class='error'></div>" +
         "<div class='hazard'>WTR</div>" +
         "<select class='allRatingsPos' name='WTRForm'>" +
         "<option value='-1' selected>Select one</option>" +
@@ -104,7 +105,6 @@ function getWTR() {
         "<option value='4'>Plunging with Back-Blasting</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getWTRInfo()')></button>" +
-        "<div class='error'></div>" +
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
@@ -132,7 +132,7 @@ function getWPR() {
     var header = "Wave Period Rating";
 
     var body =
-
+        "<div class='error'></div>" +
         "<div class='hazard'>WPR</div>" +
         "<select class='allRatingsPos' name='WPRForm'>" +
         "<option value='-1' selected>Select one</option>" +
@@ -142,7 +142,6 @@ function getWPR() {
         "<option value='3'>Extremely Short Period(<6 secs)</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getWPRInfo()')></button>" +
-        "<div class='error'></div>" +
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
@@ -169,7 +168,7 @@ function getZWR() {
     var header = "Zone Width Rating";
 
     var body =
-
+        "<div class='error'></div>" +
         "<div class='hazard'>ZWR</div><select class='allRatingsPos' name='ZWRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>0</option>" +
@@ -183,7 +182,6 @@ function getZWR() {
         "<option value='8'>Up to 160</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getZWRInfo()')></button>" +
-        "<div class='error'></div>" +
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
@@ -210,7 +208,8 @@ function getSTR() {
     var header = "Surface Turbulence Rating";
 
     var body =
-		"<div class='hazard'>STR</div>" +
+        "<div class='error'></div>" +
+        "<div class='hazard'>STR</div>" +
         "<select class='allRatingsPos' name='STRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No chop (Glassy)</option>" +
@@ -229,7 +228,6 @@ function getSTR() {
         "<option value='2'>Moderate Cross Waves</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getSTRCrossWavesInfo()')></button>" +
-        "<div class='error'></div>" +
         "<div class='info'></div>";
 
     var footer =
@@ -256,7 +254,9 @@ function getLDR() {
     var header = "Littoral Drift Rating";
 
     var body =
-		"<div class='hazard'>LDR</div>" +
+
+        "<div class='error'></div>" +
+        "<div class='hazard'>LDR</div>" +
         "<select class='allRatingsPos' name='LDRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Drag (0)</option>" +
@@ -266,7 +266,6 @@ function getLDR() {
         "<option value='4'>Very Strong Drag (<13 secs)</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getLDRInfo()')></button>" +
-        "<div class='error'></div>" +
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
@@ -294,7 +293,9 @@ function getRCR() {
     var header = "Rip Current Rating";
 
     var body =
-		"<div class='hazard'>RCR</div>" +
+
+        "<div class='error'></div>" +
+        "<div class='hazard'>RCR</div>" +
         "<select class='allRatingsPos' name='RCRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Rips</option>" +
@@ -303,7 +304,6 @@ function getRCR() {
         "<option value='3'>Strong Rips (Cannot walk against)</option>" +
         "</select>" +
         "<button type='button' class='questionMark' onclick='getRCRInfo()')'></button>" +
-        "<div class='error'></div>" +
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
@@ -332,22 +332,27 @@ function getOHR() {
 
     var body =
 
+        "<div class='error'></div>" +
+		 "<div class='hazard'>OHR</div>"+
+        "<div id='otherHazardRating'>" +
+        "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' id='otherMaxHeight' name='OHRForm'>" +
+        "<div class='checkbox1'><input type='checkbox' name='rockReef' value='1' id='OHRButton1' ><label for='OHRButton1'></label> <div></div></div><div class='otherText'>Rocks, reefs or groynes</div><br>" +
+        "<div class='checkbox1'><input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' ><label for='OHRButton2'></label> <div></div></div><div class='otherText'>Jetties, outflow pipes, wrecks etc</div><br>" +
+        "<div class='checkbox1'><input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3' ><label for='OHRButton3'></label> <div></div></div><div class='otherText'>Uncontrolled surf craft</div><br>" +
+        "<div class='checkbox1'><input type='checkbox' name='floatingLogs' value='1' id='OHRButton4' ><label for='OHRButton4'></label> <div></div></div><div class='otherText'>Floating logs, seaweed and other Floatsam</div><br>" +
+        "<div class='checkbox1'><input type='checkbox' name='waterTemp' value='1' id='OHRButton5' ><label for='OHRButton5'></label> <div></div></div><div class='otherText'>Water temperature (without wetsuits)</div><br>" +
+        "<div class='checkbox1'><input type='checkbox' name='pollutionMarine' value='1' id='OHRButton6' ><label for='OHRButton6'></label> <div></div></div><div class='otherText'>Pollution, marine stingers etc</div><br>" +
+        "<div class='checkbox1'><input type='checkbox' name='visualImpairment' value='1' id='OHRButton7' ><label for='OHRButton7'></label> <div></div></div><div class='otherText'>Visual impairment: The sun setting over the ocean (especially in SA and WA)</div><br>" +
 
-        "<div class='hazard'>OHR</div><form class='allRatingsPos' name='OHRForm'>" +
-        "<input type='checkbox' name='rockReef' value='1' id='OHRButton1'>Rocks, reefs or groynes<br>" +
-        "<input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' >Jetties, outflow pipes, wrecks etc<br>" +
-        "<input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3'>Uncontrolled surf craft<br>" +
-        "<input type='checkbox' name='floatingLogs' value='1' id='OHRButton4'>Floating logs, seaweed and other Floatsam<br>" +
-        "<input type='checkbox' name='waterTemp' value='1' id='OHRButton5'>Water temperature (without wetsuits)<br>" +
-        "<input type='checkbox' name='pollutionMarine' value='1' id='OHRButton6'>Pollution, marine stingers etc<br>" +
-        "<input type='checkbox' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +
 
         "</form>" +
-        "<button type='button' class='questionMark' onclick='getOHRInfo()'></button>" +
-        "<div class='error'></div>" +
+        "</div>" +
         "<br>" +
         "<br>" +
-        "<div class='info'></div>";
+        //"<button type='button' class='questionMark' id='qHack' onclick='getOHRInfo()'></button>" ;
+        "<div class='info' id='textHack'></div>";
+
+
 
 
     var footer =
