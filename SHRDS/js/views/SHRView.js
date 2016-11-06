@@ -210,7 +210,7 @@ function getSTR() {
     var header = "Surface Turbulence Rating";
 
     var body =
-
+		"<div class='hazard'>STR</div>" +
         "<select class='allRatingsPos' name='STRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No chop (Glassy)</option>" +
@@ -219,8 +219,10 @@ function getSTR() {
         "<option value='3'>Excessive Chop (22-27 kts)</option>" +
         "<option value='4'>Extreme Chop (>27kts)</option>" +
         "</select>" +
-
+	
         "<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
+		
+			"<div class='hazard'>Cross Waves</div>" +
         "<select class='allRatingsPos' name='STRCrossWavesForm'>" +
         "<option value='0' selected>No Cross Waves</option>" +
         "<option value='1'>Minor Cross Waves</option>" +
@@ -254,7 +256,7 @@ function getLDR() {
     var header = "Littoral Drift Rating";
 
     var body =
-
+		"<div class='hazard'>LDR</div>" +
         "<select class='allRatingsPos' name='LDRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Drag (0)</option>" +
@@ -292,7 +294,7 @@ function getRCR() {
     var header = "Rip Current Rating";
 
     var body =
-
+		"<div class='hazard'>RCR</div>" +
         "<select class='allRatingsPos' name='RCRForm'>" +
         "<option value='-1' selected>Select one</option>" +
         "<option value='0'>No Rips</option>" +
@@ -331,7 +333,7 @@ function getOHR() {
     var body =
 
 
-        "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' name='OHRForm'>" +
+        "<div class='hazard'>OHR</div><form class='allRatingsPos' name='OHRForm'>" +
         "<input type='checkbox' name='rockReef' value='1' id='OHRButton1'>Rocks, reefs or groynes<br>" +
         "<input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' >Jetties, outflow pipes, wrecks etc<br>" +
         "<input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3'>Uncontrolled surf craft<br>" +
