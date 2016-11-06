@@ -21,7 +21,7 @@ body {
     font-weight: bold;
     padding-bottom: 120px;
     font-family: Geneva, Tahoma, Verdana, sans-serif;
-    min-width: 100px;
+    min-width: 80px;
 }
 
 p {
@@ -73,15 +73,6 @@ p {
 ul li {
     list-style-type: none;
     padding-top: 0.5em;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-td,
-th {
-    padding: 0;
 }
 
 .titles {
@@ -169,7 +160,62 @@ input.radio:checked~label {
 }
 
 
-/*Tides Prevailing List*/
+/******************************************************************/
+
+
+/* END OF LOGIN BLUE RADIO BUTTONS ********************************/
+
+
+/******************************************************************/
+
+input.radio:empty {
+    margin-left: -9999px;
+}
+
+input.radio:empty~label {
+    position: relative;
+    line-height: 2.5em;
+    text-indent: 3.25em;
+    cursor: pointer;
+    border: 1px solid black;
+    box-shadow: 5px 5px 2px #333;
+    font-size: 110%;
+    margin-left: 2%;
+}
+
+input.radio:empty~label:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 3.5em;
+    background: #D1D3D4;
+    border-radius: 3px 0 0 3px;
+}
+
+input.radio:hover:not(:checked)~label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #C2C2C2;
+}
+
+input.radio:checked~label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #9CE2AE;
+    background-color: #4DCB6D;
+}
+
+input.radio:checked~label {
+    color: #777;
+}
+
+.radBut input.radio:empty~label {
+    color: #0f0f0f;
+    background-color: white;
+    width: 18%;
+}
 
 #tidesListBox {
     margin-left: 65%;
@@ -183,7 +229,7 @@ input.radio:checked~label {
 /* vertical position for all hazards */
 
 .allRatingsPos {
-    margin-top: 6em;
+    margin-top: 5em;
     text-align: center;
 }
 
@@ -191,6 +237,14 @@ input.radio:checked~label {
     color: white;
     background-color: #0060A9;
     text-align: center;
+    margin: 0 auto;
+}
+
+.formSelRad2 input.radio:empty~label {
+    color: white;
+    background-color: #0060A9;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #radBut2 {
@@ -206,8 +260,8 @@ select {
     background-image: -ms-linear-gradient(top, #ffffff, #bababa);
     background-image: -o-linear-gradient(top, #ffffff, #bababa);
     background-image: linear-gradient(to bottom, #ffffff, #bababa);
-    -webkit-border-radius: 19;
-    -moz-border-radius: 19;
+    -webkit-border-radius: 19px;
+    -moz-border-radius: 19px;
     border-radius: 19px;
     -webkit-box-shadow: 3px 3px 6px #666666;
     -moz-box-shadow: 3px 3px 6px #666666;
@@ -241,7 +295,7 @@ select {
     border-radius: 5px;
     box-shadow: inset 0px 1px 0px #9e8d84, 0px 3px 0px 0px #322620, 0px 5px 3px #141414;
     text-shadow: #000000 1px 1px 0px;
-    margin: 0 auto;
+    text-align: center;
 }
 
 .blueButtons:active {
@@ -275,15 +329,23 @@ select {
 }
 
 .error {
+    display: block;
     color: #ED1C2E;
     font-style: italic;
     background-color: rgba(220, 0, 0, 0.1);
     width: 250px;
     margin: 0 auto;
-    margin-top: 5%;
     border-radius: 8px;
     box-shadow: 2px 2px 1.5px #888888;
     font-size: 120%;
+    position: relative;
+    top: 1em;
+}
+
+#logonmessage {
+    clear: both;
+    text-align: center;
+    position: relative;
 }
 
 .good {
@@ -292,26 +354,11 @@ select {
     background-color: rgba(0, 220, 0, 0.1);
     width: 250px;
     margin: 0 auto;
-    margin-top: 5%;
     border-radius: 8px;
     box-shadow: 2px 2px 1.5px #888888;
     font-size: 120%;
-}
-
-#submitForm1 {
-    margin-top: 10%;
-}
-
-#submitForm2 {
-    margin-top: 10%;
-}
-
-#submitForm3 {
-    margin-top: 10%;
-}
-
-.info:before {
-    visibility: hidden;
+    position: relative;
+    top: 80px;
 }
 
 .info {
@@ -321,6 +368,8 @@ select {
     border-radius: 8px;
     box-shadow: 5px 5px 2.5px #333;
     font-size: 120%;
+    z-index: -3;
+    margin-top: 2%;
 }
 
 input[type="text"],
@@ -398,6 +447,10 @@ input[type="submit"] {
     .info {
         width: 90%;
     }
+    .formSelRad2 input.radio:empty~label {
+        width: 22em;
+        margin-top: 5em;
+    }
 }
 
 
@@ -418,12 +471,12 @@ input[type="submit"] {
     }
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
     .radBut input.radio:empty~label {
-        width: 60%;
+        width: 50%;
         margin-top: 1%;
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 70%;
+        width: 45%;
         margin-top: 10%;
     }
     #windDirBox {
@@ -452,11 +505,11 @@ input[type="submit"] {
     }
     /*NORMAL WHITE BACK GROUND RADIO BUTTONS*/
     .radBut input.radio:empty~label {
-        width: 45%;
+        width: 35%;
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 55%;
+        width: 45%;
         margin-top: 6%;
     }
     #windDirBox {
@@ -489,7 +542,7 @@ input[type="submit"] {
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 40%;
+        width: 30%;
         margin-top: 5%;
     }
     #windDirBox {
@@ -518,7 +571,7 @@ input[type="submit"] {
     }
     /*BLUE RADIO BUTTONS FOR FORM SELECT*/
     .formSelRad input.radio:empty~label {
-        width: 30%;
+        width: 20%;
         margin-top: 2%;
     }
 }
@@ -531,6 +584,8 @@ input[type="submit"] {
     height: 80px;
     width: 100%;
     background: #FFD520;
+    z-index: 2;
+    display: inline-block;
 }
 
 
@@ -642,18 +697,36 @@ input[type="submit"] {
 }
 
 #inlineOutIn {
-    display: inline;
     width: 200px;
     height: 20px;
     margin-top: 1em;
 }
 
-.inlineOutIn #out {
-    margin-left: 40%;
+.inlineOutIn input[type="radio"] {
+    display: none;
+}
+
+.inlineOutIn label {
+    display: inline-block;
+    background-color: #0060A9;
+    color: snow;
+    padding: 2px 11px;
+    font-size: 26px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 20px;
+    border: 2px solid black;
+    -webkit-box-shadow: 0 10px 6px -6px #444;
+    -moz-box-shadow: 0 10px 6px -6px #444;
+    box-shadow: 0 10px 6px -6px #444;
+}
+
+.inlineOutIn input[type="radio"]:checked+label {
+    background-color: limegreen;
+    color: #222;
 }
 
 #block {
-    width: 100%;
     margin: auto;
 }
 
@@ -666,35 +739,36 @@ input[type="submit"] {
 #right {
     text-align: left;
     display: inline-block;
+    margin-right: 10%;
 }
 
 .clickAdd {
     float: right;
     border-radius: 50%;
     background-image: url(../images/up.png);
-    width: 29px;
-    height: 29px;
+    width: 32px;
+    height: 32px;
     outline: none;
-    box-shadow: 5px 5px 2.5px #333;
+    box-shadow: 5px 5px 2px #333;
 }
 
 .clickMinus {
     float: right;
     border-radius: 50%;
     background-image: url(../images/down.png);
-    width: 29px;
-    height: 29px;
+    width: 32px;
+    height: 32px;
     outline: none;
-    box-shadow: 5px 5px 2.5px #333;
+    box-shadow: 5px 5px 2px #333;
 }
 
 .num {
     margin-bottom: 5%;
-    width: 260px;
+    width: 200px;
     height: 80px;
     border-radius: 12px;
     border: 1px solid #333;
-    padding-left: 10%;
+    padding-left: 3%;
     outline: none;
     background-color: beige;
     -webkit-box-shadow: 0 10px 6px -6px #777;
@@ -705,11 +779,12 @@ input[type="submit"] {
 
 .num2 {
     margin-bottom: 5%;
-    width: 260px;
+    width: 200px;
     height: 80px;
     border-radius: 12px;
     border: 1px solid #333;
-    padding-left: 10%;
+    padding-left: 3%;
+    margin-right: -65%;
     outline: none;
     background-color: #e0efff;
     -webkit-box-shadow: 0 10px 6px -6px #777;
@@ -727,7 +802,7 @@ input[type="submit"] {
 
 .upDownText {
     text-align: left;
-    font-size: 100%;
+    font-size: 80%;
 }
 
 .upDownText:active {
@@ -753,19 +828,42 @@ input[type="submit"] {
 }
 
 table {
-    width: 80%;
-    border-spacing: 100px;
-}
+    margin: 0 auto;
+    width: 90%;
+    position: relative;
+    top: 2em;
+    box-shadow: 0 10px 6px -6px #666;
 
-th,
-td {
-    padding: 0.5%;
-    text-align: center;
+
 }
 
 th {
-    text-decoration-style: solid;
+    padding: 1%;
+    text-align: left;
+    background-color: #66afe9;
+    border: 2px solid black;
 }
+
+table td{
+    padding-left: 2%;
+    margin-top: 2%;
+}
+
+table tr td{
+    padding: 2%;
+    border: 2px solid black;
+}
+
+table tr:nth-child(even) {
+    background-color:#c7ddef;
+}
+
+table tr:nth-child(odd) {
+    background-color: #D1D3D4;
+}
+
+
+
 
 #prevailingWrapper {
     text-align: center;
@@ -775,6 +873,7 @@ th {
     display: inline-block;
     vertical-align: top;
     margin-right: 5%;
+    text-align: left;
 }
 
 #beachName {
@@ -795,22 +894,16 @@ th {
     font-size: 120%;
 }
 
-.SHRfunctionList {
-    text-align: center;
-}
-
 .overideP {
     color: #333;
     text-align: center;
-    margin-top: 8%;
-    padding: 1%;
+    margin-top: 13em;
 }
 
 .syncButton {
     margin-top: 8%;
     color: snow;
     text-shadow: 1px 1px 1px #ccc;
-    margin-top: 20px;
     padding: 14px;
     padding-right: 5%;
     padding-left: 5%;
@@ -881,20 +974,74 @@ th {
 }
 
 .loginBlock {
-    display: block;
     margin: 0 auto;
     background-color: #e2e2e2;
     border-radius: 8px;
     border: 2px solid #999;
     width: 350px;
     box-shadow: 0 10px 6px -6px #444;
+    margin-top: 3em;
+
 }
 
+#otherHazardRating {
+    display: inline-block;
+    margin: 0 auto;
+}
 
-/*.sync {*/
+.otherText {
+    text-align: left;
+    padding-left: 30%;
+}
 
+.checkbox1 {
+    width: 120px;
+    height: 40px;
+    position: relative;
+    top: 50px;
+}
 
-/*background-color: #666;*/
+.checkbox1 div {
+    width: 80%;
+    height: 80%;
+    background: #ED1C2E;
+    border-radius: 50px;
+    position: relative;
+    top: -30px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+}
 
+.checkbox1 label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: -12.3px;
+    z-index: 1;
+    left: 10px;
+    background: white;
+}
 
-/*}*/
+.checkbox1 label:before {
+    color: #222;
+    content: '|||';
+    font-size: 10px;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 4px;
+    top: 6px;
+}
+
+.checkbox1 input[type="checkbox"]:checked~div {
+    background: green;
+}
+
+.checkbox1 input[type="checkbox"]:checked~label {
+    left: 60px;
+}

@@ -640,18 +640,16 @@ function getSHRHistory() {
     var eslength = app.esSHRArray.length;
     var his = "";
     if (plength != 0) {
-        his = "<p class='overideP'>Prevailing SHR History</p><ul class='SHRfunctionList'>";
+        his = "<p class='overideP'>Prevailing SHR History</p>";
         for (var i = 0; i < plength && i < 2; i++) {
-            his += "<li class='overideP'> Date Filled:" + app.prevSHRArray[i].time + ", SHR: " + app.prevSHRArray[i].SHR.totalSHR + "</li>";
+            his += "<p class='overideP'> Date Filled:</p>" + app.prevSHRArray[i].time + ", SHR: " + app.prevSHRArray[i].SHR.totalSHR ;
         }
-        his += "</ul>";
     }
     if (eslength != 0) {
-        his += "<p class='overideP'>Event Specific SHR History</p><ul class='SHRfunctionList'>";
+        his += "<p class='overideP'>Event Specific SHR History</p>";
         for (var i = 0; i < eslength && i < 2; i++) {
-            his += "<li class='overideP'>Date Filled:" + app.esSHRArray[i].time + ", SHR: " + app.esSHRArray[i].SHR.totalSHR + "</li>";
+            his += "<p class='overideP'>Date Filled:</p>" + app.esSHRArray[i].time + ", SHR: " + app.esSHRArray[i].SHR.totalSHR ;
         }
-        his += "</ul>";
     }
     return his;
 }

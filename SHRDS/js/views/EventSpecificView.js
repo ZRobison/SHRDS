@@ -8,9 +8,7 @@ var EventSpecificView = function () {
             header = "Event specific Incident Report";
         }
 
-
         var body =
-
 
             "<div id='bigBlock'>" +
             "<div class='irTitles'>Arena:</div>" +
@@ -57,14 +55,14 @@ var EventSpecificView = function () {
             "<option value='Semi Final'>Semi Final</option>" +
             "<option value='Grand Final'>Grand Final</option>" +
             "</select>" +
-			"<div class='disapear'>"+
+            "<div class='disapear'>" +
             "<div class='irTitles '>Heat:</div>" +
             "<input type = 'text' name='ESHeat'>" +
 
             "<div class='irTitles'>Round:</div>" +
             "<input type = 'text' name='ESRound'>" +
             "</div>" +
-			"</div>"+
+            "</div>" +
             "<div class='irTitles'>Craft Type:</div>" +
             "<select name='ESCraftType'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -110,10 +108,9 @@ var EventSpecificView = function () {
 
         if (app.SHRFlag == 2) {
 
-            $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' value='IN'/>" +
-                "Out" +
-                "<input type ='radio' name='ESInOut' id='out' value='OUT'/>" +
-                "In");
+            $(".inlineOutIn").html("<input type ='radio' name='ESInOut' id='in' ><label for='in'>IN</label>" +
+
+                "<input type ='radio' name='ESInOut' id='out' ><label for='out'>OUT</label>");
         } else {
             $(".check").text("");
         }
