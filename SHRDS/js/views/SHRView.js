@@ -454,10 +454,13 @@ function getCAM() {
         "<br>" +
 		"<br>" +
         "<br>" +
-		"<br>" +
-        "<br>" +
-		"<button id='btn_camera' class='blueButtons' name= btnCAM onClick='accessCamera()'>Surf Camera</button>" +
-		"<img id ='img_camPH'>"
+		"<div id='camera'>" +
+    "<button class='blueButtons' onclick='setOptions(); openCamera(selection);'>Capture Photo</button>"+
+     "<div style='text-align:center; margin:20px;'>" +
+        "<img id='cameraPic' src='displayImage(imgUri)' style='width:auto;height:220px;'></img>"+
+    "</div>"+
+"</div>"+
+		
 	    "</div>" +
 		
         "<div class='error'></div>" +
