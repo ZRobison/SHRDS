@@ -655,3 +655,37 @@ function getSHRHistory() {
     }
     return his;
 }
+
+
+
+	function camSuccess(imgData){
+		//$("img_camPH").attr("src",imgData);
+	/*	<img src='file:/whereYourFileIsStoredOnThePhone/img.jpg */
+	}
+	
+	function camError(error){
+		   alert(error)
+	}
+	
+	function accessCamera(){
+		exports.defineAutoTests = function () {
+    describe('Camera (navigator.camera)', function () {
+        it("should exist", function () {
+            expect(navigator.camera).toBeDefined();
+        })
+
+        it("should contain a getPicture function", function () {
+            expect(navigator.camera.getPicture).toBeDefined();
+            expect(typeof navigator.camera.getPicture == 'function').toBe(true);
+        })
+    })
+		
+		
+		//var options = {
+		//	destinationType: Camera.DestinationType.FILE_URL,
+		//	sourceType: Camera.PictureSourceType.CAMERA //or PHOTOGALLERY	
+		//}
+		//navigator.camera.getPicture(camSucess, camError, options);
+	}
+	
+

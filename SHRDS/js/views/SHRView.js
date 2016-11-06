@@ -32,6 +32,9 @@ var SHRView = function () {
             case 'REV':
                 getREV();
                 break;
+			case 'CAM':
+                getCAM();
+                break;
             case 'SHR':
                 getSHR();
                 break;
@@ -429,13 +432,56 @@ function getREV() {
 
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='getCAM()'>FINISH</button>";
     "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
 
+}
+
+function getCAM() {
+	
+	
+    var header = "CAM";
+	
+
+    var body =
+        "<div class='hazard'>Please provide a clear photo</div>" +
+        "<div>" +
+		"<br>" +
+        "<br>" +
+		"<br>" +
+        "<br>" +
+		"<br>" +
+        "<br>" +
+		"<button id='btn_camera' class='blueButtons' name= btnCAM onClick='accessCamera()'>Surf Camera</button>" +
+		"<img id ='img_camPH'>"
+	    "</div>" +
+		
+        "<div class='error'></div>" +
+        "<br>" +
+        "<br>" +
+        "<div class='info'></div>";
+   
+
+
+    var footer =
+        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'" +
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
+
+
+
+    $(".heading").text(header);
+    $(".body").html(body);
+    $(".footer").html(footer);
+
+    if (app.SHRFlag == 1) {
+        $("button[name=btnCAM]").val(app.prevalingSHRData.SHR.pCAM);
+    } else {
+        $("select[name=btnCAM]").val(app.esSHRData.SHR.pCAM);
+    }
 }
 
 function getSHR() {
