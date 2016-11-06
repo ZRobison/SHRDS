@@ -74,8 +74,6 @@ function getWHR() {
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WHR"' + ", " + getWHRvalue + ")'>NEXT</button> " +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
-
-
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
@@ -87,8 +85,6 @@ function getWHR() {
         $("select[name=WHRForm]").val(app.esSHRData.SHR.pWTR);
     }
 };
-
-
 
 function getWTR() {
 
@@ -109,13 +105,9 @@ function getWTR() {
         "<br>" +
         "<div class='info'></div>";
 
-
-
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WTR"' + ", " + getWTRvalue + ")'>NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -149,7 +141,6 @@ function getWPR() {
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WPR"' + ", " + getWPRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -186,12 +177,9 @@ function getZWR() {
         "<br>" +
         "<div class='info'></div>";
 
-
-
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"ZWR"' + ", " + getZWRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -234,8 +222,6 @@ function getSTR() {
         " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
-
-
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
@@ -268,13 +254,10 @@ function getLDR() {
         "<br>" +
         "<div class='info'></div>";
 
-
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"LDR"' + ", " + getLDRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -306,13 +289,10 @@ function getRCR() {
         "<br>" +
         "<div class='info'></div>";
 
-
-
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"RCR"' + ", " + getRCRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -348,15 +328,10 @@ function getOHR() {
         //"<button type='button' class='questionMark' id='qHack' onclick='getOHRInfo()'></button>" ;
         "<div class='info' id='textHack'></div>";
 
-
-
-
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + getOHRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -371,7 +346,6 @@ function getOHR() {
 
 function getREV() {
     var header = "Review SHR";
-
 
     if (app.SHRFlag == 1) {
         var pWHR = app.prevalingSHRData.SHR.pWHR;
@@ -396,7 +370,6 @@ function getREV() {
     }
 
     var body =
-
 
         "<div class = 'singleRow'><div class='left1'>WHR</div> <div class='center1'>" + WHRDescription(pWHR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getWHR()
@@ -455,8 +428,6 @@ function getSHR() {
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
 
-
-
     var shr = -1;
     if (app.SHRFlag == 1) {
         shr = app.prevalingSHRData.SHR.calculate();
@@ -467,15 +438,4 @@ function getSHR() {
     $(".body").html(body);
     $(".footer").html(footer);
     $(".rating").text(shr);
-
 }
-
-/*
-"<button type='submit' class='clickAdd' onclick='addOUT(13); incidentsReportedThirteenOUT();' ></button> " +
-            "<div>Uncontrolled surf craft. E.g. Ski rating: 1 for each ski. Boat Rating: 6 per boat (denoting 1 boat and 5 oars)</div>" +
-            "<div id='numOUT13'>0</div>" +
-            "<button type='submit' class='clickMinus' onclick='minusOUT(13); incidentsReportedThirteenOUT();'></button>" +
-			
-			
-			 "<input type='radio' value='9'>9<br>" +
-*/

@@ -13,7 +13,6 @@ var PrevailingView = function () {
 
             "<div id='windBox'>" +
 
-
             "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
 
@@ -55,8 +54,7 @@ var PrevailingView = function () {
 
             "</div>" + //tides
 
-            "</div>" ; //wrapper
-
+            "</div>"; //wrapper
 
 
         $(".body").html(body);
@@ -65,13 +63,11 @@ var PrevailingView = function () {
         addColon("tideTimeHigh");
         autoFillBeach("beaches");
 
-
         var footer =
             "<button onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
             "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
         $(".footer").html(footer);
-
 
     }
 

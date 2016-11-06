@@ -110,7 +110,7 @@ var IRView = function () {
             "<button type='submit' class='clickMinus' onclick='minusOUT(6); incidentsReportedSixOUT();'></button>" +
             "</div>" +
 
-            "</div>"+
+            "</div>" +
 
             "<div id='right'>" +
 
@@ -198,8 +198,7 @@ var IRView = function () {
             "<button type='submit' class='clickMinus' onclick='minusOUT(12); incidentsReportedTwelveOUT();'></button>" +
             "</div>" +
 
-            "</div>" ;
-
+            "</div>";
 
         $(".body").html(body);
 
@@ -232,14 +231,13 @@ var IRView = function () {
             "<p class='overideP'>Press start to begin data collection... </p>"
 
         var footer = "<button type='button' onclick='window.location.replace(\"index.html#eventSpecific\")' class='blueButtons' >START</button>" +
-            "<button type='button' onclick='window.location.replace(\"index.html\")' id='IRhome2' class='exitButton'>LOGOUT</button>";
+            "<button type='button' onclick='window.location.replace(\"index.html\")' class='exitButton'>LOGOUT</button>";
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
         checkDataIR();
     }
 }
-
 
 function checkDataIR() {
     if (app.irArray.length == 0) {
