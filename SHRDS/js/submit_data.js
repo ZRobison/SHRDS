@@ -1,7 +1,7 @@
 //Do to the way the external MYSql.JS script works with callback function, all sql statements must be perfomred in sequence and 
 //cannot be encapsulated into re-useable functions
 function insertSHR() {
-	 $(".footer").text("");
+    $(".footer").text("");
     //If we have a prevailing SHR
     if (app.SHRFlag == 1) {
         submitPrevailing(true);
@@ -53,7 +53,7 @@ function flagUpdated(formType) {
 
 
 function submitEventSpercific(check) {
-	$(".status").text("Contacting Server...");
+    $(".status").text("Contacting Server...");
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esSHRData.age + "' " +
         "AND GENDER = '" + app.esSHRData.gender + "' " +
@@ -86,12 +86,12 @@ function submitEventSpercific(check) {
     app.esSHRArray.push(app.esSHRData);
     app.resetData();
     //After everythign has been done go back home
-	if (check){
-		setTimeout(function(){
-				window.location.hash = "#formSelect";
-		}, 5000);
-		
-	}
+    if (check) {
+        setTimeout(function () {
+            window.location.hash = "#formSelect";
+        }, 5000);
+
+    }
 }
 
 
@@ -102,7 +102,7 @@ function submitEventSpercific(check) {
  *
  */
 function submitESDataAfterCheck(data) {
-	$(".status").text("Submitting data to server now...");
+    $(".status").text("Submitting data to server now...");
     if (data.Result == null || data.Result == "") {
         submitESAfterCheckFalse();
     }
@@ -119,13 +119,19 @@ function submitESDataAfterCheck(data) {
  */
 function submitESAfterCheckFalse() {
     var esSHRInsertSQL =
-        "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+        "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR_ROCKS_REEDS, OHR_JETTIES_WRECKS, OHR_CRAFT, OHR_LOGS_SEAWEED, OHR_WATER_TEMP, OHR_POL_STINGERS, OHR_VIS, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "'," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "'," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].beach + "'," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pLDR + "," +
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pRRG + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pGOW + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pUCS + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pFSF + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pWT + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pPMS + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pVI + "," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pRCR + "," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pSTR + "," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWHR + "," +
@@ -160,6 +166,7 @@ function submitESAfterCheckFalse() {
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].arena + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "','" +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "')";
+    console.log(esSHRInsertSQL);
 
 
     MySql.Execute(
@@ -194,13 +201,19 @@ function submitESAfterCheckFalse() {
 function submitESAfterCheckTrue() {
 
 
-    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR_ROCKS_REEDS, OHR_JETTIES_WRECKS, OHR_CRAFT, OHR_LOGS_SEAWEED, OHR_WATER_TEMP, OHR_POL_STINGERS, OHR_VIS, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "'," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "'," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].beach + "'," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pLDR + "," +
-        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pRRG + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pGOW + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pUCS + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pFSF + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pWT + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pPMS + "," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pOHR.pVI + "," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pRCR + "," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pSTR + "," +
         app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].SHR.pWHR + "," +
@@ -245,11 +258,11 @@ function postESSubmit() {
     if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0) {
         $(".error").text("");
         $(".good").text("All data has been successfully sent to the server.");
-		$(".sync").text("");
+        $(".sync").text("");
     } else {
         $(".good").text("");
-		var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
-        $(".error").text("You have "+ count +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
+        var count = (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
+        $(".error").text("You have " + count + " form/s that could not be sent to the server. Please check internet connection and press the sync button.");
     }
 }
 
@@ -259,14 +272,20 @@ function postESSubmit() {
  *
  **/
 function submitPrevailing(check) {
-	$(".status").text("Submitting data to server now...");
-    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
+    $(".status").text("Submitting data to server now...");
+    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR_ROCKS_REEDS, OHR_JETTIES_WRECKS, OHR_CRAFT, OHR_LOGS_SEAWEED, OHR_WATER_TEMP, OHR_POL_STINGERS, OHR_VIS, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.prevalingSHRData.date + "'," +
         "'" + app.prevalingSHRData.time + "'," +
         "'" + app.prevalingSHRData.beach + "'," +
         app.prevalingSHRData.SHR.pLDR + "," +
-        app.prevalingSHRData.SHR.pOHR + "," +
+        app.prevalingSHRData.SHR.pOHR.pRRG + "," +
+        app.prevalingSHRData.SHR.pOHR.pGOW + "," +
+        app.prevalingSHRData.SHR.pOHR.pUCS + "," +
+        app.prevalingSHRData.SHR.pOHR.pFSF + "," +
+        app.prevalingSHRData.SHR.pOHR.pWT + "," +
+        app.prevalingSHRData.SHR.pOHR.pPMS + "," +
+        app.prevalingSHRData.SHR.pOHR.pVI + "," +
         app.prevalingSHRData.SHR.pRCR + "," +
         app.prevalingSHRData.SHR.pSTR + "," +
         app.prevalingSHRData.SHR.pWHR + "," +
@@ -283,7 +302,7 @@ function submitPrevailing(check) {
         app.prevalingSHRData.windSpeed + "," +
         "FALSE)"; //False as this is a prevailing report
 
-	console.log(sql);
+    console.log(sql);
     //Descriptors to insert    
     MySql.Execute(
         dbconfig.host,
@@ -301,15 +320,15 @@ function submitPrevailing(check) {
         }
     );
     app.prevSHRArrayUnfinished.push(app.prevalingSHRData);
-	console.log(app.prevSHRArray);
+    console.log(app.prevSHRArray);
     app.prevSHRArray.push(app.prevalingSHRData);
     app.resetData();
     //After everythign has been done go back home
-	if (check){
-		setTimeout(function(){
-				window.location.hash = "#formSelect";
-		}, 5000);
-	}
+    if (check) {
+        setTimeout(function () {
+            window.location.hash = "#formSelect";
+        }, 5000);
+    }
 }
 
 
@@ -321,12 +340,12 @@ function postPrevSubmit() {
     if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0) {
         $(".error").text("");
         $(".good").text("All data has been successfully sent to the server.");
-		$(".sync").text("");
+        $(".sync").text("");
     } else {
         $(".good").text("");
-       var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
-        $(".error").text("You have "+ count +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
-   }
+        var count = (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
+        $(".error").text("You have " + count + " form/s that could not be sent to the server. Please check internet connection and press the sync button.");
+    }
 
 }
 
@@ -338,7 +357,7 @@ function postPrevSubmit() {
  *
  */
 function sumbitIncerdentReport(check) {
-	$(".body").html("Contacting server...");
+    $(".body").html("Contacting server...");
 
     var eventSQL = "SELECT RACE_ID FROM RACE WHERE " +
         "AGE_GROUP = '" + app.esIRData.age + "' " +
@@ -352,7 +371,6 @@ function sumbitIncerdentReport(check) {
         "AND RACE_DATE = '" + app.esIRData.date + "'";
 
 
-    console.log("Value of FOWave within Submit Data " + app.esIRData.IRIN.FOWave);
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -372,13 +390,13 @@ function sumbitIncerdentReport(check) {
     app.irArray.push(app.esIRData);
     app.resetData();
     //After everythign has been done go back home
-	if (check){
-		
-		setTimeout(function(){
-				window.location.hash = "#irHome";
-		}, 5000);
-		
-	}
+    if (check) {
+
+        setTimeout(function () {
+            window.location.hash = "#irHome";
+        }, 5000);
+
+    }
 }
 
 
@@ -389,7 +407,7 @@ function sumbitIncerdentReport(check) {
  *
  */
 function submitIRDataAfterCheck(data) {
-	$(".body").text("Submitting data to server now...");
+    $(".body").text("Submitting data to server now...");
     if (data.Result == null || data.Result == "") {
         submitIRAfterCheckFalse();
     }
@@ -468,59 +486,59 @@ function submitIRAfterCheckFalse() {
                 sql,
                 //Currently function can be empty as call back will not return anything
                 function (data) {
-                
-          
 
 
 
-            //Do all the same again for Out version of IR 
-            var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
-                //Race ID is a big select statemeent - is it is an auto increment value in the DB
-                "(SELECT RACE_ID FROM RACE WHERE " +
-                "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
-                "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
-                "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-                "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
-                "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
-                "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
-                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
-                "AND ARENA = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].arena + "' " +
-                "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
-                app.loginData.pID + "," +
-                "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFOCollision + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBSND + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBroach + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJMin + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSer + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSev + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSerious + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSevere + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionSer + "," +
-                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionMin + ",'" +
-                app.loginData.incidentEmail + "','" +
-                app.loginData.incidentFName + "','" +
-                app.loginData.incidentLName + "')";
-            console.log(sql);
-            MySql.Execute(
-                dbconfig.host,
-                dbconfig.dbUser,
-                dbconfig.dbPassword,
-                dbconfig.dbUser,
-                sql,
-                //Currently function can be empty as call back will not return anything
-                function (data) {
-                    function nest() {
-                        app.updatedFlag += 3;
-                    };
-                    nest();
+
+
+                    //Do all the same again for Out version of IR 
+                    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
+                        //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                        "(SELECT RACE_ID FROM RACE WHERE " +
+                        "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
+                        "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
+                        "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
+                        "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
+                        "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
+                        "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
+                        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
+                        "AND ARENA = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].arena + "' " +
+                        "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
+                        app.loginData.pID + "," +
+                        "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFOCollision + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBSND + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBroach + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJMin + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSer + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSev + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSerious + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSevere + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionSer + "," +
+                        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionMin + ",'" +
+                        app.loginData.incidentEmail + "','" +
+                        app.loginData.incidentFName + "','" +
+                        app.loginData.incidentLName + "')";
+                    console.log(sql);
+                    MySql.Execute(
+                        dbconfig.host,
+                        dbconfig.dbUser,
+                        dbconfig.dbPassword,
+                        dbconfig.dbUser,
+                        sql,
+                        //Currently function can be empty as call back will not return anything
+                        function (data) {
+                            function nest() {
+                                app.updatedFlag += 3;
+                            };
+                            nest();
+                        }
+                    );
+
                 }
-            );
-			
-			      }
             );
         });
 }
@@ -571,56 +589,56 @@ function submitIRAfterCheckTrue() {
         sql,
         //Currently function can be empty as call back will not return anything
         function (data) {
-           
-      
-    //Do all the same again for Out version of IR 
-    var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
-        //Race ID is a big select statemeent - is it is an auto increment value in the DB
-        "(SELECT RACE_ID FROM RACE WHERE " +
-        "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
-        "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
-        "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
-        "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
-        "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
-        "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
-        "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
-        "AND ARENA = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].arena + "' " +
-        "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
-        app.loginData.pID + "," +
-        "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFOCollision + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBSND + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBroach + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJMin + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSer + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSev + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSerious + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSevere + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionSer + "," +
-        app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionMin + ",'" +
-        app.loginData.incidentEmail + "','" +
-        app.loginData.incidentFName + "','" +
-        app.loginData.incidentLName + "')";
 
-    console.log(sql);
-    MySql.Execute(
-        dbconfig.host,
-        dbconfig.dbUser,
-        dbconfig.dbPassword,
-        dbconfig.dbUser,
-        sql,
-        //Currently function can be empty as call back will not return anything
-        function (data) {
-            function nest() {
-                app.updatedFlag = 3;
-            };
-            nest();
+
+            //Do all the same again for Out version of IR 
+            var sql = "INSERT INTO INCIDENTS_REPORT (RACE_ID, USER_ID, IN_OUT, DNF, FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, COLLISION_MINOR, COLLISION_SERIOUS, IR_EMAIL, IR_FIRST_NAME, IR_LAST_NAME) VALUES (" +
+                //Race ID is a big select statemeent - is it is an auto increment value in the DB
+                "(SELECT RACE_ID FROM RACE WHERE " +
+                "AGE_GROUP = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].age + "' " +
+                "AND GENDER = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].gender + "' " +
+                "AND STARTING_CRAFT = 10 " + //This data attribute does not currently exist
+                "AND CRAFT_TYPE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].craftType + "' " +
+                "AND ROUND = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].round + "' " +
+                "AND HEAT = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].heat + "' " +
+                "AND FINAL = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].finalType + "' " +
+                "AND ARENA = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].arena + "' " +
+                "AND RACE_DATE = '" + app.irArrayUnfinished[app.irArrayUnfinished.length - 1].date + "')," +
+                app.loginData.pID + "," +
+                "'OUT'," + //Hardcoded - as I will have to do two IR data insert statements for every single IR report
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pDNF + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFlyingCraft + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.FOWave + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pFOCollision + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBSND + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pBroach + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJMin + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSer + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pINJSev + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSerious + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pLCSevere + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionSer + "," +
+                app.irArrayUnfinished[app.irArrayUnfinished.length - 1].IROUT.pCollisionMin + ",'" +
+                app.loginData.incidentEmail + "','" +
+                app.loginData.incidentFName + "','" +
+                app.loginData.incidentLName + "')";
+
+            console.log(sql);
+            MySql.Execute(
+                dbconfig.host,
+                dbconfig.dbUser,
+                dbconfig.dbPassword,
+                dbconfig.dbUser,
+                sql,
+                //Currently function can be empty as call back will not return anything
+                function (data) {
+                    function nest() {
+                        app.updatedFlag = 3;
+                    };
+                    nest();
+                }
+            );
         }
-    );
-	  }
     );
 
 
@@ -632,40 +650,40 @@ function postIRSubmit() {
     if (app.irArrayUnfinished.length == 0) {
         $(".error").text("");
         $(".good").text("All data has been successfully sent to the server.");
-		$(".sync").text("");
+        $(".sync").text("");
     } else {
         $(".good").text("");
-        $(".error").text("You have "+app.irArrayUnfinished.length +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
+        $(".error").text("You have " + app.irArrayUnfinished.length + " form/s that could not be sent to the server. Please check internet connection and press the sync button.");
     }
 }
 
-function sync(){
-	var length = app.esSHRArrayUnfinished.length;
-	$(".sync").html("");
-	for (var i=0; i < length; i++){
-		app.esSHRData = app.esSHRArrayUnfinished.shift();
-		submitEventSpercific(false);
-	}
-	
-	length = app.prevSHRArrayUnfinished.length;
-	for (var i=0; i < length; i++){
-		app.prevalingSHRData = app.prevSHRArrayUnfinished.shift();
-		submitPrevailing(true);
-		
-	}
-	
-	length = app.irArrayUnfinished.length;
-	for (var i=0; i < length; i++){
-		app.esIRData = app.irArrayUnfinished.shift();
-		sumbitIncerdentReport(true);
-	}
-	
-	var score = app.irArrayUnfinished.length + app.esSHRArrayUnfinished.length + app.prevSHRArrayUnfinished.length;
-	setTimeout(function(){
-			if (! $(".good").text()){
-					$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
-					$(".error").text("Timed out. You have "+score+" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
-			}
-		}, 5000);
-	
+function sync() {
+    var length = app.esSHRArrayUnfinished.length;
+    $(".sync").html("");
+    for (var i = 0; i < length; i++) {
+        app.esSHRData = app.esSHRArrayUnfinished.shift();
+        submitEventSpercific(false);
+    }
+
+    length = app.prevSHRArrayUnfinished.length;
+    for (var i = 0; i < length; i++) {
+        app.prevalingSHRData = app.prevSHRArrayUnfinished.shift();
+        submitPrevailing(true);
+
+    }
+
+    length = app.irArrayUnfinished.length;
+    for (var i = 0; i < length; i++) {
+        app.esIRData = app.irArrayUnfinished.shift();
+        sumbitIncerdentReport(true);
+    }
+
+    var score = app.irArrayUnfinished.length + app.esSHRArrayUnfinished.length + app.prevSHRArrayUnfinished.length;
+    setTimeout(function () {
+        if (!$(".good").text()) {
+            $(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
+            $(".error").text("Timed out. You have " + score + " form/s that could not be sent to the server. Please check internet connection and press the sync button.");
+        }
+    }, 5000);
+
 }

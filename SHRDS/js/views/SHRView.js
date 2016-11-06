@@ -65,7 +65,7 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-  
+
 
 
 
@@ -79,7 +79,7 @@ function getWHR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-   
+
 
     if (app.SHRFlag == 1) {
         $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
@@ -108,7 +108,7 @@ function getWTR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-   
+
 
 
     var footer =
@@ -305,7 +305,7 @@ function getRCR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
- 
+
 
 
     var footer =
@@ -432,8 +432,8 @@ function getREV() {
 
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>";
-    "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>" +
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -450,7 +450,7 @@ function getSHR() {
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
         "<div class='history'>" + getSHRHistory() + "</div>" +
-		"<div class ='status'></div>";
+        "<div class ='status'></div>";
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
@@ -478,6 +478,4 @@ function getSHR() {
 			
 			
 			 "<input type='radio' value='9'>9<br>" +
-*/ 
-
-
+*/

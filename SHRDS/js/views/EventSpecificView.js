@@ -83,9 +83,13 @@ var EventSpecificView = function () {
             "<div class='check'><div class='irTitles'>In/Out:</div></div>" +
             "<div class='inlineOutIn'></div>" +
             "<div>" +
-            "<br>Beach/location:<input type = 'text' name='ESBeach'>" +
+            "<br>Beach:" +
+            "<input type ='text' name='ESBeach' list='json-beachList'>" +
+            "<datalist id='json-beachList' ></datalist>" +
             "</div>" +
             "<div class='error'></div>";
+
+
 
 
 
@@ -105,6 +109,7 @@ var EventSpecificView = function () {
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
+        autoFillBeach("ESBeach");
 
         if (app.SHRFlag == 2) {
 

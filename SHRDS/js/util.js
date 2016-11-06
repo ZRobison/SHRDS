@@ -30,7 +30,7 @@ function getFormDate() {
 function getDateTodayOrYesterday(offset) {
     var d = new Date();
     d.setDate(d.getDate() - offset);
-    return (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate);
+    return (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
 }
 
 //Utility to ensure leading zeros are not ignored when getting system date
@@ -106,5 +106,17 @@ function HeatNum(obj) {
         obj.value = 30;
     } else {
         obj.value = value;
+    }
+}
+
+/**
+
+Utility to load in beach data sets upon first press of a key. This is asists in autofilling beaches in beachData.js file
+*/
+function autoFillBeach(nameString) {
+    document.getElementsByName(nameString)[0].onkeydown = function (e) {
+        if (this.value.length == 1) {
+            loadBeachData(this.value);
+        }
     }
 }

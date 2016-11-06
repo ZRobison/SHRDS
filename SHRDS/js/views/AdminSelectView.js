@@ -79,7 +79,7 @@ function getMetaData() {
         "<div class='irTitles'>Arena: </div><select name='arenaSelection'>" +
         "<option value='1, 2, 3, 4, 5, 6, 7, 8, 9, 10'>All Arenas</option>" +
         "<option value='1'>1</option>" +
-        "<option value='1'>2</option>" +
+        "<option value='2'>2</option>" +
         "<option value='3'>3</option>" +
         "<option value='4'>4</option>" +
         "<option value='5'>5</option>" +
