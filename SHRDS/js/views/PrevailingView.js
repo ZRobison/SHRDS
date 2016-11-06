@@ -16,7 +16,7 @@ var PrevailingView = function () {
             "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
 
-            "<input type='text'id='myinput' list='json-beachList' name = 'beaches'>" + //To take back to normal remove this
+            "<input type='text' id='myinput' list='json-beachList' name = 'beaches'>" + //To take back to normal remove this
             "<datalist id='json-beachList' ></datalist>" +
             //"<input type='text' id ='myInput' name='beachName' placeholder = 'Beach' class='awesomplete'>" +
             "</div>" +

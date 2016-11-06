@@ -57,14 +57,14 @@ var EventSpecificView = function () {
             "<option value='Semi Final'>Semi Final</option>" +
             "<option value='Grand Final'>Grand Final</option>" +
             "</select>" +
-			"<div class='disapear'>"+
+            "<div class='disapear'>" +
             "<div class='irTitles '>Heat:</div>" +
             "<input type = 'text' name='ESHeat'>" +
 
             "<div class='irTitles'>Round:</div>" +
             "<input type = 'text' name='ESRound'>" +
             "</div>" +
-			"</div>"+
+            "</div>" +
             "<div class='irTitles'>Craft Type:</div>" +
             "<select name='ESCraftType'>" +
             "<option value='-1' selected>Select one</option>" +
@@ -85,9 +85,13 @@ var EventSpecificView = function () {
             "<div class='check'><div class='irTitles'>In/Out:</div></div>" +
             "<div class='inlineOutIn'></div>" +
             "<div>" +
-            "<br>Beach/location:<input type = 'text' name='ESBeach'>" +
+            "<br>Beach:" +
+            "<input type ='text' name='ESBeach' list='json-beachList'>" +
+            "<datalist id='json-beachList' ></datalist>" +
             "</div>" +
             "<div class='error'></div>";
+
+
 
 
 
@@ -107,6 +111,7 @@ var EventSpecificView = function () {
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
+        autoFillBeach("ESBeach");
 
         if (app.SHRFlag == 2) {
 
