@@ -45,11 +45,12 @@ function getESValues() {
     check = check && inOutES();
     check = check && genderES();
     check = check && beachLocationES();
+	console.log(heat);
     if (check) {
         getFormDate();
         getFormTime();
         routeIS();
-    } else if (!verifyNonNumericCharacters(heat) || !verifyNonNumericCharacters(round)) {
+    } else if ((!verifyNonNumericCharacters(heat) || !verifyNonNumericCharacters(round)) && !(heat == null)) {
         $(".error").text("Only numerical digits can be placed in heat and round");
     } else {
         $(".error").text("Please fill in all fields.");
@@ -94,7 +95,7 @@ function heatES() {
     var score = $("input[name=ESHeat]").val();
     if (score == '-1') {
         return false;
-    } else if (!verifyNonNumericCharacters(score)) {
+    } else if (!verifyNonNumericCharacters(score) && score != 'N/A') {
         return false;
     } else if (app.SHRFlag == 2) {
         app.esSHRData.heat = score;
@@ -110,7 +111,7 @@ function roundES() {
     var score = $("input[name=ESRound]").val();
     if (score == '-1') {
         return false;
-    } else if (!verifyNonNumericCharacters(score)) {
+    } else if (!verifyNonNumericCharacters(score) && score != 'N/A') {
         return false;
     } else if (app.SHRFlag == 2) {
         app.esSHRData.round = score;

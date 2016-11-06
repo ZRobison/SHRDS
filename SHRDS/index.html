@@ -48,34 +48,35 @@
     <script type="text/javascript" src="js/views/AdminSelectView.js"></script>
     <script type="text/javascript" src="js/views/EventSpecificView.js"></script>
     <script type="text/javascript" src="js/views/FormSelectView.js"></script>
+	
+	<!-- Page Functions-->
+	<script type="text/javascript" src="js/pageFunctions/eventSpecificFunctions.js"></script>
+    <script type="text/javascript" src="js/pageFunctions/prevailingFunctions.js"></script>
+	<script type="text/javascript" src="js/pageFunctions/adminFunctions.js"></script>
+	<script type="text/javascript" src="js/pageFunctions/SHRFunctions.js"></script>
+	 <script type="text/javascript" src="js/pageFunctions/IRFunctions.js"></script>
+	
+	<!-- Database Functions-->
+    <script type="text/javascript" src="js/dataBase/verify_user.js"></script>
+    <script type="text/javascript" src="js/dataBase/change_password.js"></script>
+    <script type="text/javascript" src="js/dataBase/dbJSON.js"></script>
+    <script type="text/javascript" src="js/dataBase/submit_data.js"></script>
 
-    <script type="text/javascript" src="js/dataObject.js"></script>
-    <script type="text/javascript" src="js/SHRFunctions.js"></script>
-    <script type="text/javascript" src="js/verify_user.js"></script>
-    <script type="text/javascript" src="js/dftout.js"></script>
-    <script type="text/javascript" src="js/adminFunctions.js"></script>
-    <script type="text/javascript" src="js/change_password.js"></script>
-    <script type="text/javascript" src="js/dbJSON.js"></script>
-    <script type="text/javascript" src="js/IRFunctions.js"></script>
-    <script type="text/javascript" src="js/submit_data.js"></script>
-    <script type="text/javascript" src="js/eventSpecificFunctions.js"></script>
-    <script type="text/javascript" src="js/prevailingFunctions.js"></script>
-    <script type="text/javascript" src="js/util.js"></script>
-    <!--<script type="text/javascript" src="js/autoFillBeach.js"></script>-->
-    <script type="text/javascript" src="js/beachData.js"></script>
-
-
+	<!-- Data Functions-->
+    <script type="text/javascript" src="js/data/dataObject.js"></script>
+    <script type="text/javascript" src="js/data/beachData.js"></script>
+	
+	
+	<!-- MAIN & util-->
+	<script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <!-- BOOTSTRAP JS -->
-    <script src="css/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
+    
 
     <script type="text/javascript">
         $(document).ready(function() {
             document.addEventListener("backbutton", function(e) {
                     e.preventDefault();
                 }, false)
-                // call main from Cordova
             if (window.device) {
                 document.addEventListener("deviceready", function() {
                     app.initialize();

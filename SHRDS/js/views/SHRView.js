@@ -196,7 +196,6 @@ function getSTR() {
     var header = "Surface Turbulence Rating";
 
     var body =
-
         "<div class='error'></div>" +
         "<div class='hazard'>STR</div>" +
         "<select class='allRatingsPos' name='STRForm'>" +
@@ -207,8 +206,10 @@ function getSTR() {
         "<option value='3'>Excessive Chop (22-27 kts)</option>" +
         "<option value='4'>Extreme Chop (>27kts)</option>" +
         "</select>" +
-
+	
         "<button type='button' class='questionMark' onclick='getSTRInfo()')></button>" +
+		
+			"<div class='hazard'>Cross Waves</div>" +
         "<select class='allRatingsPos' name='STRCrossWavesForm'>" +
         "<option value='0' selected>No Cross Waves</option>" +
         "<option value='1'>Minor Cross Waves</option>" +
@@ -239,6 +240,7 @@ function getLDR() {
     var header = "Littoral Drift Rating";
 
     var body =
+
         "<div class='error'></div>" +
         "<div class='hazard'>LDR</div>" +
         "<select class='allRatingsPos' name='LDRForm'>" +
@@ -311,8 +313,9 @@ function getOHR() {
     var body =
 
         "<div class='error'></div>" +
+		 "<div class='hazard'>OHR</div>"+
         "<div id='otherHazardRating'>" +
-        "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' id='otherMaxHeight' name='OHRForm'>" +
+		"<form class='allRatingsPos' id='otherMaxHeight' name='OHRForm'>" +
         "<div class='checkbox1'><input type='checkbox' name='rockReef' value='1' id='OHRButton1' ><label for='OHRButton1'></label> <div></div></div><div class='otherText'>Rocks, reefs or groynes</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' ><label for='OHRButton2'></label> <div></div></div><div class='otherText'>Jetties, outflow pipes, wrecks etc</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3' ><label for='OHRButton3'></label> <div></div></div><div class='otherText'>Uncontrolled surf craft</div><br>" +
@@ -320,6 +323,7 @@ function getOHR() {
         "<div class='checkbox1'><input type='checkbox' name='waterTemp' value='1' id='OHRButton5' ><label for='OHRButton5'></label> <div></div></div><div class='otherText'>Water temperature (without wetsuits)</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='pollutionMarine' value='1' id='OHRButton6' ><label for='OHRButton6'></label> <div></div></div><div class='otherText'>Pollution, marine stingers etc</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='visualImpairment' value='1' id='OHRButton7' ><label for='OHRButton7'></label> <div></div></div><div class='otherText'>Visual impairment: The sun setting over the ocean (especially in SA and WA)</div><br>" +
+
 
         "</form>" +
         "</div>" +
@@ -422,8 +426,9 @@ function getSHR() {
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
-        "<div class='history'>" + getSHRHistory() + "</div>" +
-        "<div class ='status'></div>";
+		        "<div class ='status'></div>"+
+        "<div class='history'>" + getSHRHistory() + "</div>" ;
+
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
@@ -439,3 +444,4 @@ function getSHR() {
     $(".footer").html(footer);
     $(".rating").text(shr);
 }
+
