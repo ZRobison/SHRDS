@@ -1,3 +1,4 @@
+//JSON Object method, right now its not used
 var input = document.getElementById("myInput");
 console.log("In beach stuff");
 

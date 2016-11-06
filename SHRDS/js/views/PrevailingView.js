@@ -16,7 +16,8 @@ var PrevailingView = function () {
             "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
 
-            "<input id='myinput'>" + //To take back to normal remove this
+            "<input type='text'id='myinput'>" + //To take back to normal remove this
+            "<datalist id='json-beachList'></datalist>" +
             //"<input type='text' id ='myInput' name='beachName' placeholder = 'Beach' class='awesomplete'>" +
             "</div>" +
 
@@ -61,6 +62,7 @@ var PrevailingView = function () {
 
         addColon("tideTimeLow");
         addColon("tideTimeHigh");
+        loadOptions();
 
 
         var footer =
@@ -68,6 +70,7 @@ var PrevailingView = function () {
             "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
         $(".footer").html(footer);
+
 
     }
 
