@@ -27,7 +27,7 @@ function getPrevailingValues() {
  *
  */
 function beachValue() {
-    var score = $("input[name=beachName]").val();
+    var score = $("input[name=beaches]").val();
     if (score == '-1') {
         return false;
     } else {

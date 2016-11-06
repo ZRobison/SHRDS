@@ -108,3 +108,15 @@ function HeatNum(obj) {
         obj.value = value;
     }
 }
+
+/**
+
+Utility to load in beach data sets upon first press of a key. This is asists in autofilling beaches in beachData.js file
+*/
+function autoFillBeach(nameString) {
+    document.getElementsByName(nameString)[0].onkeydown = function (e) {
+        if (this.value.length == 1) {
+            loadBeachData(this.value);
+        }
+    }
+}

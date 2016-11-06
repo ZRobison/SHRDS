@@ -65,7 +65,7 @@ function getWHR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-  
+
 
 
 
@@ -79,7 +79,7 @@ function getWHR() {
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
-   
+
 
     if (app.SHRFlag == 1) {
         $("select[name=WHRForm]").val(app.prevalingSHRData.SHR.pWTR);
@@ -108,7 +108,7 @@ function getWTR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
-   
+
 
 
     var footer =
@@ -305,7 +305,7 @@ function getRCR() {
         "<br>" +
         "<br>" +
         "<div class='info'></div>";
- 
+
 
 
     var footer =
@@ -334,12 +334,12 @@ function getOHR() {
         "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' name='OHRForm'>" +
         "<input type='checkbox' name='rockReef' value='1' id='OHRButton1'>Rocks, reefs or groynes<br>" +
         "<input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' >Jetties, outflow pipes, wrecks etc<br>" +
-        "<input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3'>Uncontrolled surf craft<br>" +   
+        "<input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3'>Uncontrolled surf craft<br>" +
         "<input type='checkbox' name='floatingLogs' value='1' id='OHRButton4'>Floating logs, seaweed and other Floatsam<br>" +
         "<input type='checkbox' name='waterTemp' value='1' id='OHRButton5'>Water temperature (without wetsuits)<br>" +
         "<input type='checkbox' name='pollutionMarine' value='1' id='OHRButton6'>Pollution, marine stingers etc<br>" +
-        "<input type='checkbox' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +  
-       
+        "<input type='checkbox' name='visualImpairment' value='1' id='OHRButton7'>Visual impairment: The sun setting over the ocean (especially in SA and WA)<br>" +
+
         "</form>" +
         "<button type='button' class='questionMark' onclick='getOHRInfo()'></button>" +
         "<div class='error'></div>" +
@@ -429,8 +429,8 @@ function getREV() {
 
 
     var footer =
-        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>";
-    "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
+        "<button name='next' type='submit' class='blueButtons' onClick='getSHR()'>FINISH</button>" +
+        "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -447,7 +447,7 @@ function getSHR() {
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
         "<div class='history'>" + getSHRHistory() + "</div>" +
-		"<div class ='status'></div>";
+        "<div class ='status'></div>";
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
@@ -475,6 +475,4 @@ function getSHR() {
 			
 			
 			 "<input type='radio' value='9'>9<br>" +
-*/ 
-
-
+*/
