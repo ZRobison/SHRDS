@@ -7,17 +7,17 @@
 function getPrevailingValues() {
     var check = true;
     check = check && beachValue();
-    check = check && windDirection();
-    check = check && windSpeed();
-    check = check && tideTimes();
-    check = check && tideHeights();
+    windDirection();
+    windSpeed();
+    tideTimes();
+    tideHeights();
     if (check) {
         getFormTime();
         getFormDate();
         window.location.hash = "#WHR";
     } else {
         console.log("error");
-        $(".error").text("Please fill in all fields.");
+        $(".error").text("Please fill beach and arena.");
     }
 }
 
@@ -28,7 +28,7 @@ function getPrevailingValues() {
  */
 function beachValue() {
     var score = $("input[name=beachName]").val();
-    if (score == '-1') {
+    if (score == '') {
         return false;
     } else {
         app.prevalingSHRData.beach = score;
@@ -109,6 +109,7 @@ function tideHeights() {
         app.prevalingSHRData.tideHieghtLow = score2;
         check = check && true;
     }
+	
     return check;
 }
 
