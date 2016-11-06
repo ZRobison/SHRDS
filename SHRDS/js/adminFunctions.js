@@ -16,14 +16,12 @@ var dataIR;
 function getFormMetaData() {
     console.log("in nest statment");
 
-
-    var notify = -1;
     //Get ES SHR and ES IR form data
     var sql =
         "SELECT FIRST_NAME, LAST_NAME, SHR.RACE_ID, AGE_GROUP, CRAFT_TYPE, SHR.TIME, IR_FIRST_NAME, IR_LAST_NAME, INCIDENTS_REPORT.IN_OUT," + "SHR_TOTAL, ARENA, DNF ,FLYING_CRAFT, FALL_OFF_WAVE, FALL_OFF_COLLISION, BACK_SHOOT_NOSE_DIVE, BROACH, INJURY_MINOR, INJURY_SERIOUS, " + "INJURY_SEVERE, LOST_CRAFT_SERIOUS, LOST_CRAFT_SEVERE, " +
         "COLLISION_MINOR, COLLISION_SERIOUS, GENDER, SHR.BEACH_NAME " +
         "FROM SHR, RACE, SHRDS_USER, INCIDENTS_REPORT " +
-        "WHERE SHR.RACE_ID = RACE.RACE_ID AND SHR.USER_ID = SHRDS_USER.USER_ID AND INCIDENTS_REPORT.USER_ID = SHR.USER_ID AND EVENT_SPECIFIC = TRUE";
+        "WHERE SHR.RACE_ID = RACE.RACE_ID AND SHR.USER_ID = SHRDS_USER.USER_ID AND INCIDENTS_REPORT.USER_ID = SHR.USER_ID AND EVENT_SPECIFIC = TRUE AND ARENA IN (" + $("select[name=arenaSelection]").val() + ") AND DATE = '" + $("select[name=dataReviewDate]").val() + "'";
     MySql.Execute(
         dbconfig.host,
         dbconfig.dbUser,
@@ -48,39 +46,6 @@ function setESData(data) {
     dataES = data;
 }
 
-//function outputESDataOldMethod() {
-//    var data = dataES;
-//    var name = "<br>";
-//    var totalSHR = "<br>";
-//    var raceDeets = "<br>";
-//    var raceTime = "<br>";
-//    var incidents = "<br>";
-//    var inOut = "<br>";
-//    var arena = "<br>";
-//
-//    console.log(data)
-//    if (data.Result != null && data.Result != "") {
-//        for (var i = 0; i < data.Result.length; i++) {
-//            name += data.Result[i].FIRST_NAME + " " + data.Result[i].LAST_NAME + "<br>";
-//            totalSHR += data.Result[i].SHR_TOTAL + "<br>";
-//            //Add up the value of every incident collumn. 
-//            //incidents += data.Results[i].TOTAL_INCIDENTS + "<br>";
-//            arena += data.Results[i].ARENA + "<br>";
-//            inOut += data.Results[i].IN_OUT + "<br>";
-//            raceDeets += data.Result[i].AGE_GROUP + " " + data.Result[i].CRAFT_TYPE + "<br>";;
-//            raceTime += data.Result[i].TIME + "<br>";
-//        }
-//        document.getElementById("supervisingTSO").innerHTML += name;
-//        document.getElementById("totalSHR").innerHTML += totalSHR;
-//        //document.getElementById("totalIncidents").innerHTML += incidents;
-//        document.getElementById("arena").innerHTML += arena;
-//        document.getElementById("inOut").innerHTML += inOut;
-//        document.getElementById("raceDetails").innerHTML += raceDeets;
-//        document.getElementById("submittedTime").innerHTML += raceTime;
-//
-//
-//    }
-//}
 
 function outPutInTableES(data) {
     //First Set up the table
@@ -95,8 +60,8 @@ function outPutInTableES(data) {
             table += "<td>" + data.Result[i].BEACH_NAME + "</td>";
             //Add SHR data
             table += "<td>" + data.Result[i].SHR_TOTAL + "</td>";
-            //Add incidents
-            table += "<td></td>";
+            //Add incidents - COLUMN AGGREGATION IS NOT SUPPORTED IN CURRENT VERSION OF MYSQL, WHEN UPGRADING CHANGE DB STRUCTURE TO HAVE A TOTAL INCIDENTS COLUMN
+            table += "<td>" + (data.Result[i].DNF + data.Result[i].FLYING_CRAFT + data.Result[i].FALL_OFF_WAVE + data.Result[i].FALL_OFF_COLLISION + data.Result[i].BACK_SHOOT_NOSE_DIVE + data.Result[i].INJURY_MINOR + data.Result[i].INJURY_SERIOUS + data.Result[i].INJURY_SEVERE + data.Result[i].LOST_CRAFT_SERIOUS + data.Result[i].LOST_CRAFT_SEVERE + data.Result[i].COLLISION_MINOR + data.Result[i].COLLISION_SERIOUS) + "</td>";
             //Add Arena
             table += "<td>" + data.Result[i].ARENA + "</td>";
             //Add in out status

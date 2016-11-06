@@ -27,8 +27,8 @@ function getPrevailingValues() {
  *
  */
 function beachValue() {
-    var score = $("input[name=beachName]").val();
-    if (score == '') {
+    var score = $("input[name=beaches]").val();
+    if (score == '-1') {
         return false;
     } else {
         app.prevalingSHRData.beach = score;

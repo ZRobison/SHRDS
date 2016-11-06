@@ -12,9 +12,13 @@ var PrevailingView = function () {
 
             "<div id='windBox'>" +
 
+
             "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
-            "<input type='text' name='beachName' placeholder = 'Beach'>" +
+
+            "<input type='text' id='myinput' list='json-beachList' name = 'beaches'>" + //To take back to normal remove this
+            "<datalist id='json-beachList' ></datalist>" +
+            //"<input type='text' id ='myInput' name='beachName' placeholder = 'Beach' class='awesomplete'>" +
             "</div>" +
 
             "<div class='textPrev'>Wind Direction</div>" +
@@ -58,6 +62,7 @@ var PrevailingView = function () {
 
         addColon("tideTimeLow");
         addColon("tideTimeHigh");
+        autoFillBeach("beaches");
 
 
         var footer =
@@ -65,6 +70,7 @@ var PrevailingView = function () {
             "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
         $(".footer").html(footer);
+
 
     }
 
