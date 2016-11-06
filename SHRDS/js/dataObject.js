@@ -39,6 +39,7 @@ var PrevailingData = function () {
         this.SHR = new SHRData();
         this.SHR.initialize();
         this.time = "";
+		this.arena = 0;
         this.beach = -1;
         this.windDirection = -1;
         this.windSpeed = -1;

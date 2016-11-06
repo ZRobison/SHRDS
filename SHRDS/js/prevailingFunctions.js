@@ -7,6 +7,7 @@
 function getPrevailingValues() {
     var check = true;
     check = check && beachValue();
+	check = check && areanValue();
     windDirection();
     windSpeed();
     tideTimes();
@@ -20,6 +21,17 @@ function getPrevailingValues() {
         $(".error").text("Please fill beach and arena.");
     }
 }
+
+
+function areanValue() {
+    var score = $("select[name=prevArena]").val();
+    if (score == '-1') {
+        return false;
+    } else {
+        app.prevalingSHRData.arena = score;
+        return true;
+    }
+} //added IR funtionality 
 
 
 /**
