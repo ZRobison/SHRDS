@@ -639,16 +639,23 @@ function getSHRHistory() {
     var plength = app.prevSHRArray.length;
     var eslength = app.esSHRArray.length;
     var his = "";
+	if (plength + eslength > 0){
+		his = "<p class='overideP'>--------------------</p>"
+	}
     if (plength != 0) {
-        his = "<p class='overideP'>Prevailing SHR History</p>";
-        for (var i = 0; i < plength && i < 2; i++) {
-            his += "<p class='overideP'> Date Filled:</p>" + app.prevSHRArray[i].time + ", SHR: " + app.prevSHRArray[i].SHR.totalSHR ;
+        his += "<p >Prevailing SHR History</p>";
+        for (var i = plength-1; i > plength-5 && i > -1; i--) {
+			console.log(app.prevSHRArray[i]);
+            his += "<p> Time Filled: " + app.prevSHRArray[i].time + " - Total SHR: " + app.prevSHRArray[i].SHR.totalSHR + "</p>";
         }
     }
     if (eslength != 0) {
-        his += "<p class='overideP'>Event Specific SHR History</p>";
-        for (var i = 0; i < eslength && i < 2; i++) {
-            his += "<p class='overideP'>Date Filled:</p>" + app.esSHRArray[i].time + ", SHR: " + app.esSHRArray[i].SHR.totalSHR ;
+		if (plength > 0){
+			his += "<br>"
+		}
+        his += "<p>Event Specific SHR History</p>";
+        for (var i = eslength-1; i > eslength -5 && i > -1; i--) {
+            his += "<p>Time Filled: " + app.esSHRArray[i].time + " - Total SHR: " + app.esSHRArray[i].SHR.totalSHR + "</p>" ;
         }
     }
     return his;

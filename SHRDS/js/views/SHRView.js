@@ -335,7 +335,7 @@ function getOHR() {
         "<div class='error'></div>" +
 		 "<div class='hazard'>OHR</div>"+
         "<div id='otherHazardRating'>" +
-        "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' id='otherMaxHeight' name='OHRForm'>" +
+		"<form class='allRatingsPos' id='otherMaxHeight' name='OHRForm'>" +
         "<div class='checkbox1'><input type='checkbox' name='rockReef' value='1' id='OHRButton1' ><label for='OHRButton1'></label> <div></div></div><div class='otherText'>Rocks, reefs or groynes</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' ><label for='OHRButton2'></label> <div></div></div><div class='otherText'>Jetties, outflow pipes, wrecks etc</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3' ><label for='OHRButton3'></label> <div></div></div><div class='otherText'>Uncontrolled surf craft</div><br>" +
@@ -453,8 +453,9 @@ function getSHR() {
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
-        "<div class='history'>" + getSHRHistory() + "</div>" +
-        "<div class ='status'></div>";
+		        "<div class ='status'></div>"+
+        "<div class='history'>" + getSHRHistory() + "</div>" ;
+
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
@@ -474,12 +475,3 @@ function getSHR() {
 
 }
 
-/*
-"<button type='submit' class='clickAdd' onclick='addOUT(13); incidentsReportedThirteenOUT();' ></button> " +
-            "<div>Uncontrolled surf craft. E.g. Ski rating: 1 for each ski. Boat Rating: 6 per boat (denoting 1 boat and 5 oars)</div>" +
-            "<div id='numOUT13'>0</div>" +
-            "<button type='submit' class='clickMinus' onclick='minusOUT(13); incidentsReportedThirteenOUT();'></button>" +
-			
-			
-			 "<input type='radio' value='9'>9<br>" +
-*/
