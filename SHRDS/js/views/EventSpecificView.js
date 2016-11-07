@@ -84,7 +84,7 @@ var EventSpecificView = function () {
             "<div class='inlineOutIn'></div>" +
             "<div>" +
             "<br>Beach:" +
-            "<input type ='text' name='ESBeach' list='json-beachList'>" +
+            "<input type='text' name='ESBeach' id='autocomplete' >" +
             "<datalist id='json-beachList' ></datalist>" +
             "</div>" +
             "<div class='error'></div>";
