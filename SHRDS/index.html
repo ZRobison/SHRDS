@@ -39,6 +39,7 @@
     <script type="text/javascript" src="lib/CryptoJS/components/cipher-core-min.js"></script>
     <script type="text/javascript" src="lib/CryptoJS/components/md5.js"></script>
     <script type="text/javascript" src="lib/CryptoJS/rollups/md5.js"></script>
+    <script type="text/javascript" src="lib/jquery.autocomplete.js"></script>
 
     <!-- Views-->
     <script type="text/javascript" src="js/views/LogonView.js"></script>
@@ -48,35 +49,35 @@
     <script type="text/javascript" src="js/views/AdminSelectView.js"></script>
     <script type="text/javascript" src="js/views/EventSpecificView.js"></script>
     <script type="text/javascript" src="js/views/FormSelectView.js"></script>
-	
-	<!-- Page Functions-->
-	<script type="text/javascript" src="js/pageFunctions/eventSpecificFunctions.js"></script>
+
+    <!-- Page Functions-->
+    <script type="text/javascript" src="js/pageFunctions/eventSpecificFunctions.js"></script>
     <script type="text/javascript" src="js/pageFunctions/prevailingFunctions.js"></script>
-	<script type="text/javascript" src="js/pageFunctions/adminFunctions.js"></script>
-	<script type="text/javascript" src="js/pageFunctions/SHRFunctions.js"></script>
-	 <script type="text/javascript" src="js/pageFunctions/IRFunctions.js"></script>
-	
-	<!-- Database Functions-->
+    <script type="text/javascript" src="js/pageFunctions/adminFunctions.js"></script>
+    <script type="text/javascript" src="js/pageFunctions/SHRFunctions.js"></script>
+    <script type="text/javascript" src="js/pageFunctions/IRFunctions.js"></script>
+
+    <!-- Database Functions-->
     <script type="text/javascript" src="js/dataBase/verify_user.js"></script>
     <script type="text/javascript" src="js/dataBase/change_password.js"></script>
     <script type="text/javascript" src="js/dataBase/dbJSON.js"></script>
     <script type="text/javascript" src="js/dataBase/submit_data.js"></script>
 
-	<!-- Data Functions-->
+    <!-- Data Functions-->
     <script type="text/javascript" src="js/data/dataObject.js"></script>
     <script type="text/javascript" src="js/data/beachData.js"></script>
-	
-	
-	<!-- MAIN & util-->
-	<script type="text/javascript" src="js/util.js"></script>
+
+
+    <!-- MAIN & util-->
+    <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    
+
 
     <script type="text/javascript">
         $(document).ready(function() {
             document.addEventListener("backbutton", function(e) {
-                    e.preventDefault();
-                }, false)
+                e.preventDefault();
+            }, false)
             if (window.device) {
                 document.addEventListener("deviceready", function() {
                     app.initialize();

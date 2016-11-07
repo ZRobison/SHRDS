@@ -16,13 +16,14 @@ var PrevailingView = function () {
             "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
 
-            "<input type='text' id='myinput' list='json-beachList' name = 'beaches'>" + //To take back to normal remove this
-            "<datalist id='json-beachList' ></datalist>" +
+            //"<input type='text' id='myinput' list='json-beachList' name = 'beaches'>" + //Browser friendly method
+            "<input type='text' name='beaches id='autocomplete'/>" +
+            "<datalist id='json-beachList'></datalist>" +
             //"<input type='text' id ='myInput' name='beachName' placeholder = 'Beach' class='awesomplete'>" +
             "</div>" +
-			
-			
-			"<div class='textPrev'>Arena:</div>" +
+
+
+            "<div class='textPrev'>Arena:</div>" +
             "<select name='prevArena'>" +
             "<option value='-1' selected>Select one</option>" +
             "<option value='1'>Arena 1</option>" +
@@ -77,7 +78,7 @@ var PrevailingView = function () {
 
         addColon("tideTimeLow");
         addColon("tideTimeHigh");
-        autoFillBeach("beaches");
+        //autoFillBeach("beaches");
 
         var footer =
             "<button onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
