@@ -48039,221 +48039,228 @@ function loadBeachData(character) {
     This is neccasary as loading all possible beaches in is a very slow process and an impossibly large data set.
     Loading all in will exceed the browser and JQuery stack size
     */
+    /**
+     *  Ajax Autocomplete for jQuery, version %version%
+     *  (c) 2015 Tomas Kirda
+     *
+     *  Ajax Autocomplete for jQuery is freely distributable under the terms of an MIT-style license.
+     *  For details, see the web site: https://github.com/devbridge/jQuery-Autocomplete
+     */
     switch (character.toLowerCase()) {
         case 'a':
             $('#autocomplete').autocomplete({
                 lookup: aBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'b':
             $('#autocomplete').autocomplete({
                 lookup: bBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'c':
             $('#autocomplete').autocomplete({
                 lookup: cBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'd':
             $('#autocomplete').autocomplete({
                 lookup: dBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'e':
             $('#autocomplete').autocomplete({
                 lookup: eBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'f':
             $('#autocomplete').autocomplete({
                 lookup: fBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'g':
             $('#autocomplete').autocomplete({
                 lookup: gBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'h':
             $('#autocomplete').autocomplete({
                 lookup: hBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'i':
             $('#autocomplete').autocomplete({
                 lookup: iBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'j':
             $('#autocomplete').autocomplete({
                 lookup: jBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'k':
             $('#autocomplete').autocomplete({
                 lookup: kBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'l':
             $('#autocomplete').autocomplete({
                 lookup: lBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'm':
             $('#autocomplete').autocomplete({
                 lookup: mBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'n':
             $('#autocomplete').autocomplete({
                 lookup: nBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'o':
             $('#autocomplete').autocomplete({
                 lookup: oBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'p':
             $('#autocomplete').autocomplete({
                 lookup: pBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'q':
             $('#autocomplete').autocomplete({
                 lookup: qBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'r':
             $('#autocomplete').autocomplete({
                 lookup: rBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 's':
             $('#autocomplete').autocomplete({
                 lookup: sBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 't':
             $('#autocomplete').autocomplete({
                 lookup: tBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'u':
             $('#autocomplete').autocomplete({
                 lookup: uBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'v':
             $$('#autocomplete').autocomplete({
                 lookup: vBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'w':
             $('#autocomplete').autocomplete({
                 lookup: wBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'x':
             $('#autocomplete').autocomplete({
                 lookup: xBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'y':
             $('#autocomplete').autocomplete({
                 lookup: yBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         case 'z':
             $('#autocomplete').autocomplete({
                 lookup: zBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
         default:
             $('#autocomplete').autocomplete({
                 lookup: leftOverBeaches,
-                onSelect: function (suggestion) {
-                    alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                lookupLimit: 5
+
+
             });
             break;
 

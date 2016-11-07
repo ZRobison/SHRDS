@@ -16,9 +16,7 @@ var PrevailingView = function () {
             "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
 
-            //"<input type='text' id='myinput' list='json-beachList' name = 'beaches'>" + //Browser friendly method
-            "<input type='text' name='beaches id='autocomplete'>" +
-            //"<input type='text' id ='myInput' name='beachName' placeholder = 'Beach' class='awesomplete'>" +
+            "<input type='text' name='beaches' id='autocomplete' >" +
             "</div>" +
 
 
@@ -77,7 +75,6 @@ var PrevailingView = function () {
 
         addColon("tideTimeLow");
         addColon("tideTimeHigh");
-        console.log(document.getElementsByName("beaches")[0].value);
         autoFillBeach("beaches");
 
         var footer =
