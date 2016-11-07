@@ -119,7 +119,7 @@ function submitESDataAfterCheck(data) {
  */
 function submitESAfterCheckFalse() {
     var esSHRInsertSQL =
-        "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR_ROCKS_REEDS, OHR_JETTIES_WRECKS, OHR_CRAFT, OHR_LOGS_SEAWEED, OHR_WATER_TEMP, OHR_POL_STINGERS, OHR_VIS, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC) VALUES (" +
+        "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR_ROCKS_REEDS, OHR_JETTIES_WRECKS, OHR_CRAFT, OHR_LOGS_SEAWEED, OHR_WATER_TEMP, OHR_POL_STINGERS, OHR_VIS, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, RACE_ID, IN_OUT, TIME_END, TIME_START, EVENT_SPECIFIC, ARENA) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "'," +
         "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].time + "'," +
@@ -150,7 +150,8 @@ function submitESAfterCheckFalse() {
         "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "' " +
         "AND ARENA = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].arena + "' " +
         "AND RACE_DATE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "')," +
-        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE)";
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].arena + ")";
 
 
     var eventInsertSQL =
@@ -232,7 +233,8 @@ function submitESAfterCheckTrue() {
         "AND FINAL = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].finalType + "' " +
         "AND ARENA = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].arena + "' " +
         "AND RACE_DATE = '" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].date + "')," +
-        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE)";
+        "'" + app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].inOrOut + "', '12:00', '11:30', TRUE," +
+        app.esSHRArrayUnfinished[app.esSHRArrayUnfinished.length - 1].arena + ")";
 
     console.log(sql);
 
@@ -273,7 +275,7 @@ function postESSubmit() {
  **/
 function submitPrevailing(check) {
     $(".status").text("Submitting data to server now...");
-    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR_ROCKS_REEDS, OHR_JETTIES_WRECKS, OHR_CRAFT, OHR_LOGS_SEAWEED, OHR_WATER_TEMP, OHR_POL_STINGERS, OHR_VIS, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, EVENT_SPECIFIC) VALUES (" +
+    var sql = "INSERT INTO SHR (USER_ID, DATE, TIME, BEACH_NAME, LDR, OHR_ROCKS_REEDS, OHR_JETTIES_WRECKS, OHR_CRAFT, OHR_LOGS_SEAWEED, OHR_WATER_TEMP, OHR_POL_STINGERS, OHR_VIS, RCR, STR, WHR, WPR, WTR, ZWR, CROSS_WAVES, SHR_TOTAL, LOW_TIDE_HEIGHT, HIGH_TIDE_HEIGHT, LOW_TIDE_TIME, HIGH_TIDE_TIME, WIND_DIRECTION, WIND_SPEED, ARENA, EVENT_SPECIFIC) VALUES (" +
         app.loginData.pID + "," +
         "'" + app.prevalingSHRData.date + "'," +
         "'" + app.prevalingSHRData.time + "'," +
@@ -300,6 +302,7 @@ function submitPrevailing(check) {
         "'" + app.prevalingSHRData.tideTimeHigh + "'," +
         "'" + app.prevalingSHRData.windDirection + "'," +
         app.prevalingSHRData.windSpeed + "," +
+        app.prevalingSHRData.arena + "," +
         "FALSE)"; //False as this is a prevailing report
 
     console.log(sql);
