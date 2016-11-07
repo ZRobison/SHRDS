@@ -38,9 +38,36 @@
     <splash src="res/icon/android/drawable-xhdpi-icon.png" density="port-xhdpi"/>
     <splash src="res/icon/android/drawable-xxhdpi-icon.png" density="port-xxhdpi"/>
     <splash src="res/icon/android/drawable-xxxhdpi-icon.png" density="port-xxxhdpi"/>
-     
-
   </platform>
+  
+    <platform name="ios">
+			  <!-- iOS 8.0+ -->
+              <!-- iPhone 6 Plus  -->
+              <icon src="res/icon/ios/Icon-App-60x60@3x.png" width="180" height="180" />
+              <!-- iOS 7.0+ -->
+              <!-- iPhone / iPod Touch  -->
+              <icon src="res/icon/ios/Icon-App-60x60@1x.png" width="60" height="60" />
+              <icon src="res/icon/ios/Icon-App-60x60@2x.png" width="120" height="120" />
+              <!-- iPad -->
+              <icon src="res/icon/ios/Icon-App-76x76@1x.png" width="76" height="76" />
+              <icon src="res/icon/ios/Icon-App-76x76@2x.png" width="152" height="152" />
+              <!-- iOS 6.1 -->
+              <!-- Spotlight Icon -->
+              <icon src="res/icon/ios/Icon-App-40x40@1x.png" width="40" height="40" />
+              <icon src="res/icon/ios/Icon-App-40x40@2x.png" width="80" height="80" />
+              <!-- iPhone / iPod Touch -->
+              <icon src="res/icon/ios/Icon-App-57x57@1x.png" width="57" height="57" />
+              <icon src="res/icon/ios/Icon-App-60x60@2x.png" width="114" height="114" />
+              <!-- iPad -->
+              <icon src="res/icon/ios/Icon-App-76x76@1x.png" width="72" height="72" />
+              <icon src="res/icon/ios/Icon-App-76x76@2x.png" width="144" height="144" />
+              <!-- iPhone Spotlight and Settings Icon -->
+              <icon src="res/icon/ios/Icon-App-29x29@1x.png" width="29" height="29" />
+              <icon src="res/icon/ios/Icon-App-29x29@2x.png" width="58" height="58" />
+              <!-- iPad Spotlight and Settings Icon -->
+              <icon src="res/icon/ios/Icon-App-40x40@1x.png" width="50" height="50" />
+              <icon src="res/icon/ios/Icon-App-40x40@2x.png" width="100" height="100" />
+     </platform>
   
       <!--Plugin config stuff to allow sending http requests -->
     <allow-navigation href="http://mysqljs.com/*"/>
