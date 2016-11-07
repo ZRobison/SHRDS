@@ -74,8 +74,6 @@ function getWHR() {
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WHR"' + ", " + getWHRvalue + ")'>NEXT</button> " +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
-
-
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
@@ -87,8 +85,6 @@ function getWHR() {
         $("select[name=WHRForm]").val(app.esSHRData.SHR.pWTR);
     }
 };
-
-
 
 function getWTR() {
 
@@ -109,13 +105,9 @@ function getWTR() {
         "<br>" +
         "<div class='info'></div>";
 
-
-
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WTR"' + ", " + getWTRvalue + ")'>NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -149,7 +141,6 @@ function getWPR() {
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"WPR"' + ", " + getWPRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -186,12 +177,9 @@ function getZWR() {
         "<br>" +
         "<div class='info'></div>";
 
-
-
     var footer =
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"ZWR"' + ", " + getZWRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -235,8 +223,6 @@ function getSTR() {
         " <button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"STR"' + ", " + getSTRvalue + ")' >NEXT</button> " +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
-
-
     $(".heading").text(header);
     $(".body").html(body);
     $(".footer").html(footer);
@@ -270,13 +256,10 @@ function getLDR() {
         "<br>" +
         "<div class='info'></div>";
 
-
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"LDR"' + ", " + getLDRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -308,13 +291,10 @@ function getRCR() {
         "<br>" +
         "<div class='info'></div>";
 
-
-
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"RCR"' + ", " + getRCRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -335,7 +315,7 @@ function getOHR() {
         "<div class='error'></div>" +
 		 "<div class='hazard'>OHR</div>"+
         "<div id='otherHazardRating'>" +
-        "<div class='hazard'>OHR: one for each extra hazard present</div><form class='allRatingsPos' id='otherMaxHeight' name='OHRForm'>" +
+		"<form class='allRatingsPos' id='otherMaxHeight' name='OHRForm'>" +
         "<div class='checkbox1'><input type='checkbox' name='rockReef' value='1' id='OHRButton1' ><label for='OHRButton1'></label> <div></div></div><div class='otherText'>Rocks, reefs or groynes</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='jettyOutflow' value='1' id='OHRButton2' ><label for='OHRButton2'></label> <div></div></div><div class='otherText'>Jetties, outflow pipes, wrecks etc</div><br>" +
         "<div class='checkbox1'><input type='checkbox' name='uncontrolledSurf' value='1' id='OHRButton3' ><label for='OHRButton3'></label> <div></div></div><div class='otherText'>Uncontrolled surf craft</div><br>" +
@@ -352,15 +332,10 @@ function getOHR() {
         //"<button type='button' class='questionMark' id='qHack' onclick='getOHRInfo()'></button>" ;
         "<div class='info' id='textHack'></div>";
 
-
-
-
     var footer =
 
         "<button name='next' type='submit' class='blueButtons' onClick='nextPage(" + '"OHR"' + ", " + getOHRvalue + ")' >NEXT</button>" +
         "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
-
-
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -375,7 +350,6 @@ function getOHR() {
 
 function getREV() {
     var header = "Review SHR";
-
 
     if (app.SHRFlag == 1) {
         var pWHR = app.prevalingSHRData.SHR.pWHR;
@@ -400,7 +374,6 @@ function getREV() {
     }
 
     var body =
-
 
         "<div class = 'singleRow'><div class='left1'>WHR</div> <div class='center1'>" + WHRDescription(pWHR) + "</div> <div class='right1'><button name='next' type='submit' class='changeSHRbutton' onClick='nextRouteChange(" + function () {
             getWHR()
@@ -453,13 +426,12 @@ function getSHR() {
 
         "<p><div class='hazard'>The Surf Hazard Rating is:</div></p><br>" +
         "<div class= 'rating'></div>" +
-        "<div class='history'>" + getSHRHistory() + "</div>" +
-        "<div class ='status'></div>";
+		        "<div class ='status'></div>"+
+        "<div class='history'>" + getSHRHistory() + "</div>" ;
+
 
     var footer =
         "<button type='submit' class='blueButtons' id='logoutButton' onclick = 'insertSHR();'>SUBMIT</button>";
-
-
 
     var shr = -1;
     if (app.SHRFlag == 1) {
@@ -471,15 +443,5 @@ function getSHR() {
     $(".body").html(body);
     $(".footer").html(footer);
     $(".rating").text(shr);
-
 }
 
-/*
-"<button type='submit' class='clickAdd' onclick='addOUT(13); incidentsReportedThirteenOUT();' ></button> " +
-            "<div>Uncontrolled surf craft. E.g. Ski rating: 1 for each ski. Boat Rating: 6 per boat (denoting 1 boat and 5 oars)</div>" +
-            "<div id='numOUT13'>0</div>" +
-            "<button type='submit' class='clickMinus' onclick='minusOUT(13); incidentsReportedThirteenOUT();'></button>" +
-			
-			
-			 "<input type='radio' value='9'>9<br>" +
-*/

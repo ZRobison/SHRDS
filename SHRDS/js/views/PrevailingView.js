@@ -13,12 +13,11 @@ var PrevailingView = function () {
 
             "<div id='windBox'>" +
 
-
             "<div class='textPrev' id='beachName'>Beach</div>" +
             "<div>" +
 
             //"<input type='text' id='myinput' list='json-beachList' name = 'beaches'>" + //Browser friendly method
-            "<input type='text' name='beaches id='autocomplete'/>"+
+            "<input type='text' name='beaches id='autocomplete'/>" +
             "<datalist id='json-beachList'></datalist>" +
             //"<input type='text' id ='myInput' name='beachName' placeholder = 'Beach' class='awesomplete'>" +
             "</div>" +
@@ -75,20 +74,17 @@ var PrevailingView = function () {
             "</div>"; //wrapper
 
 
-
         $(".body").html(body);
 
         addColon("tideTimeLow");
         addColon("tideTimeHigh");
         //autoFillBeach("beaches");
 
-
         var footer =
             "<button onClick='getPrevailingValues()' class='blueButtons'>NEXT</button>" +
             "<button type='button' onclick='window.location.replace(\"index.html#formSelect\")' class='exitButton'>EXIT</button>";
 
         $(".footer").html(footer);
-
 
     }
 

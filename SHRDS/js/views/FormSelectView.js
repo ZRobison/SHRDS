@@ -13,14 +13,10 @@ var FormSelectView = function () {
         var footer = "<button type='submit' id='moveRight' class='blueButtons' onclick='shrFormSelect()'>NEXT</button>" +
             "<button type='button' onclick='window.location.replace(\"index.html\")' class='exitButton'>EXIT</button>";
 
-
-
-
         $(".heading").text(header);
         $(".body").html(body);
         $(".footer").html(footer);
         checkData();
-
     }
 }
 
@@ -30,11 +26,11 @@ function checkData() {
         //Think of something good to do	
     } else if (app.prevSHRArrayUnfinished.length == 0 && app.esSHRArrayUnfinished.length == 0) {
         $(".good").text("All data has been successfully sent to the server.");
-		$(".sync").text("");
+        $(".sync").text("");
     } else {
-       $(".good").text("");
-		var count =  (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
-        $(".error").text("You have "+ count +" form/s that could not be sent to the server. Please check internet connection and press the sync button.");
-		$(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
- }
+        $(".good").text("");
+        var count = (app.prevSHRArrayUnfinished.length + app.esSHRArrayUnfinished.length)
+        $(".error").text("You have " + count + " form/s that could not be sent to the server. Please check internet connection and press the sync button.");
+        $(".sync").html("<button type='button' onclick='sync();' class='syncButton'>SYNC</button>");
+    }
 }

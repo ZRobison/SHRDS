@@ -90,9 +90,6 @@ var EventSpecificView = function () {
             "<div class='error'></div>";
 
 
-
-
-
         if (app.SHRFlag == 2) {
             var footer =
                 "<button type='submit' class='blueButtons' onclick='getESValues()'>NEXT</button> " +
@@ -102,8 +99,6 @@ var EventSpecificView = function () {
                 "<button type='submit' class='blueButtons' onclick='getESValues()'>NEXT</button> " +
                 "<button type='button' onclick='window.location.replace(\"index.html#irHome\")' class='exitButton'>EXIT</button>";
         }
-
-
 
 
         $(".heading").text(header);
@@ -121,7 +116,6 @@ var EventSpecificView = function () {
         }
     }
 }
-
 
 function routeIS() {
     if (app.SHRFlag == 0) {
