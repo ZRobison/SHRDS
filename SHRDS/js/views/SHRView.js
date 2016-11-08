@@ -456,7 +456,7 @@ function getCAM() {
         "<br>" +
 		"<br>" +
         "<br>" +
-		"<button id='btn_camera' class='blueButtons' name= btnCAM onClick='accessCamera()'>Surf Camera</button>" +
+		"<button id='btn_camera' class='blueButtons' name= btnCAM onClick='openCamera(selection)'>Surf Camera</button>" +
 		"<img id ='img_camPH'>"
 	    "</div>" +
 		

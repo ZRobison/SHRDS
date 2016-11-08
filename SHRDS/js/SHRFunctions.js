@@ -656,11 +656,11 @@ function getSHRHistory() {
     return his;
 }
 
-
+/*
 
 	function camSuccess(imgData){
 		//$("img_camPH").attr("src",imgData);
-	/*	<img src='file:/whereYourFileIsStoredOnThePhone/img.jpg */
+	//	<img src='file:/whereYourFileIsStoredOnThePhone/img.jpg 
 	}
 	
 	function camError(error){
@@ -687,5 +687,41 @@ function getSHRHistory() {
 		//}
 		//navigator.camera.getPicture(camSucess, camError, options);
 	}
+	}
+	
+	*/
+	
+	function setOptions(srcType) {
+    var options = {
+        // Some common settings are 20, 50, and 100 
+        quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI,
+        // In this app, dynamically set the picture source, Camera or photo gallery 
+        sourceType: srcType,
+        encodingType: Camera.EncodingType.JPEG,
+        mediaType: Camera.MediaType.PICTURE,
+        allowEdit: true,
+        correctOrientation: true  //Corrects Android orientation quirks 
+    }
+    return options;
+}
+
+function openCamera(selection) {
+ 
+    var srcType = Camera.PictureSourceType.CAMERA;
+    var options = setOptions(srcType);
+    var func = createNewFileEntry;
+ 
+    navigator.camera.getPicture(function cameraSuccess(imageUri) {
+ 
+        displayImage(imageUri);
+        // You may choose to copy the picture, save it somewhere, or upload. 
+        func(imageUri);
+ 
+    }, function cameraError(error) {
+        console.debug("Unable to obtain picture: " + error, "app");
+ 
+    }, options);
+}
 	
 
