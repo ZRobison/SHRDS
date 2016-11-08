@@ -50,6 +50,9 @@
   <plugin name="cordova-plugin-whitelist" source="npm" />
   <!-- Plug in for local persistent storage-->
   <plugin name="io.litehelpers.cordova.sqlite" spec="0.7.10" source="pgb" />
+  <!--Camera plugin for photo capture and storage--> 
+  <plugin name="cordova-plugin-camera" source="npm" />
+  
 
   
   
