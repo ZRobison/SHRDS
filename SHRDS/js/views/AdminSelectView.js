@@ -39,7 +39,8 @@ function getFormSelect() {
         "<input type='radio' name='adminRadio' id='adminRadio3' class='radio' value='checked' >" +
         "<label for='adminRadio3'>Add a New User</label></div>";
 
-    var footer = "<button type='submit' class='blueButtons' id='submitBut' onclick='adminPageSelect()'>NEXT</button>";
+    var footer = "<button type='submit' class='blueButtons' id='submitBut' onclick='adminPageSelect()'>NEXT</button>"+ 
+	  "<button type='button' onclick='window.location.replace(\"index.html\")' class='exitButton'>LOG OUT</button>";
 
 
     $(".heading").text(header);
@@ -59,7 +60,8 @@ function getResetPassword() {
         "<div class ='message'></div>" +
         "</div>";
 
-    var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>SUBMIT</button>";
+    var footer = "<button type='submit' class='blueButtons' onclick='change_password()'>SUBMIT</button>" + 
+	  "<button type='button' onclick='window.location.replace(\"index.html#adminPageSelect\")' class='exitButton'>HOME</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -87,7 +89,8 @@ function getMetaData() {
         "<option value='7'>7</option></select>" +
         "<div class='tableData'></div>";
     //"<div id='totalForms' class='col-metadata'></div>";
-    var footer = "<button type='submit' class='blueButtons' onclick='getFormMetaData()'>GET IT</button>";
+    var footer = "<button type='submit' class='blueButtons' onclick='getFormMetaData()'>GET IT</button>"+ 
+	  "<button type='button' onclick='window.location.replace(\"index.html#adminPageSelect\")' class='exitButton'>HOME</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
@@ -127,7 +130,8 @@ function getCreateNewUser() {
         "<div class='message'></div>";
 
 
-    var footer = "<button type='submit' class='blueButtons' onclick='submitNewUser()'>SUBMIT</button>";
+    var footer = "<button type='submit' class='blueButtons' onclick='submitNewUser()'>SUBMIT</button>"+ 
+	  "<button type='button' onclick='window.location.replace(\"index.html#adminPageSelect\")' class='exitButton'>HOME</button>";
 
     $(".heading").text(header);
     $(".body").html(body);
