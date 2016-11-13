@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body onload="onload()">
     <div class="container-fluid">
         <header>
             <img src='images/logo.png'>
@@ -72,7 +72,7 @@
 
 
     <script type="text/javascript">
-        $(document).ready(function() {
+		function onload(){
             document.addEventListener("backbutton", function(e) {
                 e.preventDefault();
             }, false)
@@ -96,8 +96,7 @@
                     return newval;
                 });
             }
-        });
-
+	}
     </script>
 
 </body>
