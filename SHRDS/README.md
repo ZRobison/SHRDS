@@ -1,2 +1,0 @@
-# SHRDS
-SLSA SHRDS Project
